@@ -1,0 +1,16 @@
+{
+  "index": {
+    "about": "(French) MSCA Portal",
+    "page-title": "(French) MSCA Portal"
+  },
+  "template": {
+    "about": "(French) MSCA Portal",
+    "page-title": "(French) MSCA Portal",
+    "button": {
+      "back": "Back to my dashboard"
+    }
+  },
+  "input": {
+    "required": "required"
+  }
+}

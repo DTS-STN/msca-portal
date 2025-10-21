@@ -1,0 +1,16 @@
+{
+  "index": {
+    "about": "MSCA Portal",
+    "page-title": "MSCA Portal"
+  },
+  "template": {
+    "about": "MSCA Portal",
+    "page-title": "MSCA Portal",
+    "button": {
+      "back": "Back to my dashboard"
+    }
+  },
+  "input": {
+    "required": "required"
+  }
+}
