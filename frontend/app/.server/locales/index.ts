@@ -1,7 +1,7 @@
-import appEn from '~/.server/locales/app-en.json';
-import appFr from '~/.server/locales/app-fr.json';
-import gcwebEn from '~/.server/locales/gcweb-en.json';
-import gcwebFr from '~/.server/locales/gcweb-fr.json';
+import appEn from '~/.server/locales/en/app.json';
+import appFr from '~/.server/locales/fr/app.json';
+import gcwebEn from '~/.server/locales/en/gcweb.json';
+import gcwebFr from '~/.server/locales/fr/gcweb.json';
 
 export const i18nResourcesEn = {
   gcweb: gcwebEn,
