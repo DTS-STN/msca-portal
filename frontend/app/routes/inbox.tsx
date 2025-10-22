@@ -2,7 +2,7 @@ import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import type { Route } from './+types/welcomeTemplate';
+import type { Route } from './+types/inbox';
 import { requireAuth } from '~/.server/utils/auth-utils';
 
 import { PageTitle } from '~/components/page-title';
@@ -29,7 +29,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('app:template.page-title'),  MSCA_BASE_URL };
+  return { documentTitle: t('inbox:document-title'),  MSCA_BASE_URL };
 }
 
 export function meta({ data }: Route.MetaArgs) {
@@ -40,13 +40,10 @@ export default function WelcomeTemplate() {
  
   const { t } = useTranslation(handle.i18nNamespace);
 
- 
-  
-
   return (
     <>
       <div className="mb-8">
-        <PageTitle className="after:w-14">{t('app:template.page-title')}</PageTitle>
+        <PageTitle className="after:w-14">{t('inbox:page-title')}</PageTitle>
       </div>
       
 

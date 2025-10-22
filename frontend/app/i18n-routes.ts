@@ -111,7 +111,12 @@ export const i18nRoutes = [
         id: 'PROT-0003',
         file: 'routes/welcomeTemplate.tsx',
         paths: { en: '/en/welcomeTemplate', fr: '/fr/welcomeTemplate' },
-      }
+      },
+      {
+        id: 'PROT-0004',
+        file: 'routes/inbox.tsx',
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];
