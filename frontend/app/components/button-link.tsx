@@ -40,6 +40,7 @@ type ButtonLinkProps = ComponentProps<typeof AppLink> &
     endIconProps?: OmitStrict<ButtonEndIconProps, 'icon'>;
     startIcon?: ButtonStartIconProps['icon'];
     startIconProps?: OmitStrict<ButtonStartIconProps, 'icon'>;
+    refPageAA?: string;
   };
 
 /**
@@ -60,6 +61,7 @@ export function ButtonLink({
   startIcon,
   startIconProps,
   variant = 'default',
+  refPageAA = 'mscaPlaceholder',
   ...props
 }: ButtonLinkProps) {
   return (
@@ -72,6 +74,7 @@ export function ButtonLink({
         pill && 'rounded-full',
         className,
       )}
+      data-gc-analytics-customclick={`${refPageAA}`}
       disabled={disabled}
       {...props}
     >

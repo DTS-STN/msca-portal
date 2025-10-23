@@ -47,7 +47,7 @@ export default function Layout({ loaderData }: Route.ComponentProps) {
         onSessionEnd={() => navigate(`/auth/logout?lang=${currentLanguage}`)}
         onSessionExtend={() => void fetch('/auth/session-refresh', { method: 'POST' })}
       />
-      <header className="print:hidden">
+      <header className="print:hidden" data-testid="header">
         <SkipNavigationLinks />
         <div id="wb-bnr">
           <div className="container flex items-center justify-between gap-6 py-2.5 sm:py-3.5">
