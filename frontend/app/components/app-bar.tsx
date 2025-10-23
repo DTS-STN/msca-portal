@@ -32,7 +32,7 @@ export function AppBar({ name }: AppBarProps): JSX.Element {
         <div className="my-2 ml-auto mr-8 order-3 sm:order-2 w-full sm:w-auto">
           <ButtonLink
             id="inbox-button-desktop" 
-            to={t('gcweb:app.menu-dashboard.href')}
+            to={t('gcweb:app.inbox.href', { baseUri: "http://localhost:3000" })}
             variant="default"
             className="text-lg rounded font-body"
             refPageAA="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
