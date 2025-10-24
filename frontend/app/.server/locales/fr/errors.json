@@ -1,0 +1,18 @@
+{
+  "error-summary": {
+    "header_one": "L'erreur suivante a été trouvée dans le formulaire\u00a0:",
+    "header_other": "Les {{count}} erreurs suivantes ont été trouvées dans le formulaire\u00a0:"
+  },
+  "not-found": {
+    "page-message": "Nous sommes désolés que vous ayez abouti ici. Il arrive parfois qu'une page ait été déplacée ou supprimée. Heureusement, nous pouvons vous aider à trouver ce que vous cherchez.",
+    "page-subtitle": "(Erreur 404)",
+    "page-title": "Nous ne pouvons trouver cette page"
+  },
+  "server-error": {
+    "correlation-id": "<strong>ID de corrélation\u00a0:</strong> <span>{{correlationId}}</span>",
+    "error-code": "<strong>Code d'erreur\u00a0:</strong> <span>{{errorCode}}</span>",
+    "page-message": "Nous espérons résoudre le problème sous peu. Il ne s'agit pas d'un problème avec votre ordinateur ou Internet, mais plutôt avec le serveur de notre site Web.",
+    "page-subtitle": "(Erreur {{statusCode}})",
+    "page-title": "Nous éprouvons des difficultés avec cette page"
+  }
+}

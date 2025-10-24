@@ -20,13 +20,15 @@ import indexStyleSheet from '~/index.css?url';
 import tailwindStyleSheet from '~/tailwind.css?url';
 import * as adobeAnalytics from '~/utils/adobe-analytics.client';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
+import { handle as parentHandle } from '~/routes/layout';
 
 // see: https://docs.fontawesome.com/web/dig-deeper/security#content-security-policy
 fontAwesomeConfig.autoAddCss = false;
 
 export const handle = {
-  i18nNamespace: ['gcweb'],
+  i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
+
 
 export function links(): Route.LinkDescriptors {
   return [
@@ -129,12 +131,30 @@ export default function App({ loaderData }: Route.ComponentProps) {
 export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
   const { currentLanguage } = useLanguage();
 
+  
   if (isNotFoundError(props.error)) {
     // prettier-ignore
+    if (currentLanguage) {
+      // TODO: to fix with a more descriptive log error message
+      console.debug('Error: isNotFoundError with the UnilingualErrorBoundary');
+    }  else {
+      // TODO: to fix with a more descriptive log error message
+      console.debug('Error: isNotFoundError with the BilingualErrorBoundary');
+   } 
+  
     return currentLanguage
       ? <UnilingualNotFound {...props} />
       : <BilingualNotFound {...props} />;
   }
+
+    // prettier-ignore
+    if (currentLanguage) {
+      // TODO: to fix with a more descriptive log error message
+      console.debug('Error: UnilingualErrorBoundary');
+    }  else {
+      // TODO: to fix with a more descriptive log error message
+      console.debug('Error: BilingualErrorBoundary');
+   } 
 
   // prettier-ignore
   return currentLanguage

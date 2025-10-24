@@ -15,6 +15,8 @@ import { isAppError } from '~/errors/app-error';
 import { useLanguage } from '~/hooks/use-language';
 import * as adobeAnalytics from '~/utils/adobe-analytics.client';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
+import type { RouteHandle } from 'react-router';
+import { handle as parentHandle } from '~/routes/layout';
 
 /**
  * A bilingual error boundary that renders appropriate error messages in both languages.
@@ -25,18 +27,25 @@ import { HttpStatusCodes } from '~/utils/http-status-codes';
  * If an error boundary itself throws an error, there's no subsequent error
  * boundary to catch and render it, potentially leading to infinite error loops.
  */
+
+export const handle = {
+  i18nNamespace: [...parentHandle.i18nNamespace],
+} as const satisfies RouteHandle;
+
 export function BilingualErrorBoundary({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
-  const { i18n } = useTranslation(['gcweb']);
+  const { i18n } = useTranslation(['gcweb', 'error']);
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
   const { nonce } = useContext(NonceContext);
+
+  console.debug('Returning error page: Bilingual error boundary reached.');
 
   useEffect(() => {
     if (globalThis.__appEnvironment.ADOBE_ANALYTICS_SRC) {
       adobeAnalytics.pushErrorEvent(500);
     }
   }, []);
-
+  
   return (
     <html lang="en">
       <head>
@@ -85,22 +94,22 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
           <div className="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
             <div id="english" lang="en">
               <PageTitle className="my-8">
-                <span>{en('gcweb:server-error.page-title')}</span>
+                <span>{en('error:server-error.page-title')}</span>
                 <small className="block text-2xl font-normal text-neutral-500">
-                  {en('gcweb:server-error.page-subtitle', {
+                  {en('error:server-error.page-subtitle', {
                     statusCode: isAppError(error)
                       ? error.httpStatusCode //
                       : HttpStatusCodes.INTERNAL_SERVER_ERROR,
                   })}
                 </small>
               </PageTitle>
-              <p className="mb-8 text-lg text-gray-500">{en('gcweb:server-error.page-message')}</p>
+              <p className="mb-8 text-lg text-gray-500">{en('error:server-error.page-message')}</p>
               {isAppError(error) && (
                 <UnorderedList className="text-gray-800">
                   <li>
                     <Trans
                       t={en}
-                      i18nKey="gcweb:server-error.error-code"
+                      i18nKey="error:server-error.error-code"
                       components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                       values={{ errorCode: error.errorCode }}
                     />
@@ -108,7 +117,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
                   <li>
                     <Trans
                       t={en}
-                      i18nKey="gcweb:server-error.correlation-id"
+                      i18nKey="error:server-error.correlation-id"
                       components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                       values={{ correlationId: error.correlationId }}
                     />
@@ -118,22 +127,22 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
             </div>
             <div id="french" lang="fr">
               <PageTitle className="my-8">
-                <span>{fr('gcweb:server-error.page-title')}</span>
+                <span>{fr('error:server-error.page-title')}</span>
                 <small className="block text-2xl font-normal text-neutral-500">
-                  {fr('gcweb:server-error.page-subtitle', {
+                  {fr('error:server-error.page-subtitle', {
                     statusCode: isAppError(error)
                       ? error.httpStatusCode //
                       : HttpStatusCodes.INTERNAL_SERVER_ERROR,
                   })}
                 </small>
               </PageTitle>
-              <p className="mb-8 text-lg text-gray-500">{fr('gcweb:server-error.page-message')}</p>
+              <p className="mb-8 text-lg text-gray-500">{fr('error:server-error.page-message')}</p>
               {isAppError(error) && (
                 <UnorderedList className="text-gray-800">
                   <li>
                     <Trans
                       t={fr}
-                      i18nKey="gcweb:server-error.error-code"
+                      i18nKey="error:server-error.error-code"
                       components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                       values={{ errorCode: error.errorCode }}
                     />
@@ -141,7 +150,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
                   <li>
                     <Trans
                       t={fr}
-                      i18nKey="gcweb:server-error.correlation-id"
+                      i18nKey="error:server-error.correlation-id"
                       components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                       values={{ correlationId: error.correlationId }}
                     />
@@ -162,7 +171,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
  * A bilingual 404 page that renders appropriate error messages in both languages.
  */
 export function BilingualNotFound({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
-  const { i18n } = useTranslation(['gcweb']);
+  const { i18n } = useTranslation(['gcweb', 'error']);
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
   const { nonce } = useContext(NonceContext);
@@ -224,17 +233,17 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
           <div className="grid grid-cols-1 gap-6 py-2.5 sm:grid-cols-2 sm:py-3.5">
             <div id="english" lang="en">
               <PageTitle className="my-8">
-                <span>{en('gcweb:not-found.page-title')}</span>
-                <small className="block text-2xl font-normal text-neutral-500">{en('gcweb:not-found.page-subtitle')}</small>
+                <span>{en('error:not-found.page-title')}</span>
+                <small className="block text-2xl font-normal text-neutral-500">{en('error:not-found.page-subtitle')}</small>
               </PageTitle>
-              <p className="mb-8 text-lg text-gray-500">{en('gcweb:not-found.page-message')}</p>
+              <p className="mb-8 text-lg text-gray-500">{en('error:not-found.page-message')}</p>
             </div>
             <div id="french" lang="fr">
               <PageTitle className="my-8">
-                <span>{fr('gcweb:not-found.page-title')}</span>
-                <small className="block text-2xl font-normal text-neutral-500">{fr('gcweb:not-found.page-subtitle')}</small>
+                <span>{fr('error:not-found.page-title')}</span>
+                <small className="block text-2xl font-normal text-neutral-500">{fr('error:not-found.page-subtitle')}</small>
               </PageTitle>
-              <p className="mb-8 text-lg text-gray-500">{fr('gcweb:not-found.page-message')}</p>
+              <p className="mb-8 text-lg text-gray-500">{fr('error:not-found.page-message')}</p>
             </div>
           </div>
         </main>
@@ -256,7 +265,7 @@ export function BilingualNotFound({ actionData, error, loaderData, params }: Rou
  */
 export function UnilingualErrorBoundary({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
   const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['gcweb', 'error']);
   const { nonce } = useContext(NonceContext);
 
   useEffect(() => {
@@ -264,6 +273,10 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
       adobeAnalytics.pushErrorEvent(500);
     }
   }, []);
+
+  console.debug(
+      'Returning error page: Unilingual error boundary reached',
+    );
 
   return (
     <html lang={currentLanguage}>
@@ -311,28 +324,28 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
         </header>
         <main className="container">
           <PageTitle className="my-8">
-            <span>{t('gcweb:server-error.page-title')}</span>
+            <span>{t('error:server-error.page-title')}</span>
             <small className="block text-2xl font-normal text-neutral-500">
-              {t('gcweb:server-error.page-subtitle', {
+              {t('error:server-error.page-subtitle', {
                 statusCode: isAppError(error)
                   ? error.httpStatusCode //
                   : HttpStatusCodes.INTERNAL_SERVER_ERROR,
               })}
             </small>
           </PageTitle>
-          <p className="mb-8 text-lg text-gray-500">{t('gcweb:server-error.page-message')}</p>
+          <p className="mb-8 text-lg text-gray-500">{t('error:server-error.page-message')}</p>
           {isAppError(error) && (
             <UnorderedList className="text-gray-800">
               <li>
                 <Trans
-                  i18nKey="gcweb:server-error.error-code"
+                  i18nKey="error:server-error.error-code"
                   components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                   values={{ errorCode: error.errorCode }}
                 />
               </li>
               <li>
                 <Trans
-                  i18nKey="gcweb:server-error.correlation-id"
+                  i18nKey="error:server-error.correlation-id"
                   components={{ span: <span className="font-mono" />, strong: <strong className="font-semibold" /> }}
                   values={{ correlationId: error.correlationId }}
                 />
@@ -352,8 +365,10 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
  */
 export function UnilingualNotFound({ actionData, error, loaderData, params }: Route.ErrorBoundaryProps) {
   const { currentLanguage } = useLanguage();
-  const { t } = useTranslation(['gcweb']);
+  const { t } = useTranslation(['gcweb', 'error']);
   const { nonce } = useContext(NonceContext);
+
+  console.debug('Returning error page: Unilingual Not Found error boundary reached.');
 
   useEffect(() => {
     if (globalThis.__appEnvironment.ADOBE_ANALYTICS_SRC) {
@@ -407,10 +422,10 @@ export function UnilingualNotFound({ actionData, error, loaderData, params }: Ro
         </header>
         <main className="container">
           <PageTitle className="my-8">
-            <span>{t('gcweb:not-found.page-title')}</span>
-            <small className="block text-2xl font-normal text-neutral-500">{t('gcweb:not-found.page-subtitle')}</small>
+            <span>{t('error:not-found.page-title')}</span>
+            <small className="block text-2xl font-normal text-neutral-500">{t('error:not-found.page-subtitle')}</small>
           </PageTitle>
-          <p className="mb-8 text-lg text-gray-500">{t('gcweb:not-found.page-message')}</p>
+          <p className="mb-8 text-lg text-gray-500">{t('error:not-found.page-message')}</p>
         </main>
         <Footer bilingual={false} />
         <Scripts nonce={loaderData?.nonce} />

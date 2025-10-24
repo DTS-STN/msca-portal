@@ -4,6 +4,7 @@ import { index, layout, route } from '@react-router/dev/routes';
 // important: we cannot use aliased imports (~/) here 🤷
 import type { I18nPageRoute, I18nRoute } from './i18n-routes';
 import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
+import { ErrorCodes } from  './errors/error-codes';
 
 /**
  * Generates an array of route config entries for different languages
@@ -60,10 +61,10 @@ export default [
   route('/stub-login', 'routes/dev/stub-login.tsx'),
 
   // testable error routes
-  route('/error', 'routes/dev/error.tsx', { id: 'ERR-0001' }),
-  route('/en/error', 'routes/dev/error.tsx', { id: 'ERR-0001-EN' }),
-  route('/fr/erreur', 'routes/dev/error.tsx', { id: 'ERR-0001-FR' }),
+  route('/en/error', 'routes/dev/error.tsx', { id: ErrorCodes.TEST_ENGLISH_ERROR_CODE }),
+  route('/fr/erreur', 'routes/dev/error.tsx', { id: ErrorCodes.TEST_FRENCH_ERROR_CODE }),
 
   // catch-all for anything not handled by the above routes
-  route('*', 'routes/not-found.tsx'),
+  // TODO: replace with default landing page
+  route('*', 'routes/not-found.tsx', { id: ErrorCodes.NOT_FOUND }),
 ] satisfies RouteConfigEntry[];
