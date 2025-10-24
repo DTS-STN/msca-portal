@@ -38,15 +38,14 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
   const fr = i18n.getFixedT('fr');
   const { nonce } = useContext(NonceContext);
 
+  console.debug('Returning error page: Bilingual error boundary reached.');
+
   useEffect(() => {
     if (globalThis.__appEnvironment.ADOBE_ANALYTICS_SRC) {
       adobeAnalytics.pushErrorEvent(500);
     }
   }, []);
-
-  console.log(
-      'BilingualErrorBoundary 1',
-    );
+  
   return (
     <html lang="en">
       <head>
@@ -369,16 +368,13 @@ export function UnilingualNotFound({ actionData, error, loaderData, params }: Ro
   const { t } = useTranslation(['gcweb', 'error']);
   const { nonce } = useContext(NonceContext);
 
+  console.debug('Returning error page: Unilingual Not Found error boundary reached.');
+
   useEffect(() => {
     if (globalThis.__appEnvironment.ADOBE_ANALYTICS_SRC) {
       adobeAnalytics.pushErrorEvent(404);
     }
   }, []);
-
-  console.log(
-      'UnilingualNotFound',
-    );
-
 
   return (
     <html lang={currentLanguage}>
