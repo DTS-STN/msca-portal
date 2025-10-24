@@ -12,7 +12,8 @@
     "menu-dashboard": "My dashboard",
     "menu-dashboard.href": "{{baseUri}}/en/my-dashboard",
     "inbox": "Inbox",
-    "inbox.href": "{{baseUri}}/en/inbox"
+    "inbox.href": "{{baseUri}}/en/inbox",
+    "inbox-notification-preferences.href": "{{baseUri}}/en/inbox-notification-preferences"
   },
   "breadcrumbs": {
     "dashboard": "My dashboard"

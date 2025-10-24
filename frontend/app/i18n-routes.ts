@@ -117,6 +117,14 @@ export const i18nRoutes = [
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       },
+      { 
+        id: 'PROT-0005',
+        file: 'routes/inbox-now-available.tsx',
+        paths: {
+          en: '/en/inbox-now-available', fr: '/fr/boite-reception-disponibles'
+        }
+
+      },
     ],
   },
 ] as const satisfies I18nRoute[];

@@ -12,7 +12,8 @@
     "menu-dashboard": "Mon tableau de bord",
     "menu-dashboard.href": "{{baseUri}}/fr/mon-tableau-de-bord",
     "inbox": "Boîte de réception",
-    "inbox.href": "{{baseUri}}/en/inbox"
+    "inbox.href": "{{baseUri}}/fr/boite-reception",
+    "inbox-notification-preferences.href": "{{baseUri}}/fr/boite-reception-disponibles"
   },
   "breadcrumbs": {
     "dashboard": "Mon tableau de bord"
