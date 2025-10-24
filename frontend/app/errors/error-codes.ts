@@ -23,6 +23,7 @@ export const ErrorCodes = {
   NO_LANGUAGE_FOUND: 'I18N-0001',
   MISSING_TRANSLATION_KEY: 'I18N-0002',
 
+
   // instance error codes
   NO_FACTORY_PROVIDED: 'INST-0001',
 
@@ -35,8 +36,14 @@ export const ErrorCodes = {
   // CCT API error codes
   CCT_API_ERROR: 'API-0001',
 
+  // generic error codes (only when specified error code can not be provided)
+  NOT_FOUND: 'GEN-001',
+  INTERNAL_SERVER_CODE: 'GEN-002',
+  GENERIC_ERROR: 'GEN-003',
   // dev-only error codes
   TEST_ERROR_CODE: 'DEV-0001',
+  TEST_ENGLISH_ERROR_CODE: 'DEV-0001-EN',
+  TEST_FRENCH_ERROR_CODE: 'DEV-0001-FR',
 
   // external API error codes
   XAPI_RETRY_NO_CONDITIONS: 'XAPI-0002',
