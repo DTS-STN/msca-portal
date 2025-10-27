@@ -117,13 +117,18 @@ export const i18nRoutes = [
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       },
-      { 
+      {
         id: 'PROT-0005',
         file: 'routes/inbox-now-available.tsx',
         paths: {
-          en: '/en/inbox-now-available', fr: '/fr/boite-reception-disponibles'
-        }
-
+          en: '/en/inbox-now-available',
+          fr: '/fr/boite-reception-disponibles',
+        },
+      },
+      {
+        id: 'PROT-0006',
+        file: 'routes/inbox-notification-preferences-success.tsx',
+        paths: { en: '/en/inbox-notification-preferences-success', fr: '/fr/preferences-notification-boite-reception-succes' },
       },
     ],
   },
