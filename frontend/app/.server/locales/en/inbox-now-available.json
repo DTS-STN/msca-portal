@@ -1,7 +1,7 @@
 {
-    "page-title": "New! Inbox now available",
-    "document-title": "Inbox now available",
-    "new-inbox-para-1": "We’ve added a new inbox to your account.",
-    "new-inbox-para-2": "You can choose to be notified by email when new messages are added to your inbox.",
-    "inbox-pref-button": "Set inbox notifications"
+  "page-title": "New! Inbox now available",
+  "document-title": "Inbox now available",
+  "new-inbox-para-1": "We’ve added a new inbox to your account.",
+  "new-inbox-para-2": "You can choose to be notified by email when new messages are added to your inbox.",
+  "inbox-pref-button": "Set inbox notifications"
 }

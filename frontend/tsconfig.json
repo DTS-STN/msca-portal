@@ -44,5 +44,6 @@
     "target": "ES2022",
     "tsBuildInfoFile": "./node_modules/.tsbuildinfo",
     "types": ["@react-router/node", "vite/client"]
-  }
+  },
+  "exclude": ["node_modules"]
 }

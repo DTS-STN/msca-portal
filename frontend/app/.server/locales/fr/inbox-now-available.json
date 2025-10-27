@@ -1,7 +1,7 @@
 {
-    "page-title": "Nouveau! La boîte de réception est maintenant disponible",
-    "document-title": "Inbox now available",
-    "new-inbox-para-1": "Nous avons ajouté une nouvelle boîte de réception à votre compte.",
-    "new-inbox-para-2": "Vous pouvez choisir d'être informé par courriel lorsque des messages sont déposés dans votre boîte de réception.",
-    "inbox-pref-button": "Définir les notifications de la boîte de réception"
+  "page-title": "Nouveau! La boîte de réception est maintenant disponible",
+  "document-title": "Inbox now available",
+  "new-inbox-para-1": "Nous avons ajouté une nouvelle boîte de réception à votre compte.",
+  "new-inbox-para-2": "Vous pouvez choisir d'être informé par courriel lorsque des messages sont déposés dans votre boîte de réception.",
+  "inbox-pref-button": "Définir les notifications de la boîte de réception"
 }

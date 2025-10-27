@@ -45,6 +45,8 @@
     "@react-router/express": "^7.9.4",
     "@react-router/node": "^7.9.4",
     "@react-router/serve": "^7.9.4",
+    "build": "^0.1.4",
+    "clean": "^4.0.2",
     "clsx": "^2.1.1",
     "compression": "^1.8.0",
     "connect-redis": "^8.1.0",

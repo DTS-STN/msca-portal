@@ -5,12 +5,16 @@ export const getPageAlertResponseSchema = z.array(
     scId: z.string(),
     scHeadingEn: z.string(),
     scHeadingFr: z.string(),
-    scContentEn: z.object({
-      markdown: z.string()
-    }).optional(),
-    scContentFr: z.object({
-      markdown: z.string()
-    }).optional(),
+    scContentEn: z
+      .object({
+        markdown: z.string(),
+      })
+      .optional(),
+    scContentFr: z
+      .object({
+        markdown: z.string(),
+      })
+      .optional(),
     scAlertType: z.string(),
   }),
 );
@@ -23,27 +27,27 @@ export const getDashboardCardResponseSchema = z.array(
     scTitleEn: z.string(),
     scTitleFr: z.string(),
     schAlerts: z.array(
-      z.object({
-        scId: z.string(),
-        scHeadingEn: z.string(),
-        scHeadingFr: z.string(),
-        scContentEn: z.object({
-          markdown: z.string(),
-        }),
-        scContentFr: z.object({
-          markdown: z.string(),
-        }),
-        scAlertType: z.array(
-          z.string(),
-        )
-      }).optional(),
+      z
+        .object({
+          scId: z.string(),
+          scHeadingEn: z.string(),
+          scHeadingFr: z.string(),
+          scContentEn: z.object({
+            markdown: z.string(),
+          }),
+          scContentFr: z.object({
+            markdown: z.string(),
+          }),
+          scAlertType: z.array(z.string()),
+        })
+        .optional(),
     ),
     schTasks: z.array(
       z.object({
         scLinkTextEn: z.string(),
         scLinkTextFr: z.string(),
       }),
-    ),   
+    ),
     schLists: z.array(
       z.object({
         scTitleEn: z.string(),
@@ -61,7 +65,7 @@ export const getDashboardCardResponseSchema = z.array(
             scIconCSS: z.string().nullable().optional(),
             schBetaPopUp: z.boolean(),
           }),
-        )
+        ),
       }),
     ),
   }),
@@ -84,8 +88,8 @@ export const pageAlertsSchema = z.array(
     alertHeading: z.string(),
     alertBody: z.string().optional(),
     type: z.string(),
-  })
-)
+  }),
+);
 
 export type PageAlerts = z.infer<typeof pageAlertsSchema>;
 
@@ -114,17 +118,17 @@ export const dashboardCardsSchema = z.array(
             scIconCSS: z.string().nullable().optional(),
             schBetaPopUp: z.boolean(),
           }),
-        )
+        ),
       }),
     ),
   }),
-)
+);
 
 export type DashboardCards = z.infer<typeof dashboardCardsSchema>;
 
 export const exitBetaSchema = z.object({
   title: z.string().nullable(),
   link: z.string(),
-})
+});
 
 export type ExitBeta = z.infer<typeof exitBetaSchema>;
