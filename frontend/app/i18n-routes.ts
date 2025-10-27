@@ -109,8 +109,8 @@ export const i18nRoutes = [
     children: [
       {
         id: 'PROT-0003',
-        file: 'routes/welcomeTemplate.tsx',
-        paths: { en: '/en/welcomeTemplate', fr: '/fr/welcomeTemplate' },
+        file: 'routes/my-dashboard.tsx',
+        paths: { en: '/en/my-dashboard', fr: '/fr/my-dashboard' },
       },
       {
         id: 'PROT-0004',
