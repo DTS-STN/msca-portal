@@ -21,7 +21,7 @@
     "format:check": "prettier --cache --cache-location ./node_modules/.cache/prettier/ --check ./",
     "format:write": "prettier --cache --cache-location ./node_modules/.cache/prettier/ --write ./",
     "lint:check": "eslint --cache --cache-location: ./node_modules/.cache/eslint/ ./",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
