@@ -1,10 +1,10 @@
 import type { RouteConfigEntry } from '@react-router/dev/routes';
 import { index, layout, route } from '@react-router/dev/routes';
 
+import { ErrorCodes } from './errors/error-codes';
 // important: we cannot use aliased imports (~/) here 🤷
 import type { I18nPageRoute, I18nRoute } from './i18n-routes';
 import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
-import { ErrorCodes } from  './errors/error-codes';
 
 /**
  * Generates an array of route config entries for different languages

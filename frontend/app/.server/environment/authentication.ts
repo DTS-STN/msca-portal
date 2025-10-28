@@ -96,7 +96,7 @@ const AUTH_SERVER_PRIVATE_KEY =
 //const isProduction = process.env.NODE_ENV === 'production';
 
 export const defaults = {
-  AUTH_ENABLE_STUB_LOGIN: 'true',//isProduction ? 'false' : 'true',
+  AUTH_ENABLE_STUB_LOGIN: 'true', //isProduction ? 'false' : 'true',
 
   AUTH_CLIENT_PRIVATE_KEY: AUTH_CLIENT_PRIVATE_KEY,
   AUTH_CLIENT_PUBLIC_KEY: AUTH_CLIENT_PUBLIC_KEY,

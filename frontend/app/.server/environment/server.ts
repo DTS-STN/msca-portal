@@ -1,7 +1,6 @@
 import * as v from 'valibot';
 
 import { authentication, defaults as authenticationDefaults } from '~/.server/environment/authentication';
-
 import { client, defaults as clientDefaults } from '~/.server/environment/client';
 import { features, defaults as featuresDefaults } from '~/.server/environment/features';
 import { logging, defaults as loggingDefaults } from '~/.server/environment/logging';

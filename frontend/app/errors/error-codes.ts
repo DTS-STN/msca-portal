@@ -23,7 +23,6 @@ export const ErrorCodes = {
   NO_LANGUAGE_FOUND: 'I18N-0001',
   MISSING_TRANSLATION_KEY: 'I18N-0002',
 
-
   // instance error codes
   NO_FACTORY_PROVIDED: 'INST-0001',
 

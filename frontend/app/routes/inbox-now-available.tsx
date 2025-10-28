@@ -1,14 +1,17 @@
-import { requireAuth } from "~/.server/utils/auth-utils";
-import { Route } from "./+types/inbox-now-available";
-import { getTranslation } from "~/i18n-config.server";
+import { RouteHandle } from 'react-router';
+
+import { useTranslation } from 'react-i18next';
+
+import { Route } from './+types/inbox-now-available';
+
+import { requireAuth } from '~/.server/utils/auth-utils';
+import { Button } from '~/components/button';
+import { ButtonLink } from '~/components/button-link';
+import { PageTitle } from '~/components/page-title';
+import { AppError } from '~/errors/app-error';
+import { ErrorCodes } from '~/errors/error-codes';
+import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
-import { RouteHandle } from "react-router";
-import { AppError } from "~/errors/app-error";
-import { ErrorCodes } from "~/errors/error-codes";
-import { useTranslation } from "react-i18next";
-import { PageTitle } from "~/components/page-title";
-import { Button } from "~/components/button";
-import { ButtonLink } from "~/components/button-link";
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -32,32 +35,25 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export default function InboxNowAvailable({ loaderData, params }: Route.ComponentProps) {
- 
   const { t } = useTranslation(handle.i18nNamespace);
   const { MSCA_BASE_URL } = loaderData;
 
   return (
     <>
-    <div className="max-w-3xl">
-      <div className="max-w-3xl mb-8">
-        <PageTitle className="after:w-14">{t('inboxNowAvailable:page-title')}</PageTitle>
+      <div className="max-w-3xl">
+        <div className="mb-8 max-w-3xl">
+          <PageTitle className="after:w-14">{t('inboxNowAvailable:page-title')}</PageTitle>
+        </div>
+
+        <div className="text-gray-darker text-xl">
+          <p className="pb-4">{t('inboxNowAvailable:new-inbox-para-1')}</p>
+          <p className="pb-4">{t('inboxNowAvailable:new-inbox-para-2')}</p>
+        </div>
+
+        <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
+          {t('inboxNowAvailable:inbox-pref-button')}
+        </ButtonLink>
       </div>
-
-      <div className="text-xl text-gray-darker">
-        <p className="pb-4">
-            {t('inboxNowAvailable:new-inbox-para-1')}
-        </p>
-        <p className="pb-4">
-            {t('inboxNowAvailable:new-inbox-para-2')}
-        </p>
-      </div>
-
-      <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
-        {t('inboxNowAvailable:inbox-pref-button')}
-      </ButtonLink>
-
-    </div>
-
     </>
   );
 }

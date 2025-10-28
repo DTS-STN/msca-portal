@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
 
 import { Links, Meta, Scripts } from 'react-router';
+import type { RouteHandle } from 'react-router';
 
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -13,10 +14,9 @@ import { NonceContext } from '~/components/nonce-context';
 import { PageTitle } from '~/components/page-title';
 import { isAppError } from '~/errors/app-error';
 import { useLanguage } from '~/hooks/use-language';
+import { handle as parentHandle } from '~/routes/layout';
 import * as adobeAnalytics from '~/utils/adobe-analytics.client';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
-import type { RouteHandle } from 'react-router';
-import { handle as parentHandle } from '~/routes/layout';
 
 /**
  * A bilingual error boundary that renders appropriate error messages in both languages.
@@ -45,7 +45,7 @@ export function BilingualErrorBoundary({ actionData, error, loaderData, params }
       adobeAnalytics.pushErrorEvent(500);
     }
   }, []);
-  
+
   return (
     <html lang="en">
       <head>
@@ -274,9 +274,7 @@ export function UnilingualErrorBoundary({ actionData, error, loaderData, params 
     }
   }, []);
 
-  console.debug(
-      'Returning error page: Unilingual error boundary reached',
-    );
+  console.debug('Returning error page: Unilingual error boundary reached');
 
   return (
     <html lang={currentLanguage}>
