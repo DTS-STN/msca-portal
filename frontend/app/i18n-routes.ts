@@ -126,6 +126,14 @@ export const i18nRoutes = [
         },
       },
       {
+        id: 'PROT-0007',
+        file: 'routes/inbox-notification-preferences.tsx',
+        paths: {
+          en: '/en/inbox-notification-preferences',
+          fr:  '/fr/preferences-notification-boite-reception',
+        },
+      },
+      {
         id: 'PROT-0006',
         file: 'routes/inbox-notification-preferences-success.tsx',
         paths: { en: '/en/inbox-notification-preferences-success', fr: '/fr/preferences-notification-boite-reception-succes' },
