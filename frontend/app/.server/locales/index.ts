@@ -4,12 +4,14 @@ import gcwebEn from '~/.server/locales/en/gcweb.json';
 import inboxNotificationPreferencesSuccessEn from '~/.server/locales/en/inbox-notification-preferences-success.json';
 import inboxNowAvailableEn from '~/.server/locales/en/inbox-now-available.json';
 import inboxEn from '~/.server/locales/en/inbox.json';
+import contactUsEn from '~/.server/locales/en/contact-us.json';
 import appFr from '~/.server/locales/fr/app.json';
 import errorsFr from '~/.server/locales/fr/errors.json';
 import gcwebFr from '~/.server/locales/fr/gcweb.json';
 import inboxNotificationPreferencesSuccessFr from '~/.server/locales/fr/inbox-notification-preferences-success.json';
 import inboxNowAvailableFr from '~/.server/locales/fr/inbox-now-available.json';
 import inboxFr from '~/.server/locales/fr/inbox.json';
+import contactUsFr from '~/.server/locales/fr/contact-us.json';
 
 export const i18nResourcesEn = {
   inbox: inboxEn,
@@ -18,6 +20,7 @@ export const i18nResourcesEn = {
   error: errorsEn,
   inboxNowAvailable: inboxNowAvailableEn,
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessEn,
+  contactUs: contactUsEn,
 } as const;
 
 export const i18nResourcesFr = {
@@ -27,6 +30,7 @@ export const i18nResourcesFr = {
   error: errorsFr,
   inboxNowAvailable: inboxNowAvailableFr,
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessFr,
+  contactUs: contactUsFr,
 } as const;
 
 export const i18nResources = {

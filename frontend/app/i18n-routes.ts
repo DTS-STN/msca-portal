@@ -130,6 +130,11 @@ export const i18nRoutes = [
         file: 'routes/inbox-notification-preferences-success.tsx',
         paths: { en: '/en/inbox-notification-preferences-success', fr: '/fr/preferences-notification-boite-reception-succes' },
       },
+      {
+        id: 'PROT-0007',
+        file: 'routes/contact-us.tsx',
+        paths: { en: '/en/contact-us', fr: '/fr/contactez-nous' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];
