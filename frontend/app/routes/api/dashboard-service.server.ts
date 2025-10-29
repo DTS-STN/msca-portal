@@ -18,12 +18,12 @@ export function getDashboardService() {
       const pageAlertsResponse = getPageAlertResponseSchema.parse(responseAlertData);
 
       const responseDashboardData = responseData.data.schPageV1List.items[0].scFragments.filter(
-        (item: any) => item.scId === 'dashboard-cards',
+        (item) => item.scId === 'dashboard-cards',
       );
       const cardsResponse = getDashboardCardResponseSchema.parse(responseDashboardData[0].scItems);
 
       const responseExitBetaData = responseData.data.schPageV1List.items[0].scFragments.filter(
-        (item: any) => item.scId === 'exit-beta-version',
+        (item) => item.scId === 'exit-beta-version',
       );
       const exitBetaResponse = getExitBetaResponseSchema.parse(responseExitBetaData[0]);
 

@@ -4,6 +4,8 @@ import { useLoaderData } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/my-dashboard';
+import type { Key } from 'react';
+import type { TaskListProps } from '~/components/benefit-tasks';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { Card } from '~/components/card';
@@ -13,6 +15,16 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import { getLanguage } from '~/utils/i18n-utils';
+import { getAcronym } from '~/utils/acronym-utils';
+import BenefitTasks from '~/components/benefit-tasks';
+import { MostReqTasks } from '~/components/most-req-tasks';
+
+interface Card {
+  id: string,
+  title: string,
+  dropdownText: string,
+  lists: TaskListProps[],
+}
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -49,7 +61,10 @@ export default function WelcomeTemplate() {
       <div className="mb-8">
         <PageTitle className="after:w-14">{t('app:template.page-title')}</PageTitle>
       </div>
-      {cards.map((card: any) => {
+      {cards.map((card: Card) => {
+        const mostReq = card.lists[0];
+        const tasks = card.lists.slice(1, card.lists.length);
+
         return (
           <Card
             key={card.id}
@@ -57,11 +72,37 @@ export default function WelcomeTemplate() {
             locale={language ?? 'en'}
             cardTitle={card.title}
             viewMoreLessCaption={card.dropdownText}
-            acronym={card.title}
+            acronym={getAcronym(card.title)}
             refPageAA="ESDC-EDSC_MSCA-MSDC-SCH"
             cardAlert={[]}
           >
-            test
+            <div className="bg-sky-900" data-cy="most-requested-section">
+              <MostReqTasks
+                locale={language ?? 'en'}
+                taskListMR={mostReq}
+                dataCy="most-requested"
+                acronym={getAcronym(card.title)}
+                refPageAA="ESDC-EDSC_MSCA-MSDC-SCH"
+              />
+            </div>
+            <div
+              className="gap-x-[60px] pl-3 pt-8 sm:pl-8 md:columns-2 md:px-15"
+              data-cy="task-list"
+            >
+              {tasks.map((taskList: TaskListProps, index: Key) => {
+                return (
+                  <div key={index} data-cy="Task">
+                    <BenefitTasks
+                      locale={language ?? 'en'}
+                      acronym={getAcronym(card.title)}
+                      taskList={taskList}
+                      dataCy="task-group-list"
+                      refPageAA="ESDC-EDSC_MSCA-MSDC-SCH:"
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </Card>
         );
       })}
