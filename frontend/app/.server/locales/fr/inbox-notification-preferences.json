@@ -1,0 +1,14 @@
+{
+    "page-title" : "Préférences de notification.",
+    "intro-text-first" :  "Pour l'instant, votre boîte de réception ne contient que des états de dettes. Il s'agit de lettres concernant des montants que vous pourriez devoir à Service Canada.",
+    "intro-text-second" : "Avec le temps, nous y ajouterons d'autres communications concernant vos prestations et services.",
+    "debt-statements-heading" : "États de dettes",
+    "debt-statements-heading-intro-text" : "Vous n'avez peut-être pas de dette en ce moment. Si cela venait à changer, nous voulons nous assurer que vous en soyez informé de la manière qui vous convient le mieux.",
+    "debt-statement-question" : "Comment souhaitez-vous être informé lorsqu’un nouvel état de dettes est ajouté à la boîte de réception? (obligatoire)",
+    "debt-statement-email-option":  "Notification par courriel uniquement",
+
+    "debt-statement-email-option-info":  "Recevez vos états plus rapidement et aidez à réduire le gaspillage de papier. Vous ne recevrez pas d’état de dettes par la poste.",
+    "debt-statement-paper-mail-option": "Par la poste",
+    "debt-statement-paper-mail-option-info" : "Vous recevrez les états de dettes par la poste, ce qui peut prendre jusqu'à 10 jours ouvrables. Vous pourrez aussi les consulter dans votre boîte de réception mais vous ne recevrez pas de notification par courriel.",
+    "save-preferences-button" : "Enregistrer mes préférences pour continuer"
+}
