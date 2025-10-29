@@ -4,6 +4,7 @@ import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-sc
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
 import { isValidTimeZone } from '~/utils/date-utils';
 import { validUrlSchema } from '~/validation/valid-url-schema';
+import { getTranslation } from '~/i18n-config.server';
 
 export type Client = Readonly<v.InferOutput<typeof client>>;
 
@@ -17,8 +18,11 @@ export const defaults = {
   I18NEXT_DEBUG: 'false',
   SESSION_TIMEOUT_PROMPT_SECONDS: (5 * 60).toString(),
   SESSION_TIMEOUT_SECONDS: (19 * 60).toString(),
-  MSCA_BASE_URL: 'http://localhost:3000',
-  ECAS_BASE_URL: 'http://localhost:3000',
+  MSCA_BASE_URL: 'http://localhost:3001',
+  ECAS_BASE_URL: 'http://localhost:3002',
+  CDCP_BASE_URL: 'http://localhost:3003',
+  CDB_BASE_URL: 'http://localhost:3004',
+  OAS_BASE_URL: 'http://localhost:3005',
   AEM_GRAPHQL_ENDPOINT: 'https://www.canada.ca/graphql/execute.json/decd-endc/',
   AEM_GRAPHQL_FOLDER: '/content/dam/decd-endc/content-fragments/preview-sch',
 } as const;
@@ -41,6 +45,9 @@ export const client = v.object({
   isProduction: v.boolean(),
   MSCA_BASE_URL: v.optional(v.string(), defaults.MSCA_BASE_URL),
   ECAS_BASE_URL: v.optional(v.string(), defaults.ECAS_BASE_URL),
-  AEM_GRAPHQL_ENDPOINT: v.optional(v.string(), defaults.AEM_GRAPHQL_ENDPOINT),
+  CDCP_BASE_URL: v.optional(v.string(), defaults.CDCP_BASE_URL),
+  CDB_BASE_URL: v.optional(v.string(), defaults.CDB_BASE_URL),
+  OAS_BASE_URL: v.optional(v.string(), defaults.OAS_BASE_URL),
   AEM_GRAPHQL_FOLDER: v.optional(v.string(), defaults.AEM_GRAPHQL_FOLDER),
+  AEM_GRAPHQL_ENDPOINT: v.optional(v.string(), defaults.AEM_GRAPHQL_ENDPOINT),
 });

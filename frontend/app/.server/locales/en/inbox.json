@@ -1,4 +1,36 @@
 {
-  "page-title": "Inbox",
-  "document-title": "Inbox - My Service Canada Account"
+    "page-title": "Inbox",
+    "document-title": "Inbox - My Service Canada Account",
+
+    "par1": "Right now, your inbox only includes <strong>debt statements</strong>. These are letters about money you may owe to Service Canada. You may not currently owe any money, but all debt statements from 2021 to the present are available in your inbox.",
+    "par2": "In the future, we’ll add other communications about your benefits and services.",
+    "par3": "For information from other benefits and services, see:",
+    "par4-list-item-ei-letters.text": "Employment insurance: view my letters",
+    "par4-list-item-ei-letters.href": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=eng",
+    "par4-list-item-ei-status.text": "Employment Insurance: view my status updates and messages",
+    "par4-list-item-ei-status.href": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=eng",
+    "par4-list-item-cdcp-letters.text": "Canada Dental Care Plan: view my letters",
+    "par4-list-item-cdcp-letters.href": "/en/protected/letters",
+    "par4-list-item-cdb-letters.text": "Canada Disability Benefit: view my letters",
+    "par4-list-item-cdb-letters.href": "/en/letters",
+    "par4-list-item-oas-dashboard.text": "Old Age Security: dashboard",
+    "par4-list-item-oas-dashboard.href": "?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=eng&appCode=CURAM-OAS",
+    "par5-part1": "<strong>Don’t miss a debt statement message.</strong>  Set your ",
+    "par5-part2.text": "inbox notification preferences",
+    "par5-part2.href": "routes/inbox.tsx",
+    "par5-part3": " to get emails when new debt statements are available.",
+
+    "no-messages-text": "You don't have any messages.",
+    "pagination-text": { 
+      "previous-link": "< Previous",
+      "next-link": "Next >",
+      "previous-aria-label": "Previous page",
+      "next-aria-label": "Next page",
+      "current-page-aria-label": " is the current page",
+      "page": "Page "
+    },
+    "message-verbose-titles": {
+      "accounts": "Statement of accounts",
+      "debts": "Notice of debts"
+    }
 }
