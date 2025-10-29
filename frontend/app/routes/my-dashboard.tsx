@@ -13,6 +13,10 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import { getLanguage } from '~/utils/i18n-utils';
+import BenefitTasks, { TaskListProps } from '~/components/benefit-tasks';
+import { Key } from 'react';
+import { getAcronym } from '~/utils/acronym-utils';
+import MostReqTasks from '~/components/most-req-tasks';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -50,6 +54,8 @@ export default function WelcomeTemplate() {
         <PageTitle className="after:w-14">{t('app:template.page-title')}</PageTitle>
       </div>
       {cards.map((card: any) => {
+        const mostReq = card.lists[0];
+        const tasks = card.lists.slice(1, card.lists.length);
         return (
           <Card
             key={card.id}
@@ -61,7 +67,33 @@ export default function WelcomeTemplate() {
             refPageAA="ESDC-EDSC_MSCA-MSDC-SCH"
             cardAlert={[]}
           >
-            test
+            <div className="bg-sky-900" data-cy="most-requested-section">
+              <MostReqTasks
+                locale={language ?? 'en'}
+                taskListMR={mostReq}
+                dataCy="most-requested"
+                acronym={getAcronym(card.title)}
+                refPageAA="ESDC-EDSC_MSCA-MSDC-SCH"
+              />
+            </div>
+            <div
+              className="gap-x-[60px] pl-3 pt-8 sm:pl-8 md:columns-2 md:px-15"
+              data-cy="task-list"
+            >
+              {tasks.map((taskList: TaskListProps, index: Key) => {
+                return (
+                  <div key={index} data-cy="Task">
+                    <BenefitTasks
+                      locale={language ?? 'en'}
+                      acronym={getAcronym(card.title)}
+                      taskList={taskList}
+                      dataCy="task-group-list"
+                      refPageAA="ESDC-EDSC_MSCA-MSDC-SCH:"
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </Card>
         );
       })}
