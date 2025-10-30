@@ -6,6 +6,7 @@ import type { Route } from './+types/inbox-notification-preferences-success';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { ButtonLink } from '~/components/button-link';
+import { ContextualAlert } from '~/components/page-alert';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
@@ -42,7 +43,7 @@ export default function InboxNotificationPreferencesSuccess({ loaderData, params
       <div className="mb-8">
         <PageTitle className="after:w-14">{t('inboxNotificationPreferencesSuccess:page-title')}</PageTitle>
       </div>
-      <ul className="mt-8 w-full max-w-3xl">{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</ul>
+      <ContextualAlert type={'success'}>{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</ContextualAlert>
       <div className="flex items-center justify-start gap-6 py-8">
         <ButtonLink to={t('gcweb:app.inbox-notification-preferences.href', { baseUri: MSCA_BASE_URL })}>
           {t('inboxNotificationPreferencesSuccess:inbox-back-button')}
