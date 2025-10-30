@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ViewMoreLessButton } from './view-more-less-button';
 
+import { z } from 'zod';
 
 type AlertProps = {
   id: string;
@@ -39,12 +39,12 @@ export function Card({
 }: CardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // const CardState = z
-  //   .string()
-  //   .toLowerCase()
-  //   .transform((x) => x === 'true')
-  //   .pipe(z.boolean());
-  // let reactDevBufferSet = false;
+  const CardState = z
+    .string()
+    .toLowerCase()
+    .transform((x) => x === 'true')
+    .pipe(z.boolean());
+  let reactDevBufferSet = false;
 
   /**
    * init Effect
@@ -60,7 +60,7 @@ export function Card({
    * TODO: Moving the state out of the individual Cards and into
    * a unified state/context may fix this this load issue.
    */
-  /*useEffect(() => {
+  useEffect(() => {
     if (!reactDevBufferSet) {
       reactDevBufferSet = true; // eslint-disable-line
       if (programUniqueId !== undefined) {
@@ -69,7 +69,7 @@ export function Card({
         setIsOpen(sessionItem !== null ? CardState.parse(sessionItem) : false);
       }
     }
-  }, []); */
+  }, []);
 
   // on change Effect
   useEffect(() => {
@@ -86,29 +86,6 @@ export function Card({
       >
         {cardTitle}
       </h2>
-      <ViewMoreLessButton
-        id={programUniqueId + 'test-card-button-'}
-        dataTestid={programUniqueId?.toString() + 'dataTestId'}
-        dataCy="viewMoreLessButton"
-        onClick={() => {
-          const newOpenState = !isOpen
-          setIsOpen(newOpenState)
-        }}
-        ariaExpanded={isOpen}
-        icon={isOpen}
-        caption={viewMoreLessCaption}
-        className="w-full px-3 pb-6 sm:px-8 md:px-15 md:pb-8 md:pt-4"
-        acronym={acronym}
-        refPageAA={refPageAA}
-        ariaLabel={`${cardTitle} - ${viewMoreLessCaption}`}
-      />
-      {!isOpen ? null : (
-        <div>
-          <div className="pb-6" data-cy="sectionList">
-            {children}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
