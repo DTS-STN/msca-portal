@@ -13,6 +13,7 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import { getLanguage } from '~/utils/i18n-utils';
+import { getDashboardService } from '~/.server/domain/services/dashboard-service.server';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -29,11 +30,14 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
+  const pageAlerts = await getDashboardService().getPageAlertsByLang(language??'en');
+  const cardAlerts = await getDashboardService().getCardAlertsByLang(language??'en');
+  const exitBeta = await getDashboardService().getExitBetaByLang(language??'en');
+
   const data = await import(`../.server/locales/${language}/dashboard.json`);
   const cards = data.cards;
-  const exitBeta = data.exitBeta;
 
-  return { documentTitle: t('app:template.page-title'), MSCA_BASE_URL, language, cards, exitBeta };
+  return { documentTitle: t('app:template.page-title'), MSCA_BASE_URL, language, cards, pageAlerts, cardAlerts, exitBeta };
 }
 
 export function meta({ data }: Route.MetaArgs) {
