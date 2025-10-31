@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: dtsrhpdevscedacr.azurecr.io/react-router-template/rrt-frontend:0.0.0-d1e247fb-00058
+          image: dtsrhpdevscedacr.azurecr.io/react-router-template/msca-frontend:latest
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

@@ -13,7 +13,8 @@
     "menu-dashboard.href": "{{baseUri}}/fr/mon-tableau-de-bord",
     "inbox": "Boîte de réception",
     "inbox.href": "{{baseUri}}/fr/boite-reception",
-    "inbox-notification-preferences.href": "{{baseUri}}/fr/boite-reception-disponibles"
+    "inbox-notification-preferences.href": "{{baseUri}}/fr/boite-reception-disponibles",
+    "inbox-notification-preferences-success.href": "{{baseUri}}/fr/inbox-notification-preferences-success"
   },
   "breadcrumbs": {
     "dashboard": "Mon tableau de bord"

@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: cdb-int.dev-dp-internal.dts-stn.com
+    - host: mscad-int1.bdm.dshp-phdn.net #TODO Susan - confirm this is correct
       http:
         paths:
           - path: /

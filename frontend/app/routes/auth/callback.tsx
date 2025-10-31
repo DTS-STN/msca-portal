@@ -17,11 +17,11 @@ export default function Callback() {
 /**
  * Handles the authentication callback for a given provider.
  */
-export async function loader({ context, params, request }: Route.LoaderArgs) {
-  return handleCallback({ context, params, request });
+export async function loader({ context, unstable_pattern, params, request }: Route.LoaderArgs) {
+  return handleCallback({ context, unstable_pattern, params, request });
 }
 
-function handleCallback({ context, params, request }: Route.LoaderArgs): Promise<Response> {
+function handleCallback({ context, unstable_pattern, params, request }: Route.LoaderArgs): Promise<Response> {
   return withSpan('routes.auth.callback.handle_callback', async (span) => {
     const { session } = context;
     const currentUrl = new URL(request.url);

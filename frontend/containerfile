@@ -11,7 +11,7 @@
 
 # Example build and run commands:
 #
-#   $ podman build . --tag rrt-frontend --file containerfile \
+#   $ podman build . --tag msca-frontend --file containerfile \
 #       --build-arg BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
 #       --build-arg BUILD_ID="000001" \
 #       --build-arg BUILD_REVISION="$(git rev-parse --short=8 HEAD)" \
@@ -19,7 +19,7 @@
 #
 #   $ podman run --init --interactive --tty --rm --network host \
 #       --env-file ./.env --env SESSION_COOKIE_SECURE=false \
-#       --name rrt-frontend rrt-frontend
+#       --name msca-frontend msca-frontend
 #
 
 # ---------------------------------------------------------------------------- #
@@ -97,7 +97,7 @@ ARG BUILD_REVISION="00000000"
 ARG BUILD_VERSION="0.0.0"
 ARG IMAGE_AUTHORS="Digital Technology Solutions"
 ARG IMAGE_DESCRIPTION="MSCA Portal -- Frontend Application"
-ARG IMAGE_TITLE="rrt-frontend"
+ARG IMAGE_TITLE="msca-frontend"
 ARG IMAGE_URL="https://github.com/DTS-STN/react-router-template/"
 ARG IMAGE_VENDOR="Employment and Social Development Canada"
 

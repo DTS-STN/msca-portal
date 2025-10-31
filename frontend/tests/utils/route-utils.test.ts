@@ -37,7 +37,7 @@ describe('route-utils', () => {
 
   describe('getRouteByFile', () => {
     it('should return the correct route for a given file', () => {
-      expect(getRouteByFile('routes/letters.tsx', i18nRoutes)).toEqual({
+      expect(getRouteByFile('routes/inbox.tsx', i18nRoutes)).toEqual({
         id: 'PROT-0001',
         file: 'routes/letters.tsx',
         paths: { en: '/en/letters', fr: '/fr/lettres' },

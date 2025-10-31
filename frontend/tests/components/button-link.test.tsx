@@ -10,7 +10,7 @@ describe('ButtonLink', () => {
     const RoutesStub = createRoutesStub([
       {
         path: '/fr',
-        Component: () => <ButtonLink file="routes/letters.tsx">Test ButtonLink</ButtonLink>,
+        Component: () => <ButtonLink file="routes/inbox.tsx">Test ButtonLink</ButtonLink>,
       },
     ]);
 
@@ -23,7 +23,7 @@ describe('ButtonLink', () => {
       {
         path: '/fr',
         Component: () => (
-          <ButtonLink className="text-red-500" file="routes/letters.tsx" size="sm" variant="primary">
+          <ButtonLink className="text-red-500" file="routes/inbox.tsx" size="sm" variant="primary">
             Test ButtonLink
           </ButtonLink>
         ),
@@ -39,7 +39,7 @@ describe('ButtonLink', () => {
       {
         path: '/fr',
         Component: () => (
-          <ButtonLink disabled file="routes/letters.tsx" pill={true}>
+          <ButtonLink disabled file="routes/inbox.tsx" pill={true}>
             Test ButtonLink
           </ButtonLink>
         ),
@@ -55,7 +55,7 @@ describe('ButtonLink', () => {
       {
         path: '/fr',
         Component: () => (
-          <ButtonLink file="routes/letters.tsx" pill={true}>
+          <ButtonLink file="routes/inbox.tsx" pill={true}>
             Test ButtonLink
           </ButtonLink>
         ),
