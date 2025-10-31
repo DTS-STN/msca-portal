@@ -1,14 +1,12 @@
 import { requireAuth } from "~/.server/utils/auth-utils";
-import { Route } from "./+types/inbox-now-available";
+import { Route } from "./+types/contact-us";
 import { getTranslation } from "~/i18n-config.server";
 import { handle as parentHandle } from '~/routes/layout';
-import { Link, RouteHandle } from "react-router";
+import { RouteHandle } from "react-router";
 import { AppError } from "~/errors/app-error";
 import { ErrorCodes } from "~/errors/error-codes";
 import { useTranslation } from "react-i18next";
 import { PageTitle } from "~/components/page-title";
-import { ButtonLink } from "~/components/button-link";
-import { serverEnvironment } from "~/.server/environment";
 import { InlineLink } from "~/components/links";
 
 export const handle = {
@@ -44,15 +42,15 @@ export default function ContactUs({ loaderData, params }: Route.ComponentProps) 
                 <p className="mb-8 mt-3 text-xl text-gray-darker">{t('contactUs:select-service')}</p>
 
                 <ul className="list-disc" data-cy="contact-task-list">
-                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:cdcp.href')}>{t('contactUs:cdcp')}</InlineLink></li>
-                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:ei.href')}>{t('contactUs:ei')}</InlineLink></li>
-                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:cpp.href')}>{t('contactUs:cpp')}</InlineLink></li>
+                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:cdcp.href')} newTabIndicator={true}>{t('contactUs:cdcp')}</InlineLink></li>
+                    <li className="mb-6 ml-5"><InlineLink file="routes/contact-us/employment-insurance.tsx">{t('contactUs:ei')}</InlineLink></li>
+                    <li className="mb-6 ml-5"><InlineLink file="routes/contact-us/canada-pension-plan.tsx">{t('contactUs:cpp')}</InlineLink></li>
                     <li className="mb-6 ml-5">
-                        <InlineLink to={t('contactUs:oas.href')}>{t('contactUs:oas')}</InlineLink>
+                        <InlineLink file="routes/contact-us/old-age-security.tsx">{t('contactUs:oas')}</InlineLink>
                         <p className="text-xl text-gray-darker">{t('contactUs:oas.more-info')}</p>
                     </li>
-                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:cdb.href')}>{t('contactUs:cdb')}</InlineLink></li>
-                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:sin.href')}>{t('contactUs:sin')}</InlineLink></li>
+                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:cdb.href')} newTabIndicator={true}>{t('contactUs:cdb')}</InlineLink></li>
+                    <li className="mb-6 ml-5"><InlineLink to={t('contactUs:sin.href')} newTabIndicator={true}>{t('contactUs:sin')}</InlineLink></li>
                 </ul>
             </div>
 

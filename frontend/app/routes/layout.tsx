@@ -18,7 +18,9 @@ import { useRoute } from '~/hooks/use-route';
 import InboxNotificationPreferences from './inbox-notification-preferences';
 
 export const handle = {
-  i18nNamespace: ['app', 'gcweb', 'inbox', 'inboxNowAvailable', 'inboxNotificationPreferencesSuccess', 'inboxNotificationPreferences', 'contactUs'],
+
+  i18nNamespace: ['app', 'gcweb', 'inbox', 'inboxNowAvailable', 'inboxNotificationPreferencesSuccess', 'inboxNotificationPreferences', 'contactUs', 'contactUsEi'],
+
 } as const satisfies RouteHandle;
 
 export async function loader({ context, request }: Route.LoaderArgs) {
