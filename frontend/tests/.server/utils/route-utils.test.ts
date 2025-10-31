@@ -6,20 +6,20 @@ import { HttpStatusCodes } from '~/utils/http-status-codes';
 describe('route-utils', () => {
   describe('i18nRedirect', () => {
     it('should default to English when no language is found', () => {
-      const result = i18nRedirect('routes/letters.tsx', '');
+      const result = i18nRedirect('routes/inbox.tsx', '');
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/en/letters');
     });
 
     it('should redirect to the correct path if language is found', () => {
-      const result = i18nRedirect('routes/letters.tsx', '/en/letters');
+      const result = i18nRedirect('routes/inbox.tsx', '/en/letters');
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/en/letters');
     });
 
     it('should redirect to the correct path when search params are provided', () => {
-      const result = i18nRedirect('routes/letters.tsx', '/en/letters', { search: new URLSearchParams('foo=bar=baz') });
+      const result = i18nRedirect('routes/inbox.tsx', '/en/letters', { search: new URLSearchParams('foo=bar=baz') });
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/en/letters?foo=bar%3Dbaz');
@@ -29,7 +29,7 @@ describe('route-utils', () => {
       const request = new Request('http://example.com/en/', {
         headers: { 'accept-language': 'fr' },
       });
-      const result = i18nRedirect('routes/letters.tsx', request);
+      const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/en/letters');
@@ -39,7 +39,7 @@ describe('route-utils', () => {
       const request = new Request('http://example.com/', {
         headers: { 'accept-language': 'fr-CA,fr;q=0.9' },
       });
-      const result = i18nRedirect('routes/letters.tsx', request);
+      const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/fr/lettres');
@@ -47,7 +47,7 @@ describe('route-utils', () => {
 
     it('should default to English when no Accept-Language header', () => {
       const request = new Request('http://example.com/');
-      const result = i18nRedirect('routes/letters.tsx', request);
+      const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
       expect(result.headers.get('location')).toBe('/en/letters');
@@ -55,7 +55,7 @@ describe('route-utils', () => {
 
     it('should use custom default language when specified', () => {
       const request = new Request('http://example.com/');
-      const result = i18nRedirect('routes/letters.tsx', request, {
+      const result = i18nRedirect('routes/inbox.tsx', request, {
         defaultLanguage: 'fr',
       });
 
@@ -67,7 +67,7 @@ describe('route-utils', () => {
       const request = new Request('http://example.com/', {
         headers: { 'accept-language': 'en' },
       });
-      const result = i18nRedirect('routes/letters.tsx', request, {
+      const result = i18nRedirect('routes/inbox.tsx', request, {
         search: new URLSearchParams('test=value'),
       });
 

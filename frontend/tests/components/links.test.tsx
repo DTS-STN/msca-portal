@@ -18,7 +18,7 @@ describe('links', () => {
         {
           path: '/',
           Component: () => (
-            <AppLink file="routes/letters.tsx" lang="en">
+            <AppLink file="routes/inbox.tsx" lang="en">
               This is a test
             </AppLink>
           ),
@@ -34,7 +34,7 @@ describe('links', () => {
       const RoutesStub = createRoutesStub([
         {
           path: '/fr/public',
-          Component: () => <AppLink file="routes/letters.tsx">This is a test</AppLink>,
+          Component: () => <AppLink file="routes/inbox.tsx">This is a test</AppLink>,
         },
       ]);
 
@@ -47,7 +47,7 @@ describe('links', () => {
       const RoutesStub = createRoutesStub([
         {
           path: '/',
-          Component: () => <AppLink file="routes/letters.tsx">This is a test</AppLink>,
+          Component: () => <AppLink file="routes/inbox.tsx">This is a test</AppLink>,
           ErrorBoundary: () => <>{(useRouteError() as AppError).msg}</>,
         },
       ]);
@@ -62,7 +62,7 @@ describe('links', () => {
         {
           path: '/en/public',
           Component: () => (
-            <AppLink disabled file="routes/letters.tsx">
+            <AppLink disabled file="routes/inbox.tsx">
               This is a test
             </AppLink>
           ),
@@ -133,7 +133,7 @@ describe('links', () => {
       const RoutesStub = createRoutesStub([
         {
           path: '/fr/public',
-          Component: () => <InlineLink file="routes/letters.tsx">This is a test</InlineLink>,
+          Component: () => <InlineLink file="routes/inbox.tsx">This is a test</InlineLink>,
         },
       ]);
 

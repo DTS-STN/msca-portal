@@ -6,6 +6,7 @@ import { features, defaults as featuresDefaults } from '~/.server/environment/fe
 import { logging, defaults as loggingDefaults } from '~/.server/environment/logging';
 import { redis, defaults as redisDefaults } from '~/.server/environment/redis';
 import { session, defaults as sessionDefaults } from '~/.server/environment/session';
+import { cctApi, defaults as cctApiDefaults } from '~/.server/environment/cct-api';
 import { telemetry, defaults as telemetryDefaults } from '~/.server/environment/telemetry';
 import { LogFactory } from '~/.server/logging';
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
@@ -23,6 +24,7 @@ export const defaults = {
   ...loggingDefaults,
   ...redisDefaults,
   ...sessionDefaults,
+  ...cctApiDefaults,
   ...telemetryDefaults,
 } as const;
 
@@ -38,6 +40,7 @@ export const server = v.pipe(
     ...logging.entries,
     ...redis.entries,
     ...session.entries,
+    ...cctApi.entries,
     ...telemetry.entries,
     NODE_ENV: v.optional(v.picklist(['production', 'development', 'test']), defaults.NODE_ENV),
     PORT: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.PORT),

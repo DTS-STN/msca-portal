@@ -17,11 +17,11 @@ export default function Login() {
 /**
  * Handles RAOIDC authentication login.
  */
-export async function loader({ context, params, request }: Route.LoaderArgs): Promise<Response> {
-  return handleLogin({ context, params, request });
+export async function loader({ context, unstable_pattern, params, request }: Route.LoaderArgs): Promise<Response> {
+  return handleLogin({ context, unstable_pattern, params, request });
 }
 
-function handleLogin({ context, params, request }: Route.LoaderArgs): Promise<Response> {
+function handleLogin({ context, unstable_pattern, params, request }: Route.LoaderArgs): Promise<Response> {
   return withSpan('routes.auth.callback.handle_login', async (span) => {
     const { session } = context;
     const currentUrl = new URL(request.url);
