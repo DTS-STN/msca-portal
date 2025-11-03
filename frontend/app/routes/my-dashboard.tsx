@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/my-dashboard';
 
+import { getDashboardService } from '~/.server/domain/services/dashboard-service.server';
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { Card } from '~/components/card';
 import { PageTitle } from '~/components/page-title';
@@ -13,7 +14,6 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 import { getLanguage } from '~/utils/i18n-utils';
-import { getDashboardService } from '~/.server/domain/services/dashboard-service.server';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -30,9 +30,9 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  const pageAlerts = await getDashboardService().getPageAlertsByLang(language??'en');
-  const cardAlerts = await getDashboardService().getCardAlertsByLang(language??'en');
-  const exitBeta = await getDashboardService().getExitBetaByLang(language??'en');
+  const pageAlerts = await getDashboardService().getPageAlertsByLang(language ?? 'en');
+  const cardAlerts = await getDashboardService().getCardAlertsByLang(language ?? 'en');
+  const exitBeta = await getDashboardService().getExitBetaByLang(language ?? 'en');
 
   const data = await import(`../.server/locales/${language}/dashboard.json`);
   const cards = data.cards;

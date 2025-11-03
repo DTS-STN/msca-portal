@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/layout';
+import InboxNotificationPreferences from './inbox-notification-preferences';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { AppBar } from '~/components/app-bar';
@@ -15,10 +16,17 @@ import { SessionTimeout } from '~/components/session-timeout';
 import { SkipNavigationLinks } from '~/components/skip-navigation-links';
 import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
-import InboxNotificationPreferences from './inbox-notification-preferences';
 
 export const handle = {
-  i18nNamespace: ['app', 'gcweb', 'inbox', 'inboxNowAvailable', 'inboxNotificationPreferencesSuccess', 'inboxNotificationPreferences', 'contactUs'],
+  i18nNamespace: [
+    'app',
+    'gcweb',
+    'inbox',
+    'inboxNowAvailable',
+    'inboxNotificationPreferencesSuccess',
+    'inboxNotificationPreferences',
+    'contactUs',
+  ],
 } as const satisfies RouteHandle;
 
 export async function loader({ context, request }: Route.LoaderArgs) {
