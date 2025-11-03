@@ -2,7 +2,7 @@ import type { RouteHandle } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
-import type { Route } from './+types/inbox';
+import type { Route } from '.react-router/types/app/routes/+types/inbox';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { PageTitle } from '~/components/page-title';
