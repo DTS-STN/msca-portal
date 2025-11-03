@@ -37,7 +37,7 @@ export function ContextualAlert(props: ContextualAlertProps) {
       <div className={cn('absolute top-3 left-1.5 pt-1 pb-1 sm:left-3.5', alertBackgroundColor)}>
         <Icon type={type} />
       </div>
-      <div className={cn('text-gray-darker font-display overflow-auto border-l-4 pt-3 pb-4.5 pl-6 text-2xl', alertBorderColor)}>
+      <div className={cn('overflow-auto border-l-4 pt-3 pb-4.5 pl-6', alertBorderColor)}>
         {children}
       </div>
     </div>

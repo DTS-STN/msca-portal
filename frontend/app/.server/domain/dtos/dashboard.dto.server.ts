@@ -1,30 +1,23 @@
-import { z } from 'zod';
+import type { ReadonlyDeep } from 'type-fest';
 
-export const pageAlertDtoSchema = z.object({
-    id: z.string(),
-    alertHeading: z.string(),
-    alertBody: z.string().optional(),
-    type: z.string(),
-});
+export type PageAlertDto = ReadonlyDeep<{
+  id: string,
+  alertHeading: string,
+  alertBody?: string,
+  type: string,
+}>;
 
-export type PageAlertDto = z.infer<typeof pageAlertDtoSchema>;
+export type CardAlertDto = {
+  id: string,
+  alerts: {
+    id: string,
+    alertHeading: string,
+    alertBody: string,
+    type: string,
+  }[],
+};
 
-export const cardAlertDtoSchema = z.object({
-    id: z.string(),
-    cardAlerts: z.array(
-      z.object({
-        id: z.string().optional(),
-        alertHeading: z.string().optional(),
-        alertBody: z.string().optional(),
-      }),
-    ),
-});
-
-export type CardAlertDto = z.infer<typeof cardAlertDtoSchema>;
-
-export const exitBetaDtoSchema = z.object({
-  title: z.string().nullable(),
-  link: z.string(),
-});
-
-export type ExitBetaDto = z.infer<typeof exitBetaDtoSchema>;
+export type ExitBetaDto = ReadonlyDeep<{
+  title?: string,
+  link: string,
+}>;

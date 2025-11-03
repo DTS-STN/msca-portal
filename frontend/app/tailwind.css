@@ -28,6 +28,13 @@
   */
   --font-lato: Lato, sans-serif;
   --font-sans: 'Noto Sans', sans-serif;
+
+  /*Customizing your color*/
+  --color-gray-darker: #333333;
+  --color-gray-50a: #CFD1D5;
+  --color-deep-blue-60d: #295376;
+  --color-deep-blue-dark: #284162;
+  --color-blue-hover: #0535D2;
 }
 
 /*

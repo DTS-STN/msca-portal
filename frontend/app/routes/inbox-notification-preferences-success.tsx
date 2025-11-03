@@ -6,12 +6,12 @@ import type { Route } from './+types/inbox-notification-preferences-success';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { ButtonLink } from '~/components/button-link';
-import { ContextualAlert } from '~/components/page-alert';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import { ContextualAlert } from '~/components/contextual-alert';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
