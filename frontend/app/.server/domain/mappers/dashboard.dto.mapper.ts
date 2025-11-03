@@ -15,11 +15,11 @@ export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
   mapCardAlertEntityToCardAlertDto(cardAlertEntities: CardAlertEntity[], lang: string): CardAlertDto[] {
     return cardAlertEntities.map((cardAlert: CardAlertEntity) => ({
       id: cardAlert.scId,
-      cardAlerts: cardAlert.schAlerts.map((alert) => ({
-        id: alert?.scId,
-        alertHeading: lang === 'en' ? alert?.scHeadingEn : alert?.scHeadingFr,
-        alertBody: alert?.scContentEn.markdown,
-        type: alert?.scAlertType[0],
+      alerts: cardAlert.schAlerts.map((alert) => ({
+        id: alert.scId,
+        alertHeading: lang === 'en' ? alert.scHeadingEn : alert.scHeadingFr,
+        alertBody: alert.scContentEn.markdown,
+        type: alert.scAlertType[0],
       })),
     }));
   }

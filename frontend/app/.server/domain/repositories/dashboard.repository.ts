@@ -37,7 +37,7 @@ export class DefaultDashboardRespository implements DashboardRepository {
      (item: ScFragmentEntity) => item.scId === 'dashboard-cards',
     );
 
-    return scFragmentEntities[0]? scFragmentEntities[0].scItems : [];
+    return scFragmentEntities[0]?.scItems??[];;
   }
 
   async getDashboardExitBetaContent(): Promise<ExitBetaEntity> {
