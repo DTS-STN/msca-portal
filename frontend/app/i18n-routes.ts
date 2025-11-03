@@ -140,7 +140,7 @@ export const i18nRoutes = [
         file: 'routes/inbox-notification-preferences.tsx',
         paths: {
           en: '/en/inbox-notification-preferences',
-          fr:  '/fr/preferences-notification-boite-reception',
+          fr: '/fr/preferences-notification-boite-reception',
         },
       },
     ],

@@ -2,9 +2,9 @@ import * as v from 'valibot';
 
 import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-schema';
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
+import { getTranslation } from '~/i18n-config.server';
 import { isValidTimeZone } from '~/utils/date-utils';
 import { validUrlSchema } from '~/validation/valid-url-schema';
-import { getTranslation } from '~/i18n-config.server';
 
 export type Client = Readonly<v.InferOutput<typeof client>>;
 
