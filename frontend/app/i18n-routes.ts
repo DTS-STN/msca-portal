@@ -151,13 +151,15 @@ export const i18nRoutes = [
       {
         id: 'PROT-0009',
         file: 'routes/contact-us/canada-pension-plan.tsx',
-        paths: { en: '/en/contact-us/contact-canada-pension-plan', fr: '/fr/contactez-nous/communiquer-regime-pensions-canada' },
+        paths: {
+          en: '/en/contact-us/contact-canada-pension-plan',
+          fr: '/fr/contactez-nous/communiquer-regime-pensions-canada',
+        },
       },
       {
         id: 'PROT-0010',
         file: 'routes/contact-us/old-age-security.tsx',
         paths: { en: '/contact-us/contact-old-age-security', fr: '/fr/contactez-nous/communiquer-securite-vieillesse' },
-
       },
     ],
   },

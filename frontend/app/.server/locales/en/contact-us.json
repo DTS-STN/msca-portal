@@ -1,15 +1,15 @@
 {
-    "document-title": "Contact Us",
-    "page-title": "Contact Us",
-    "select-service": "Select the service you wish to contact us about:",
-    "cdcp": "Canadian Dental Care Plan",
-    "cdcp.href": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/contact.html",
-    "ei": "Employment Insurance",
-    "cpp": "Canada Pension Plan",
-    "oas": "Old Age Security",
-    "oas.more-info": "Includes the Guaranteed Income Supplement, the Allowance and the Allowance for the Survivor.",
-    "cdb": "Canada Disability Benefit",
-    "cdb.href": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/contact.html",
-    "sin": "Social Insurance Number",
-    "sin.href": "https://www.canada.ca/en/employment-social-development/corporate/contact/sin.html"
+  "document-title": "Contact Us",
+  "page-title": "Contact Us",
+  "select-service": "Select the service you wish to contact us about:",
+  "cdcp": "Canadian Dental Care Plan",
+  "cdcp.href": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/contact.html",
+  "ei": "Employment Insurance",
+  "cpp": "Canada Pension Plan",
+  "oas": "Old Age Security",
+  "oas.more-info": "Includes the Guaranteed Income Supplement, the Allowance and the Allowance for the Survivor.",
+  "cdb": "Canada Disability Benefit",
+  "cdb.href": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/contact.html",
+  "sin": "Social Insurance Number",
+  "sin.href": "https://www.canada.ca/en/employment-social-development/corporate/contact/sin.html"
 }
