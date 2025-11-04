@@ -43,4 +43,4 @@ jobs:
   build-frontend:
     needs: check-changes
     if: ${{ needs.check-changes.outputs.frontend == 'true' }}
-    uses: ./.github/workflows/build-frontend.yaml
+    uses: ./.github/workflows/build.yaml
