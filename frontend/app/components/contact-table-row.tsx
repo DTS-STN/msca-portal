@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const tableRowStyle = 'grid grid-cols-1 py-2 md:grid-cols-12';
 const dtStyle = 'text-2xl font-bold text-gray-darker md:col-span-4 md:pl-3';

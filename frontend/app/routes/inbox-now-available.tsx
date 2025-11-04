@@ -1,11 +1,10 @@
-import { RouteHandle } from 'react-router';
+import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import { Route } from './+types/inbox-now-available';
+import type { Route } from './+types/inbox-now-available';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
-import { Button } from '~/components/button';
 import { ButtonLink } from '~/components/button-link';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';

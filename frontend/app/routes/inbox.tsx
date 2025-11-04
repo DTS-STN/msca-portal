@@ -10,7 +10,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
-import { AppLink, InlineLink } from '~/components/links';
+import { InlineLink } from '~/components/links';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],

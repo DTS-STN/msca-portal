@@ -15,7 +15,6 @@ import { SessionTimeout } from '~/components/session-timeout';
 import { SkipNavigationLinks } from '~/components/skip-navigation-links';
 import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
-import InboxNotificationPreferences from './inbox-notification-preferences';
 
 export const handle = {
 
