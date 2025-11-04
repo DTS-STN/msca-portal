@@ -2,11 +2,10 @@ import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import type { Route } from './+types/inbox-notification-preferences-success';
+import type { Route } from './+types/security-settings';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
-import { ButtonLink } from '~/components/button-link';
-import { ContextualAlert } from '~/components/contextual-alert';
+import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
@@ -27,30 +26,29 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('inboxNotificationPreferencesSuccess:document-title'), MSCA_BASE_URL };
+  return { documentTitle: t('securitySettings:document-title'), MSCA_BASE_URL };
 }
 
 export function meta({ data }: Route.MetaArgs) {
   return [{ title: data?.documentTitle }];
 }
 
-export default function InboxNotificationPreferencesSuccess({ loaderData, params }: Route.ComponentProps) {
+export default function SecuritySettings({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
   const { MSCA_BASE_URL } = loaderData;
 
   return (
     <>
-      <div className="mb-8">
-        <PageTitle className="after:w-14">{t('inboxNotificationPreferencesSuccess:page-title')}</PageTitle>
-      </div>
-      <ContextualAlert type={'success'}>{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</ContextualAlert>
-      <div className="flex items-center justify-start gap-6 py-8">
-        <ButtonLink to={t('gcweb:app.inbox-notification-preferences.href', { baseUri: MSCA_BASE_URL })}>
-          {t('inboxNotificationPreferencesSuccess:inbox-back-button')}
-        </ButtonLink>
-        <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
-          {t('inboxNotificationPreferencesSuccess:inbox-dashboard-button')}
-        </ButtonLink>
+      <div className="max-w-3xl">
+        <div className="mb-8">
+          <PageTitle className="after:w-14">{t('securitySettings:page-title')}</PageTitle>
+        </div>
+
+        <p className="text-gray-darker mt-3 mb-8 text-xl">{t('securitySettings:part-1')}</p>
+        <InlineLink to={t('securitySettings:security-questions-href', { baseUri: MSCA_BASE_URL })}>
+          {t('securitySettings:security-questions')}
+        </InlineLink>
+        <p className="text-gray-darker mb-8 text-xl">{t('securitySettings:part-2')}</p>
       </div>
     </>
   );
