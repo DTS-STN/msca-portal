@@ -4,44 +4,44 @@
 export function getAcronym(longText: string) {
   switch (longText.toLowerCase()) {
     case 'assurance emploi':
-      return 'EI'
+      return 'EI';
     case 'assurance-emploi':
-      return 'EI'
+      return 'EI';
     case 'employment insurance':
-      return 'EI'
+      return 'EI';
     case 'canada pension plan':
-      return 'CPP'
+      return 'CPP';
     case 'régime de pensions du canada':
-      return 'CPP'
+      return 'CPP';
     case 'old age security and guaranteed income supplement':
-      return 'OASGIS'
+      return 'OASGIS';
     case 'old age security':
-      return 'OASGIS'
+      return 'OASGIS';
     case 'sécurité de la vieillesse et supplément de revenu garanti':
-      return 'OASGIS'
+      return 'OASGIS';
     case 'sécurité de la vieillesse':
-      return 'OASGIS'
+      return 'OASGIS';
     case 'social insurance number':
-      return 'SINOM'
+      return 'SINOM';
     case 'numéro d’assurance sociale':
-      return 'SINOM'
+      return 'SINOM';
     case 'canada apprentice loan':
-      return 'CALSC'
+      return 'CALSC';
     case 'prêt canadien aux apprentis':
-      return 'CALSC'
+      return 'CALSC';
     case 'canadian dental care plan':
-      return 'CDCP'
+      return 'CDCP';
     case 'régime canadien de soins dentaires':
-      return 'CDCP'
+      return 'CDCP';
     case 'national student loans service centre':
-      return 'NSLSC'
+      return 'NSLSC';
     case 'centre de services national de prêts aux étudiants':
-      return 'NSLSC'
+      return 'NSLSC';
     case 'canada disability benefit':
-      return 'CDB'
+      return 'CDB';
     case 'prestation canadienne pour les personnes handicapées':
-      return 'CDB'
+      return 'CDB';
     default:
-      return 'UND'
+      return 'UND';
   }
 }

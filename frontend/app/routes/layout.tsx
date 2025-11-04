@@ -17,9 +17,16 @@ import { useLanguage } from '~/hooks/use-language';
 import { useRoute } from '~/hooks/use-route';
 
 export const handle = {
-
-  i18nNamespace: ['app', 'gcweb', 'inbox', 'inboxNowAvailable', 'inboxNotificationPreferencesSuccess', 'inboxNotificationPreferences', 'contactUs', 'contactUsEi'],
-
+  i18nNamespace: [
+    'app',
+    'gcweb',
+    'inbox',
+    'inboxNowAvailable',
+    'inboxNotificationPreferencesSuccess',
+    'inboxNotificationPreferences',
+    'contactUs',
+    'contactUsEi',
+  ],
 } as const satisfies RouteHandle;
 
 export async function loader({ context, request }: Route.LoaderArgs) {
