@@ -7,6 +7,7 @@ import inboxNotificationPreferencesSuccessEn from '~/.server/locales/en/inbox-no
 import inboxNotificationPreferencesEn from '~/.server/locales/en/inbox-notification-preferences.json';
 import inboxNowAvailableEn from '~/.server/locales/en/inbox-now-available.json';
 import inboxEn from '~/.server/locales/en/inbox.json';
+import securitySettingsEn from '~/.server/locales/en/security-settings.json';
 import appFr from '~/.server/locales/fr/app.json';
 import contactUsEiFr from '~/.server/locales/fr/contact-us-ei.json';
 import contactUsFr from '~/.server/locales/fr/contact-us.json';
@@ -16,6 +17,7 @@ import inboxNotificationPreferencesSuccessFr from '~/.server/locales/fr/inbox-no
 import inboxNotificationPreferencesFr from '~/.server/locales/fr/inbox-notification-preferences.json';
 import inboxNowAvailableFr from '~/.server/locales/fr/inbox-now-available.json';
 import inboxFr from '~/.server/locales/fr/inbox.json';
+import securitySettingsFr from '~/.server/locales/fr/security-settings.json';
 
 export const i18nResourcesEn = {
   inbox: inboxEn,
@@ -27,6 +29,7 @@ export const i18nResourcesEn = {
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessEn,
   contactUs: contactUsEn,
   contactUsEi: contactUsEiEn,
+  securitySettings: securitySettingsEn,
 } as const;
 
 export const i18nResourcesFr = {
@@ -39,6 +42,7 @@ export const i18nResourcesFr = {
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessFr,
   contactUs: contactUsFr,
   contactUsEi: contactUsEiFr,
+  securitySettings: securitySettingsFr,
 } as const;
 
 export const i18nResources = {

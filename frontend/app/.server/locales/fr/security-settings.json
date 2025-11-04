@@ -1,0 +1,8 @@
+{
+  "page-title": "Paramètres de sécurité",
+  "document-title": "Paramètres de sécurité - Mon dossier Service Canada",
+  "part-1": "Les paramètres sont utilisés pour valider votre identité et assurer la sécurité de votre compte.",
+  "part-2": "Modifier vos questions et réponses de sécurité.",
+  "security-questions": "Questions de sécurité",
+  "security-questions-href": "{{baseUri}}/SQE.aspx?Lang=fra"
+}

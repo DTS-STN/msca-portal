@@ -161,6 +161,11 @@ export const i18nRoutes = [
         file: 'routes/contact-us/old-age-security.tsx',
         paths: { en: '/contact-us/contact-old-age-security', fr: '/fr/contactez-nous/communiquer-securite-vieillesse' },
       },
+      {
+        id: 'PROT-0012',
+        file: 'routes/security-settings.tsx',
+        paths: { en: '/en/security-settings', fr: '/fr/parametres-securite' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];

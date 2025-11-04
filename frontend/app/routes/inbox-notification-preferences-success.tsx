@@ -27,7 +27,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('inboxNotificationPreferencesSuccess:page-title'), MSCA_BASE_URL };
+  return { documentTitle: t('inboxNotificationPreferencesSuccess:document-title'), MSCA_BASE_URL };
 }
 
 export function meta({ data }: Route.MetaArgs) {
