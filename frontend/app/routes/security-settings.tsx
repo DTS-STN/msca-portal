@@ -44,11 +44,13 @@ export default function SecuritySettings({ loaderData, params }: Route.Component
           <PageTitle className="after:w-14">{t('securitySettings:page-title')}</PageTitle>
         </div>
 
-        <p className="text-gray-darker mt-3 mb-8 text-xl">{t('securitySettings:part-1')}</p>
-        <InlineLink to={t('securitySettings:security-questions-href', { baseUri: MSCA_BASE_URL })}>
-          {t('securitySettings:security-questions')}
-        </InlineLink>
-        <p className="text-gray-darker mb-8 text-xl">{t('securitySettings:part-2')}</p>
+        <div className="text-gray-darker text-xl">
+          <p className="mt-3 mb-8">{t('securitySettings:part-1')}</p>
+          <InlineLink to={t('securitySettings:security-questions-href', { baseUri: MSCA_BASE_URL })}>
+            {t('securitySettings:security-questions')}
+          </InlineLink>
+          <p className="mb-8">{t('securitySettings:part-2')}</p>
+        </div>
       </div>
     </>
   );
