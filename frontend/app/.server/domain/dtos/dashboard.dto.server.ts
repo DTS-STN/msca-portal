@@ -1,23 +1,23 @@
 import type { ReadonlyDeep } from 'type-fest';
 
 export type PageAlertDto = ReadonlyDeep<{
-  id: string,
-  alertHeading: string,
-  alertBody?: string,
-  type: string,
+  id: string;
+  alertHeading: string;
+  alertBody?: string;
+  type: string;
 }>;
 
 export type CardAlertDto = {
-  id: string,
+  id: string;
   alerts: {
-    id: string,
-    alertHeading: string,
-    alertBody: string,
-    type: string,
-  }[],
+    id: string;
+    alertHeading: string;
+    alertBody: string;
+    type: string;
+  }[];
 };
 
 export type ExitBetaDto = ReadonlyDeep<{
-  title?: string,
-  link: string,
+  title?: string;
+  link: string;
 }>;

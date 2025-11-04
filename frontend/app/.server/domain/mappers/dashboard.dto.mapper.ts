@@ -1,5 +1,5 @@
-import type { CardAlertDto, ExitBetaDto, PageAlertDto } from "../dtos/dashboard.dto.server";
-import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity } from "../entities/dashboard.entity";
+import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.dto.server';
+import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity } from '../entities/dashboard.entity';
 
 export interface DashboardDtoMapper {
   mapPageAlertEntitiesToPageAlertDtos(pageAlertEntities: PageAlertEntity[], lang: string): PageAlertDto[];
@@ -18,8 +18,8 @@ export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
       alerts: cardAlert.schAlerts.map((alert) => ({
         id: alert.scId,
         alertHeading: lang === 'en' ? alert.scHeadingEn : alert.scHeadingFr,
-        alertBody: alert.scContentEn.markdown,
-        type: alert.scAlertType[0],
+        alertBody: lang === 'en' ? alert.scContentEn.markdown : alert.scContentFr.markdown,
+        type: alert.scAlertType[0] ?? '',
       })),
     }));
   }
@@ -35,8 +35,8 @@ export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
 
   mapExitBetaEntityToExitBetaDto(exitBetaEntity: ExitBetaEntity, lang: string): ExitBetaDto {
     return {
-      title: lang === 'en' ? exitBetaEntity?.scTitleEn??"" : exitBetaEntity?.scTitleFr??"",
-      link: lang === 'en' ? exitBetaEntity?.scDestinationURLEn??"" : exitBetaEntity?.scDestinationURLFr??"",
+      title: lang === 'en' ? (exitBetaEntity?.scTitleEn ?? '') : (exitBetaEntity?.scTitleFr ?? ''),
+      link: lang === 'en' ? (exitBetaEntity?.scDestinationURLEn ?? '') : (exitBetaEntity?.scDestinationURLFr ?? ''),
     };
   }
 }

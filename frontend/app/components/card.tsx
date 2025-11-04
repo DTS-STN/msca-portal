@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 
+import Markdown from 'markdown-to-jsx';
 import { z } from 'zod';
+
+import { ContextualAlert } from './contextual-alert';
+import ViewMoreLessButton from './view-more-less-button';
+
+import { getContextualAlertType } from '~/utils/application-code-utils';
 
 type AlertProps = {
   id: string;
@@ -81,11 +87,65 @@ export function Card({
   return (
     <div className="my-6 rounded border border-gray-300 shadow" data-cy="cards">
       <h2
-        className="font-lato text-gray-750 px-3 py-4 text-4xl font-semibold sm:px-8 md:mt-2 md:px-15 md:py-8"
+        className="font-lato text-gray-darker px-3 py-4 text-4xl font-semibold sm:px-8 md:mt-2 md:px-15 md:py-8"
         data-cy="cardtitle"
       >
         {cardTitle}
       </h2>
+      <ViewMoreLessButton
+        id={programUniqueId + 'test-card-button-'}
+        dataTestid={programUniqueId?.toString() + 'dataTestId'}
+        dataCy="viewMoreLessButton"
+        onClick={() => {
+          const newOpenState = !isOpen;
+          setIsOpen(newOpenState);
+        }}
+        ariaExpanded={isOpen}
+        icon={isOpen}
+        caption={viewMoreLessCaption}
+        className="w-full px-3 pb-6 sm:px-8 md:px-15 md:pt-4 md:pb-8"
+        acronym={acronym}
+        refPageAA={refPageAA}
+        ariaLabel={`${cardTitle} - ${viewMoreLessCaption}`}
+      />
+      {!isOpen ? null : (
+        <div>
+          {cardAlert.map((alert, index) => {
+            const alertTypeString = alert.type.split('/').pop();
+            const alertType = getContextualAlertType(alertTypeString ?? null);
+            return (
+              <div className="text-gray-darker w-full pb-3 font-sans text-xl sm:px-8 sm:pb-6 md:px-15" key={index}>
+                <ContextualAlert type={alertType}>
+                  <h2 className="font-lato text-deep-blue-dark text-2xl font-bold">{alert.alertHeading}</h2>
+                  <Markdown
+                    options={{
+                      overrides: {
+                        p: {
+                          props: {
+                            className: 'mb-3',
+                          },
+                        },
+                        a: {
+                          props: {
+                            className: 'underline text-deep-blue-dark cursor-pointer',
+                            rel: 'noopener noreferrer', // Security, avoids external site opened through this site to have control over this site
+                            target: '_blank',
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    {alert.alertBody}
+                  </Markdown>
+                </ContextualAlert>
+              </div>
+            );
+          })}
+          <div className="pb-6" data-cy="sectionList">
+            {children}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

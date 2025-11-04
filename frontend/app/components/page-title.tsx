@@ -15,7 +15,7 @@ export function PageTitle({ children, className, subTitle, subTitleClassName, ..
         id="wb-cont"
         tabIndex={-1}
         className={cn(
-          'font-lato text-3xl font-bold focus-visible:ring-3',
+          'font-lato text-4xl font-bold focus-visible:ring-3',
           'after:mt-2 after:block after:h-1.5 after:w-18 after:bg-red-700',
           className,
         )}

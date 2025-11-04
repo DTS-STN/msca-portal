@@ -4,7 +4,6 @@ import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-sc
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
 import { isValidTimeZone } from '~/utils/date-utils';
 import { validUrlSchema } from '~/validation/valid-url-schema';
-import { getTranslation } from '~/i18n-config.server';
 
 export type Client = Readonly<v.InferOutput<typeof client>>;
 
@@ -19,6 +18,8 @@ export const defaults = {
   SESSION_TIMEOUT_PROMPT_SECONDS: (5 * 60).toString(),
   SESSION_TIMEOUT_SECONDS: (19 * 60).toString(),
   MSCA_BASE_URL: 'http://localhost:3001',
+  MSCA_EQ_BASE_URL: 'http://localhost:3006',
+  MSCA_ECAS_RASC_BASE_URL: 'http://localhost:3007',
   ECAS_BASE_URL: 'http://localhost:3002',
   CDCP_BASE_URL: 'http://localhost:3003',
   CDB_BASE_URL: 'http://localhost:3004',
@@ -44,6 +45,8 @@ export const client = v.object({
   SESSION_TIMEOUT_SECONDS: v.optional(stringToIntegerSchema(), defaults.SESSION_TIMEOUT_SECONDS),
   isProduction: v.boolean(),
   MSCA_BASE_URL: v.optional(v.string(), defaults.MSCA_BASE_URL),
+  MSCA_EQ_BASE_URL: v.optional(v.string(), defaults.MSCA_EQ_BASE_URL),
+  MSCA_ECAS_RASC_BASE_URL: v.optional(v.string(), defaults.MSCA_ECAS_RASC_BASE_URL),
   ECAS_BASE_URL: v.optional(v.string(), defaults.ECAS_BASE_URL),
   CDCP_BASE_URL: v.optional(v.string(), defaults.CDCP_BASE_URL),
   CDB_BASE_URL: v.optional(v.string(), defaults.CDB_BASE_URL),
