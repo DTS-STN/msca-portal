@@ -13,6 +13,7 @@ export function buildLink(linkType: string | undefined, link: string) {
     return MSCA_ECAS_RASC_BASE_URL + link;
   }
   //Fall back on link if unknown type
+  //to test pr check
   else {
     return link;
   }
