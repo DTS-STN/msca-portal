@@ -1,12 +1,12 @@
 import * as v from 'valibot';
 
 import { authentication, defaults as authenticationDefaults } from '~/.server/environment/authentication';
+import { cctApi, defaults as cctApiDefaults } from '~/.server/environment/cct-api';
 import { client, defaults as clientDefaults } from '~/.server/environment/client';
 import { features, defaults as featuresDefaults } from '~/.server/environment/features';
 import { logging, defaults as loggingDefaults } from '~/.server/environment/logging';
 import { redis, defaults as redisDefaults } from '~/.server/environment/redis';
 import { session, defaults as sessionDefaults } from '~/.server/environment/session';
-import { cctApi, defaults as cctApiDefaults } from '~/.server/environment/cct-api';
 import { telemetry, defaults as telemetryDefaults } from '~/.server/environment/telemetry';
 import { LogFactory } from '~/.server/logging';
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
@@ -62,5 +62,5 @@ export const server = v.pipe(
  * Always returns true so it can be used in a zod refine() function.
  */
 function warn(check: boolean, message: string): true {
-  return check && log.warn(message), true;
+  return (check && log.warn(message), true);
 }

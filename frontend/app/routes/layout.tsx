@@ -24,6 +24,8 @@ export const handle = {
     'inboxNowAvailable',
     'inboxNotificationPreferencesSuccess',
     'inboxNotificationPreferences',
+    'contactUs',
+    'contactUsEi',
     'securitySettings',
   ],
 } as const satisfies RouteHandle;

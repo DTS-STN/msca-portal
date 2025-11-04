@@ -1,37 +1,36 @@
 {
-    "page-title": "Boîte de réception",
-    "document-title": "Boîte de réception - Mon dossier Service Canada",
+  "page-title": "Boîte de réception",
+  "document-title": "Boîte de réception - Mon dossier Service Canada",
 
-    "par1": "Pour l'instant, votre boîte de réception ne contient que des <strong>états de dettes</strong. Il s'agit de lettres concernant des montants que vous pourriez devoir à Service Canada. Vous n'avez peut-être pas de dette en ce moment, mais tous les états de dettes de 2021 à aujourd'hui sont disponibles dans votre boîte de réception.",
-    "par2": "Avec le temps, nous y ajouterons d'autres communications concernant vos prestations et services.",
-    "par3": "Pour obtenir des renseignements sur d’autres prestations et services, consultez :",
-    "par4-list-item-ei-letters.text": "Assurance-emploi : consulter mes lettres ",
-    "par4-list-item-ei-letters.href": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=fra",
-    "par4-list-item-ei-status.text": "Assurance-emploi : afficher l’état de ma demande et mes messages",
-    "par4-list-item-ei-status.href": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=fra",
-    "par4-list-item-cdcp-letters.text": "Régime canadien de soins dentaires : consulter mes lettres ",
-    "par4-list-item-cdcp-letters.href": "/fr/protege/lettres",
-    "par4-list-item-cdb-letters.text": "Prestation canadienne pour les personnes handicapées : consulter mes lettres ",
-    "par4-list-item-cdb-letters.href": "/fr/lettres",
-    "par4-list-item-oas-dashboard.text": "Sécurité de la vieillesse : tableau de bord",
-    "par4-list-item-oas-dashboard.href": "?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-OAS",
-    "par5-part1": "<strong>Ne ratez aucun message.</strong> Définissez les ",
-    "par5-part2.text": "préférences de notification de votre boîte de réception",
-    "par5-part2.href": "routes/inbox.tsx",
-    "par5-part3": " pour recevoir un courriel dès qu'un nouveau message est disponible.",
+  "par1": "Pour l'instant, votre boîte de réception ne contient que des <strong>états de dettes</strong. Il s'agit de lettres concernant des montants que vous pourriez devoir à Service Canada. Vous n'avez peut-être pas de dette en ce moment, mais tous les états de dettes de 2021 à aujourd'hui sont disponibles dans votre boîte de réception.",
+  "par2": "Avec le temps, nous y ajouterons d'autres communications concernant vos prestations et services.",
+  "par3": "Pour obtenir des renseignements sur d’autres prestations et services, consultez :",
+  "par4-list-item-ei-letters.text": "Assurance-emploi : consulter mes lettres ",
+  "par4-list-item-ei-letters.href": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=fra",
+  "par4-list-item-ei-status.text": "Assurance-emploi : afficher l’état de ma demande et mes messages",
+  "par4-list-item-ei-status.href": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=fra",
+  "par4-list-item-cdcp-letters.text": "Régime canadien de soins dentaires : consulter mes lettres ",
+  "par4-list-item-cdcp-letters.href": "/fr/protege/lettres",
+  "par4-list-item-cdb-letters.text": "Prestation canadienne pour les personnes handicapées : consulter mes lettres ",
+  "par4-list-item-cdb-letters.href": "/fr/lettres",
+  "par4-list-item-oas-dashboard.text": "Sécurité de la vieillesse : tableau de bord",
+  "par4-list-item-oas-dashboard.href": "?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-OAS",
+  "par5-part1": "<strong>Ne ratez aucun message.</strong> Définissez les ",
+  "par5-part2.text": "préférences de notification de votre boîte de réception",
+  "par5-part2.href": "routes/inbox.tsx",
+  "par5-part3": " pour recevoir un courriel dès qu'un nouveau message est disponible.",
 
-    "no-messages-text": "Vous n'avez pas de messages.",
-    "pagination-text": { 
-      "previous-link": "< Précédent",
-      "next-link": "Suivant >",
-      "previous-aria-label": "Page précédente'",
-      "next-aria-label": "Page suivante",
-      "current-page-aria-label": " est la page actuelle'",
-      "page": "Page "
-    },
-    "message-verbose-titles": {
-      "accounts": "Relevé de comptes",
-      "debts": "Avis de dette"
-    }
-
+  "no-messages-text": "Vous n'avez pas de messages.",
+  "pagination-text": {
+    "previous-link": "< Précédent",
+    "next-link": "Suivant >",
+    "previous-aria-label": "Page précédente'",
+    "next-aria-label": "Page suivante",
+    "current-page-aria-label": " est la page actuelle'",
+    "page": "Page "
+  },
+  "message-verbose-titles": {
+    "accounts": "Relevé de comptes",
+    "debts": "Avis de dette"
+  }
 }
