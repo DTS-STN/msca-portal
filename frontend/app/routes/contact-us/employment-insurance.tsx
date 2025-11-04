@@ -1,10 +1,10 @@
-import { RouteHandle } from 'react-router';
+import type { RouteHandle } from 'react-router';
 
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Route } from '.react-router/types/app/routes/contact-us/+types/employment-insurance';
+import type { Route } from '.react-router/types/app/routes/contact-us/+types/employment-insurance';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import ContactTableRow from '~/components/contact-table-row';

@@ -34,8 +34,6 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    
 }
 
 export default function InboxNotificationPreferences({ loaderData, params }: Route.ComponentProps) {

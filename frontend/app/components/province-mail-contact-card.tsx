@@ -25,13 +25,13 @@ export default function ProvinceMailContactCard({ addrs }: ProvinceMailContactCa
               <div className="font-display col-span-2 cursor-default py-3 select-text md:col-span-1">
                 <p className="font-bold">{addrs.forReports.title}</p>
                 {addrs.forReports.addr.map((addrLine, _index) => (
-                  <p>{addrLine}</p>
+                  <p key={_index}>{addrLine}</p>
                 ))}
               </div>
               <div className="font-display col-span-2 cursor-default py-3 select-text md:col-span-1">
                 <p className="font-bold">{addrs.forDocs.title}</p>
                 {addrs.forDocs.addr.map((addrLine, _index) => (
-                  <p>{addrLine}</p>
+                  <p key={_index}>{addrLine}</p>
                 ))}
               </div>
             </div>

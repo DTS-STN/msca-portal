@@ -1,8 +1,8 @@
-import { RouteHandle } from 'react-router';
+import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import { Route } from './+types/contact-us';
+import type { Route } from './+types/contact-us';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { InlineLink } from '~/components/links';
