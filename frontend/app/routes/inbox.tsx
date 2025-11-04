@@ -54,7 +54,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
         <p className="pb-4">
           <Trans
             i18nKey="inbox:par1"
-            components={[ <strong />]}
+            components={{ bold: <strong /> }}
           />
         </p>
         <p className="pb-4">
@@ -87,7 +87,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
           <span>
             <Trans
               i18nKey="inbox:par5-part1"
-              components={[ <strong />]}
+              components={{ bold: <strong /> }}
             />
           </span>  
           <span><InlineLink file={t('inbox:par5-part2.href')}>{t('inbox:par5-part2.text')}</InlineLink></span>
