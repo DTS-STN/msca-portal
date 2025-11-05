@@ -75,7 +75,7 @@ exports[`links > AppLink > should render a link with the current language if no 
 <div>
   <a
     data-discover="true"
-    href="/fr/boite-reception
+    href="/fr/boite-reception"
   >
     This is a test
   </a>

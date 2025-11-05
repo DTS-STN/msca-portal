@@ -62,7 +62,7 @@ describe('route-utils', () => {
       expect(getRouteByPath('/en/inbox', i18nRoutes)).toEqual({
         id: 'PROT-0004',
         file: 'routes/inbox.tsx',
-        paths: { en: '/en/inbox', fr: '/fr/inbox' },
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
     });
 
