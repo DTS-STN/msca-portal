@@ -93,9 +93,11 @@ describe('route-utils', () => {
     it('should correctly identify I18nPageRoute objects', () => {
       expect(isI18nPageRoute({})).toEqual(false);
       expect(isI18nPageRoute([])).toEqual(false);
-      expect(isI18nPageRoute(null)).toEqual(false); 
+      expect(isI18nPageRoute(null)).toEqual(false);
       expect(isI18nPageRoute(undefined)).toEqual(false);
-      expect(isI18nPageRoute({ file: 'routes/inbox.tsx', paths: { en: '/en/inbox', fr: '/fr/boite-reception' } })).toEqual(true);
+      expect(isI18nPageRoute({ file: 'routes/inbox.tsx', paths: { en: '/en/inbox', fr: '/fr/boite-reception' } })).toEqual(
+        true,
+      );
     });
   });
 });
