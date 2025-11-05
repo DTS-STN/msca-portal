@@ -9,7 +9,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center flex"
+        class="align-center order-1 flex"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -25,7 +25,47 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
         </span>
       </div>
       <div
-        class="flex items-center space-x-4 text-right"
+        class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
+      >
+        <a
+          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          data-discover="true"
+          data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
+          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          id="inbox-button-desktop"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-envelope mr-2"
+            data-icon="envelope"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style="transform-origin: 0.5em 0.5em;"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)"
+              >
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          <span>
+            gcweb:app.inbox
+          </span>
+        </a>
+      </div>
+      <div
+        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
       />
     </div>
   </div>
@@ -41,7 +81,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center flex"
+        class="align-center order-1 flex"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -57,7 +97,47 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
         </span>
       </div>
       <div
-        class="flex items-center space-x-4 text-right"
+        class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
+      >
+        <a
+          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          data-discover="true"
+          data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
+          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          id="inbox-button-desktop"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-envelope mr-2"
+            data-icon="envelope"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style="transform-origin: 0.5em 0.5em;"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)"
+              >
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          <span>
+            gcweb:app.inbox
+          </span>
+        </a>
+      </div>
+      <div
+        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
       />
     </div>
   </div>
@@ -73,7 +153,7 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center flex"
+        class="align-center order-1 flex"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -89,7 +169,47 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
         </span>
       </div>
       <div
-        class="flex items-center space-x-4 text-right"
+        class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
+      >
+        <a
+          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          data-discover="true"
+          data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
+          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          id="inbox-button-desktop"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-envelope mr-2"
+            data-icon="envelope"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style="transform-origin: 0.5em 0.5em;"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)"
+              >
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          <span>
+            gcweb:app.inbox
+          </span>
+        </a>
+      </div>
+      <div
+        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
       />
     </div>
   </div>
@@ -105,7 +225,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center flex"
+        class="align-center order-1 flex"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -121,14 +241,54 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
         </span>
       </div>
       <div
-        class="flex items-center space-x-4 text-right"
+        class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
+      >
+        <a
+          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          data-discover="true"
+          data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
+          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          id="inbox-button-desktop"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-envelope mr-2"
+            data-icon="envelope"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style="transform-origin: 0.5em 0.5em;"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(256 256)"
+            >
+              <g
+                transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)"
+              >
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  fill="currentColor"
+                  transform="translate(-256 -256)"
+                />
+              </g>
+            </g>
+          </svg>
+          <span>
+            gcweb:app.inbox
+          </span>
+        </a>
+      </div>
+      <div
+        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
       >
         <button
           aria-expanded="false"
           aria-haspopup="menu"
-          class="flex h-full flex-nowrap space-x-2 bg-slate-200 px-2 text-sm text-slate-700 hover:bg-neutral-300 hover:underline focus:bg-neutral-300 focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-hidden aria-expanded:bg-neutral-300 aria-expanded:text-slate-700 sm:space-x-4 sm:px-4"
+          class="flex h-full w-full flex-nowrap space-x-2 bg-slate-200 px-2 text-sm text-slate-700 hover:bg-neutral-300 hover:underline focus:bg-neutral-300 focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-hidden aria-expanded:bg-neutral-300 aria-expanded:text-slate-700 sm:space-x-4 sm:px-4"
           data-state="closed"
-          id="radix-«r0»"
+          id="radix-_r_0_"
           type="button"
         >
           <div
@@ -154,7 +314,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
               </svg>
             </div>
             <span
-              class="text-md hidden py-2 font-bold sm:block"
+              class="text-md py-2 font-bold"
               id="menu-label"
             >
               Test User
@@ -162,7 +322,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
           </div>
           <svg
             aria-hidden="true"
-            class="svg-inline--fa fa-chevron-down my-auto size-4"
+            class="svg-inline--fa fa-chevron-down my-auto ml-auto size-4"
             data-icon="chevron-down"
             data-prefix="fas"
             focusable="false"
