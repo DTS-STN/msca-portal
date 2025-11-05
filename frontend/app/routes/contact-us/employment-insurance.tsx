@@ -10,7 +10,7 @@ import { requireAuth } from '~/.server/utils/auth-utils';
 import ContactTableRow from '~/components/contact-table-row';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
-import ProvinceMailContactCard from '~/components/province-mail-contact-card';
+import { AllProvinceContactCards } from '~/components/province-mail-contact-card';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
@@ -245,19 +245,11 @@ export default function EmploymentInsurance({ loaderData, params }: Route.Compon
         <p className={paraStyle}>{t('contactUsEi:submit-mail')}</p>
         <p className={paraStyle}>{t('contactUsEi:select-province')}</p>
 
-        {/* TODO: Reorder in French */}
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-ab', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-bc', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-mb', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-nb', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-nt', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-ns', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-nu', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-on', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-pe', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-qc', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-sk', { returnObjects: true })} />
-        <ProvinceMailContactCard addrs={t('contactUsEi:mail-yt', { returnObjects: true })} />
+        <AllProvinceContactCards
+          props={{
+            cards: t('contactUsEi:mail-contacts', { returnObjects: true }),
+          }}
+        />
       </div>
     </>
   );

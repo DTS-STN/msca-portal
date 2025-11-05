@@ -1,0 +1,200 @@
+{
+  "page-title": "Contact Canada Pension Plan",
+  "document-title": "Contact Canada Pension Plan",
+  "on-this-page": "On this page",
+  "phone": "Phone",
+  "callback": "Callback",
+  "in-person": "In person",
+  "mail": "Mail",
+  "call-us": "<strong>Call us to speak to a Canada Pension Plan representative</strong> for help during the hours of operation listed below.",
+  "self-service": "This phone number also provides an <strong>automated service available 24 hours a day, 7 days a week</strong>. You can use self-service options to:",
+  "self-service.li.1": "check your application status",
+  "self-service.li.2": "confirm your monthly payment amount and date",
+  "before-call.dt": "Before you call us",
+  "before-call.dd": "To access information about your account, you will need to provide your <strong>Social Insurance Number and other personal information.</strong>",
+  "phone-numbers.canada.dt": "Canada and the United States phone numbers",
+  "phone-numbers.canada.dd.1": "Toll-Free: <strong>1-800-277-9914</strong>",
+  "phone-numbers.canada.dd.2": "TTY: 1-800-255-4786",
+  "phone-numbers.itl.dt": "Canada and the United States phone numbers",
+  "phone-numbers.itl.dd.1": "1-613-957-1954 (Call collect)",
+  "hours-of-operation.dt": "Hours of operation",
+  "hours-of-operation.dd.1": "For Canada and the United States phone numbers: <strong>8:30 am to 4:30 pm local time, Monday to Friday, except statutory holidays.</strong>",
+  "hours-of-operation.dd.2": "For outside Canada and the United States phone number: <strong>8:30 am to 4:30 pm Eastern time, Monday to Friday, except statutory holidays.</strong>",
+  "wait-times.dt": "Wait times",
+  "wait-times.dd": "Our service standard is to answer your call within 10 minutes.",
+  "automated-hours.dt": "Hours for automated service",
+  "automated-hours.dd": "24 hours a day, 7 days a week",
+  "ask-us-to-call-you": "You can ask us to call you. Fill out the form to let us know how we can help you. We will contact you by phone within 2 business days.",
+  "assistance": "The assistance you can obtain is limited to the following situations:",
+
+  "assistance.li.1": "obtain general information",
+  "assistance.li.2": "obtain help applying for the Canada Pension Plan including the Death Benefit, Survivor Benefit, Disability with a Terminal Illness",
+  "assistance.li.3": "submit additional information and supporting documents (for example, power of attorney, death certificate, proof of marital, legal, residence status, medical report)",
+  "assistance.li.4": "update direct deposit and address",
+
+  "before-contact.dt": "Before you contact us",
+  "before-contact.dd": "You need to provide your <strong>name, country, province or territory, and phone number</strong> when filling out the form.",
+  "callback-form.dt": "Callback form",
+  "callback-form.dd": "Fill out eServiceCanada callback form",
+  "callback-form.dd.href": "https://eservices.canada.ca/en/service/",
+  "wait-callback.dt": "Wait times for callback",
+  "wait-callback.dd": "Within 2 business days",
+  "ask-not-visit": "We ask you not to visit Service Canada Centres unless necessary, due to COVID-19 health guidelines.",
+  "before-come.dt": "Before you come in",
+  "before-come.dd.1": "You need to show valid ID and answer verification questions at Service Canada Centres to access your file. No ID is required to ask about our services.",
+  "before-come.dd.2": "Examples of accepted ID include:",
+  "before-come.dd.3": "One of the following:",
+  "before-come.dd.3.li.1": "a passport (Canadian or foreign) or permanent resident card",
+  "before-come.dd.3.li.2": "a Certificate of Indian Status issued by the Government of Canada",
+  "before-come.dd.3.li.3": "a provincial or territorial ID card or drivers license",
+  "before-come.dd.4": "or 2 of the following:",
+  "before-come.dd.4.li.1": "a birth certificate (provincial or territorial)",
+  "before-come.dd.4.li.2": "a certificate of Canadian citizenship",
+  "before-come.dd.4.li.3": "a certificate of registration of birth abroad",
+  "before-come.dd.4.li.4": "any other government-issued ID",
+  "find-location.dt": "Find a location",
+  "find-location.dd": "Find a Service Canada Centre",
+  "find-location.dd.href": "https://www.servicecanada.gc.ca/tbsc-fsco/sc-hme.jsp?lang=eng",
+  "person.hours.dt": "Hours of operation",
+  "person.hours.dd.1": "Vary by location",
+  "person.hours.dd.2": "Find a Service Canada Centre to see their hours of operation",
+  "select-province": "Select your province or territory to find the mailing address of the Service Canada Centre where you can send your documents. If you are outside of Canada, mail them to the Centre assigned to the province where you last resided.",
+  "mail-contacts": [
+    {
+      "prov": "Alberta",
+      "addressList": [
+        {
+          "title": "For Disability applications",
+          "addr": ["Service Canada", "PO Box 2710 Station Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "For Canada Pension Plan applications",
+          "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "British Columbia",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1177 Station CSC", "Victoria BC V8W 2V2", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Manitoba",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "New Brunswick",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 250 Station A", "Fredericton NB E3B 4Z6", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Newfoundland and Labrador",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 9430 Station A", "St. John's NL A1A 2Y5", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Northwest Territories",
+      "addressList": [
+        {
+          "title": "For Disability applications",
+          "addr": ["Service Canada", "PO Box 2710 Station Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "For Canada Pension Plan applications",
+          "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Nova Scotia",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1687 Station Central", "Halifax NS B3J 3J4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Nunavut",
+      "addressList": [
+        {
+          "title": "For Disability applications",
+          "addr": ["Service Canada", "PO Box 2710 Station Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "For Canada Pension Plan applications",
+          "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Ontario",
+      "addressList": [
+        {
+          "title": "For postal codes beginning with L, M or N",
+          "addr": ["Service Canada", "PO Box 5100 Station D", "Scarborough ON M1R 5C8", "CANADA"]
+        },
+        {
+          "title": "For postal codes beginning with K or P",
+          "addr": ["Service Canada", "PO Box 2013 Station Main", "Timmins ON P4N 8C8", "CANADA"]
+        },
+        {
+          "title": "For Disability applications (all postal codes)",
+          "addr": ["Service Canada", "PO Box 2020 Station Main", "Chatham ON N7M 6B2", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Prince Edward Island",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 8000 Station Central", "Charlottetown PE C1A 8K1", "CANADA"]
+        },
+        {
+          "title": "For Disability applications",
+          "addr": ["Service Canada", "PO Box 1687 Station Central", "Halifax NS B3J 3J4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Quebec",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1816 Station Terminus", "Quebec QC G1K 7L5", "CANADA"]
+        },
+        {
+          "title": "For Canada Pension Plan and Disability applications",
+          "addr": ["Service Canada", "PO Box 250 Station A", "Fredericton NB E3B 4Z6"]
+        }
+      ]
+    },
+    {
+      "prov": "Saskatchewan",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Yukon",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1177 Station CSC", "Victoria BC V8W 2V2"]
+        }
+      ]
+    }
+  ]
+}

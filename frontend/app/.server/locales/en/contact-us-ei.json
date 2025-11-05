@@ -57,147 +57,175 @@
   "person.hours.dd.2": "Find a Service Canada Centre to see their hours of operation",
   "submit-mail": "You can submit your Employment Insurance claimant reports and supporting documentation by mail.",
   "select-province": "Select your province or territory to find out where to send your reports and documents.",
-  "mail-ab": {
-    "summary": "Alberta",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+  "mail-contacts": [
+    {
+      "prov": "Alberta",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-bc": {
-    "summary": "British Columbia",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "British Columbia",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-mb": {
-    "summary": "Manitoba",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Manitoba",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-nb": {
-    "summary": "New Brunswick",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "New Brunswick",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nl": {
-    "summary": "Newfoundland and Labrador",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+    {
+      "prov": "Newfoundland and Labrador",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nt": {
-    "summary": "Northwest Territories",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Northwest Territories",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-ns": {
-    "summary": "Nova Scotia",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "Nova Scotia",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nu": {
-    "summary": "Nunavut",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Nunavut",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-on": {
-    "summary": "Ontario",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 4500", "Belleville ON K8N 5C1"]
+    {
+      "prov": "Ontario",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 4500", "Belleville ON K8N 5C1"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2602", "Mississauga ON L4T 0B1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2602", "Mississauga ON L4T 0B1"]
-    }
-  },
-  "mail-pe": {
-    "summary": "Prince Edward Island",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "Prince Edward Island",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-qc": {
-    "summary": "Quebec",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 60", "Boucherville QC J4B 5E6"]
+    {
+      "prov": "Quebec",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 60", "Boucherville QC J4B 5E6"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 60", "Boucherville QC J4B 5E6"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 60", "Boucherville QC J4B 5E6"]
-    }
-  },
-  "mail-sk": {
-    "summary": "Saskatchewan",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Saskatchewan",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+    {
+      "prov": "Yukon",
+      "addressList": [
+        {
+          "title": "For Employment Insurance reports",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "For supporting documents",
+          "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     }
-  },
-  "mail-yt": {
-    "summary": "Yukon",
-    "forReports": {
-      "title": "For Employment Insurance reports",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 2100", "Vancouver BC V6B 3T4"]
-    },
-    "forDocs": {
-      "title": "For supporting documents",
-      "addr": ["Service Canada", "Employment Insurance Program", "PO Box 245", "Edmonton AB T5J 2J1"]
-    }
-  }
+  ]
 }

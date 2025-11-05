@@ -1,0 +1,199 @@
+{
+  "page-title": "Communiquer avec le Régime de pensions du Canada",
+  "document-title": "Communiquer avec le Régime de pensions du Canada",
+  "on-this-page": "Sur cette page",
+  "phone": "Téléphone",
+  "callback": "Demande de rappel",
+  "in-person": "En personne",
+  "mail": "Poste",
+  "call-us": "<strong>Appelez-nous pour parler à un représentant du Régime de pensions du Canada</strong> et obtenir de l’aide pendant les heures d’ouverture indiquées ci-dessous.",
+  "self-service": "Ce numéro de téléphone offre aussi un <strong>service automatisé disponible 24 heures sur 24, 7 jours sur 7</strong>. Vous pouvez utiliser les options de livre-service pour\u00a0:",
+  "self-service.li.1": "vérifier l’état de votre demande;",
+  "self-service.li.2": "confirmer le montant et la date de votre paiement mensuel.",
+  "before-call.dt": "Avant de nous appeler",
+  "before-call.dd": "Pour obtenir des renseignements au sujet de votre compte, vous aurez besoin de votre <strong>numéro d’assurance sociale et d’autres renseignements personnels.</strong>",
+  "phone-numbers.canada.dt": "Numéros de téléphone au Canada et aux États-Unis",
+  "phone-numbers.canada.dd.1": "Sans frais\u00a0: <strong>1-800-277-9915</strong>",
+  "phone-numbers.canada.dd.2": "ATS\u00a0: 1-800-255-4786",
+  "phone-numbers.itl.dt": "Numéro de téléphone à l’extérieur du Canada et des États-Unis",
+  "phone-numbers.itl.dd.1": "1-613-957-1954 (appelez à frais virés)",
+  "hours-of-operation.dt": "Heures d’ouverture",
+  "hours-of-operation.dd.1": "Pour les numéros de téléphone au Canada et aux États-Unis : <strong>8 h 30 à 16 h 30 (heure locale), du lundi au vendredi sauf les jours fériés.</strong>",
+  "hours-of-operation.dd.2": "Pour le numéro de téléphone à l’extérieur du Canada et des États-Unis : <strong>8 h 30 à 16 h 30 (heure normale de l’Est), du lundi au vendredi, sauf les jours fériés.</strong>",
+  "wait-times.dt": "Temps d’attente",
+  "wait-times.dd": "Notre norme de service est de répondre à votre appel dans les 10 minutes.",
+  "automated-hours.dt": "Heures de disponibilité du service automatisé",
+  "automated-hours.dd": "24 heures sur 24, 7 jours sur 7",
+  "ask-us-to-call-you": "Vous pouvez nous demander de vous téléphoner. Remplissez le formulaire pour nous dire comment nous pouvons vous aider. Nous communiquerons avec vous dans les 2 jours ouvrables.",
+  "assistance": "L’aide que vous pouvez obtenir se limite aux situations suivantes :",
+  "assistance.li.1": "obtenir des renseignements généraux;",
+  "assistance.li.2": "obtenir de l'aide pour présenter une demande de prestations du Régime de pensions du Canada, y compris les prestations de décès, du survivant et d’invalidité due à une maladie terminale;",
+  "assistance.li.3": "soumettre des renseignements supplémentaires et des documents justificatifs (par exemple, procuration, certificat de décès, preuve de l’état civil, statut légal et de résidence, rapport médical);",
+  "assistance.li.4": "mettre à jour les renseignements relatifs au dépôt direct et votre adresse.",
+  "before-contact.dt": "Avant de communiquer avec nous",
+  "before-contact.dd": "Vous devrez fournir votre <strong>nom, pays, province ou territoire et numéro de téléphone</strong> sur le formulaire de demande.",
+  "callback-form.dt": "Formulaire de rappel",
+  "callback-form.dd": "Remplir le formulaire de demande de rappel eServiceCanada",
+  "callback-form.dd.href": "https://eservices.canada.ca/fr/service/",
+  "wait-callback.dt": "Temps d’attente pour le rappel",
+  "wait-callback.dd": "Dans les 2 jours ouvrables",
+  "ask-not-visit": "Nous vous demandons de ne pas vous rendre dans les Centres Service Canada, sauf si nécessaire, en raison des directives de santé relatives à la COVID-19.",
+  "before-come.dt": "Avant de vous rendre à un bureau",
+  "before-come.dd.1": "Pour avoir accès à votre dossier à un Centre Service Canada, vous devez présenter une pièce d’identité valide et répondre à des questions de vérification. Aucune pièce d'identité n'est requise pour poser des questions sur nos services.",
+  "before-come.dd.2": "Exemples de pièces d’identité acceptées :",
+  "before-come.dd.3": "l’une des suivantes :",
+  "before-come.dd.3.li.1": "un passeport (canadien ou étranger) ou une carte de résident permanent;",
+  "before-come.dd.3.li.2": "un Certificate du statut d’Indien délivré par le gouvernement du Canada;",
+  "before-come.dd.3.li.3": "une carte d’identité ou un permis de conduire provincial ou territorial;",
+  "before-come.dd.4": "ou 2 des suivantes :",
+  "before-come.dd.4.li.1": "un certificat de naissance (provincial ou territorial);",
+  "before-come.dd.4.li.2": "un certificat de citoyenneté canadienne;",
+  "before-come.dd.4.li.3": "un certificat d’enregistrement d’une naissance à l’étranger;",
+  "before-come.dd.4.li.4": "toute autre pièce d’identité délivrée par un gouvernement.",
+  "find-location.dt": "Trouver un bureau",
+  "find-location.dd": "Trouver un Centre Service Canada",
+  "find-location.dd.href": "https://www.servicecanada.gc.ca/tbsc-fsco/sc-hme.jsp?lang=fra",
+  "person.hours.dt": "Heures d’ouverture",
+  "person.hours.dd.1": "Varient selon les endroits",
+  "person.hours.dd.2": "Trouver un Centre Service Canada pour en connaître les heures d’ouverture",
+  "select-province": "Sélectionnez votre province ou territoire pour connaître l'adresse postale du Centre Service Canada où envoyer vos documents. Si vous êtes à l'extérieur du Canada, envoyez-les au Centre assigné à la province où vous avez résidé en dernier lieu.",
+  "mail-contacts": [
+    {
+      "prov": "Alberta",
+      "addressList": [
+        {
+          "title": "Pour les demandes de prestations d'invalidité",
+          "addr": ["Service Canada", "CP 2710 Succursale Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations du Régime de pensions du Canada",
+          "addr": ["Service Canada", "CP 818 Succursale Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Colombie-Britannique",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1177 Succursale CSC", "Victoria BC V8W 2V2", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Île-du-Prince-Édouard",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 8000 Succursale Central", "Charlottetown PE C1A 8K1", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations d'invalidité",
+          "addr": ["Service Canada", "PO Box 1687 Succursale Central", "Halifax NS B3J 3J4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Manitoba",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 818 Succursale Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Nouveau-Brunswick",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 250 Succursale A", "Fredericton NB E3B 4Z6", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Nouvelle-Écosse",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1687 Succursale Central", "Halifax NS B3J 3J4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Nunavut",
+      "addressList": [
+        {
+          "title": "Pour les demandes de prestations d'invalidité",
+          "addr": ["Service Canada", "PO Box 2710 Succursale Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations du Régime de pensions du Canada",
+          "addr": ["Service Canada", "PO Box 818 Succursale Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Ontario",
+      "addressList": [
+        {
+          "title": "Pour les codes postaux commençant par L, M ou N",
+          "addr": ["Service Canada", "PO Box 5100 Succursale D", "Scarborough ON M1R 5C8", "CANADA"]
+        },
+        {
+          "title": "Pour les codes postaux commençant par K ou P",
+          "addr": ["Service Canada", "PO Box 2013 Succursale Main", "Timmins ON P4N 8C8", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations d'invalidité (tous les codes postaux)",
+          "addr": ["Service Canada", "PO Box 2020 Succursale Main", "Chatham ON N7M 6B2", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Quebec",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1816 Succursale Terminus", "Quebec QC G1K 7L5", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations du Régime de pensions du Canada incluant les demandes de prestations d'invalidité",
+          "addr": ["Service Canada", "PO Box 250 Succursale A", "Fredericton NB E3B 4Z6"]
+        }
+      ]
+    },
+    {
+      "prov": "Saskatchewan",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 818 Succursale Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Terre-Neuve-et-Labrador",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 9430 Succursale A", "St. John's NL A1A 2Y5", "CANADA"]
+        }
+      ]
+    },
+
+    {
+      "prov": "Territoires du Nord-Ouest",
+      "addressList": [
+        {
+          "title": "Pour les demandes de prestations d'invalidité",
+          "addr": ["Service Canada", "PO Box 2710 Succursale Main", "Edmonton AB T5J 2G4", "CANADA"]
+        },
+        {
+          "title": "Pour les demandes de prestations du Régime de pensions du Canada",
+          "addr": ["Service Canada", "PO Box 818 Succursale Main", "Winnipeg MB R3C 2N4", "CANADA"]
+        }
+      ]
+    },
+    {
+      "prov": "Yukon",
+      "addressList": [
+        {
+          "addr": ["Service Canada", "PO Box 1177 Succursale CSC", "Victoria BC V8W 2V2", "CANADA"]
+        }
+      ]
+    }
+  ]
+}
