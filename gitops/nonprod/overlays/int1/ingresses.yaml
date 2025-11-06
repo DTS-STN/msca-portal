@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend
+  name: mscad-int1-secure-client
   labels:
-    app.kubernetes.io/name: frontend
+    app.kubernetes.io/name: msca-frontend
 spec:
   ingressClassName: nginx
   rules:
