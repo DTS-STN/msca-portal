@@ -8,21 +8,21 @@ describe('route-utils', () => {
     it('should default to English when no language is found', () => {
       const result = i18nRedirect('routes/inbox.tsx', '');
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters');
+      expect(result.headers.get('location')).toBe('/en/inbox');
     });
 
     it('should redirect to the correct path if language is found', () => {
-      const result = i18nRedirect('routes/inbox.tsx', '/en/letters');
+      const result = i18nRedirect('routes/inbox.tsx', '/en/inbox');
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters');
+      expect(result.headers.get('location')).toBe('/en/inbox');
     });
 
     it('should redirect to the correct path when search params are provided', () => {
-      const result = i18nRedirect('routes/inbox.tsx', '/en/letters', { search: new URLSearchParams('foo=bar=baz') });
+      const result = i18nRedirect('routes/inbox.tsx', '/en/inbox', { search: new URLSearchParams('foo=bar=baz') });
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters?foo=bar%3Dbaz');
+      expect(result.headers.get('location')).toBe('/en/inbox?foo=bar%3Dbaz');
     });
 
     it('should use language from URL when available', () => {
@@ -32,7 +32,7 @@ describe('route-utils', () => {
       const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters');
+      expect(result.headers.get('location')).toBe('/en/inbox');
     });
 
     it('should use Accept-Language header when no language in URL', () => {
@@ -42,7 +42,7 @@ describe('route-utils', () => {
       const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/fr/lettres');
+      expect(result.headers.get('location')).toBe('/fr/boite-reception');
     });
 
     it('should default to English when no Accept-Language header', () => {
@@ -50,7 +50,7 @@ describe('route-utils', () => {
       const result = i18nRedirect('routes/inbox.tsx', request);
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters');
+      expect(result.headers.get('location')).toBe('/en/inbox');
     });
 
     it('should use custom default language when specified', () => {
@@ -60,7 +60,7 @@ describe('route-utils', () => {
       });
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/fr/lettres');
+      expect(result.headers.get('location')).toBe('/fr/boite-reception');
     });
 
     it('should handle search parameters', () => {
@@ -72,7 +72,7 @@ describe('route-utils', () => {
       });
 
       expect(result.status).toBe(HttpStatusCodes.FOUND);
-      expect(result.headers.get('location')).toBe('/en/letters?test=value');
+      expect(result.headers.get('location')).toBe('/en/inbox?test=value');
     });
   });
 });

@@ -9,10 +9,10 @@ import { findRouteByFile, findRouteByPath, getRouteByFile, getRouteByPath } from
 describe('route-utils', () => {
   describe('findRouteByFile', () => {
     it('should return the correct route for a given file', () => {
-      expect(findRouteByFile('routes/letters.tsx', i18nRoutes)).toEqual({
-        id: 'PROT-0001',
-        file: 'routes/letters.tsx',
-        paths: { en: '/en/letters', fr: '/fr/lettres' },
+      expect(findRouteByFile('routes/inbox.tsx', i18nRoutes)).toEqual({
+        id: 'PROT-0004',
+        file: 'routes/inbox.tsx',
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
     });
 
@@ -23,10 +23,10 @@ describe('route-utils', () => {
 
   describe('findRouteByPath', () => {
     it('should return the correct route for a given path', () => {
-      expect(findRouteByPath('/en/letters', i18nRoutes)).toEqual({
-        id: 'PROT-0001',
-        file: 'routes/letters.tsx',
-        paths: { en: '/en/letters', fr: '/fr/lettres' },
+      expect(findRouteByPath('/en/inbox', i18nRoutes)).toEqual({
+        id: 'PROT-0004',
+        file: 'routes/inbox.tsx',
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
     });
 
@@ -38,9 +38,9 @@ describe('route-utils', () => {
   describe('getRouteByFile', () => {
     it('should return the correct route for a given file', () => {
       expect(getRouteByFile('routes/inbox.tsx', i18nRoutes)).toEqual({
-        id: 'PROT-0001',
-        file: 'routes/letters.tsx',
-        paths: { en: '/en/letters', fr: '/fr/lettres' },
+        id: 'PROT-0004',
+        file: 'routes/inbox.tsx',
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
     });
 
@@ -59,10 +59,10 @@ describe('route-utils', () => {
 
   describe('getRouteByPath', () => {
     it('should return the correct route for a given path', () => {
-      expect(getRouteByPath('/en/letters', i18nRoutes)).toEqual({
-        id: 'PROT-0001',
-        file: 'routes/letters.tsx',
-        paths: { en: '/en/letters', fr: '/fr/lettres' },
+      expect(getRouteByPath('/en/inbox', i18nRoutes)).toEqual({
+        id: 'PROT-0004',
+        file: 'routes/inbox.tsx',
+        paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
     });
 
@@ -95,7 +95,9 @@ describe('route-utils', () => {
       expect(isI18nPageRoute([])).toEqual(false);
       expect(isI18nPageRoute(null)).toEqual(false);
       expect(isI18nPageRoute(undefined)).toEqual(false);
-      expect(isI18nPageRoute({ file: 'routes/letters.tsx', paths: { en: '/en/letters', fr: '/fr/lettres' } })).toEqual(true);
+      expect(isI18nPageRoute({ file: 'routes/inbox.tsx', paths: { en: '/en/inbox', fr: '/fr/boite-reception' } })).toEqual(
+        true,
+      );
     });
   });
 });
