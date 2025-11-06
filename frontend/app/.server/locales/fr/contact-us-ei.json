@@ -57,147 +57,177 @@
   "person.hours.dd.2": "Trouver un Centre Service Canada pour en connaître les heures d’ouverture",
   "submit-mail": "Vous pouvez transmettre vos déclarations de l'assurance-emploi et vos documents à l'appui par la poste.",
   "select-province": "Sélectionnez votre province ou territoire pour connaître l'adresse postale où envoyer vos déclarations et vos documents.",
-  "mail-ab": {
-    "summary": "Alberta",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+  "mail-contacts": [
+    {
+      "prov": "Alberta",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-bc": {
-    "summary": "Colombie Britannique",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Colombie Britannique",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-mb": {
-    "summary": "Manitoba",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Île-du-Prince-Édouard",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-nb": {
-    "summary": "Nouveau-Brunswick",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "Manitoba",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nl": {
-    "summary": "Terre-Neuve-et-Labrador",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+    {
+      "prov": "Nouveau-Brunswick",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nt": {
-    "summary": "Territoires du Nord-Ouest",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Nouvelle-Écosse",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-ns": {
-    "summary": "Nouvelle-Écosse",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "Nunavut",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-nu": {
-    "summary": "Nunavut",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Ontario",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 4500", "Belleville ON K8N 5C1"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2602", "Mississauga ON L4T 0B1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  },
-  "mail-on": {
-    "summary": "Ontario",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 4500", "Belleville ON K8N 5C1"]
+
+    {
+      "prov": "Québec",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 60", "Boucherville QC J4B 5E6"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 60", "Boucherville QC J4B 5E6"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2602", "Mississauga ON L4T 0B1"]
-    }
-  },
-  "mail-pe": {
-    "summary": "Île-du-Prince-Édouard",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 6080", "Moncton NB E1C 0A7"]
+    {
+      "prov": "Saskatchewan",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
-    }
-  },
-  "mail-qc": {
-    "summary": "Québec",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 60", "Boucherville QC J4B 5E6"]
+    {
+      "prov": "Terre-Neuve-et-Labrador",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 8548", "St. John's NL A1B 3P3"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 60", "Boucherville QC J4B 5E6"]
-    }
-  },
-  "mail-sk": {
-    "summary": "Saskatchewan",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+    {
+      "prov": "Territoires du Nord-Ouest",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+
+    {
+      "prov": "Yukon",
+      "addressList": [
+        {
+          "title": "Pour les déclarations de l'assurance-emploi",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
+        },
+        {
+          "title": "Pour les documents à l'appui",
+          "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
+        }
+      ]
     }
-  },
-  "mail-yt": {
-    "summary": "Yukon",
-    "forReports": {
-      "title": "Pour les déclarations de l'assurance-emploi",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 2100", "Vancouver BC V6B 3T4"]
-    },
-    "forDocs": {
-      "title": "Pour les documents à l'appui",
-      "addr": ["Service Canada", "Régime d'assurance-emploi", "CP 245", "Edmonton AB T5J 2J1"]
-    }
-  }
+  ]
 }
