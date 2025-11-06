@@ -4,7 +4,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Trans, useTranslation } from 'react-i18next';
 
-import type { Route } from '.react-router/types/app/routes/contact-us/+types/employment-insurance';
+import type { Route } from '.react-router/types/app/routes/contact-us/+types/canada-pension-plan';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import ContactTableRow from '~/components/contact-table-row';
