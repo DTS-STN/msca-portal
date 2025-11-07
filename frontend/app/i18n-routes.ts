@@ -171,6 +171,11 @@ export const i18nRoutes = [
         file: 'routes/personal-information-by-benefit.tsx',
         paths: { en: '/en/personal-information-by-benefit', fr: '/fr/renseignements-personnels-par-prestation' },
       },
+      {
+        id: 'PROT-0015',
+        file: 'routes/profile-and-preferences.tsx',
+        paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];

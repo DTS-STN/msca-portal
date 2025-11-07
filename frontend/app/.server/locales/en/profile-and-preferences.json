@@ -1,0 +1,20 @@
+{
+  "page-title": "Profile and preferences.",
+  "page-description": "View and update your personal information, preferences and security settings.",
+  "account-information-title": "Account information",
+  "email-address-card": "Email address",
+  "email-address-description": "View and update your email address for security alerts.",
+  "email-address-href": "{{baseUri}}/en/profile-and-preferences",
+  "inbox-notification-preferences-card": "Inbox notification preferences",
+  "inbox-notification-preferences-description": "View and update your inbox notification preferences.",
+  "inbox-notification-preferences-href": "{{baseUri}}/en/inbox-notification-preferences",
+  "inbox-notification-preferences-success.href": "{{baseUri}}/en/inbox-notification-preferences-success",
+  "security-settings-card": "Security settings",
+  "security-settings-description": "View and update your security questions.",
+  "security-settings": "Security Settings",
+  "security-settings-href": "{{baseUri}}/en/security-settings",
+  "personal-information-title": "Personal information",
+  "personal-information-by-benefit-card": "Personal information by benefit",
+  "personal-information-by-benefit-description": "View and update personal information for the benefits you receive, such as your address and phone number.",
+  "personal-information-by-benefit-href": "{{baseUri}}/en/personal-information-by-benefit"
+}

@@ -33,6 +33,7 @@ export const handle = {
     'contactUsOas',
     'securitySettings',
     'personalInformationByBenefit',
+    'profileAndPreferences',
   ],
 } as const satisfies RouteHandle;
 

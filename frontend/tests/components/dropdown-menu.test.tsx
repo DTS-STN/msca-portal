@@ -31,7 +31,7 @@ describe('DropdownMenu', () => {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <span>Profile</span>
+              <span>Profile and Preferences</span>
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>

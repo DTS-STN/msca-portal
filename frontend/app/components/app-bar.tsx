@@ -87,7 +87,7 @@ function UserButton({ className, name }: UserButtonProps): JSX.Element {
           {t('gcweb:app.menu-dashboard')}
         </MenuItem>
         <MenuItem
-          to={t('gcweb:app.profile.href', { baseUri: MSCA_BASE_URL })}
+          to={t('gcweb:app.profile-and-preferences.href', { baseUri: MSCA_BASE_URL })}
           className="text-md flex justify-between text-black hover:bg-zinc-100 hover:text-black focus:bg-zinc-100 active:bg-zinc-100"
         >
           {t('gcweb:app.profile')}
