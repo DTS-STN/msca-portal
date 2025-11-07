@@ -32,6 +32,7 @@ export const handle = {
     'contactUsCpp',
     'contactUsOas',
     'securitySettings',
+    'personalInformationByBenefit',
   ],
 } as const satisfies RouteHandle;
 
