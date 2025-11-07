@@ -2,8 +2,8 @@
   "app": {
     "account": "Account",
     "logout": "Logout",
-    "profile": "Profile",
-    "profile.href": "{{baseUri}}/en/profile",
+    "profile": "Profile and Preferences",
+    "profile-and-preferences.href": "{{baseUri}}/en/profile-and-preferences",
     "security-settings": "Security Settings",
     "security-settings.href": "{{baseUri}}/en/security-settings",
     "contact-us": "Contact Us",

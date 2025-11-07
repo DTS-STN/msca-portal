@@ -166,6 +166,11 @@ export const i18nRoutes = [
         file: 'routes/security-settings.tsx',
         paths: { en: '/en/security-settings', fr: '/fr/parametres-securite' },
       },
+      {
+        id: 'PROT-0015',
+        file: 'routes/profile-and-preferences.tsx',
+        paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];

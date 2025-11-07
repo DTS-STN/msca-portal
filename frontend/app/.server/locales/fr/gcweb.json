@@ -2,8 +2,8 @@
   "app": {
     "account": "Compte",
     "logout": "Déconnexion",
-    "profile": "Profil",
-    "profile.href": "{{baseUri}}/fr/profil",
+    "profile": "Profil et préférences",
+    "profile-and-preferences.href": "{{baseUri}}/fr/profil-et-preferences",
     "security-settings": "Paramètres de sécurité",
     "security-settings.href": "{{baseUri}}/fr/parametres-securite",
     "contact-us": "Contactez-nous",

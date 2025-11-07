@@ -16,6 +16,8 @@ import gcwebFr from '~/.server/locales/fr/gcweb.json';
 import inboxNotificationPreferencesSuccessFr from '~/.server/locales/fr/inbox-notification-preferences-success.json';
 import inboxNotificationPreferencesFr from '~/.server/locales/fr/inbox-notification-preferences.json';
 import inboxNowAvailableFr from '~/.server/locales/fr/inbox-now-available.json';
+import profileAndPreferencesEn from '~/.server/locales/en/profile-and-preferences.json'
+import profileAndPreferencesFr from '~/.server/locales/fr/profile-and-preferences.json';
 import inboxFr from '~/.server/locales/fr/inbox.json';
 import securitySettingsFr from '~/.server/locales/fr/security-settings.json';
 
@@ -27,6 +29,7 @@ export const i18nResourcesEn = {
   inboxNowAvailable: inboxNowAvailableEn,
   inboxNotificationPreferences: inboxNotificationPreferencesEn,
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessEn,
+  profileAndPreferences: profileAndPreferencesEn,
   contactUs: contactUsEn,
   contactUsEi: contactUsEiEn,
   securitySettings: securitySettingsEn,
@@ -40,6 +43,7 @@ export const i18nResourcesFr = {
   inboxNowAvailable: inboxNowAvailableFr,
   inboxNotificationPreferences: inboxNotificationPreferencesFr,
   inboxNotificationPreferencesSuccess: inboxNotificationPreferencesSuccessFr,
+  profileAndPreferences: profileAndPreferencesFr,
   contactUs: contactUsFr,
   contactUsEi: contactUsEiFr,
   securitySettings: securitySettingsFr,

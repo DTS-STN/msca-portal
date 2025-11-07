@@ -2,7 +2,7 @@ import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
-import type { Route } from './+types/inbox-notification-preferences-success';
+import type { Route } from './+types/inbox-notification-preferences';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { ButtonLink } from '~/components/button-link';

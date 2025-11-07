@@ -27,6 +27,7 @@ export const handle = {
     'contactUs',
     'contactUsEi',
     'securitySettings',
+    'profileAndPreferences'
   ],
 } as const satisfies RouteHandle;
 
