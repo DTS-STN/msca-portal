@@ -13,6 +13,9 @@ import { i18nRoutes } from '~/i18n-routes';
 import { getRouteByFile } from '~/utils/route-utils';
 import { cn } from '~/utils/tailwind-utils';
 
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 /**
  * Props for a bilingual link component targeting an internationalized route.
  *
@@ -179,7 +182,7 @@ export function InlineLink({
   newTabIndicator,
   ...props
 }: InlineLinkProps): JSX.Element {
-  const baseClassName = cn('text-slate-700 underline hover:text-blue-700 focus:text-blue-700');
+  const baseClassName = cn('flex text-slate-700 underline hover:text-blue-700 focus:text-blue-700');
 
   if (file) {
     return (
@@ -228,8 +231,13 @@ function NewTabIndicator({ className, ...props }: OmitStrict<ComponentProps<'spa
   const { t } = useTranslation('gcweb');
   // Following whitespace is important to ensure the content's text is seperated for the screen-reader text
   return (
+    <>
+    <span>
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2'/>
+    </span>
     <span className={cn('sr-only', className)} {...props}>
       {` (${t('screen-reader.new-tab')})`}
     </span>
+    </>
   );
 }
