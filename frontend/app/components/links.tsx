@@ -3,6 +3,8 @@ import type { ComponentProps, JSX, MouseEvent } from 'react';
 import type { Params, Path } from 'react-router';
 import { generatePath, Link } from 'react-router';
 
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 
 import { AppError } from '~/errors/app-error';
@@ -12,9 +14,6 @@ import type { I18nRouteFile } from '~/i18n-routes';
 import { i18nRoutes } from '~/i18n-routes';
 import { getRouteByFile } from '~/utils/route-utils';
 import { cn } from '~/utils/tailwind-utils';
-
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
  * Props for a bilingual link component targeting an internationalized route.
@@ -232,12 +231,12 @@ function NewTabIndicator({ className, ...props }: OmitStrict<ComponentProps<'spa
   // Following whitespace is important to ensure the content's text is seperated for the screen-reader text
   return (
     <>
-    <span>
-      <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2'/>
-    </span>
-    <span className={cn('sr-only', className)} {...props}>
-      {` (${t('screen-reader.new-tab')})`}
-    </span>
+      <span>
+        <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-2" />
+      </span>
+      <span className={cn('sr-only', className)} {...props}>
+        {` (${t('screen-reader.new-tab')})`}
+      </span>
     </>
   );
 }
