@@ -17,7 +17,7 @@ export const defaults = {
   I18NEXT_DEBUG: 'false',
   SESSION_TIMEOUT_PROMPT_SECONDS: (5 * 60).toString(),
   SESSION_TIMEOUT_SECONDS: (19 * 60).toString(),
-  MSCA_BASE_URL: 'http://localhost:3001',
+  MSCA_BASE_URL: 'http://localhost:3000',
   MSCA_EQ_BASE_URL: 'http://localhost:3006',
   MSCA_ECAS_RASC_BASE_URL: 'http://localhost:3007',
   ECAS_BASE_URL: 'http://localhost:3002',
