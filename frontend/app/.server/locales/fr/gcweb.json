@@ -17,6 +17,8 @@
     "inbox-notification-preferences-success.href": "{{baseUri}}/fr/inbox-notification-preferences-success"
   },
   "breadcrumbs": {
+    "you-are-here": "Vous êtes ici\u00a0:",
+    "arialabel": "Fil d'ariane",
     "dashboard": "Mon tableau de bord"
   },
   "dialog": {
