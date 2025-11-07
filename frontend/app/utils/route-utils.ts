@@ -1,9 +1,59 @@
-import { matchPath } from 'react-router';
+import type { RouteHandle } from 'react-router';
+import { matchPath, useMatches } from 'react-router';
+
+import type { FlatNamespace, KeysByTOptions, Namespace, ParseKeysByNamespaces, TOptions } from 'i18next';
+import validator from 'validator';
+import { z } from 'zod';
 
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import type { I18nPageRoute, I18nRoute, I18nRouteFile } from '~/i18n-routes';
 import { isI18nLayoutRoute, isI18nPageRoute } from '~/i18n-routes';
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+type ParsedKeysByNamespaces<TOpt extends TOptions = {}> = ParseKeysByNamespaces<Namespace, KeysByTOptions<TOpt>>;
+
+/**
+ * A reducer function that coalesces two values, returning the non-null (or non-undefined) value.
+ */
+export const coalesce = <T>(previousValue?: T, currentValue?: T) => currentValue ?? previousValue;
+
+const breadcrumbsSchema = z
+  .array(
+    z
+      .object({
+        labelI18nKey: z.custom<ParsedKeysByNamespaces>(),
+        to: z.string().optional(),
+      })
+      .readonly(),
+  )
+  .readonly();
+
+export const i18nNamespacesSchema = z
+  .array(z.custom<FlatNamespace>())
+  .refine((arr) => Array.isArray(arr) && arr.every((val) => typeof val === 'string' && !validator.isEmpty(val)))
+  .readonly();
+
+export type Breadcrumbs = z.infer<typeof breadcrumbsSchema>;
+
+export function useBreadcrumbs() {
+  return (
+    useMatches()
+      .map((route) => route.handle as RouteHandle | undefined)
+      .map((handle) => breadcrumbsSchema.safeParse(handle?.breadcrumbs))
+      .map((result) => (result.success ? result.data : undefined))
+      .reduce(coalesce) ?? []
+  );
+}
+
+export function useI18nNamespaces() {
+  const namespaces = useMatches()
+    .map(({ handle }) => handle as RouteHandle | undefined)
+    .map((handle) => i18nNamespacesSchema.safeParse(handle?.i18nNamespace))
+    .flatMap((result) => (result.success ? result.data : undefined))
+    .filter((i18nNamespaces) => i18nNamespaces !== undefined);
+  return [...new Set(namespaces)];
+}
 
 /**
  * Recursively searches for a route matching the given file within a structure of I18nRoutes.
