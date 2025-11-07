@@ -1,6 +1,7 @@
 import appEn from '~/.server/locales/en/app.json';
 import contactUsCppEn from '~/.server/locales/en/contact-us-cpp.json';
 import contactUsEiEn from '~/.server/locales/en/contact-us-ei.json';
+import contactUsOasEn from '~/.server/locales/en/contact-us-oas.json';
 import contactUsEn from '~/.server/locales/en/contact-us.json';
 import errorsEn from '~/.server/locales/en/errors.json';
 import gcwebEn from '~/.server/locales/en/gcweb.json';
@@ -12,6 +13,7 @@ import securitySettingsEn from '~/.server/locales/en/security-settings.json';
 import appFr from '~/.server/locales/fr/app.json';
 import contactUsCppFr from '~/.server/locales/fr/contact-us-cpp.json';
 import contactUsEiFr from '~/.server/locales/fr/contact-us-ei.json';
+import contactUsOasFr from '~/.server/locales/fr/contact-us-oas.json';
 import contactUsFr from '~/.server/locales/fr/contact-us.json';
 import errorsFr from '~/.server/locales/fr/errors.json';
 import gcwebFr from '~/.server/locales/fr/gcweb.json';
@@ -32,6 +34,7 @@ export const i18nResourcesEn = {
   contactUs: contactUsEn,
   contactUsEi: contactUsEiEn,
   contactUsCpp: contactUsCppEn,
+  contactUsOas: contactUsOasEn,
   securitySettings: securitySettingsEn,
 } as const;
 
@@ -46,6 +49,7 @@ export const i18nResourcesFr = {
   contactUs: contactUsFr,
   contactUsEi: contactUsEiFr,
   contactUsCpp: contactUsCppFr,
+  contactUsOas: contactUsOasFr,
   securitySettings: securitySettingsFr,
 } as const;
 

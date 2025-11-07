@@ -14,10 +14,10 @@ export function ProvinceMailContactCard({ card }: ProvinceMailContactAltCardProp
     <>
       <div className="py-2">
         <details className="mb-5px font-body text-20px text-gray-darker">
-          <summary className="border-gray-40 px-15px py-5px text-deep-blue-60d hover:text-blue-hover cursor-pointer rounded border outline-none select-none hover:underline">
+          <summary className="border-gray-40 text-deep-blue-60d hover:text-blue-hover cursor-pointer rounded border px-[15px] py-[5px] outline-none select-none hover:underline">
             {card.prov}
           </summary>
-          <div className="border-gray-40 px-18px py-5px cursor-pointer rounded-b border outline-none select-none">
+          <div className="border-gray-40 cursor-pointer rounded-b border px-[18px] py-[5px] outline-none select-none">
             <div className="grid grid-cols-2 text-xl">
               {card.addressList.map((address, _index) => (
                 <div
