@@ -20,13 +20,13 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const { userinfoTokenClaims } = await requireAuth(context.session, request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
+  const { ECAS_BASE_URL } = globalThis.__appEnvironment;
 
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('securitySettings:document-title'), MSCA_BASE_URL };
+  return { documentTitle: t('securitySettings:document-title'), ECAS_BASE_URL };
 }
 
 export function meta({ data }: Route.MetaArgs) {
@@ -35,7 +35,7 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function SecuritySettings({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
-  const { MSCA_BASE_URL } = loaderData;
+  const { ECAS_BASE_URL } = loaderData;
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function SecuritySettings({ loaderData, params }: Route.Component
 
         <div className="text-gray-darker text-xl">
           <p className="mt-3 mb-8">{t('securitySettings:part-1')}</p>
-          <InlineLink to={t('securitySettings:security-questions-href', { baseUri: MSCA_BASE_URL })}>
+          <InlineLink to={t('securitySettings:security-questions.href', { baseUri: ECAS_BASE_URL })}>
             {t('securitySettings:security-questions')}
           </InlineLink>
           <p className="mb-8">{t('securitySettings:part-2')}</p>
