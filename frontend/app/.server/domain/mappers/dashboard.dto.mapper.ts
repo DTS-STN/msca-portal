@@ -1,18 +1,8 @@
 import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.dto.server';
 import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity } from '../entities/dashboard.entity';
 
-export interface DashboardDtoMapper {
-  mapPageAlertEntitiesToPageAlertDtos(pageAlertEntities: PageAlertEntity[], lang: string): PageAlertDto[];
-  mapExitBetaEntityToExitBetaDto(exitBetaEntity: ExitBetaEntity, lang: string): ExitBetaDto;
-  mapCardAlertEntityToCardAlertDto(cardAlertEntities: CardAlertEntity[], lang: string): CardAlertDto[];
-}
-
-export function getDashboardDtoMapper(): DashboardDtoMapper {
-  return new DefaultDashboardDtoMapper();
-}
-
-export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
-  mapCardAlertEntityToCardAlertDto(cardAlertEntities: CardAlertEntity[], lang: string): CardAlertDto[] {
+export function getDashboardDtoMapper() {
+  function mapCardAlertEntityToCardAlertDto(cardAlertEntities: CardAlertEntity[], lang: string): CardAlertDto[] {
     return cardAlertEntities.map((cardAlert: CardAlertEntity) => ({
       id: cardAlert.scId,
       alerts: cardAlert.schAlerts.map((alert) => ({
@@ -24,7 +14,7 @@ export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
     }));
   }
 
-  mapPageAlertEntitiesToPageAlertDtos(pageAlertEntities: PageAlertEntity[], lang: string): PageAlertDto[] {
+  function mapPageAlertEntitiesToPageAlertDtos(pageAlertEntities: PageAlertEntity[], lang: string): PageAlertDto[] {
     return pageAlertEntities.map((alert: PageAlertEntity) => ({
       id: alert.scId,
       alertHeading: lang === 'en' ? alert.scHeadingEn : alert.scHeadingFr,
@@ -33,10 +23,16 @@ export class DefaultDashboardDtoMapper implements DashboardDtoMapper {
     }));
   }
 
-  mapExitBetaEntityToExitBetaDto(exitBetaEntity: ExitBetaEntity, lang: string): ExitBetaDto {
+  function mapExitBetaEntityToExitBetaDto(exitBetaEntity: ExitBetaEntity, lang: string): ExitBetaDto {
     return {
       title: lang === 'en' ? (exitBetaEntity?.scTitleEn ?? '') : (exitBetaEntity?.scTitleFr ?? ''),
       link: lang === 'en' ? (exitBetaEntity?.scDestinationURLEn ?? '') : (exitBetaEntity?.scDestinationURLFr ?? ''),
     };
   }
+
+  return {
+    mapCardAlertEntityToCardAlertDto,
+    mapPageAlertEntitiesToPageAlertDtos,
+    mapExitBetaEntityToExitBetaDto,
+  };
 }

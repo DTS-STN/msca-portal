@@ -1,14 +1,8 @@
-import moize from 'moize';
-
 import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity, ScFragmentEntity } from '../entities/dashboard.entity';
 
-const { AEM_GRAPHQL_ENDPOINT, AEM_GRAPHQL_FOLDER, LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS } = globalThis.__appEnvironment;
+const { AEM_GRAPHQL_ENDPOINT, AEM_GRAPHQL_FOLDER } = globalThis.__appEnvironment;
 
-export const getDashboardRepository = moize(createDashboardReposity, {
-  onCacheAdd: () => console.log('Creating new dashboard repository '),
-});
-
-function createDashboardReposity() {
+export function getDashboardReposity() {
   async function getDashboardContent() {
     const url = new URL(`${AEM_GRAPHQL_ENDPOINT}getSchMyDashboardV3%3BfolderName=${encodeURIComponent(AEM_GRAPHQL_FOLDER)}`);
     const response = await fetch(url);
@@ -47,17 +41,8 @@ function createDashboardReposity() {
   }
 
   return {
-    getDashboardPageAlertContent: moize(getDashboardPageAlertContent, {
-      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
-      onCacheAdd: () => console.log('Creating new getDashboardPageAlertContent memo'),
-    }),
-    getDashboardCardAlertContent: moize(getDashboardCardAlertContent, {
-      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
-      onCacheAdd: () => console.log('Creating new getDashboardCardAlertContent memo'),
-    }),
-    getDashboardExitBetaContent: moize(getDashboardExitBetaContent, {
-      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
-      onCacheAdd: () => console.log('Creating new getDashboardExitBetaContent memo'),
-    }),
+    getDashboardPageAlertContent,
+    getDashboardCardAlertContent,
+    getDashboardExitBetaContent,
   };
 }

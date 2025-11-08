@@ -1,10 +1,18 @@
+import moize from 'moize';
+
 import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.dto.server';
 import { getDashboardDtoMapper } from '../mappers/dashboard.dto.mapper';
-import { getDashboardRepository } from '../repositories/dashboard.repository';
+import { getDashboardReposity } from '../repositories/dashboard.repository';
 
-export function getDashboardService() {
+const { LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS } = globalThis.__appEnvironment;
+
+export const getDashboardService = moize(createDashboardService, {
+  onCacheAdd: () => console.log('Creating new dashboard service'),
+});
+
+export function createDashboardService() {
   const mapper = getDashboardDtoMapper();
-  const repo = getDashboardRepository();
+  const repo = getDashboardReposity();
 
   async function getPageAlertsByLang(lang: string): Promise<readonly PageAlertDto[]> {
     const response = await repo.getDashboardPageAlertContent();
@@ -31,8 +39,17 @@ export function getDashboardService() {
   }
 
   return {
-    getPageAlertsByLang,
-    getCardAlertsByLang,
-    getExitBetaByLang,
+    getPageAlertsByLang: moize(getPageAlertsByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getPageAlertsByLang memo'),
+    }),
+    getCardAlertsByLang: moize(getCardAlertsByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getCardAlertsByLang memo'),
+    }),
+    getExitBetaByLang: moize(getExitBetaByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getExitBetaByLang memo'),
+    }),
   };
 }
