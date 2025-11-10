@@ -19,7 +19,8 @@
   "breadcrumbs": {
     "you-are-here": "Vous êtes ici\u00a0:",
     "arialabel": "Fil d'ariane",
-    "dashboard": "Mon tableau de bord"
+    "dashboard": "Mon tableau de bord",
+    "contact-us": "Contactez-nous"
   },
   "dialog": {
     "close": "Fermer"

@@ -17,6 +17,10 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [
+    { labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' },
+    { labelI18nKey: 'gcweb:breadcrumbs.contact-us', to: '/my-dashboard' },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
@@ -40,6 +44,7 @@ const onThisPageListStyle =
 const headingStyle = 'py-2 font-display text-32px font-bold text-gray-darker md:pt-6 md:text-4xl';
 const paraStyle = 'font-body mb-2 mt-6 text-xl';
 const liStyle = 'ps-[0.325em] font-body text-xl marker:text-black my-2';
+const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Employment Insurance:';
 
 const clockIcon = (
   <div>
@@ -159,7 +164,12 @@ export default function EmploymentInsurance({ loaderData, params }: Route.Compon
           <ContactTableRow
             dtElement={t('contactUsEi:callback-form.dt')}
             ddElement={
-              <InlineLink to={t('contactUsEi:callback-form.dd.href')} newTabIndicator={true}>
+              <InlineLink
+                to={t('contactUsEi:callback-form.dd.href')}
+                newTabIndicator={true}
+                data-gc-analytics-customclick={aaPrefix + 'oas-callback-form'}
+                aria-label={t('contactUsEi:callback-form.dd.aria')}
+              >
                 {t('contactUsEi:callback-form.dd')}
               </InlineLink>
             }
@@ -214,7 +224,12 @@ export default function EmploymentInsurance({ loaderData, params }: Route.Compon
           <ContactTableRow
             dtElement={t('contactUsEi:find-location.dt')}
             ddElement={
-              <InlineLink to={t('contactUsEi:find-location.dd.href')} newTabIndicator={true}>
+              <InlineLink
+                to={t('contactUsEi:find-location.dd.href')}
+                newTabIndicator={true}
+                data-gc-analytics-customclick={aaPrefix + 'oas-in-person-find-a-location'}
+                aria-label={t('contactUsEi:find-location.dd.aria')}
+              >
                 {t('contactUsEi:find-location.dd')}
               </InlineLink>
             }
@@ -248,6 +263,7 @@ export default function EmploymentInsurance({ loaderData, params }: Route.Compon
         <AllProvinceContactCards
           props={{
             cards: t('contactUsEi:mail-contacts', { returnObjects: true }),
+            aaPrefix: aaPrefix,
           }}
         />
       </div>
