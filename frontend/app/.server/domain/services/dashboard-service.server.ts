@@ -4,7 +4,6 @@ import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.
 import { getDashboardDtoMapper } from '../mappers/dashboard.dto.mapper';
 import { getDashboardRepository } from '../repositories/dashboard.repository';
 
-
 const { LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS } = globalThis.__appEnvironment;
 
 export const getDashboardService = moize(createDashboardService, {
