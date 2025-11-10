@@ -2,18 +2,8 @@ import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity, ScFragmentEntity
 
 const { AEM_GRAPHQL_ENDPOINT, AEM_GRAPHQL_FOLDER } = globalThis.__appEnvironment;
 
-export interface DashboardRepository {
-  getDashboardPageAlertContent(): Promise<PageAlertEntity[]>;
-  getDashboardCardAlertContent(): Promise<CardAlertEntity[]>;
-  getDashboardExitBetaContent(): Promise<ExitBetaEntity>;
-}
-
-export function getDashboardRepository(): DashboardRepository {
-  return new DefaultDashboardRespository();
-}
-
-export class DefaultDashboardRespository implements DashboardRepository {
-  async getDashboardContent() {
+export function getDashboardRepository() {
+  async function getDashboardContent() {
     const url = new URL(`${AEM_GRAPHQL_ENDPOINT}getSchMyDashboardV3%3BfolderName=${encodeURIComponent(AEM_GRAPHQL_FOLDER)}`);
     const response = await fetch(url);
 
@@ -24,14 +14,14 @@ export class DefaultDashboardRespository implements DashboardRepository {
     return response.json();
   }
 
-  async getDashboardPageAlertContent(): Promise<PageAlertEntity[]> {
-    const dashBoardData = await this.getDashboardContent();
+  async function getDashboardPageAlertContent(): Promise<PageAlertEntity[]> {
+    const dashBoardData = await getDashboardContent();
 
     return dashBoardData.data.schPageV1List.items[0].schAlerts;
   }
 
-  async getDashboardCardAlertContent(): Promise<CardAlertEntity[]> {
-    const dashBoardData = await this.getDashboardContent();
+  async function getDashboardCardAlertContent(): Promise<CardAlertEntity[]> {
+    const dashBoardData = await getDashboardContent();
 
     const scFragmentEntities: ScFragmentEntity[] = dashBoardData.data.schPageV1List.items[0].scFragments.filter(
       (item: ScFragmentEntity) => item.scId === 'dashboard-cards',
@@ -40,8 +30,8 @@ export class DefaultDashboardRespository implements DashboardRepository {
     return scFragmentEntities[0]?.scItems ?? [];
   }
 
-  async getDashboardExitBetaContent(): Promise<ExitBetaEntity> {
-    const dashBoardData = await this.getDashboardContent();
+  async function getDashboardExitBetaContent(): Promise<ExitBetaEntity> {
+    const dashBoardData = await getDashboardContent();
 
     const exitBetaEntities: ExitBetaEntity[] = dashBoardData.data.schPageV1List.items[0].scFragments.filter(
       (item: ScFragmentEntity) => item.scId === 'exit-beta-version',
@@ -49,4 +39,10 @@ export class DefaultDashboardRespository implements DashboardRepository {
 
     return exitBetaEntities[0];
   }
+
+  return {
+    getDashboardPageAlertContent,
+    getDashboardCardAlertContent,
+    getDashboardExitBetaContent,
+  };
 }

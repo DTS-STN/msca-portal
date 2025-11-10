@@ -1,51 +1,55 @@
+import moize from 'moize';
+
 import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.dto.server';
-import type { DashboardDtoMapper } from '../mappers/dashboard.dto.mapper';
 import { getDashboardDtoMapper } from '../mappers/dashboard.dto.mapper';
-import type { DashboardRepository } from '../repositories/dashboard.repository';
 import { getDashboardRepository } from '../repositories/dashboard.repository';
 
-export interface DashboardService {
-  getPageAlertsByLang(lang: string): Promise<readonly PageAlertDto[]>;
-  getCardAlertsByLang(lang: string): Promise<readonly CardAlertDto[]>;
-  getExitBetaByLang(lang: string): Promise<ExitBetaDto>;
-}
+const { LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS } = globalThis.__appEnvironment;
 
-export function getDashboardService(): DashboardService {
+export const getDashboardService = moize(createDashboardService, {
+  onCacheAdd: () => console.log('Creating new dashboard service'),
+});
+
+export function createDashboardService() {
   const mapper = getDashboardDtoMapper();
   const repo = getDashboardRepository();
-  return new DefaultDashboardService(mapper, repo);
-}
 
-export class DefaultDashboardService implements DashboardService {
-  private readonly dashboardDtoMapper: DashboardDtoMapper;
-  private readonly dashboardRepository: DashboardRepository;
+  async function getPageAlertsByLang(lang: string): Promise<readonly PageAlertDto[]> {
+    const response = await repo.getDashboardPageAlertContent();
 
-  constructor(dashboardDtoMapper: DashboardDtoMapper, dashboardRepository: DashboardRepository) {
-    this.dashboardDtoMapper = dashboardDtoMapper;
-    this.dashboardRepository = dashboardRepository;
-  }
-
-  async getPageAlertsByLang(lang: string): Promise<readonly PageAlertDto[]> {
-    const response = await this.dashboardRepository.getDashboardPageAlertContent();
-
-    const pageAlertDtos: PageAlertDto[] = this.dashboardDtoMapper.mapPageAlertEntitiesToPageAlertDtos(response, lang);
+    const pageAlertDtos: PageAlertDto[] = mapper.mapPageAlertEntitiesToPageAlertDtos(response, lang);
 
     return pageAlertDtos;
   }
 
-  async getCardAlertsByLang(lang: string): Promise<readonly CardAlertDto[]> {
-    const response = await this.dashboardRepository.getDashboardCardAlertContent();
+  async function getCardAlertsByLang(lang: string): Promise<readonly CardAlertDto[]> {
+    const response = await repo.getDashboardCardAlertContent();
 
-    const cardAlertDtos = this.dashboardDtoMapper.mapCardAlertEntityToCardAlertDto(response, lang);
+    const cardAlertDtos = mapper.mapCardAlertEntityToCardAlertDto(response, lang);
 
     return cardAlertDtos;
   }
 
-  async getExitBetaByLang(lang: string): Promise<ExitBetaDto> {
-    const response = await this.dashboardRepository.getDashboardExitBetaContent();
+  async function getExitBetaByLang(lang: string): Promise<ExitBetaDto> {
+    const response = await repo.getDashboardExitBetaContent();
 
-    const exitBetaDtos = this.dashboardDtoMapper.mapExitBetaEntityToExitBetaDto(response, lang);
+    const exitBetaDtos = mapper.mapExitBetaEntityToExitBetaDto(response, lang);
 
     return exitBetaDtos;
   }
+
+  return {
+    getPageAlertsByLang: moize(getPageAlertsByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getPageAlertsByLang memo'),
+    }),
+    getCardAlertsByLang: moize(getCardAlertsByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getCardAlertsByLang memo'),
+    }),
+    getExitBetaByLang: moize(getExitBetaByLang, {
+      maxAge: 1000 * LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS,
+      onCacheAdd: () => console.log('Creating new getExitBetaByLang memo'),
+    }),
+  };
 }
