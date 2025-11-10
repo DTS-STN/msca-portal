@@ -9,6 +9,8 @@ export type CctApi = Readonly<v.InferOutput<typeof cctApi>>;
 
 export const defaults = {
   CCT_API_BASE_URI: 'http://localhost:8080/api/v1/',
+  CCT_API_LETTERS_ENDPOINT: '/GetDocInfoByClientId',
+  CCT_API_LETTERS_URI: '/client-correspondence/letter-retrieval/cct/v1',
   CCT_API_MAX_RETRIES: '3',
   CCT_API_BACKOFF_MS: '100',
   CCT_API_KEY: '',
