@@ -2,7 +2,8 @@ import moize from 'moize';
 
 import type { CardAlertDto, ExitBetaDto, PageAlertDto } from '../dtos/dashboard.dto.server';
 import { getDashboardDtoMapper } from '../mappers/dashboard.dto.mapper';
-import { getDashboardReposity } from '../repositories/dashboard.repository';
+import { getDashboardRepository } from '../repositories/dashboard.repository';
+
 
 const { LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS } = globalThis.__appEnvironment;
 
@@ -12,7 +13,7 @@ export const getDashboardService = moize(createDashboardService, {
 
 export function createDashboardService() {
   const mapper = getDashboardDtoMapper();
-  const repo = getDashboardReposity();
+  const repo = getDashboardRepository();
 
   async function getPageAlertsByLang(lang: string): Promise<readonly PageAlertDto[]> {
     const response = await repo.getDashboardPageAlertContent();

@@ -2,7 +2,7 @@ import type { CardAlertEntity, ExitBetaEntity, PageAlertEntity, ScFragmentEntity
 
 const { AEM_GRAPHQL_ENDPOINT, AEM_GRAPHQL_FOLDER } = globalThis.__appEnvironment;
 
-export function getDashboardReposity() {
+export function getDashboardRepository() {
   async function getDashboardContent() {
     const url = new URL(`${AEM_GRAPHQL_ENDPOINT}getSchMyDashboardV3%3BfolderName=${encodeURIComponent(AEM_GRAPHQL_FOLDER)}`);
     const response = await fetch(url);
