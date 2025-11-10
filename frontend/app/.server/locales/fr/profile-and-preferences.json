@@ -1,0 +1,20 @@
+{
+  "email-address-href": "{{baseUri}}/en/profile-and-preferences",
+  "inbox-notification-preferences-href": "{{baseUri}}/en/inbox-notification-preferences",
+  "inbox-notification-preferences-success.href": "{{baseUri}}/en/inbox-notification-preferences-success",
+  "security-settings": "Security Settings",
+  "security-settings-href": "{{baseUri}}/en/security-settings",
+  "personal-information-by-benefit-href": "{{baseUri}}/en/personal-information-by-benefit",
+  "page-title": "Profil et préférences",
+  "page-description": "Renseignements de votre compte",
+  "account-information-title": "Adresse courriel",
+  "email-address-card": "Consulter et mettre à jour votre adresse courriel pour les alertes de sécurité.",
+  "email-address-description": "Préférences de notification de votre boîte de réception",
+  "inbox-notification-preferences-card": "Consulter et mettre à jour les préférences de notification de votre boîte de réception.",
+  "inbox-notification-preferences-description": "CG View and update your inbox notification preferences.",
+  "security-settings-card": "Paramètres de sécurité",
+  "security-settings-description": "Consulter et mettre à jour vos questions de sécurité.",
+  "personal-information-title": "Renseignements personnels",
+  "personal-information-by-benefit-card": "Renseignements personnels par prestation",
+  "personal-information-by-benefit-description": "Consulter et mettre à jour vos renseignements personnels pour les prestations que vous recevez, tels que votre adresse et votre numéro de téléphone."
+}
