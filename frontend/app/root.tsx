@@ -134,10 +134,10 @@ export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
     // prettier-ignore
     if (currentLanguage) {
       // TODO: to fix with a more descriptive log error message
-      console.debug('Error: isNotFoundError with the UnilingualErrorBoundary');
+      console.debug('Error: isNotFoundError with the UnilingualErrorBoundary: ');
     }  else {
       // TODO: to fix with a more descriptive log error message
-      console.debug('Error: isNotFoundError with the BilingualErrorBoundary');
+      console.debug('Error: isNotFoundError with the BilingualErrorBoundary: ' + props.error);
    }
 
     return currentLanguage ? <UnilingualNotFound {...props} /> : <BilingualNotFound {...props} />;
