@@ -11,8 +11,8 @@ import moize from 'moize'
 const log = LogFactory.getLogger(import.meta.url);
 
 export const getMessageService = moize(createMessageService, {
-  onCacheAdd: () = console.log('Creating new message service'),
-});
+  onCacheAdd: () => console.log('Creating new open id client service'),
+})
 export interface MessageService {
   /**
    * Find all letters for a given client id.
