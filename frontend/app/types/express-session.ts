@@ -1,6 +1,7 @@
 import 'express-session';
 
 import type { RaoidcAccessToken, RaoidcIdTokenClaims, RaoidcUserinfoTokenClaims } from '~/.server/auth/response-validators';
+import type { MessageEntity } from '~/.server/domain/entities/message.entity';
 
 declare module 'express-session' {
   interface SessionData {
@@ -9,11 +10,7 @@ declare module 'express-session' {
       idTokenClaims: RaoidcIdTokenClaims;
       userinfoTokenClaims: RaoidcUserinfoTokenClaims;
     };
-    letterState: readonly Readonly<{
-      id: string;
-      date: string;
-      letterTypeId: string;
-    }>[];
+    messages: readonly MessageEntity[];
     loginState: {
       codeVerifier: string;
       nonce: string;

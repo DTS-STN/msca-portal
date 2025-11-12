@@ -172,6 +172,11 @@ export const i18nRoutes = [
         paths: { en: '/en/personal-information-by-benefit', fr: '/fr/renseignements-personnels-par-prestation' },
       },
       {
+        id: 'PROT-0014',
+        file: 'routes/$id.download.ts',
+        paths: { en: '/en/letters/:id/download', fr: '/fr/lettres/:id/telecharger' },
+      },
+      {
         id: 'PROT-0015',
         file: 'routes/profile-and-preferences.tsx',
         paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },

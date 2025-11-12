@@ -26,7 +26,9 @@ export const defaults = {
   OAS_BASE_URL: 'http://localhost:3005',
   AEM_GRAPHQL_ENDPOINT: 'https://www.canada.ca/graphql/execute.json/decd-endc/',
   AEM_GRAPHQL_FOLDER: '/content/dam/decd-endc/content-fragments/preview-sch',
-  LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: 600,
+  LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: '600',
+  PAGINATION_MESSAGES_PER_PAGE: '5',
+  PAGINATION_PAGE_RANGE_DISPLAYED: '5',
 } as const;
 
 /**
@@ -54,5 +56,7 @@ export const client = v.object({
   OAS_BASE_URL: v.optional(v.string(), defaults.OAS_BASE_URL),
   AEM_GRAPHQL_FOLDER: v.optional(v.string(), defaults.AEM_GRAPHQL_FOLDER),
   AEM_GRAPHQL_ENDPOINT: v.optional(v.string(), defaults.AEM_GRAPHQL_ENDPOINT),
-  LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: v.optional(v.number(), defaults.LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS),
+  LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: v.optional(stringToIntegerSchema(), defaults.LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS),
+  PAGINATION_MESSAGES_PER_PAGE: v.optional(stringToIntegerSchema(), defaults.PAGINATION_MESSAGES_PER_PAGE),
+  PAGINATION_PAGE_RANGE_DISPLAYED: v.optional(stringToIntegerSchema(), defaults.PAGINATION_PAGE_RANGE_DISPLAYED),
 });
