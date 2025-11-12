@@ -1,3 +1,5 @@
+import moize from 'moize';
+
 import type { MessagesRequestDto, PdfRequestDto } from '../dtos/message.dto';
 import type { MessageEntity } from '../entities/message.entity';
 import type { MessageDtoMapper } from '../mappers/messages.dto.mapper';
@@ -6,13 +8,12 @@ import type { MessageRepository } from '../repositories/message.repository';
 import { getMessageRepository } from '../repositories/message.repository';
 
 import { LogFactory } from '~/.server/logging';
-import moize from 'moize'
 
 const log = LogFactory.getLogger(import.meta.url);
 
 export const getMessageService = moize(createMessageService, {
   onCacheAdd: () => console.log('Creating new open id client service'),
-})
+});
 export interface MessageService {
   /**
    * Find all letters for a given client id.
