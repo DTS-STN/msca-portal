@@ -6,9 +6,13 @@ import type { MessageRepository } from '../repositories/message.repository';
 import { getMessageRepository } from '../repositories/message.repository';
 
 import { LogFactory } from '~/.server/logging';
+import moize from 'moize'
 
 const log = LogFactory.getLogger(import.meta.url);
 
+export const getMessageService = moize(createMessageService, {
+  onCacheAdd: () = console.log('Creating new message service'),
+});
 export interface MessageService {
   /**
    * Find all letters for a given client id.
@@ -27,7 +31,7 @@ export interface MessageService {
   getPdfByMessageId(pdfRequestDto: PdfRequestDto): Promise<string>;
 }
 
-export function getMessageService(): MessageService {
+export function createMessageService(): MessageService {
   const mapper = getMessageDtoMapper();
   const repo = getMessageRepository();
   return new DefaultMessageService(mapper, repo);
