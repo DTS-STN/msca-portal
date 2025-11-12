@@ -13,6 +13,10 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [
+    { labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' },
+    { labelI18nKey: 'gcweb:breadcrumbs.profile-and-preferences', to: '/profile-and-preferences' },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
