@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 
-import type { RouteHandle } from 'react-router';
-import type { Params } from 'react-router';
+import type { RouteHandle, Params } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
