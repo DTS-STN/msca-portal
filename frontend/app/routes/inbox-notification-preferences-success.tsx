@@ -14,6 +14,10 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [
+    { labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' },
+    { labelI18nKey: 'gcweb:breadcrumbs.profile-and-preferences', to: '/profile-and-preferences' },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
@@ -43,7 +47,9 @@ export default function InboxNotificationPreferencesSuccess({ loaderData, params
       <div className="mb-8">
         <PageTitle className="after:w-14">{t('inboxNotificationPreferencesSuccess:page-title')}</PageTitle>
       </div>
-      <ContextualAlert type={'success'}>{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</ContextualAlert>
+      <ContextualAlert type={'success'}>
+        <div className="py-1">{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</div>
+      </ContextualAlert>
       <div className="flex items-center justify-start gap-6 py-8">
         <ButtonLink to={t('gcweb:app.inbox-notification-preferences.href', { baseUri: MSCA_BASE_URL })}>
           {t('inboxNotificationPreferencesSuccess:inbox-back-button')}
