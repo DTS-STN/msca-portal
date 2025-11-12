@@ -27,7 +27,7 @@ spec:
             httpGet:
               path: /api/readyz
               port: http
-            intialDelaySeconds: 10
+            initialDelaySeconds: 10
             timeoutSeconds: 20
             failureThreshold: 10
           resources:
