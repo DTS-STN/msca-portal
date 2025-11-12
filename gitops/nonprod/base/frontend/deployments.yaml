@@ -23,6 +23,9 @@ spec:
           livenessProbe:
             tcpSocket:
               port: http
+            initialDelaySeconds: 10
+            timeoutSeconds: 20
+            failureThreshold: 10
           readinessProbe:
             httpGet:
               path: /api/readyz
