@@ -19,7 +19,7 @@ import { handle as parentHandle } from '~/routes/layout';
 export const handle = {
   breadcrumbs: [
     { labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' },
-    { labelI18nKey: 'gcweb:breadcrumbs.contact-us', to: '/my-dashboard' },
+    { labelI18nKey: 'gcweb:breadcrumbs.contact-us', to: '/contact-us' },
   ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
