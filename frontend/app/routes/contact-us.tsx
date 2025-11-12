@@ -13,6 +13,7 @@ import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
+  breadcrumbs: [{ labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
@@ -45,27 +46,54 @@ export default function ContactUs({ loaderData, params }: Route.ComponentProps) 
 
         <ul className="list-disc" data-cy="contact-task-list">
           <li className="mb-6 ml-5">
-            <InlineLink to={t('contactUs:cdcp.href')} newTabIndicator={true}>
+            <InlineLink
+              to={t('contactUs:cdcp.href')}
+              newTabIndicator={true}
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Canadian Dental Care Plan"
+            >
               {t('contactUs:cdcp')}
             </InlineLink>
           </li>
           <li className="mb-6 ml-5">
-            <InlineLink file="routes/contact-us/employment-insurance.tsx">{t('contactUs:ei')}</InlineLink>
+            <InlineLink
+              file="routes/contact-us/employment-insurance.tsx"
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Employment Insurance"
+            >
+              {t('contactUs:ei')}
+            </InlineLink>
           </li>
           <li className="mb-6 ml-5">
-            <InlineLink file="routes/contact-us/canada-pension-plan.tsx">{t('contactUs:cpp')}</InlineLink>
+            <InlineLink
+              file="routes/contact-us/canada-pension-plan.tsx"
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Canada Pension Plan"
+            >
+              {t('contactUs:cpp')}
+            </InlineLink>
           </li>
           <li className="mb-6 ml-5">
-            <InlineLink file="routes/contact-us/old-age-security.tsx">{t('contactUs:oas')}</InlineLink>
+            <InlineLink
+              file="routes/contact-us/old-age-security.tsx"
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Old Age Security"
+            >
+              {t('contactUs:oas')}
+            </InlineLink>
             <p className="text-gray-darker text-xl">{t('contactUs:oas.more-info')}</p>
           </li>
           <li className="mb-6 ml-5">
-            <InlineLink to={t('contactUs:cdb.href')} newTabIndicator={true}>
+            <InlineLink
+              to={t('contactUs:cdb.href')}
+              newTabIndicator={true}
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Canada Disability Benefit"
+            >
               {t('contactUs:cdb')}
             </InlineLink>
           </li>
           <li className="mb-6 ml-5">
-            <InlineLink to={t('contactUs:sin.href')} newTabIndicator={true}>
+            <InlineLink
+              to={t('contactUs:sin.href')}
+              newTabIndicator={true}
+              data-gc-analytics-customclick="ESDC-EDSC_MSCA-MSDC-SCH:Contact Us:Social Insurance Number"
+            >
               {t('contactUs:sin')}
             </InlineLink>
           </li>

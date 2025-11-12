@@ -19,7 +19,8 @@
   "breadcrumbs": {
     "you-are-here": "You are here:",
     "arialabel": "Breadcrumb",
-    "dashboard": "My dashboard"
+    "dashboard": "My dashboard",
+    "contact-us": "Contact Us"
   },
   "dialog": {
     "close": "Close"

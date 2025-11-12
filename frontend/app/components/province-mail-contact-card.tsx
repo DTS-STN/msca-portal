@@ -1,5 +1,6 @@
 type SingleProvContactCard = {
   prov: string;
+  aaprov: string;
   addressList: {
     title?: string;
     addr: string[];
@@ -7,14 +8,18 @@ type SingleProvContactCard = {
 };
 interface ProvinceMailContactAltCardProps {
   card: SingleProvContactCard;
+  aaClick: string;
 }
 
-export function ProvinceMailContactCard({ card }: ProvinceMailContactAltCardProps) {
+export function ProvinceMailContactCard({ card, aaClick }: ProvinceMailContactAltCardProps) {
   return (
     <>
       <div className="py-2">
         <details className="mb-5px font-body text-20px text-gray-darker">
-          <summary className="border-gray-40 text-deep-blue-60d hover:text-blue-hover cursor-pointer rounded border px-[15px] py-[5px] outline-none select-none hover:underline">
+          <summary
+            className="border-gray-40 text-deep-blue-60d hover:text-blue-hover cursor-pointer rounded border px-[15px] py-[5px] outline-none select-none hover:underline"
+            data-gc-analytics-customclick={aaClick}
+          >
             {card.prov}
           </summary>
           <div className="border-gray-40 cursor-pointer rounded-b border px-[18px] py-[5px] outline-none select-none">
@@ -41,6 +46,7 @@ export function ProvinceMailContactCard({ card }: ProvinceMailContactAltCardProp
 interface AllProvinceContactCardsProps {
   props: {
     cards: SingleProvContactCard[];
+    aaPrefix?: string;
   };
 }
 
@@ -48,7 +54,7 @@ export function AllProvinceContactCards({ props }: AllProvinceContactCardsProps)
   return (
     <>
       {props.cards.map((card, _index) => (
-        <ProvinceMailContactCard key={card.prov} card={card} />
+        <ProvinceMailContactCard key={card.prov} card={card} aaClick={props.aaPrefix + card.prov} />
       ))}
     </>
   );

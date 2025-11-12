@@ -34,6 +34,7 @@
   "callback-form.dt": "Formulaire de rappel",
   "callback-form.dd": "Remplir le formulaire de demande de rappel eServiceCanada",
   "callback-form.dd.href": "https://eservices.canada.ca/fr/service/",
+  "callback-form.dd.aria": "Remplir le formulaire de demande de rappel eServiceCanada - S'ouvre dans un nouvel onglet",
   "wait-callback.dt": "Temps d’attente pour le rappel",
   "wait-callback.dd": "Dans les 2 jours ouvrables",
   "ask-not-visit": "Nous vous demandons de ne pas vous rendre dans les Centres Service Canada, sauf si nécessaire, en raison des directives de santé relatives à la COVID-19.",
@@ -52,6 +53,7 @@
   "find-location.dt": "Trouver un bureau",
   "find-location.dd": "Trouver un Centre Service Canada",
   "find-location.dd.href": "https://www.servicecanada.gc.ca/tbsc-fsco/sc-hme.jsp?lang=fra",
+  "find-location.dd.aria": "Trouver un Centre Service Canada - S'ouvre dans un nouvel onglet",
   "person.hours.dt": "Heures d’ouverture",
   "person.hours.dd.1": "Varient selon les endroits",
   "person.hours.dd.2": "Trouver un Centre Service Canada pour en connaître les heures d’ouverture",
@@ -60,6 +62,7 @@
   "mail-contacts": [
     {
       "prov": "Alberta",
+      "aaprov": "Alberta",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -73,6 +76,7 @@
     },
     {
       "prov": "Colombie Britannique",
+      "aaprov": "British Columbia",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -86,6 +90,7 @@
     },
     {
       "prov": "Île-du-Prince-Édouard",
+      "aaprov": "Prince Edward Island",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -99,6 +104,7 @@
     },
     {
       "prov": "Manitoba",
+      "aaprov": "Manitoba",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -112,6 +118,7 @@
     },
     {
       "prov": "Nouveau-Brunswick",
+      "aaprov": "New Brunswick",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -125,6 +132,7 @@
     },
     {
       "prov": "Nouvelle-Écosse",
+      "aaprov": "Nova Scotia",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -138,6 +146,7 @@
     },
     {
       "prov": "Nunavut",
+      "aaprov": "Nunavut",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -151,6 +160,7 @@
     },
     {
       "prov": "Ontario",
+      "aaprov": "Ontario",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -165,6 +175,7 @@
 
     {
       "prov": "Québec",
+      "aaprov": "Quebec",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -178,6 +189,7 @@
     },
     {
       "prov": "Saskatchewan",
+      "aaprov": "Saskatchewan",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -191,6 +203,7 @@
     },
     {
       "prov": "Terre-Neuve-et-Labrador",
+      "aaprov": "Newfoundland and Labrador",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -204,6 +217,7 @@
     },
     {
       "prov": "Territoires du Nord-Ouest",
+      "aaprov": "Northwest Territories",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",
@@ -218,6 +232,7 @@
 
     {
       "prov": "Yukon",
+      "aaprov": "Yukon",
       "addressList": [
         {
           "title": "Pour les déclarations de l'assurance-emploi",

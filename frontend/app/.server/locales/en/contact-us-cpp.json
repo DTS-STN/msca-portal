@@ -37,6 +37,7 @@
   "callback-form.dt": "Callback form",
   "callback-form.dd": "Fill out eServiceCanada callback form",
   "callback-form.dd.href": "https://eservices.canada.ca/en/service/",
+  "callback-form.dd.aria": "Fill out eServiceCanada callback form - Opens in a new tab",
   "wait-callback.dt": "Wait times for callback",
   "wait-callback.dd": "Within 2 business days",
   "ask-not-visit": "We ask you not to visit Service Canada Centres unless necessary, due to COVID-19 health guidelines.",
@@ -55,6 +56,7 @@
   "find-location.dt": "Find a location",
   "find-location.dd": "Find a Service Canada Centre",
   "find-location.dd.href": "https://www.servicecanada.gc.ca/tbsc-fsco/sc-hme.jsp?lang=eng",
+  "find-location.dd.aria": "Find a Service Canada Centre - Opens in a new tab",
   "person.hours.dt": "Hours of operation",
   "person.hours.dd.1": "Vary by location",
   "person.hours.dd.2": "Find a Service Canada Centre to see their hours of operation",
@@ -62,6 +64,7 @@
   "mail-contacts": [
     {
       "prov": "Alberta",
+      "aaprov": "Alberta",
       "addressList": [
         {
           "title": "For Disability applications",
@@ -75,6 +78,7 @@
     },
     {
       "prov": "British Columbia",
+      "aaprov": "British Columbia",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 1177 Station CSC", "Victoria BC V8W 2V2", "CANADA"]
@@ -83,6 +87,7 @@
     },
     {
       "prov": "Manitoba",
+      "aaprov": "Manitoba",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
@@ -91,6 +96,7 @@
     },
     {
       "prov": "New Brunswick",
+      "aaprov": "New Brunswick",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 250 Station A", "Fredericton NB E3B 4Z6", "CANADA"]
@@ -99,6 +105,7 @@
     },
     {
       "prov": "Newfoundland and Labrador",
+      "aaprov": "Newfoundland and Labrador",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 9430 Station A", "St. John's NL A1A 2Y5", "CANADA"]
@@ -107,6 +114,7 @@
     },
     {
       "prov": "Northwest Territories",
+      "aaprov": "Northwest Territories",
       "addressList": [
         {
           "title": "For Disability applications",
@@ -120,6 +128,7 @@
     },
     {
       "prov": "Nova Scotia",
+      "aaprov": "Nova Scotia",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 1687 Station Central", "Halifax NS B3J 3J4", "CANADA"]
@@ -128,6 +137,7 @@
     },
     {
       "prov": "Nunavut",
+      "aaprov": "Nunavut",
       "addressList": [
         {
           "title": "For Disability applications",
@@ -141,6 +151,7 @@
     },
     {
       "prov": "Ontario",
+      "aaprov": "Ontario",
       "addressList": [
         {
           "title": "For postal codes beginning with L, M or N",
@@ -158,6 +169,7 @@
     },
     {
       "prov": "Prince Edward Island",
+      "aaprov": "Prince Edward Island",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 8000 Station Central", "Charlottetown PE C1A 8K1", "CANADA"]
@@ -170,6 +182,7 @@
     },
     {
       "prov": "Quebec",
+      "aaprov": "Quebec",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 1816 Station Terminus", "Quebec QC G1K 7L5", "CANADA"]
@@ -182,6 +195,7 @@
     },
     {
       "prov": "Saskatchewan",
+      "aaprov": "Saskatchewan",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 818 Station Main", "Winnipeg MB R3C 2N4", "CANADA"]
@@ -190,6 +204,7 @@
     },
     {
       "prov": "Yukon",
+      "aaprov": "Yukon",
       "addressList": [
         {
           "addr": ["Service Canada", "PO Box 1177 Station CSC", "Victoria BC V8W 2V2"]
