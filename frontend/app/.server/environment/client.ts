@@ -1,5 +1,7 @@
 import * as v from 'valibot';
 
+import { Redacted } from '../utils/security-utils';
+
 import { stringToBooleanSchema } from '~/.server/validation/string-to-boolean-schema';
 import { stringToIntegerSchema } from '~/.server/validation/string-to-integer-schema';
 import { isValidTimeZone } from '~/utils/date-utils';
@@ -29,6 +31,9 @@ export const defaults = {
   LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: '600',
   PAGINATION_MESSAGES_PER_PAGE: '5',
   PAGINATION_PAGE_RANGE_DISPLAYED: '5',
+  HOSTALIAS_HOSTNAME: 'brz-ofm12c-oz-s4.brz.dev',
+  MSCA_NG_INBOX_GET_ENDPOINT: '',
+  MSCA_NG_CREDS: 'bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
 } as const;
 
 /**
@@ -59,4 +64,7 @@ export const client = v.object({
   LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: v.optional(stringToIntegerSchema(), defaults.LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS),
   PAGINATION_MESSAGES_PER_PAGE: v.optional(stringToIntegerSchema(), defaults.PAGINATION_MESSAGES_PER_PAGE),
   PAGINATION_PAGE_RANGE_DISPLAYED: v.optional(stringToIntegerSchema(), defaults.PAGINATION_PAGE_RANGE_DISPLAYED),
+  HOSTALIAS_HOSTNAME: v.optional(v.string(), defaults.HOSTALIAS_HOSTNAME),
+  MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
+  MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
 });

@@ -1,16 +1,21 @@
+import { redirect } from 'react-router';
 import type { RouteHandle } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
 import type { Route } from './+types/inbox-notification-preferences';
 
+import { getInboxPrefService } from '~/.server/domain/services/inbox-preference.service';
+import { serverEnvironment } from '~/.server/environment';
 import { requireAuth } from '~/.server/utils/auth-utils';
-import { ButtonLink } from '~/components/button-link';
+import { Button } from '~/components/button';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import { getLanguage } from '~/utils/i18n-utils';
+import { getPathById } from '~/utils/route-utils';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -19,25 +24,42 @@ export const handle = {
 export async function loader({ context, params, request }: Route.LoaderArgs) {
   const { userinfoTokenClaims } = await requireAuth(context.session, request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
-
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
+  const inboxPrefService = getInboxPrefService();
 
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('inboxNotificationPreferences:page-title'), MSCA_BASE_URL };
+  const spid = userinfoTokenClaims.sub;
+  const resp = await inboxPrefService.getInboxPre(spid);
+  const paperless = resp.subscribedEvents.length === 0 || resp.subscribedEvents[0]?.eventTypeCode === 'PAPERLESS';
+
+  return { documentTitle: t('inboxNotificationPreferences:page-title'), paperless };
 }
 
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: data.documentTitle }];
+export function meta({ loaderData }: Route.MetaArgs) {
+  return [{ title: loaderData.documentTitle }];
 }
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+export async function action({ context, params, request }: Route.ActionArgs) {
+  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const lang = getLanguage(request) ?? '';
+  const inboxPrefService = getInboxPrefService();
+
+  const spid = userinfoTokenClaims.sub;
+  const formData = await request.formData();
+  const pref = formData.get('email-radio') === 'no' ? 'no' : 'yes';
+
+  if (serverEnvironment.isProduction === true) {
+    await inboxPrefService.setInboxPref(spid, pref);
+  }
+
+  return redirect(getPathById('inbox-notification-preferences-success', { lang }));
+}
 
 export default function InboxNotificationPreferences({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
-  const { MSCA_BASE_URL } = loaderData;
+  const { paperless } = loaderData;
 
   return (
     <>
@@ -51,7 +73,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
       </h2>
       <p className="mt-8 w-full max-w-3xl text-xl">{t('inboxNotificationPreferences:debt-statements-heading-intro-text')}</p>
 
-      <form>
+      <form method="post" noValidate>
         <fieldset>
           <legend className="text-gray-darker max-w-3xl pt-4 text-lg md:text-xl">
             <strong>{t('inboxNotificationPreferences:debt-statement-question')}</strong>
@@ -67,7 +89,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
                 name="email-radio"
                 value="yes"
                 className="size-[2.5em] shrink-0"
-                onChange={handleChange}
+                defaultChecked={paperless}
               />
               <label htmlFor="yes-email" className="grow pl-2">
                 <p className="pt-2 font-medium">
@@ -85,7 +107,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
                 name="email-radio"
                 value="no"
                 className="size-[2.5em] shrink-0"
-                onChange={handleChange}
+                defaultChecked={!paperless}
               />
               <label htmlFor="no-email" className="grow pl-2">
                 <p className="pt-2 font-medium">
@@ -97,9 +119,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
               </label>
             </div>
           </div>
-          <ButtonLink to={t('gcweb:app.inbox-notification-preferences-success.href', { baseUri: MSCA_BASE_URL })}>
-            {t('inboxNotificationPreferences:save-preferences-button')}
-          </ButtonLink>
+          <Button>{t('inboxNotificationPreferences:save-preferences-button')}</Button>
         </fieldset>
       </form>
     </>

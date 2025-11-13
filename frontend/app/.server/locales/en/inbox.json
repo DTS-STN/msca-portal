@@ -17,7 +17,7 @@
   "par4-list-item-oas-dashboard.href": "?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=eng&appCode=CURAM-OAS",
   "par5-part1": "<strong>Don’t miss a debt statement message.</strong>  Set your ",
   "par5-part2.text": "inbox notification preferences",
-  "par5-part2.href": "routes/inbox.tsx",
+  "par5-part2.href": "routes/inbox-notification-preferences.tsx",
   "par5-part3": " to get emails when new debt statements are available.",
 
   "no-messages-text": "You don't have any messages.",

@@ -108,17 +108,17 @@ export const i18nRoutes = [
     file: 'routes/layout.tsx',
     children: [
       {
-        id: 'PROT-0003',
+        id: 'my-dashboard',
         file: 'routes/my-dashboard.tsx',
-        paths: { en: '/en/my-dashboard', fr: '/fr/my-dashboard' },
+        paths: { en: '/en/my-dashboard', fr: '/fr/mon-tableau-de-bord' },
       },
       {
-        id: 'PROT-0004',
+        id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       },
       {
-        id: 'PROT-0005',
+        id: 'inbox-now-available',
         file: 'routes/inbox-now-available.tsx',
         paths: {
           en: '/en/inbox-now-available',
@@ -126,17 +126,17 @@ export const i18nRoutes = [
         },
       },
       {
-        id: 'PROT-0006',
+        id: 'inbox-notification-preferences-success',
         file: 'routes/inbox-notification-preferences-success.tsx',
         paths: { en: '/en/inbox-notification-preferences-success', fr: '/fr/preferences-notification-boite-reception-succes' },
       },
       {
-        id: 'PROT-0007',
+        id: 'contact-us',
         file: 'routes/contact-us.tsx',
         paths: { en: '/en/contact-us', fr: '/fr/contactez-nous' },
       },
       {
-        id: 'PROT-0008',
+        id: 'inbox-notification-preferences',
         file: 'routes/inbox-notification-preferences.tsx',
         paths: {
           en: '/en/inbox-notification-preferences',
@@ -144,12 +144,12 @@ export const i18nRoutes = [
         },
       },
       {
-        id: 'PROT-0011',
+        id: 'employment-insurance',
         file: 'routes/contact-us/employment-insurance.tsx',
         paths: { en: '/en/contact-us/contact-employment-insurance', fr: '/fr/contactez-nous/communiquer-assurance-emploi' },
       },
       {
-        id: 'PROT-0009',
+        id: 'canada-pension-plan',
         file: 'routes/contact-us/canada-pension-plan.tsx',
         paths: {
           en: '/en/contact-us/contact-canada-pension-plan',
@@ -157,27 +157,27 @@ export const i18nRoutes = [
         },
       },
       {
-        id: 'PROT-0010',
+        id: 'old-age-security',
         file: 'routes/contact-us/old-age-security.tsx',
         paths: { en: '/en/contact-us/contact-old-age-security', fr: '/fr/contactez-nous/communiquer-securite-vieillesse' },
       },
       {
-        id: 'PROT-0012',
+        id: 'security-settings',
         file: 'routes/security-settings.tsx',
         paths: { en: '/en/security-settings', fr: '/fr/parametres-securite' },
       },
       {
-        id: 'PROT-0013',
+        id: 'personal-information-by-benefit',
         file: 'routes/personal-information-by-benefit.tsx',
         paths: { en: '/en/personal-information-by-benefit', fr: '/fr/renseignements-personnels-par-prestation' },
       },
       {
-        id: 'PROT-0014',
+        id: '$id.download',
         file: 'routes/$id.download.ts',
         paths: { en: '/en/letters/:id/download', fr: '/fr/lettres/:id/telecharger' },
       },
       {
-        id: 'PROT-0015',
+        id: 'profile-and-preferences',
         file: 'routes/profile-and-preferences.tsx',
         paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },
       },

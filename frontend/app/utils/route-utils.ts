@@ -1,6 +1,7 @@
-import type { RouteHandle } from 'react-router';
-import { matchPath, useMatches } from 'react-router';
+import type { Params, RouteHandle } from 'react-router';
+import { generatePath, matchPath, useMatches } from 'react-router';
 
+import { invariant } from '@dts-stn/invariant';
 import type { FlatNamespace, KeysByTOptions, Namespace, ParseKeysByNamespaces, TOptions } from 'i18next';
 import validator from 'validator';
 import { z } from 'zod';
@@ -8,7 +9,7 @@ import { z } from 'zod';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import type { I18nPageRoute, I18nRoute, I18nRouteFile } from '~/i18n-routes';
-import { isI18nLayoutRoute, isI18nPageRoute } from '~/i18n-routes';
+import { i18nRoutes, isI18nLayoutRoute, isI18nPageRoute } from '~/i18n-routes';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type ParsedKeysByNamespaces<TOpt extends TOptions = {}> = ParseKeysByNamespaces<Namespace, KeysByTOptions<TOpt>>;
@@ -145,4 +146,27 @@ export function getRouteByPath(pathname: string, routes: I18nRoute[]): I18nPageR
  */
 function normalizePath(pathname: string): string {
   return pathname.replace(/\/+$/, '');
+}
+
+export function findRouteById(id: string, routes: I18nRoute[] = i18nRoutes): I18nPageRoute | undefined {
+  for (const route of routes) {
+    if (isI18nPageRoute(route) && route.id === id) {
+      return route;
+    }
+
+    if (isI18nLayoutRoute(route)) {
+      const matchingRoute = findRouteById(id, route.children);
+      if (matchingRoute) return matchingRoute;
+    }
+  }
+}
+
+export function getPathById(id: string, params: Params = {}): string {
+  const { lang = 'en' } = params as { lang?: Language };
+
+  const route = findRouteById(id);
+  const path = route?.paths[lang];
+  invariant(path, `path not found for route [${id}] and language [${lang}]`);
+
+  return generatePath(path, params);
 }

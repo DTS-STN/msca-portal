@@ -17,7 +17,7 @@
   "par4-list-item-oas-dashboard.href": "?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-OAS",
   "par5-part1": "<strong>Ne ratez aucun message.</strong> Définissez les ",
   "par5-part2.text": "préférences de notification de votre boîte de réception",
-  "par5-part2.href": "routes/inbox.tsx",
+  "par5-part2.href": "routes/inbox-notification-preferences.tsx",
   "par5-part3": " pour recevoir un courriel dès qu'un nouveau message est disponible.",
 
   "no-messages-text": "Vous n'avez pas de messages.",
