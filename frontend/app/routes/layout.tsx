@@ -34,6 +34,7 @@ export const handle = {
     'securitySettings',
     'personalInformationByBenefit',
     'profileAndPreferences',
+    'decisionReviews',
   ],
 } as const satisfies RouteHandle;
 

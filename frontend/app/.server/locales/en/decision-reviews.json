@@ -1,0 +1,16 @@
+{
+  "document-title": "Request a review of a decision",
+  "page-title": "Request a review of a decision",
+  "recon": "Step 1: Ask Service Canada to reconsider",
+  "recon.1": "If you disagree with a decision about your pension application, you can ask Service Canada to reconsider.",
+  "recon.2": "You have <strong>90 days</strong> to ask for a reconsideration after you get your decision letter from Service Canada.",
+  "recon.3": "A Service Canada employee who didn’t make the original decision will review your application.",
+  "recon.button": "Ask Service Canada to reconsider",
+  "recon.button.href": "/sc/msca-mdsc/portal-portail/pro/reqr-demr/?Lang=eng",
+  "sst": "Step 2: Appeal to the Social Security Tribunal",
+  "sst.1": "If Service Canada reconsiders and you disagree with the new decision, you can appeal to the Social Security Tribunal (SST).",
+  "sst.2": "You have <strong>90 days</strong> to appeal after you get your reconsideration decision (new decision) from Service Canada.",
+  "sst.3": "Appealing to the SST is separate from the process you followed at Service Canada.",
+  "sst.button": "Appeal to the Social Security Tribunal",
+  "sst.button.href": "/sc/msca-mdsc/portal-portail/pro/sstgdis-tssdgsr/?Lang=eng"
+}
