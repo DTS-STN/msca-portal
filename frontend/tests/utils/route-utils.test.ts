@@ -10,7 +10,7 @@ describe('route-utils', () => {
   describe('findRouteByFile', () => {
     it('should return the correct route for a given file', () => {
       expect(findRouteByFile('routes/inbox.tsx', i18nRoutes)).toEqual({
-        id: 'PROT-0004',
+        id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
@@ -24,7 +24,7 @@ describe('route-utils', () => {
   describe('findRouteByPath', () => {
     it('should return the correct route for a given path', () => {
       expect(findRouteByPath('/en/inbox', i18nRoutes)).toEqual({
-        id: 'PROT-0004',
+        id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
@@ -38,7 +38,7 @@ describe('route-utils', () => {
   describe('getRouteByFile', () => {
     it('should return the correct route for a given file', () => {
       expect(getRouteByFile('routes/inbox.tsx', i18nRoutes)).toEqual({
-        id: 'PROT-0004',
+        id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
@@ -60,7 +60,7 @@ describe('route-utils', () => {
   describe('getRouteByPath', () => {
     it('should return the correct route for a given path', () => {
       expect(getRouteByPath('/en/inbox', i18nRoutes)).toEqual({
-        id: 'PROT-0004',
+        id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
       });
