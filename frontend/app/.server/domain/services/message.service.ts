@@ -1,3 +1,5 @@
+import moize from 'moize';
+
 import type { MessagesRequestDto, PdfRequestDto } from '../dtos/message.dto';
 import type { MessageEntity } from '../entities/message.entity';
 import type { MessageDtoMapper } from '../mappers/messages.dto.mapper';
@@ -9,6 +11,9 @@ import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
 
+export const getMessageService = moize(createMessageService, {
+  onCacheAdd: () => console.log('Creating new open id client service'),
+});
 export interface MessageService {
   /**
    * Find all letters for a given client id.
@@ -27,7 +32,7 @@ export interface MessageService {
   getPdfByMessageId(pdfRequestDto: PdfRequestDto): Promise<string>;
 }
 
-export function getMessageService(): MessageService {
+export function createMessageService(): MessageService {
   const mapper = getMessageDtoMapper();
   const repo = getMessageRepository();
   return new DefaultMessageService(mapper, repo);
