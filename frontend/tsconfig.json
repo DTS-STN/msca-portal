@@ -17,7 +17,7 @@
     "./prettier.config.mjs",
     "./react-router.config.ts",
     "./vite.config.ts",
-    "./vite.server.config.ts",
+    "./vite.server.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
