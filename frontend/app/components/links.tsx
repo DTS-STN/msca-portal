@@ -181,7 +181,7 @@ export function InlineLink({
   newTabIndicator,
   ...props
 }: InlineLinkProps): JSX.Element {
-  const baseClassName = cn('flex text-slate-700 underline hover:text-blue-700 focus:text-blue-700');
+  const baseClassName = cn('text-slate-700 underline hover:text-blue-700 focus:text-blue-700');
 
   if (file) {
     return (
@@ -231,9 +231,7 @@ function NewTabIndicator({ className, ...props }: OmitStrict<ComponentProps<'spa
   // Following whitespace is important to ensure the content's text is seperated for the screen-reader text
   return (
     <>
-      <span>
-        <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-2" />
-      </span>
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-2 inline" />
       <span className={cn('sr-only', className)} {...props}>
         {` (${t('screen-reader.new-tab')})`}
       </span>
