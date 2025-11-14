@@ -20,13 +20,11 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const { userinfoTokenClaims } = await requireAuth(context.session, request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
-
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  return { documentTitle: t('inboxNowAvailable:document-title'), MSCA_BASE_URL };
+  return { documentTitle: t('inboxNowAvailable:document-title') };
 }
 
 export function meta({ data }: Route.MetaArgs) {
@@ -35,7 +33,6 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function InboxNowAvailable({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
-  const { MSCA_BASE_URL } = loaderData;
 
   return (
     <>
@@ -49,7 +46,7 @@ export default function InboxNowAvailable({ loaderData, params }: Route.Componen
           <p className="pb-4">{t('inboxNowAvailable:new-inbox-para-2')}</p>
         </div>
 
-        <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink file="routes/inbox-notification-preferences.tsx" variant="primary" size="custom" className="border-0">
           {t('inboxNowAvailable:inbox-pref-button')}
         </ButtonLink>
       </div>
