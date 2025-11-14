@@ -181,6 +181,11 @@ export const i18nRoutes = [
         file: 'routes/profile-and-preferences.tsx',
         paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },
       },
+      {
+        id: 'PROT-0016',
+        file: 'routes/decision-reviews.tsx',
+        paths: { en: '/en/decision-reviews', fr: '/fr/demande-revision' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];

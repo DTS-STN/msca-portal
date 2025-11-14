@@ -1,0 +1,16 @@
+{
+  "document-title": "Faire une demande de révision",
+  "page-title": "Faire une demande de révision",
+  "recon": "Étape 1 : Faire une demande de révision à Service Canada",
+  "recon.1": "Si vous êtes en désaccord avec une décision concernant votre demande de pension, vous pouvez demander à Service Canada de reconsidérer sa décision.",
+  "recon.2": "Vous avez <strong>90 jours</strong> pour faire une demande de réexamen après avoir reçu la lettre de décision de Service Canada.",
+  "recon.3": "Un employé de Service Canada qui n'a pas pris la décision initiale examinera votre demande.",
+  "recon.button": "Faire une demande de réexamen à Service Canada",
+  "recon.button.href": "/sc/msca-mdsc/portal-portail/pro/reqr-demr/?Lang=fra",
+  "sst": "Étape 2 : Soumettre un appel au Tribunal de la sécurité sociale",
+  "sst.1": "Si après la révision de Service Canada, vous n’êtes pas d’accord avec la nouvelle décision, vous pouvez la porter en appel au Tribunal de la sécurité sociale (TSS).",
+  "sst.2": "Vous avez <strong>90 jours</strong> pour faire appel après avoir obtenu votre décision de révision (nouvelle décision) de Service Canada.",
+  "sst.3": "Porter une décision en appel au TSS est un processus indépendant de celui de Service Canada.",
+  "sst.button": "Porter une décision en appel au Tribunal de la sécurité sociale",
+  "sst.button.href": "/sc/msca-mdsc/portal-portail/pro/sstgdis-tssdgsr/?Lang=fra"
+}

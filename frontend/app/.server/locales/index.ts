@@ -3,6 +3,7 @@ import contactUsCppEn from '~/.server/locales/en/contact-us-cpp.json';
 import contactUsEiEn from '~/.server/locales/en/contact-us-ei.json';
 import contactUsOasEn from '~/.server/locales/en/contact-us-oas.json';
 import contactUsEn from '~/.server/locales/en/contact-us.json';
+import decisionReviewsEn from '~/.server/locales/en/decision-reviews.json';
 import errorsEn from '~/.server/locales/en/errors.json';
 import gcwebEn from '~/.server/locales/en/gcweb.json';
 import inboxNotificationPreferencesSuccessEn from '~/.server/locales/en/inbox-notification-preferences-success.json';
@@ -17,6 +18,7 @@ import contactUsCppFr from '~/.server/locales/fr/contact-us-cpp.json';
 import contactUsEiFr from '~/.server/locales/fr/contact-us-ei.json';
 import contactUsOasFr from '~/.server/locales/fr/contact-us-oas.json';
 import contactUsFr from '~/.server/locales/fr/contact-us.json';
+import decisionReviewsFr from '~/.server/locales/fr/decision-reviews.json';
 import errorsFr from '~/.server/locales/fr/errors.json';
 import gcwebFr from '~/.server/locales/fr/gcweb.json';
 import inboxNotificationPreferencesSuccessFr from '~/.server/locales/fr/inbox-notification-preferences-success.json';
@@ -42,6 +44,7 @@ export const i18nResourcesEn = {
   securitySettings: securitySettingsEn,
   personalInformationByBenefit: personalInformationByBenefitEn,
   profileAndPreferences: profileAndPreferencesEn,
+  decisionReviews: decisionReviewsEn,
 } as const;
 
 export const i18nResourcesFr = {
@@ -59,6 +62,7 @@ export const i18nResourcesFr = {
   securitySettings: securitySettingsFr,
   personalInformationByBenefit: personalInformationByBenefitFr,
   profileAndPreferences: profileAndPreferencesFr,
+  decisionReviews: decisionReviewsFr,
 } as const;
 
 export const i18nResources = {
