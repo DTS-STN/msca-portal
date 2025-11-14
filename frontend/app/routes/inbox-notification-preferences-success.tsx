@@ -51,10 +51,20 @@ export default function InboxNotificationPreferencesSuccess({ loaderData, params
         <div className="py-1">{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</div>
       </ContextualAlert>
       <div className="flex items-center justify-start gap-6 py-8">
-        <ButtonLink to={t('gcweb:app.inbox-notification-preferences.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink
+          to={t('gcweb:app.inbox-notification-preferences.href', { baseUri: MSCA_BASE_URL })}
+          variant="alternative"
+          className="border-blue-default text-blue-default rounded border-2 bg-white"
+          size="custom"
+        >
           {t('inboxNotificationPreferencesSuccess:inbox-back-button')}
         </ButtonLink>
-        <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink
+          to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}
+          variant="primary"
+          size="custom"
+          className="border-0 py-2"
+        >
           {t('inboxNotificationPreferencesSuccess:inbox-dashboard-button')}
         </ButtonLink>
       </div>

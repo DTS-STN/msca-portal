@@ -1,5 +1,5 @@
 {
-  "page-title": "Inbox notification preferences.",
+  "page-title": "Inbox notification preferences",
   "intro-text-first": "Right now, your inbox only includes debt statements. These are letters about money you may owe to Service Canada.",
   "intro-text-second": "In the future, we’ll add other communications about your benefits and services.",
   "debt-statements-heading": "Debt statements",
@@ -9,5 +9,5 @@
   "debt-statement-email-option-info": "Get your statements faster and help reduce paper waste. You will not receive debt statements by paper mail.",
   "debt-statement-paper-mail-option": "Paper mail",
   "debt-statement-paper-mail-option-info": "You’ll receive debt statements by paper mail, which may take up to 10 business days to arrive. You can also view them in your inbox but you will not receive an email notification.",
-  "save-preferences-button": "Save preferences to continue."
+  "save-preferences-button": "Save preferences to continue"
 }

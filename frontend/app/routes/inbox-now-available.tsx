@@ -49,7 +49,12 @@ export default function InboxNowAvailable({ loaderData, params }: Route.Componen
           <p className="pb-4">{t('inboxNowAvailable:new-inbox-para-2')}</p>
         </div>
 
-        <ButtonLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink
+          to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}
+          variant="primary"
+          size="custom"
+          className="border-0"
+        >
           {t('inboxNowAvailable:inbox-pref-button')}
         </ButtonLink>
       </div>
