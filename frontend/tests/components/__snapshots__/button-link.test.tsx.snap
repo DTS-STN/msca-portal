@@ -3,7 +3,7 @@
 exports[`ButtonLink > should render a ButtonLink with custom styles > expected html 1`] = `
 <div>
   <a
-    class="font-lato inline-flex items-center justify-center rounded-sm border align-middle no-underline outline-offset-4 px-3 py-2 text-sm border-slate-700 bg-slate-700 hover:bg-sky-800 focus:bg-sky-800 text-red-500"
+    class="font-lato inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-3 py-2 text-sm bg-blue-primary hover:bg-deep-blue-focus active:bg-blue-pressed rounded focus:ring focus:ring-offset-4 focus:ring-bg-deep-blue-focus text-red-500"
     data-discover="true"
     data-gc-analytics-customclick="mscaPlaceholder"
     href="/fr/boite-reception"
