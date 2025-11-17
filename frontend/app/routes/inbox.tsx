@@ -30,7 +30,7 @@ type InboxContext = {
 const log = LogFactory.getLogger(import.meta.url);
 
 export const handle = {
-  breadcrumbs: [{ labelI18nKey: 'gcweb:breadcrumbs.dashboard', to: '/my-dashboard' }],
+  breadcrumbs: [{ labelI18nKey: 'gcweb:breadcrumbs.dashboard', routeId: 'my-dashboard' }],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
