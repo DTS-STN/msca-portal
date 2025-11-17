@@ -24,7 +24,7 @@ const breadcrumbsSchema = z
     z
       .object({
         labelI18nKey: z.custom<ParsedKeysByNamespaces>(),
-        routeId: z.string().optional(),
+        routeId: z.custom<I18nRouteId>().optional(),
         to: z.string().optional(),
       })
       .readonly(),

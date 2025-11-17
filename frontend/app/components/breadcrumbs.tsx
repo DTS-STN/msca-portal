@@ -7,11 +7,12 @@ import { useTranslation } from 'react-i18next';
 import { InlineLink } from './links';
 
 import { useLanguage } from '~/hooks/use-language';
+import type { I18nRouteId } from '~/i18n-routes';
 import { getPathById } from '~/utils/route-utils';
 
 export interface BreadcrumbProps {
   text: string;
-  routeId?: string;
+  routeId?: I18nRouteId;
   to?: string;
 }
 
@@ -46,7 +47,7 @@ export function Breadcrumbs({ items = [], refPageAA = 'mscaPlaceholder' }: Bread
   );
 }
 
-function Breadcrumb({ children, routeId, to }: { children: ReactNode; routeId?: string; to?: string }) {
+function Breadcrumb({ children, routeId, to }: { children: ReactNode; routeId?: I18nRouteId; to?: string }) {
   const { currentLanguage } = useLanguage();
   const href = routeId === undefined ? '' : getPathById(routeId, { lang: currentLanguage });
 
