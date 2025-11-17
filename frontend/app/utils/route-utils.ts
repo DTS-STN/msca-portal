@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
-import type { I18nPageRoute, I18nRoute, I18nRouteFile } from '~/i18n-routes';
+import type { I18nPageRoute, I18nRoute, I18nRouteFile, I18nRouteId } from '~/i18n-routes';
 import { i18nRoutes, isI18nLayoutRoute, isI18nPageRoute } from '~/i18n-routes';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -149,7 +149,7 @@ function normalizePath(pathname: string): string {
   return pathname.replace(/\/+$/, '');
 }
 
-export function findRouteById(id: string, routes: I18nRoute[] = i18nRoutes): I18nPageRoute | undefined {
+export function findRouteById(id: I18nRouteId, routes: I18nRoute[] = i18nRoutes): I18nPageRoute | undefined {
   for (const route of routes) {
     if (isI18nPageRoute(route) && route.id === id) {
       return route;
@@ -162,7 +162,7 @@ export function findRouteById(id: string, routes: I18nRoute[] = i18nRoutes): I18
   }
 }
 
-export function getPathById(id: string, params: Params = {}): string {
+export function getPathById(id: I18nRouteId, params: Params = {}): string {
   const { lang = 'en' } = params as { lang?: Language };
 
   const route = findRouteById(id);
