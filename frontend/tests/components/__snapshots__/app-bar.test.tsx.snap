@@ -3,13 +3,13 @@
 exports[`AppBar > should correctly render an AppBar with a MenuItem when the file property is provided > expected html 1`] = `
 <div>
   <div
-    class="bg-slate-700"
+    class="md:bg-slate-700"
   >
     <div
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center order-1 flex"
+        class="align-center order-1 flex w-full bg-slate-700 sm:w-auto"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -28,7 +28,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
         class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
       >
         <a
-          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
           href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
@@ -65,7 +65,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
         </a>
       </div>
       <div
-        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
+        class="ring-blue-hover order-2 flex w-full items-center text-right text-2xl ring-offset-2 focus:ring-2 focus:outline-none sm:order-3 sm:w-[260px]"
       />
     </div>
   </div>
@@ -75,13 +75,13 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
 exports[`AppBar > should correctly render an AppBar with a MenuItem when the to property is provided > expected html 1`] = `
 <div>
   <div
-    class="bg-slate-700"
+    class="md:bg-slate-700"
   >
     <div
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center order-1 flex"
+        class="align-center order-1 flex w-full bg-slate-700 sm:w-auto"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -100,7 +100,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
         class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
       >
         <a
-          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
           href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
@@ -137,7 +137,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
         </a>
       </div>
       <div
-        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
+        class="ring-blue-hover order-2 flex w-full items-center text-right text-2xl ring-offset-2 focus:ring-2 focus:outline-none sm:order-3 sm:w-[260px]"
       />
     </div>
   </div>
@@ -147,13 +147,13 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
 exports[`AppBar > should render render an AppBar with a name provided > expected html 1`] = `
 <div>
   <div
-    class="bg-slate-700"
+    class="md:bg-slate-700"
   >
     <div
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center order-1 flex"
+        class="align-center order-1 flex w-full bg-slate-700 sm:w-auto"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -172,7 +172,7 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
         class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
       >
         <a
-          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
           href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
@@ -209,7 +209,7 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
         </a>
       </div>
       <div
-        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
+        class="ring-blue-hover order-2 flex w-full items-center text-right text-2xl ring-offset-2 focus:ring-2 focus:outline-none sm:order-3 sm:w-[260px]"
       />
     </div>
   </div>
@@ -219,13 +219,13 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
 exports[`AppBar > should render render an AppBar with a profile item provided > expected html 1`] = `
 <div>
   <div
-    class="bg-slate-700"
+    class="md:bg-slate-700"
   >
     <div
       class="align-center container mx-auto flex flex-wrap justify-between"
     >
       <div
-        class="align-center order-1 flex"
+        class="align-center order-1 flex w-full bg-slate-700 sm:w-auto"
       >
         <span
           class="my-auto py-2 text-white sm:text-2xl"
@@ -244,7 +244,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
         class="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto"
       >
         <a
-          class="inline-flex items-center justify-center border align-middle no-underline outline-offset-4 px-5 py-2.5 border-gray-300 bg-gray-200 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 font-body rounded text-lg"
+          class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
           href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
@@ -281,12 +281,12 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
         </a>
       </div>
       <div
-        class="order-2 flex w-full items-center space-x-4 text-right sm:order-3 sm:w-auto"
+        class="ring-blue-hover order-2 flex w-full items-center text-right text-2xl ring-offset-2 focus:ring-2 focus:outline-none sm:order-3 sm:w-[260px]"
       >
         <button
           aria-expanded="false"
           aria-haspopup="menu"
-          class="flex h-full w-full flex-nowrap space-x-2 bg-slate-200 px-2 text-sm text-slate-700 hover:bg-neutral-300 hover:underline focus:bg-neutral-300 focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-hidden aria-expanded:bg-neutral-300 aria-expanded:text-slate-700 sm:space-x-4 sm:px-4"
+          class="flex h-full w-full flex-nowrap space-x-2 bg-slate-200 px-2 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 focus:ring-offset-2 focus:outline-hidden aria-expanded:bg-neutral-300 aria-expanded:text-slate-700 sm:space-x-4 sm:px-4 ring-blue-hover focus:ring-blue-hover active:ring-blue-hover ring-offset-2 focus:ring-2 active:ring-2"
           data-state="closed"
           id="radix-_r_0_"
           type="button"
@@ -314,7 +314,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
               </svg>
             </div>
             <span
-              class="text-md py-2 font-bold"
+              class="ring-blue-hover py-2 text-lg font-bold"
               id="menu-label"
             >
               Test User
