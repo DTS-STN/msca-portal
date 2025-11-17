@@ -55,11 +55,14 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     PAGINATION_PAGE_RANGE_DISPLAYED,
   } = globalThis.__appEnvironment;
 
-  const messages: MessageEntity[] = await getMessageService().findMessagesBySin({
-    sin: sin ? sin : '',
-    userId: sub ? sub : '',
-  });
-  session.messages = messages;
+  let messages: MessageEntity[] | undefined = session.messages;
+  if (messages === undefined) {
+    messages = await getMessageService().findMessagesBySin({
+      sin: sin ? sin : '',
+      userId: sub ? sub : '',
+    });
+    session.messages = messages;
+  }
 
   return {
     params,

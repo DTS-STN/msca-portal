@@ -10,7 +10,7 @@ declare module 'express-session' {
       idTokenClaims: RaoidcIdTokenClaims;
       userinfoTokenClaims: RaoidcUserinfoTokenClaims;
     };
-    messages: readonly MessageEntity[];
+    messages: MessageEntity[];
     loginState: {
       codeVerifier: string;
       nonce: string;
