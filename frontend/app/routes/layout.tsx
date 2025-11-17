@@ -100,14 +100,14 @@ export default function Layout({ loaderData }: Route.ComponentProps) {
 function PageBreadcrumbs({ language }: { language: string }) {
   const { t } = useTranslation(useI18nNamespaces());
   const breadcrumbs = useBreadcrumbs();
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
 
   if (breadcrumbs.length > 0) {
     return (
       <Breadcrumbs
         items={breadcrumbs.map((item) => ({
           text: t(item.labelI18nKey),
-          to: `${MSCA_BASE_URL}/${language}${item.to}`,
+          routeId: item.routeId,
+          to: item.to,
         }))}
         refPageAA="mscaPlaceholder"
       />

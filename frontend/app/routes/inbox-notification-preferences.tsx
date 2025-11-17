@@ -18,6 +18,10 @@ import { getLanguage } from '~/utils/i18n-utils';
 import { getPathById } from '~/utils/route-utils';
 
 export const handle = {
+  breadcrumbs: [
+    { labelI18nKey: 'gcweb:breadcrumbs.dashboard', routeId: 'my-dashboard' },
+    { labelI18nKey: 'gcweb:breadcrumbs.profile-and-preferences', routeId: 'profile-and-preferences' },
+  ],
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 

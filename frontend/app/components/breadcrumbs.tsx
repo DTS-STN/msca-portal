@@ -6,8 +6,12 @@ import { useTranslation } from 'react-i18next';
 
 import { InlineLink } from './links';
 
+import { useLanguage } from '~/hooks/use-language';
+import { getPathById } from '~/utils/route-utils';
+
 export interface BreadcrumbProps {
   text: string;
+  routeId?: string;
   to?: string;
 }
 
@@ -26,11 +30,13 @@ export function Breadcrumbs({ items = [], refPageAA = 'mscaPlaceholder' }: Bread
       </h2>
       <div className="container">
         <ol className="text-deep-blue-dark flex flex-wrap items-center gap-x-3 gap-y-1">
-          {items.map(({ text, to }, idx) => {
+          {items.map(({ text, routeId, to }, idx) => {
             return (
               <li key={text} property="itemListElement" typeof="ListItem" className="flex items-center">
                 {idx !== 0 && <FontAwesomeIcon icon={faChevronRight} className="mr-2 size-3 text-slate-700" />}
-                <Breadcrumb to={to}>{text}</Breadcrumb>
+                <Breadcrumb routeId={routeId} to={to}>
+                  {text}
+                </Breadcrumb>
               </li>
             );
           })}
@@ -40,9 +46,16 @@ export function Breadcrumbs({ items = [], refPageAA = 'mscaPlaceholder' }: Bread
   );
 }
 
-function Breadcrumb({ children, to }: { children: ReactNode; routeId?: string; to?: string }) {
-  // prettier-ignore
-  return to === undefined
-    ? <span property="name">{children}</span>
-    : <InlineLink to={to} property="item" typeof="WebPage"><span property="name">{children}</span></InlineLink>;
+function Breadcrumb({ children, routeId, to }: { children: ReactNode; routeId?: string; to?: string }) {
+  const { currentLanguage } = useLanguage();
+  const href = routeId === undefined ? '' : getPathById(routeId, { lang: currentLanguage });
+
+  // prettier-ignorecurrentlanguage
+  return routeId === undefined && to === undefined ? (
+    <span property="name">{children}</span>
+  ) : (
+    <InlineLink to={href} property="item" typeof="WebPage">
+      <span property="name">{children}</span>
+    </InlineLink>
+  );
 }
