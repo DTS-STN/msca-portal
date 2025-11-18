@@ -53,10 +53,10 @@ export class DefaultMessageService implements MessageService {
   }
 
   async findMessagesBySin({ sin, userId }: MessagesRequestDto): Promise<MessageEntity[]> {
-    log.trace('Finding letters with clientId [%s]', sin);
+    log.info('Finding letters with clientId [%s]', sin);
 
     const messageDtos = await this.messageRepository.findMessagesBySin(sin, userId);
-    log.trace('Returning letters [%j] for clientId [%s]', messageDtos, sin);
+    log.info('Returning letters [%j] for clientId [%s]', messageDtos, sin);
 
     return this.messageDtoMapper.mapMessageDtosToMessageEntities(messageDtos);
   }
