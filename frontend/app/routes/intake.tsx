@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router';
 
-import { Route } from '../routes/+types/intake';
+import type { Route } from '../routes/+types/intake';
 
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { AppError } from '~/errors/app-error';
@@ -29,6 +29,6 @@ export default function Intake({ loaderData, params }: Route.ComponentProps) {
   }
 
   const decodedLang = lang === 'eng' ? 'en' : 'fr';
-  const path = getPathById('my-dashboard', (params = { lang: decodedLang }));
+  const path = getPathById('my-dashboard', { lang: decodedLang });
   return <Navigate to={path} />;
 }

@@ -186,6 +186,11 @@ export const i18nRoutes = [
         file: 'routes/decision-reviews.tsx',
         paths: { en: '/en/decision-reviews', fr: '/fr/demande-revision' },
       },
+      {
+        id: 'intake',
+        file: 'routes/intake.tsx',
+        paths: { en: '/', fr: '/' },
+      },
     ],
   },
 ] as const satisfies I18nRoute[];
