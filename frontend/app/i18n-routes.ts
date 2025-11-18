@@ -182,7 +182,7 @@ export const i18nRoutes = [
         paths: { en: '/en/profile-and-preferences', fr: '/fr/profil-et-preferences' },
       },
       {
-        id: 'PROT-0016',
+        id: 'decision-reviews',
         file: 'routes/decision-reviews.tsx',
         paths: { en: '/en/decision-reviews', fr: '/fr/demande-revision' },
       },
