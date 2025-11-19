@@ -6,13 +6,13 @@ import { AppLink } from './links';
 import { buildLink } from '~/utils/link-utils';
 
 interface Tasks {
+  id: string;
   title: string;
   areaLabel?: string;
   linkType?: string;
   link: string;
   icon?: string;
   betaPopUp?: boolean;
-  id: string;
 }
 
 export interface TaskListProps {
