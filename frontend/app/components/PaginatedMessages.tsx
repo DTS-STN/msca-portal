@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { RouteHandle, Params } from 'react-router';
 
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import ReactPaginate from 'react-paginate';
 
 import MessageList from './MessageList';
@@ -31,7 +31,7 @@ export default function PaginatedMessages({
   messagesPerPage,
   pageRangeDisplayed,
 }: PaginatedMessagesProps) {
-  const { t } = useTranslation(['inbox']);
+  // const { t } = useTranslation(['inbox']);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + messagesPerPage;
   const currentItems = messages.slice(itemOffset, endOffset);
@@ -55,8 +55,8 @@ export default function PaginatedMessages({
         /**pageCount > 1 ? (*/
         <ReactPaginate
           breakLabel="..."
-          nextLabel={t('inbox:pagination-text.next-link')}
-          previousLabel={t('inbox:pagination-text.previous-link')}
+          nextLabel="bla" //{t('inbox:pagination-text.next-link')}
+          previousLabel="bla" //{t('inbox:pagination-text.previous-link')}
           onPageChange={handlePageClick}
           pageRangeDisplayed={pageRangeDisplayed}
           pageCount={pageCount}
@@ -72,9 +72,9 @@ export default function PaginatedMessages({
                     hover:bg-brighter-blue-light hover:text-blue-hover
                     focus:outline-none focus:no-underline focus:bg-blue-hover focus:text-white focus:border 
                     focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-hover"
-          previousAriaLabel={t('inbox:pagination-text.previous-aria-label')}
+          previousAriaLabel="bla" //{t('inbox:pagination-text.previous-aria-label')}
           previousLinkClassName="px-3 underline underline-offset-4 decoration-gray-dark"
-          nextAriaLabel={t('inbox:pagination-text.next-aria-label')}
+          nextAriaLabel="bla" //{t('inbox:pagination-text.next-aria-label')}
           nextLinkClassName="px-3 underline underline-offset-4 decoration-gray-dark"
           activeLinkClassName="bg-deep-blue-dark no-underline no-hover text-white"
           disabledLinkClassName="text-gray-dark cursor-not-allowed"
