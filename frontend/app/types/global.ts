@@ -23,7 +23,7 @@ declare global {
   /**
    * Add the client-side environment to the global namespace.
    */
-  var __appEnvironment: ClientEnvironment;
+  var __appEnvironment: ClientEnvironment | undefined;
 
   /**
    * A holder for any application-scoped singletons.

@@ -5,12 +5,14 @@ import { ErrorCodes } from './errors/error-codes';
 // important: we cannot use aliased imports (~/) here 🤷
 import type { I18nPageRoute, I18nRoute } from './i18n-routes';
 import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
-const { SHOW_INBOX_BUTTON } = globalThis.__appEnvironment;
-const featureFlags = {
-  SHOW_INBOX_BUTTON: SHOW_INBOX_BUTTON,
-  // other flags...
-};
+import type { ClientEnvironment } from '~/.server/environment';
 
+const env: Partial<ClientEnvironment> = globalThis.__appEnvironment ?? {};
+
+const featureFlags = {
+  SHOW_INBOX_BUTTON: env.SHOW_INBOX_BUTTON ?? false,
+  // other flags…
+};
 function isFeatureEnabled(flag: keyof typeof featureFlags): boolean {
   return featureFlags[flag];
 }
