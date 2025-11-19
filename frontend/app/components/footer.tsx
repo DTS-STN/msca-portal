@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { AppLink } from './links';
+
 import { useLanguage } from '~/hooks/use-language';
 import { getPathById } from '~/utils/route-utils';
 
@@ -10,7 +11,7 @@ export interface FooterProps {
 
 export function Footer({ bilingual }: FooterProps) {
   const { i18n, t } = useTranslation(['gcweb']);
-  const { currentLanguage } = useLanguage()
+  const { currentLanguage } = useLanguage();
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
   const { MSCA_BASE_URL, ECAS_BASE_URL } = globalThis.__appEnvironment;
