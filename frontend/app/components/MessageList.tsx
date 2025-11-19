@@ -12,7 +12,7 @@ interface MessageListProps {
   messageEntities: MessageEntity[];
 }
 
-const MessageList = ({ messageEntities }: MessageListProps) => {
+export default function MessageList({ messageEntities }: MessageListProps) {
   const { t } = useTranslation(['inbox']);
 
   const { currentLanguage } = useLanguage();
@@ -77,6 +77,4 @@ const MessageList = ({ messageEntities }: MessageListProps) => {
       )}
     </>
   );
-};
-
-export default MessageList;
+}

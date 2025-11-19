@@ -20,7 +20,6 @@ import { handle as parentHandle } from '~/routes/layout';
 
 type InboxContext = {
   params: Params;
-  messages: MessageEntity[];
   engVerboseMessages: Map<string, string>;
   frVerboseMessages: Map<string, string>;
   messagesPerPage: number;
@@ -82,11 +81,9 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 const EMPTY_MAP = new Map<string, string>();
-const EMPTY_ARRAY: MessageEntity[] = [];
 const EMPTY_LIST: Params = {};
 const defaultInboxContext = {
   params: EMPTY_LIST,
-  messages: EMPTY_ARRAY,
   locale: 'en',
   engVerboseMessages: EMPTY_MAP,
   frVerboseMessages: EMPTY_MAP,
@@ -123,9 +120,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   const OAS_DASHBOARD_URL = OAS_BASE_URL + t('inbox:par4-list-item-oas-dashboard.href');
 
   const inboxContextValues = {
-    t: t,
     params,
-    messages,
     engVerboseMessages: engMessageVerboseTitles,
     frVerboseMessages: frMessageVerboseTitles,
     messagesPerPage: PAGINATION_MESSAGES_PER_PAGE,
@@ -145,7 +140,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
       </div>
 
       <inboxContext.Provider value={inboxContextValues}>
-        <PaginatedMessages />
+        <PaginatedMessages messages={messages} />
       </inboxContext.Provider>
       <div className="text-gray-darker py-4 text-xl">
         <p className="pb-4">{t('inbox:par3')}</p>

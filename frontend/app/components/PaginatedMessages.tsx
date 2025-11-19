@@ -8,15 +8,20 @@ import ReactPaginate from 'react-paginate';
 import { inboxContext } from '../routes/inbox';
 import MessageList from './MessageList';
 
+import type { MessageEntity } from '~/.server/domain/entities/message.entity';
 import { handle as parentHandle } from '~/routes/layout';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
-const PaginatedMessages = () => {
+interface PaginatedMessagesProps {
+  messages: MessageEntity[];
+}
+
+export default function PaginatedMessages({ messages }: PaginatedMessagesProps) {
   const { t } = useTranslation(['inbox']);
-  const { messages, messagesPerPage, pageRangeDisplayed } = useContext(inboxContext);
+  const { messagesPerPage, pageRangeDisplayed } = useContext(inboxContext);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + messagesPerPage;
   const currentItems = messages.slice(itemOffset, endOffset);
@@ -61,6 +66,4 @@ const PaginatedMessages = () => {
       ) : null}
     </>
   );
-};
-
-export default PaginatedMessages;
+}
