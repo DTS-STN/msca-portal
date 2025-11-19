@@ -4,7 +4,7 @@ const { AEM_GRAPHQL_ENDPOINT, AEM_GRAPHQL_FOLDER } = globalThis.__appEnvironment
 
 export function getDashboardRepository() {
   async function getDashboardContent() {
-    const url = new URL(`${AEM_GRAPHQL_ENDPOINT}getSchMyDashboardV3%3BfolderName=${encodeURIComponent(AEM_GRAPHQL_FOLDER)}`);
+    const url = new URL(`${AEM_GRAPHQL_ENDPOINT}getSchMyDashboardV5%3BfolderName=${encodeURIComponent(AEM_GRAPHQL_FOLDER)}`);
     const response = await fetch(url);
 
     if (!response.ok) {

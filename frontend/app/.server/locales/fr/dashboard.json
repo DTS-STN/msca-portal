@@ -8,27 +8,32 @@
     {
       "id": "canadian-dental-care-plan",
       "title": "Régime canadien de soins dentaires",
-      "dropdownText": "Actions les plus demandées",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-canadian-dental-care-plan-expand-collapse",
+          "title": "Actions les plus demandées",
+          "lists": [
             {
-              "id": "task-cdcp-apply",
-              "title": "Présenter une demande au Régime canadien de soins dentaires",
-              "areaLable": "Présenter une demande au Régime canadien de soins dentaires",
-              "link": "https://srv024.service.canada.ca/fr/protege/demander",
-              "icon": "",
-              "betaPopup": false
-            },
-            {
-              "id": "cdcp-view-my-letters",
-              "title": "Consulter mes lettres",
-              "areaLable": "Consulter mes lettres du Régime canadien de soins dentaires",
-              "link": "https://srv024.service.canada.ca/fr/protege/lettres",
-              "icon": "",
-              "betaPopup": false
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "task-cdcp-apply",
+                  "title": "Présenter une demande au Régime canadien de soins dentaires",
+                  "areaLable": "Présenter une demande au Régime canadien de soins dentaires",
+                  "link": "https://srv024.service.canada.ca/fr/protege/demander",
+                  "icon": "",
+                  "betaPopup": false
+                },
+                {
+                  "id": "cdcp-view-my-letters",
+                  "title": "Consulter mes lettres",
+                  "areaLable": "Consulter mes lettres du Régime canadien de soins dentaires",
+                  "link": "https://srv024.service.canada.ca/fr/protege/lettres",
+                  "icon": "",
+                  "betaPopup": false
+                }
+              ]
             }
           ]
         }
@@ -37,209 +42,315 @@
     {
       "id": "employment-insurance",
       "title": "Assurance-emploi",
-      "dropdownText": "Demandes de prestations, paiements et demandes, impôts, rapports et documents, renseignements personnels",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-employment-insurance-ccb-expand-collapse",
+          "title": "Prestations pour les travailleurs autonomes : Prestations de compassion",
+          "lists": [
             {
-              "id": "ei-view-my-status-updates",
-              "title": "Afficher l'état de ma demande et mes messages",
-              "areaLable": "Afficher l'état de ma demande et mes messages de l'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=fra",
-              "icon": "list-check",
-              "betaPopup": true
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "task-ei-manage-my-benefits",
+                  "title": "Gérer mes prestations",
+                  "areaLable": "Gérer mes prestations de compassion",
+                  "linkType": "ecas-rasc",
+                  "link": "/Curam/SAMLIdentityProvider.aspx?link=%2Fei-ae%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-EI",
+                  "icon": "",
+                  "betaPopup": false
+                }
+              ]
             },
             {
-              "id": "ei-view-my-payments",
-              "title": "Consulter mes paiements",
-              "areaLable": "Consulter mes paiements d'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPayments.aspx?GoCTemplateCulture=fr-CA",
-              "icon": "file-invoice-dollar",
-              "betaPopup": true
+              "title": "Demandes de prestations",
+              "aaTitle": "Applications",
+              "tasks": [
+                {
+                  "id": "apply-for-employment-insurance",
+                  "title": "Présenter une demande d'assurance-emploi",
+                  "areaLable": "Présenter une demande d'assurance-emploi",
+                  "link": "http://www.servicecanada.gc.ca/cgi-bin/op-so/msca/redirection.asp?linkmsca=/107f.html",
+                  "icon": "stamp",
+                  "betaPopup": false
+                },
+                {
+                  "id": "task-ei-manage-my-benefits",
+                  "title": "Gérer mes prestations",
+                  "areaLable": "Gérer mes prestations de compassion",
+                  "linkType": "ecas-rasc",
+                  "link": "/Curam/SAMLIdentityProvider.aspx?link=%2Fei-ae%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-EI",
+                  "icon": "",
+                  "betaPopup": false
+                }
+              ]
+            },
+            {
+              "title": "Impôts",
+              "aaTitle": "Taxes",
+              "tasks": [
+                {
+                  "id": "view-my-tax-slips",
+                  "title": "Consulter mes feuillets d'impôt",
+                  "areaLable": "Consulter mes feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
+                  "icon": "receipt",
+                  "betaPopup": true
+                },
+                {
+                  "id": "change-my-tax-slip-delivery-options",
+                  "title": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
+                  "icon": "envelope-open-text",
+                  "betaPopup": true
+                }
+              ]
+            },
+            {
+              "title": "Documents",
+              "aaTitle": "Documents",
+              "tasks": [
+                {
+                  "id": "ei-view-my-documents",
+                  "title": "Consulter mes documents",
+                  "areaLable": "Consulter mes documents d'assurance-emploi",
+                  "linkType": "msca-eq",
+                  "link": "/proxy/index/322?GoCTemplateCulture=fr-CA",
+                  "icon": "folder-open",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-submit-documents",
+                  "title": "Soumettre des documents",
+                  "areaLable": "Soumettre des documents pour l'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-doc-upload-instruction?Lang=fra",
+                  "icon": "file-import",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-letters",
+                  "title": "Consulter mes lettres",
+                  "areaLable": "Consulter mes lettres d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=fra",
+                  "icon": "envelopes-bulk",
+                  "betaPopup": true
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Demandes de prestations",
-          "aaTitle": "Applications",
-          "tasks": [
+          "id": "card-employment-insurance-expand-collapse",
+          "title": "Toutes autres prestations",
+          "lists": [
             {
-              "id": "ei-view-my-status-updates",
-              "title": "Afficher l'état de ma demande et mes messages",
-              "areaLable": "Afficher l'état de ma demande et mes messages de l'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=fra",
-              "icon": "list-check",
-              "betaPopup": true
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "ei-view-my-status-updates",
+                  "title": "Afficher l’état de ma demande et mes messages",
+                  "areaLable": "Afficher l'état de ma demande et mes messages de l'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=eng",
+                  "icon": "list-check",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-payments",
+                  "title": "View my Employment Insurance payments",
+                  "areaLable": "Consulter mes paiements d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPayments.aspx?GoCTemplateCulture=en-CA",
+                  "icon": "file-invoice-dollar",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "apply-for-employment-insurance",
-              "title": "Présenter une demande d'assurance-emploi",
-              "areaLable": "Présenter une demande d'assurance-emploi",
-              "link": "http://www.servicecanada.gc.ca/cgi-bin/op-so/msca/redirection.asp?linkmsca=/107f.html",
-              "icon": "stamp",
-              "betaPopup": false
-            }
-          ]
-        },
-        {
-          "title": "Paiements et demandes",
-          "aaTitle": "Payments and claims",
-          "tasks": [
-            {
-              "id": "ei-view-my-payments",
-              "title": "Consulter mes paiements",
-              "areaLable": "Consulter mes paiements d'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPayments.aspx?GoCTemplateCulture=fr-CA",
-              "icon": "file-invoice-dollar",
-              "betaPopup": true
+              "title": "Demandes de prestations",
+              "aaTitle": "Applications",
+              "tasks": [
+                {
+                  "id": "ei-view-my-status-updates",
+                  "title": "Afficher l’état de ma demande et mes messages",
+                  "areaLable": "Afficher l'état de ma demande et mes messages de l'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-correspondence?Lang=eng",
+                  "icon": "list-check",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-employment-insurance",
+                  "title": "Présenter une demande d'assurance-emploi",
+                  "areaLable": "Présenter une demande d'assurance-emploi",
+                  "link": "http://www.servicecanada.gc.ca/cgi-bin/op-so/msca/redirection.asp?linkmsca=/107f.html",
+                  "icon": "stamp",
+                  "betaPopup": false
+                }
+              ]
             },
             {
-              "id": "ei-view-my-latest-claim",
-              "title": "Consulter ma dernière demande",
-              "areaLable": "Consulter ma dernière demande d'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyCurrentClaim.aspx?GoCTemplateCulture=fr-CA",
-              "icon": "file-signature",
-              "betaPopup": true
+              "title": "Paiements et demandes",
+              "aaTitle": "Payments and claims",
+              "tasks": [
+                {
+                  "id": "ei-view-my-payments",
+                  "title": "Consulter mes paiements",
+                  "areaLable": "Consulter mes paiements d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPayments.aspx?GoCTemplateCulture=fr-CA",
+                  "icon": "file-invoice-dollar",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-latest-claim",
+                  "title": "Consulter ma dernière demande",
+                  "areaLable": "Consulter ma dernière demande d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyCurrentClaim.aspx?GoCTemplateCulture=fr-CA",
+                  "icon": "file-signature",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-past-claims",
+                  "title": "Consulter mes demandes antérieures",
+                  "areaLable": "Consulter mes demandes antérieures d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPastClaims.aspx?GoCTemplateCulture=fr-CA",
+                  "icon": "briefcase",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "ei-view-my-past-claims",
-              "title": "Consulter mes demandes antérieures",
-              "areaLable": "Consulter mes demandes antérieures d'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyPastClaims.aspx?GoCTemplateCulture=fr-CA",
-              "icon": "briefcase",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Impôts",
-          "aaTitle": "Taxes",
-          "tasks": [
-            {
-              "id": "view-my-tax-slips",
-              "title": "Consulter mes feuillets d'impôt",
-              "areaLable": "Consulter mes feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
-              "icon": "receipt",
-              "betaPopup": true
+              "title": "Impôts",
+              "aaTitle": "Taxes",
+              "tasks": [
+                {
+                  "id": "view-my-tax-slips",
+                  "title": "Consulter mes feuillets d'impôt",
+                  "areaLable": "Consulter mes feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
+                  "icon": "receipt",
+                  "betaPopup": true
+                },
+                {
+                  "id": "change-my-tax-slip-delivery-options",
+                  "title": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
+                  "icon": "envelope-open-text",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "change-my-tax-slip-delivery-options",
-              "title": "Modifier mes options d'expédition des feuillets d'impôt",
-              "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
-              "icon": "envelope-open-text",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Rapports et documents",
-          "aaTitle": "Reports and documents",
-          "tasks": [
-            {
-              "id": "ei-complete-my-report",
-              "title": "Soumettre une déclaration de l'assurance-emploi",
-              "areaLable": "Soumettre une déclaration de l'assurance-emploi",
-              "link": "http://www.servicecanada.gc.ca/cgi-bin/op-so/msca/redirection.asp?linkmsca=/104f.html",
-              "icon": "pen-to-square",
-              "betaPopup": false
+              "title": "Rapports et documents",
+              "aaTitle": "Reports and documents",
+              "tasks": [
+                {
+                  "id": "ei-complete-my-report",
+                  "title": "Soumettre une déclaration de l'assurance-emploi",
+                  "areaLable": "Soumettre une déclaration de l'assurance-emploi",
+                  "link": "http://www.servicecanada.gc.ca/cgi-bin/op-so/msca/redirection.asp?linkmsca=/104f.html",
+                  "icon": "pen-to-square",
+                  "betaPopup": false
+                },
+                {
+                  "id": "view-my-records-of-employment",
+                  "title": "Consulter mes relevés d'emploi",
+                  "areaLable": "Consulter mes relevés d'emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyRoeList.aspx?GoCTemplateCulture=fr-CA",
+                  "icon": "file-contract",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-documents",
+                  "title": "Consulter mes documents",
+                  "areaLable": "Consulter mes documents d'assurance-emploi",
+                  "linkType": "msca-eq",
+                  "link": "/proxy/index/322?GoCTemplateCulture=fr-CA",
+                  "icon": "folder-open",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-submit-documents",
+                  "title": "Soumettre des documents",
+                  "areaLable": "Soumettre des documents pour l'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-doc-upload-instruction?Lang=fra",
+                  "icon": "file-import",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-letters",
+                  "title": "Consulter mes lettres",
+                  "areaLable": "Consulter mes lettres d'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=fra",
+                  "icon": "envelopes-bulk",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-submit-eforms",
+                  "title": "Soumettre des formulaires électroniques",
+                  "areaLable": "Soumettre des formulaires électroniques pour l'assurance-emploi",
+                  "linkType": "msca-eq",
+                  "link": "/proxy/index/257?GoCTemplateCulture=fr-CA",
+                  "icon": "laptop-file",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-report-a-mistake",
+                  "title": "Communiquer une erreur",
+                  "areaLable": "Communiquer une erreur",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyMessages.aspx?GoCTemplateCulture=fr-CA&mt=3",
+                  "icon": "file-exclamation",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "view-my-records-of-employment",
-              "title": "Consulter mes relevés d'emploi",
-              "areaLable": "Consulter mes relevés d'emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyRoeList.aspx?GoCTemplateCulture=fr-CA",
-              "icon": "file-contract",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-view-my-documents",
-              "title": "Consulter mes documents",
-              "areaLable": "Consulter mes documents d'assurance-emploi",
-              "linkType": "msca-eq",
-              "link": "/proxy/index/322?GoCTemplateCulture=fr-CA",
-              "icon": "folder-open",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-submit-documents",
-              "title": "Soumettre des documents",
-              "areaLable": "Soumettre des documents pour l'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/ei-doc-upload-instruction?Lang=fra",
-              "icon": "file-import",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-view-my-letters",
-              "title": "Consulter mes lettres",
-              "areaLable": "Consulter mes lettres d'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/dol-adl/my-letters?Lang=fra",
-              "icon": "envelopes-bulk",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-submit-eforms",
-              "title": "Soumettre des formulaires électroniques",
-              "areaLable": "Soumettre des formulaires électroniques pour l'assurance-emploi",
-              "linkType": "msca-eq",
-              "link": "/proxy/index/257?GoCTemplateCulture=fr-CA",
-              "icon": "laptop-file",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-report-a-mistake",
-              "title": "Communiquer une erreur",
-              "areaLable": "Communiquer une erreur",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyMessages.aspx?GoCTemplateCulture=fr-CA&mt=3",
-              "icon": "file-exclamation",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Renseignements personnels",
-          "aaTitle": "Personal information",
-          "tasks": [
-            {
-              "id": "update-my-profile",
-              "title": "Mettre à jour mes renseignements personnels",
-              "areaLable": "Mettre à jour mes renseignements personnels",
-              "link": "/fr/renseignements-personnels-par-prestation",
-              "icon": "circle-user",
-              "betaPopup": false
-            },
-            {
-              "id": "manage-email-notifications-alert-me",
-              "title": "Gérer mes avis par courriel (Alertez-moi)",
-              "areaLable": "Gérer mes avis par courriel (Alertez-moi)",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/alert-me-profile?Lang=fra",
-              "icon": "bell",
-              "betaPopup": true
-            },
-            {
-              "id": "ei-view-my-agreement-status-self-employed",
-              "title": "Consulter l'état de mon entente (travailleurs autonomes)",
-              "areaLable": "Consulter l'état de mon entente (travailleurs autonomes) pour l'assurance-emploi",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/self-ei?Lang=fra",
-              "icon": "person-walking-luggage",
-              "betaPopup": true
+              "title": "Renseignements personnels",
+              "aaTitle": "Personal information",
+              "tasks": [
+                {
+                  "id": "update-my-profile",
+                  "title": "Mettre à jour mes renseignements personnels",
+                  "areaLable": "Mettre à jour mes renseignements personnels",
+                  "link": "/fr/renseignements-personnels-par-prestation",
+                  "icon": "circle-user",
+                  "betaPopup": false
+                },
+                {
+                  "id": "manage-email-notifications-alert-me",
+                  "title": "Gérer mes avis par courriel (Alertez-moi)",
+                  "areaLable": "Gérer mes avis par courriel (Alertez-moi)",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/alert-me-profile?Lang=fra",
+                  "icon": "bell",
+                  "betaPopup": true
+                },
+                {
+                  "id": "ei-view-my-agreement-status-self-employed",
+                  "title": "Consulter l'état de mon entente (travailleurs autonomes)",
+                  "areaLable": "Consulter l'état de mon entente (travailleurs autonomes) pour l'assurance-emploi",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/home-accueil/self-ei?Lang=fra",
+                  "icon": "person-walking-luggage",
+                  "betaPopup": true
+                }
+              ]
             }
           ]
         }
@@ -248,261 +359,266 @@
     {
       "id": "canada-pension-plan",
       "title": "Régime de pensions du Canada",
-      "dropdownText": "Demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-canada-pension-plan-expand-collapse",
+          "title": "Demandes de prestations, paiements, impôts, documents, clauses, renseignements personnels",
+          "lists": [
             {
-              "id": "cpp-view-my-status-updates",
-              "title": "Consulter l'état de ma demande",
-              "areaLable": "Consulter l'état de ma demande pour le Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vmas-vemd/view-application-status.action?Lang=fra",
-              "icon": "list-check",
-              "betaPopup": true
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "cpp-view-my-status-updates",
+                  "title": "Consulter l'état de ma demande",
+                  "areaLable": "Consulter l'état de ma demande pour le Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vmas-vemd/view-application-status.action?Lang=fra",
+                  "icon": "list-check",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-oas-view-my-payments",
+                  "title": "Consulter mes paiements",
+                  "areaLable": "Consulter mes paiements du Régime de pensions du Canada et de la Sécurité de la vieillesse",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/payment/?Lang=fra",
+                  "icon": "file-invoice-dollar",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "cpp-oas-view-my-payments",
-              "title": "Consulter mes paiements",
-              "areaLable": "Consulter mes paiements du Régime de pensions du Canada et de la Sécurité de la vieillesse",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/payment/?Lang=fra",
-              "icon": "file-invoice-dollar",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Demandes de prestations",
-          "aaTitle": "Applications",
-          "tasks": [
-            {
-              "id": "cpp-view-my-status-updates",
-              "title": "Consulter l'état de ma demande",
-              "areaLable": "Consulter l'état de ma demande pour le Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vmas-vemd/view-application-status.action?Lang=fra",
-              "icon": "list-check",
-              "betaPopup": true
+              "title": "Demandes de prestations",
+              "aaTitle": "Applications",
+              "tasks": [
+                {
+                  "id": "cpp-view-my-status-updates",
+                  "title": "Consulter l'état de ma demande",
+                  "areaLable": "Consulter l'état de ma demande pour le Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vmas-vemd/view-application-status.action?Lang=fra",
+                  "icon": "list-check",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan",
+                  "title": "Présenter une demande de pension de retraite au Régime de pensions du Canada",
+                  "areaLable": "Présenter une demande de pension de retraite au Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/rtra/retirement-application?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-disability",
+                  "title": "Présenter une demande de prestations d'invalidité du Régime de pensions du Canada",
+                  "areaLable": "Présenter une demande de prestations d'invalidité du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/cppd-rpci/?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-death-benefits",
+                  "title": "Présenter une demande de prestations de décès du Régime de pensions du Canada",
+                  "areaLable": "Présenter une demande de prestations de décès du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/dth-dc/?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-survivors-pension-and-childrens-benefit",
+                  "title": "Présenter une demande pour la pension de survivant du Régime de pensions du Canada et prestations d'enfants",
+                  "areaLable": "Présenter une demande pour la pension de survivant du Régime de pensions du Canada et prestations d'enfants",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/svr-surv?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-survivors-pension-and-childrens-benefit-aged-18-25",
+                  "title": "Présenter une demande de prestations d'enfant de 18 à 25 ans du Régime de pensions du Canada",
+                  "areaLable": "Présenter une demande de prestations d'enfant de 18 à 25 ans du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/chld-enf/?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-oas-request-a-review-of-a-decision",
+                  "title": "Faire une demande de révision",
+                  "areaLable": "Faire une demande de révision pour vos prestations, pensions ou dispositions du Régime de pensions du Canada et la Sécurité de la vieillesse",
+                  "link": "/fr/demande-revision",
+                  "icon": "comments",
+                  "betaPopup": false
+                }
+              ]
             },
             {
-              "id": "apply-for-canada-pension-plan",
-              "title": "Présenter une demande de pension de retraite au Régime de pensions du Canada",
-              "areaLable": "Présenter une demande de pension de retraite au Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/rtra/retirement-application?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
+              "title": "Paiements",
+              "aaTitle": "Payments",
+              "tasks": [
+                {
+                  "id": "cpp-oas-view-my-payments",
+                  "title": "Consulter mes paiements",
+                  "areaLable": "Consulter mes paiements du Régime de pensions du Canada et de la Sécurité de la vieillesse",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/payment/?Lang=fra",
+                  "icon": "file-invoice-dollar",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-view-my-contributions",
+                  "title": "Consulter mes cotisations",
+                  "areaLable": "Consulter mes cotisations au Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/socv/earnings-contributions?Lang=fra",
+                  "icon": "hand-holding-dollar",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-estimate-my-retirement-income",
+                  "title": "Consulter une estimation de mes prestations",
+                  "areaLable": "Consulter une estimation de mes prestations du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/socv/estimated-benefits?Lang=fra",
+                  "icon": "calculator",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "apply-for-canada-pension-plan-disability",
-              "title": "Présenter une demande de prestations d'invalidité du Régime de pensions du Canada",
-              "areaLable": "Présenter une demande de prestations d'invalidité du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/cppd-rpci/?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
+              "title": "Impôts",
+              "aaTitle": "Taxes",
+              "tasks": [
+                {
+                  "id": "view-my-tax-slips",
+                  "title": "Consulter mes feuillets d'impôt",
+                  "areaLable": "Consulter mes feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
+                  "icon": "receipt",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-change-my-tax-deductions",
+                  "title": "Modifier ma retenue d'impôt",
+                  "areaLable": "Modifier ma retenue d'impôt pour le Régime de pensions du Canada et la Sécurité de la vieillesse",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/tax-deduction?Lang=fra",
+                  "icon": "arrow-down-wide-short",
+                  "betaPopup": true
+                },
+                {
+                  "id": "change-my-tax-slip-delivery-options",
+                  "title": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
+                  "icon": "envelope-open-text",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "apply-for-canada-pension-plan-death-benefits",
-              "title": "Présenter une demande de prestations de décès du Régime de pensions du Canada",
-              "areaLable": "Présenter une demande de prestations de décès du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/dth-dc/?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
+              "title": "Documents",
+              "aaTitle": "Documents",
+              "tasks": [
+                {
+                  "id": "cppd-submit-documents",
+                  "title": "Soumettre des documents pour les prestations d'invalidité",
+                  "areaLable": "Soumettre des documents pour les prestations d'invalidité du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/cppd-rpci/doc-upload?Lang=fra",
+                  "icon": "file-import",
+                  "betaPopup": true
+                },
+                {
+                  "id": "cpp-submit-documents-death",
+                  "title": "Soumettre des documents pour la prestation de décès",
+                  "areaLable": "Soumettre des documents pour la prestation de décès du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/dth-dc/doc-upload?Lang=fra",
+                  "icon": "",
+                  "betaPopup": false
+                },
+                {
+                  "id": "cpp-submit-documents-survivor",
+                  "title": "Soumettre des documents pour les prestations de survivant",
+                  "areaLable": "Soumettre des documents pour les prestations de survivant du Régime de pensions du Canada",
+                  "linkType": "msca-eq",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/svr-surv/doc-upload?Lang=fra",
+                  "icon": "",
+                  "betaPopup": false
+                },
+                {
+                  "id": "cpp-submit-a-declaration-of-attendance-at-school-or-university",
+                  "title": "Soumettre une déclaration de fréquentation scolaire ou universitaire",
+                  "areaLable": "Soumettre une déclaration de fréquentation scolaire ou universitaire",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/sch-eco/?Lang=fra",
+                  "icon": "school",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "apply-for-canada-pension-plan-survivors-pension-and-childrens-benefit",
-              "title": "Présenter une demande pour la pension de survivant du Régime de pensions du Canada et prestations d'enfants",
-              "areaLable": "Présenter une demande pour la pension de survivant du Régime de pensions du Canada et prestations d'enfants",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/svr-surv?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
+              "title": "Clauses",
+              "aaTitle": "Provisions",
+              "tasks": [
+                {
+                  "id": "cpp-view-my-child-rearing-provision",
+                  "title": "Consulter ou demander ma clause pour élever des enfants",
+                  "areaLable": "Consulter ou demander ma clause pour élever des enfants",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/child-rearing-provision?step=view&Lang=fra",
+                  "icon": "baby-carriage",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-credit-split",
+                  "title": "Demander de partager des crédits du Régime de pensions du Canada",
+                  "areaLable": "Demander de partager des crédits du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/cs-pc/?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                },
+                {
+                  "id": "apply-for-canada-pension-plan-sharing",
+                  "title": "Demander de partage des pensions de retraite du Régime de pensions du Canada",
+                  "areaLable": "Demander de partage des pensions de retraite du Régime de pensions du Canada",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/pnsh-ppr/?Lang=fra",
+                  "icon": "stamp",
+                  "betaPopup": true
+                }
+              ]
             },
             {
-              "id": "apply-for-canada-pension-plan-survivors-pension-and-childrens-benefit-aged-18-25",
-              "title": "Présenter une demande de prestations d'enfant de 18 à 25 ans du Régime de pensions du Canada",
-              "areaLable": "Présenter une demande de prestations d'enfant de 18 à 25 ans du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/chld-enf/?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
-            },
-            {
-              "id": "cpp-oas-request-a-review-of-a-decision",
-              "title": "Faire une demande de révision",
-              "areaLable": "Faire une demande de révision pour vos prestations, pensions ou dispositions du Régime de pensions du Canada et la Sécurité de la vieillesse",
-              "link": "/fr/demande-revision",
-              "icon": "comments",
-              "betaPopup": false
-            }
-          ]
-        },
-        {
-          "title": "Paiements",
-          "aaTitle": "Payments",
-          "tasks": [
-            {
-              "id": "cpp-oas-view-my-payments",
-              "title": "Consulter mes paiements",
-              "areaLable": "Consulter mes paiements du Régime de pensions du Canada et de la Sécurité de la vieillesse",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/payment/?Lang=fra",
-              "icon": "file-invoice-dollar",
-              "betaPopup": true
-            },
-            {
-              "id": "cpp-view-my-contributions",
-              "title": "Consulter mes cotisations",
-              "areaLable": "Consulter mes cotisations au Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/socv/earnings-contributions?Lang=fra",
-              "icon": "hand-holding-dollar",
-              "betaPopup": true
-            },
-            {
-              "id": "cpp-estimate-my-retirement-income",
-              "title": "Consulter une estimation de mes prestations",
-              "areaLable": "Consulter une estimation de mes prestations du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/socv-vecc/socv/estimated-benefits?Lang=fra",
-              "icon": "calculator",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Impôts",
-          "aaTitle": "Taxes",
-          "tasks": [
-            {
-              "id": "view-my-tax-slips",
-              "title": "Consulter mes feuillets d'impôt",
-              "areaLable": "Consulter mes feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
-              "icon": "receipt",
-              "betaPopup": true
-            },
-            {
-              "id": "cpp-change-my-tax-deductions",
-              "title": "Modifier ma retenue d'impôt",
-              "areaLable": "Modifier ma retenue d'impôt pour le Régime de pensions du Canada et la Sécurité de la vieillesse",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/tax-deduction?Lang=fra",
-              "icon": "arrow-down-wide-short",
-              "betaPopup": true
-            },
-            {
-              "id": "change-my-tax-slip-delivery-options",
-              "title": "Modifier mes options d'expédition des feuillets d'impôt",
-              "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
-              "icon": "envelope-open-text",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Documents",
-          "aaTitle": "Documents",
-          "tasks": [
-            {
-              "id": "cppd-submit-documents",
-              "title": "Soumettre des documents pour les prestations d'invalidité",
-              "areaLable": "Soumettre des documents pour les prestations d'invalidité du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/cppd-rpci/doc-upload?Lang=fra",
-              "icon": "file-import",
-              "betaPopup": true
-            },
-            {
-              "id": "cpp-submit-documents-death",
-              "title": "Soumettre des documents pour la prestation de décès",
-              "areaLable": "Soumettre des documents pour la prestation de décès du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/dth-dc/doc-upload?Lang=fra",
-              "icon": "",
-              "betaPopup": false
-            },
-            {
-              "id": "cpp-submit-documents-survivor",
-              "title": "Soumettre des documents pour les prestations de survivant",
-              "areaLable": "Soumettre des documents pour les prestations de survivant du Régime de pensions du Canada",
-              "linkType": "msca-eq",
-              "link": "/sc/msca-mdsc/portal-portail/pro/svr-surv/doc-upload?Lang=fra",
-              "icon": "",
-              "betaPopup": false
-            },
-            {
-              "id": "cpp-submit-a-declaration-of-attendance-at-school-or-university",
-              "title": "Soumettre une déclaration de fréquentation scolaire ou universitaire",
-              "areaLable": "Soumettre une déclaration de fréquentation scolaire ou universitaire",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/sch-eco/?Lang=fra",
-              "icon": "school",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Clauses",
-          "aaTitle": "Provisions",
-          "tasks": [
-            {
-              "id": "cpp-view-my-child-rearing-provision",
-              "title": "Consulter ou demander ma clause pour élever des enfants",
-              "areaLable": "Consulter ou demander ma clause pour élever des enfants",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/child-rearing-provision?step=view&Lang=fra",
-              "icon": "baby-carriage",
-              "betaPopup": true
-            },
-            {
-              "id": "apply-for-canada-pension-plan-credit-split",
-              "title": "Demander de partager des crédits du Régime de pensions du Canada",
-              "areaLable": "Demander de partager des crédits du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/cs-pc/?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
-            },
-            {
-              "id": "apply-for-canada-pension-plan-sharing",
-              "title": "Demander de partage des pensions de retraite du Régime de pensions du Canada",
-              "areaLable": "Demander de partage des pensions de retraite du Régime de pensions du Canada",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/pnsh-ppr/?Lang=fra",
-              "icon": "stamp",
-              "betaPopup": true
-            }
-          ]
-        },
-        {
-          "title": "Renseignements personnels",
-          "aaTitle": "Personal information",
-          "tasks": [
-            {
-              "id": "update-my-profile",
-              "title": "Mettre à jour mes renseignements personnels",
-              "areaLable": "Mettre à jour mes renseignements personnels",
-              "link": "/fr/renseignements-personnels-par-prestation",
-              "icon": "circle-user",
-              "betaPopup": false
-            },
-            {
-              "id": "give-consent-to-communicate-on-my-behalf",
-              "title": "Autoriser une personne à communiquer en mon nom",
-              "areaLable": "Autoriser une personne à communiquer en mon nom",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/consent-to-communicate?Lang=fra",
-              "icon": "user-check",
-              "betaPopup": true
+              "title": "Renseignements personnels",
+              "aaTitle": "Personal information",
+              "tasks": [
+                {
+                  "id": "update-my-profile",
+                  "title": "Mettre à jour mes renseignements personnels",
+                  "areaLable": "Mettre à jour mes renseignements personnels",
+                  "link": "/fr/renseignements-personnels-par-prestation",
+                  "icon": "circle-user",
+                  "betaPopup": false
+                },
+                {
+                  "id": "give-consent-to-communicate-on-my-behalf",
+                  "title": "Autoriser une personne à communiquer en mon nom",
+                  "areaLable": "Autoriser une personne à communiquer en mon nom",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/vupi-vupi/consent-to-communicate?Lang=fra",
+                  "icon": "user-check",
+                  "betaPopup": true
+                }
+              ]
             }
           ]
         }
@@ -511,38 +627,43 @@
     {
       "id": "old-age-security",
       "title": "Sécurité de la vieillesse",
-      "dropdownText": "Renseignements sur les prestations, impôts",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-old-age-security-expand-collapse",
+          "title": "Renseignements sur les prestations, impôts",
+          "lists": [
             {
-              "id": "oas-manage-my-benefits",
-              "title": "Gérer mes prestations",
-              "areaLable": "Gérer mes prestations de la Sécurité de la vieillesse",
-              "linkType": "ecas-rasc",
-              "link": "/Curam/SAMLIdentityProvider.aspx?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-OAS",
-              "icon": "",
-              "betaPopup": false
-            },
-            {
-              "id": "view-my-tax-slips",
-              "title": "Consulter mes feuillets d'impôt",
-              "areaLable": "Consulter mes feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
-              "icon": "receipt",
-              "betaPopup": true
-            },
-            {
-              "id": "change-my-tax-slip-delivery-options",
-              "title": "Modifier mes options d'expédition des feuillets d'impôt",
-              "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
-              "icon": "envelope-open-text",
-              "betaPopup": true
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "oas-manage-my-benefits",
+                  "title": "Gérer mes prestations",
+                  "areaLable": "Gérer mes prestations de la Sécurité de la vieillesse",
+                  "linkType": "ecas-rasc",
+                  "link": "/Curam/SAMLIdentityProvider.aspx?link=%2Fecas-seca%2FBenefits%2Faccount&Lang=fra&appCode=CURAM-OAS",
+                  "icon": "",
+                  "betaPopup": false
+                },
+                {
+                  "id": "view-my-tax-slips",
+                  "title": "Consulter mes feuillets d'impôt",
+                  "areaLable": "Consulter mes feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/tax-slip?Lang=fra",
+                  "icon": "receipt",
+                  "betaPopup": true
+                },
+                {
+                  "id": "change-my-tax-slip-delivery-options",
+                  "title": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "areaLable": "Modifier mes options d'expédition des feuillets d'impôt",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/tiso-frfd/mailing-option?Lang=fra",
+                  "icon": "envelope-open-text",
+                  "betaPopup": true
+                }
+              ]
             }
           ]
         }
@@ -551,19 +672,24 @@
     {
       "id": "canada-disability-benefit",
       "title": "Prestation canadienne pour les personnes handicapées",
-      "dropdownText": "Actions les plus demandées",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-canada-disability-benefit-expand-collapse",
+          "title": "Actions les plus demandées",
+          "lists": [
             {
-              "id": "task-cdb-letters",
-              "title": "Consulter mes lettres",
-              "areaLable": "Consulter mes lettres de la Prestation canadienne pour les personnes handicapées",
-              "link": "https://mdscpcph-mscacdb.service.canada.ca/fr/lettres",
-              "icon": "",
-              "betaPopup": false
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "task-cdb-letters",
+                  "title": "Consulter mes lettres",
+                  "areaLable": "Consulter mes lettres de la Prestation canadienne pour les personnes handicapées",
+                  "link": "https://mdscpcph-mscacdb.service.canada.ca/fr/lettres",
+                  "icon": "",
+                  "betaPopup": false
+                }
+              ]
             }
           ]
         }
@@ -572,20 +698,25 @@
     {
       "id": "social-insurance-number",
       "title": "Numéro d’assurance sociale",
-      "dropdownText": "Actions les plus demandées",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-social-insurance-number-expand-collapse",
+          "title": "Actions les plus demandées",
+          "lists": [
             {
-              "id": "sin-view-social-insurance-number",
-              "title": "Consulter mon numéro d’assurance sociale",
-              "areaLable": "Consulter mon numéro d’assurance sociale",
-              "linkType": "msca-base-url",
-              "link": "/sc/msca-mdsc/portal-portail/pro/sinom-nasm/?Lang=fra",
-              "icon": "credit-card",
-              "betaPopup": true
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "sin-view-social-insurance-number",
+                  "title": "Consulter mon numéro d’assurance sociale",
+                  "areaLable": "Consulter mon numéro d’assurance sociale",
+                  "linkType": "msca-base-url",
+                  "link": "/sc/msca-mdsc/portal-portail/pro/sinom-nasm/?Lang=fra",
+                  "icon": "credit-card",
+                  "betaPopup": true
+                }
+              ]
             }
           ]
         }
@@ -594,19 +725,24 @@
     {
       "id": "national-student-loans-service-centre",
       "title": "Centre de services national de prêts aux étudiants",
-      "dropdownText": "Actions les plus demandées",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-national-student-loans-service-centre-expand-collapse",
+          "title": "Actions les plus demandées",
+          "lists": [
             {
-              "id": "task-nslsc-access",
-              "title": "Accéder à mes renseignements de prêts d'études",
-              "areaLable": "Accéder à mes renseignements de prêts d'études",
-              "link": "https://protege-secure.csnpe-nslsc.canada.ca/fr/autoriser",
-              "icon": "",
-              "betaPopup": false
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "task-nslsc-access",
+                  "title": "Accéder à mes renseignements de prêts d'études",
+                  "areaLable": "Accéder à mes renseignements de prêts d'études",
+                  "link": "https://protege-secure.csnpe-nslsc.canada.ca/fr/autoriser",
+                  "icon": "",
+                  "betaPopup": false
+                }
+              ]
             }
           ]
         }
@@ -615,19 +751,24 @@
     {
       "id": "canada-apprentice-loan",
       "title": "Prêt canadien aux apprentis",
-      "dropdownText": "Actions les plus demandées",
-      "lists": [
+      "items": [
         {
-          "title": "En demande",
-          "aaTitle": "Most requested",
-          "tasks": [
+          "id": "card-canada-apprentice-loan-expand-collapse",
+          "title": "Actions les plus demandées",
+          "lists": [
             {
-              "id": "cal-go-to-canada-apprentice-loan",
-              "title": "Visiter le Centre de service de prêt canadien aux apprentis",
-              "areaLable": "Visiter le Centre de service de prêt canadien aux apprentis",
-              "link": "https://protege-secure.pca-cal.ca/fr/Compte/Autoriser",
-              "icon": "circle-dollar-to-slot",
-              "betaPopup": false
+              "title": "En demande",
+              "aaTitle": "Most requested",
+              "tasks": [
+                {
+                  "id": "cal-go-to-canada-apprentice-loan",
+                  "title": "Visiter le Centre de service de prêt canadien aux apprentis",
+                  "areaLable": "Visiter le Centre de service de prêt canadien aux apprentis",
+                  "link": "https://protege-secure.pca-cal.ca/fr/Compte/Autoriser",
+                  "icon": "circle-dollar-to-slot",
+                  "betaPopup": false
+                }
+              ]
             }
           ]
         }
