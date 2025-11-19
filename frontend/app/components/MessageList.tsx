@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import type { Params } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 
@@ -6,18 +6,18 @@ import { InlineLink } from './links';
 
 import type { MessageEntity } from '~/.server/domain/entities/message.entity';
 import { useLanguage } from '~/hooks/use-language';
-import { inboxContext } from '~/routes/inbox';
 
 interface MessageListProps {
   messageEntities: MessageEntity[];
+  params: Params;
+  engVerboseMessages: Map<string, string>;
+  frVerboseMessages: Map<string, string>;
 }
 
-export default function MessageList({ messageEntities }: MessageListProps) {
+export default function MessageList({ messageEntities, params, engVerboseMessages, frVerboseMessages }: MessageListProps) {
   const { t } = useTranslation(['inbox']);
 
   const { currentLanguage } = useLanguage();
-
-  const { params, engVerboseMessages, frVerboseMessages } = useContext(inboxContext);
 
   return (
     <>

@@ -1,6 +1,4 @@
-import { createContext } from 'react';
-
-import type { RouteHandle, Params } from 'react-router';
+import type { RouteHandle } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -17,14 +15,6 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
-
-type InboxContext = {
-  params: Params;
-  engVerboseMessages: Map<string, string>;
-  frVerboseMessages: Map<string, string>;
-  messagesPerPage: number;
-  pageRangeDisplayed: number;
-};
 
 const log = LogFactory.getLogger(import.meta.url);
 
@@ -64,7 +54,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   }
 
   return {
-    params,
+    loaderParams: params,
     documentTitle: t('inbox:document-title'),
     messages,
     MSCA_BASE_URL,
@@ -80,19 +70,6 @@ export function meta({ data }: Route.MetaArgs) {
   return [{ title: data.documentTitle }];
 }
 
-const EMPTY_MAP = new Map<string, string>();
-const EMPTY_LIST: Params = {};
-const defaultInboxContext = {
-  params: EMPTY_LIST,
-  locale: 'en',
-  engVerboseMessages: EMPTY_MAP,
-  frVerboseMessages: EMPTY_MAP,
-  messagesPerPage: 5,
-  pageRangeDisplayed: 5,
-};
-
-export const inboxContext = createContext<InboxContext>(defaultInboxContext);
-
 export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(['inbox']);
   const engMessageVerboseTitles = new Map<string, string>();
@@ -104,6 +81,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   frMessageVerboseTitles.set('PSCDNOD', t('inbox:message-verbose-titles.debts'));
 
   const {
+    loaderParams,
     messages,
     MSCA_BASE_URL,
     CDB_BASE_URL,
@@ -119,14 +97,6 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   const CDCP_LETTERS_URL = CDCP_BASE_URL + t('inbox:par4-list-item-cdcp-letters.href');
   const OAS_DASHBOARD_URL = OAS_BASE_URL + t('inbox:par4-list-item-oas-dashboard.href');
 
-  const inboxContextValues = {
-    params,
-    engVerboseMessages: engMessageVerboseTitles,
-    frVerboseMessages: frMessageVerboseTitles,
-    messagesPerPage: PAGINATION_MESSAGES_PER_PAGE,
-    pageRangeDisplayed: PAGINATION_PAGE_RANGE_DISPLAYED,
-  };
-
   return (
     <>
       <div className="mb-8">
@@ -139,9 +109,15 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
         <p className="pb-4">{t('inbox:par2')}</p>
       </div>
 
-      <inboxContext.Provider value={inboxContextValues}>
-        <PaginatedMessages messages={messages} />
-      </inboxContext.Provider>
+      <PaginatedMessages
+        messages={messages}
+        params={loaderParams}
+        engVerboseMessages={engMessageVerboseTitles}
+        frVerboseMessages={frMessageVerboseTitles}
+        messagesPerPage={PAGINATION_MESSAGES_PER_PAGE}
+        pageRangeDisplayed={PAGINATION_PAGE_RANGE_DISPLAYED}
+      />
+
       <div className="text-gray-darker py-4 text-xl">
         <p className="pb-4">{t('inbox:par3')}</p>
         <ul className="pb-4">

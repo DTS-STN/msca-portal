@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
-import type { RouteHandle } from 'react-router';
+import type { RouteHandle, Params } from 'react-router';
 
 import { useTranslation } from 'react-i18next';
 import ReactPaginate from 'react-paginate';
 
-import { inboxContext } from '../routes/inbox';
 import MessageList from './MessageList';
 
 import type { MessageEntity } from '~/.server/domain/entities/message.entity';
@@ -17,11 +16,22 @@ export const handle = {
 
 interface PaginatedMessagesProps {
   messages: MessageEntity[];
+  params: Params;
+  engVerboseMessages: Map<string, string>;
+  frVerboseMessages: Map<string, string>;
+  messagesPerPage: number;
+  pageRangeDisplayed: number;
 }
 
-export default function PaginatedMessages({ messages }: PaginatedMessagesProps) {
+export default function PaginatedMessages({
+  messages,
+  params,
+  engVerboseMessages,
+  frVerboseMessages,
+  messagesPerPage,
+  pageRangeDisplayed,
+}: PaginatedMessagesProps) {
   const { t } = useTranslation(['inbox']);
-  const { messagesPerPage, pageRangeDisplayed } = useContext(inboxContext);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + messagesPerPage;
   const currentItems = messages.slice(itemOffset, endOffset);
@@ -35,7 +45,12 @@ export default function PaginatedMessages({ messages }: PaginatedMessagesProps) 
 
   return (
     <>
-      <MessageList messageEntities={currentItems} />
+      <MessageList
+        params={params}
+        messageEntities={currentItems}
+        engVerboseMessages={engVerboseMessages}
+        frVerboseMessages={frVerboseMessages}
+      />
       {pageCount > 1 ? (
         <ReactPaginate
           breakLabel="..."
