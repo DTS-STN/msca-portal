@@ -14,7 +14,7 @@ export function Footer({ bilingual }: FooterProps) {
   const { currentLanguage } = useLanguage();
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
-  const { MSCA_BASE_URL, ECAS_BASE_URL } = globalThis.__appEnvironment;
+  const { ECAS_BASE_URL } = globalThis.__appEnvironment;
 
   return (
     <footer id="wb-info" tabIndex={-1} className="mt-8 bg-stone-50 print:hidden">
