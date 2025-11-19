@@ -36,8 +36,7 @@ export function toRouteConfigEntries(routes: I18nRoute[]): RouteConfigEntry[] {
 }
 
 export default [
-  // requests to the application root (/) should return a 404
-  index('routes/not-found.tsx', { id: 'ROOT-NOT-FOUND' }),
+  index('routes/intake.tsx'),
 
   // API routes
   route('/api/readyz', 'routes/api/readyz.ts'),
