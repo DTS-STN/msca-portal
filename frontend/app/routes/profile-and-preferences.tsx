@@ -10,8 +10,10 @@ import type { ProfileCardProps } from '~/components/profile-card';
 import { ProfileList } from '~/components/profile-list';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
+import { useLanguage } from '~/hooks/use-language';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import { getPathById } from '~/utils/route-utils';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
@@ -21,11 +23,11 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const { userinfoTokenClaims } = await requireAuth(context.session, request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
+  const { ECAS_BASE_URL } = globalThis.__appEnvironment;
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
-  return { documentTitle: t('profileAndPreferences:page-title'), MSCA_BASE_URL };
+  return { documentTitle: t('profileAndPreferences:page-title'), ECAS_BASE_URL };
 }
 
 export function meta({ data }: Route.MetaArgs) {
@@ -33,31 +35,33 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export default function ProfileAndPreferences({ loaderData, params }: Route.ComponentProps) {
+  const { currentLanguage } = useLanguage();
   const { t } = useTranslation(handle.i18nNamespace);
-  const { MSCA_BASE_URL } = loaderData;
+  const { ECAS_BASE_URL } = loaderData;
 
   const emailAddressCard: ProfileCardProps = {
     cardId: 'email-address-card',
     cardName: t('profileAndPreferences:email-address-card'),
     prefixIcon: 'mail',
     description: t('profileAndPreferences:email-address-description'),
-    cardHref: t('profileAndPreferences:email-address-href', { baseUri: MSCA_BASE_URL }),
+    // TODO: Fix url
+    cardHref: t('profileAndPreferences:email-address-href', { baseUri: ECAS_BASE_URL }),
   };
 
   const inboxNotificationPreferencesCard: ProfileCardProps = {
     cardId: 'inbox-notification-preferences-card',
-    cardName: t('profileAndPreferences:inbox-notification-preferences-card', { baseUri: MSCA_BASE_URL }),
+    cardName: t('profileAndPreferences:inbox-notification-preferences-card'),
     prefixIcon: 'notifications-active',
     description: t('profileAndPreferences:inbox-notification-preferences-description'),
-    cardHref: t('profileAndPreferences:inbox-notification-preferences-href', { baseUri: MSCA_BASE_URL }),
+    cardHref: getPathById('inbox-notification-preferences', { lang: currentLanguage }),
   };
 
   const securityCard: ProfileCardProps = {
     cardId: 'security-settings-card',
-    cardName: t('profileAndPreferences:security-settings-card', { baseUri: MSCA_BASE_URL }),
+    cardName: t('profileAndPreferences:security-settings-card'),
     prefixIcon: 'lock',
     description: t('profileAndPreferences:security-settings-description'),
-    cardHref: t('profileAndPreferences:security-settings-href', { baseUri: MSCA_BASE_URL }),
+    cardHref: getPathById('security-settings', { lang: currentLanguage }),
   };
 
   const personalInformationByBenefitCard: ProfileCardProps = {
@@ -65,7 +69,7 @@ export default function ProfileAndPreferences({ loaderData, params }: Route.Comp
     cardName: t('profileAndPreferences:personal-information-by-benefit-card'),
     prefixIcon: 'demography',
     description: t('profileAndPreferences:personal-information-by-benefit-description'),
-    cardHref: t('profileAndPreferences:personal-information-by-benefit-href', { baseUri: MSCA_BASE_URL }),
+    cardHref: getPathById('personal-information-by-benefit', { lang: currentLanguage }),
   };
 
   return (

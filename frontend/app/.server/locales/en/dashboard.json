@@ -450,7 +450,7 @@
                   "id": "cpp-oas-request-a-review-of-a-decision",
                   "title": "Request a review of a decision",
                   "areaLable": "Request a review of a decision for Canada Pension Plan and Old Age Security benefits, pensions or provisions",
-                  "link": "/decision-reviews",
+                  "link": "/en/decision-reviews",
                   "icon": "comments",
                   "betaPopup": false
                 }

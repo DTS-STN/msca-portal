@@ -25,14 +25,13 @@ type AppBarProps = {
 
 export function AppBar({ name }: AppBarProps): JSX.Element {
   const { t } = useTranslation(['gcweb']);
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
 
   return (
     <div className="md:bg-slate-700">
       <div className="align-center container mx-auto flex flex-wrap justify-between">
         <div className="align-center order-1 flex w-full bg-slate-700 sm:w-auto">
           <span id="menu-label" className="my-auto py-2 text-white sm:text-2xl">
-            <AppLink to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })} className="hover:underline">
+            <AppLink file="routes/my-dashboard.tsx" className="hover:underline">
               {t('gcweb:app.title')}
             </AppLink>
           </span>
@@ -40,7 +39,7 @@ export function AppBar({ name }: AppBarProps): JSX.Element {
         <div className="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto">
           <ButtonLink
             id="inbox-button-desktop"
-            to={t('gcweb:app.inbox.href', { baseUri: MSCA_BASE_URL })}
+            file="routes/inbox.tsx"
             variant="default"
             className="rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
             refPageAA="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
@@ -70,7 +69,6 @@ type UserButtonProps = {
 function UserButton({ className, name }: UserButtonProps): JSX.Element {
   const { t } = useTranslation(['gcweb']);
   const { currentLanguage } = useLanguage();
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
   const [open, setOpen] = useState(false);
 
   return (
@@ -94,28 +92,28 @@ function UserButton({ className, name }: UserButtonProps): JSX.Element {
       <DropdownMenuContent align="start" sideOffset={0} className="w-(--radix-dropdown-menu-trigger-width) focus:outline-none">
         <UserName name={name} />
         <MenuItem
-          to={t('gcweb:app.menu-dashboard.href', { baseUri: MSCA_BASE_URL })}
+          file="routes/my-dashboard.tsx"
           className="text-md text-deep-blue-dark hover:text-blue-hover flex justify-between focus:bg-white"
         >
           {t('gcweb:app.menu-dashboard')}
         </MenuItem>
         <DropdownMenuSeparator />
         <MenuItem
-          to={t('gcweb:app.profile-and-preferences.href', { baseUri: MSCA_BASE_URL })}
+          file="routes/profile-and-preferences.tsx"
           className="text-md text-deep-blue-dark hover:text-blue-hover flex justify-between focus:bg-white"
         >
           {t('gcweb:app.profile')}
         </MenuItem>
         <DropdownMenuSeparator />
         <MenuItem
-          to={t('gcweb:app.security-settings.href', { baseUri: MSCA_BASE_URL })}
+          file="routes/security-settings.tsx"
           className="text-md text-deep-blue-dark hover:text-blue-hover flex justify-between focus:bg-white"
         >
           {t('gcweb:app.security-settings')}
         </MenuItem>
         <DropdownMenuSeparator />
         <MenuItem
-          to={t('gcweb:app.contact-us.href', { baseUri: MSCA_BASE_URL })}
+          file="routes/contact-us.tsx"
           className="text-md text-deep-blue-dark hover:text-blue-hover flex justify-between focus:bg-white"
         >
           {t('gcweb:app.contact-us')}

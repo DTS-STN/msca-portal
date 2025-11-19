@@ -29,8 +29,6 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const { userinfoTokenClaims } = await requireAuth(context.session, request);
   const language = getLanguage(request);
 
-  const { MSCA_BASE_URL } = globalThis.__appEnvironment;
-
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
@@ -43,7 +41,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const cards = data.cards;
   const title = data.page.title;
 
-  return { documentTitle: data.page.documentTitle, MSCA_BASE_URL, language, title, cards, pageAlerts, cardAlerts, exitBeta };
+  return { documentTitle: data.page.documentTitle, language, title, cards, pageAlerts, cardAlerts, exitBeta };
 }
 
 export function meta({ loaderData }: Route.MetaArgs) {
