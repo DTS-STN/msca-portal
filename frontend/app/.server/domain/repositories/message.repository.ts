@@ -449,8 +449,6 @@ export class MockMessageRepository implements MessageRepository {
       //   LetterType: 'debt notice',
       // },
     ];
-    log.info('one message: ' + messageDtos[0]?.LetterName);
-    log.info('messages again', Promise.resolve(messageDtos));
 
     return await Promise.resolve(messageDtos);
   }
