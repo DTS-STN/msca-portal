@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import type { RouteHandle, Params } from 'react-router';
 
-// import { useTranslation } from 'react-i18next';
-// import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
+import ReactPaginate from 'react-paginate';
 
 import MessageList from './MessageList';
 
@@ -29,19 +29,19 @@ export default function PaginatedMessages({
   engVerboseMessages,
   frVerboseMessages,
   messagesPerPage,
-  // pageRangeDisplayed,
+  pageRangeDisplayed,
 }: PaginatedMessagesProps) {
-  // const { t } = useTranslation(['inbox']);
-  const [itemOffset /**setItemOffset*/] = useState(0);
+  const { t } = useTranslation(['inbox']);
+  const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + messagesPerPage;
   const currentItems = messages.slice(itemOffset, endOffset);
-  // const pageCount = Math.ceil(messages.length / messagesPerPage);
+  const pageCount = Math.ceil(messages.length / messagesPerPage);
 
-  // const handlePageClick = (selectedItem: { selected: number }) => {
-  //   const pageSelected = selectedItem.selected;
-  //   const newOffset = pageSelected * messagesPerPage;
-  //   setItemOffset(newOffset);
-  // };
+  const handlePageClick = (selectedItem: { selected: number }) => {
+    const pageSelected = selectedItem.selected;
+    const newOffset = pageSelected * messagesPerPage;
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
@@ -51,7 +51,8 @@ export default function PaginatedMessages({
         engVerboseMessages={engVerboseMessages}
         frVerboseMessages={frVerboseMessages}
       />
-      {/* {pageCount > 1 ? (
+      {
+        /**pageCount > 1 ? (*/
         <ReactPaginate
           breakLabel="..."
           nextLabel={t('inbox:pagination-text.next-link')}
@@ -61,11 +62,11 @@ export default function PaginatedMessages({
           pageCount={pageCount}
           renderOnZeroPageCount={null}
           containerClassName="flex space-x-1"
-          ariaLabelBuilder={(page: number, selected: number) =>
-            selected
-              ? `${t('inbox:pagination-text.page')}${page}${t('inbox:pagination-text.current-page-aria-label')}`
-              : `${t('inbox:pagination-text.page')}${page}`
-          }
+          // ariaLabelBuilder={(page: number, selected: number) =>
+          //   selected
+          //     ? `${t('inbox:pagination-text.page')}${page}${t('inbox:pagination-text.current-page-aria-label')}`
+          //     : `${t('inbox:pagination-text.page')}${page}`
+          // }
           pageLinkClassName="px-3 rounded-md py-1 cursor-pointer transition-all duration-200
                     underline underline-offset-4 decoration-gray-dark
                     hover:bg-brighter-blue-light hover:text-blue-hover
@@ -78,7 +79,8 @@ export default function PaginatedMessages({
           activeLinkClassName="bg-deep-blue-dark no-underline no-hover text-white"
           disabledLinkClassName="text-gray-dark cursor-not-allowed"
         />
-      ) : null} */}
+        /** ) : null*/
+      }
     </>
   );
 }
