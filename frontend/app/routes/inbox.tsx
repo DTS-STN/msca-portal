@@ -2,8 +2,7 @@ import type { RouteHandle } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
-import MessageList from '../components/MessageList';
-// import PaginatedMessages from '../components/PaginatedMessages';
+import PaginatedMessages from '../components/PaginatedMessages';
 import type { Route } from './+types/inbox';
 
 import type { MessageEntity } from '~/.server/domain/entities/message.entity';
@@ -41,8 +40,8 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     CDCP_BASE_URL,
     CDB_BASE_URL,
     OAS_BASE_URL,
-    // PAGINATION_MESSAGES_PER_PAGE,
-    // PAGINATION_PAGE_RANGE_DISPLAYED,
+    PAGINATION_MESSAGES_PER_PAGE,
+    PAGINATION_PAGE_RANGE_DISPLAYED,
   } = globalThis.__appEnvironment;
 
   let messages: MessageEntity[] | undefined = session.messages;
@@ -62,8 +61,8 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     CDB_BASE_URL,
     CDCP_BASE_URL,
     OAS_BASE_URL,
-    // PAGINATION_MESSAGES_PER_PAGE,
-    // PAGINATION_PAGE_RANGE_DISPLAYED,
+    PAGINATION_MESSAGES_PER_PAGE,
+    PAGINATION_PAGE_RANGE_DISPLAYED,
   };
 }
 
@@ -88,8 +87,8 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
     CDB_BASE_URL,
     CDCP_BASE_URL,
     OAS_BASE_URL,
-    // PAGINATION_MESSAGES_PER_PAGE,
-    // PAGINATION_PAGE_RANGE_DISPLAYED,
+    PAGINATION_MESSAGES_PER_PAGE,
+    PAGINATION_PAGE_RANGE_DISPLAYED,
   } = loaderData;
 
   const EI_LETTERS_URL = MSCA_BASE_URL + t('inbox:par4-list-item-ei-letters.href');
@@ -110,21 +109,21 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
         <p className="pb-4">{t('inbox:par2')}</p>
       </div>
 
-      {/* <PaginatedMessages
+      <PaginatedMessages
         messages={messages}
         params={loaderParams}
         engVerboseMessages={engMessageVerboseTitles}
         frVerboseMessages={frMessageVerboseTitles}
         messagesPerPage={PAGINATION_MESSAGES_PER_PAGE}
         pageRangeDisplayed={PAGINATION_PAGE_RANGE_DISPLAYED}
-      /> */}
+      />
 
-      <MessageList
+      {/* <MessageList
         params={loaderParams}
         messageEntities={messages}
         engVerboseMessages={engMessageVerboseTitles}
         frVerboseMessages={frMessageVerboseTitles}
-      />
+      /> */}
 
       <div className="text-gray-darker py-4 text-xl">
         <p className="pb-4">{t('inbox:par3')}</p>
