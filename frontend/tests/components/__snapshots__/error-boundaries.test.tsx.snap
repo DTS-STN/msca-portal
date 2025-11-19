@@ -656,7 +656,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
                 <a
                   class="hover:underline"
                   data-discover="true"
-                  href="/en/{"key":"gcweb:app.contact-us.href","options":{"baseUri":"https://msca.example.com/"}}"
+                  href="/en/contact-us"
                   property="item"
                   typeof="WebPage"
                 >
@@ -821,7 +821,7 @@ exports[`error-boundaries > UnilingualErrorBoundary > should correctly render th
                 <a
                   class="hover:underline"
                   data-discover="true"
-                  href="/en/{"key":"gcweb:app.contact-us.href","options":{"baseUri":"https://msca.example.com/"}}"
+                  href="/en/contact-us"
                   property="item"
                   typeof="WebPage"
                 >
@@ -974,7 +974,7 @@ exports[`error-boundaries > UnilingualNotFound > should correctly render the uni
                 <a
                   class="hover:underline"
                   data-discover="true"
-                  href="/{"key":"gcweb:app.contact-us.href","options":{"baseUri":"https://msca.example.com/"}}"
+                  href="/en/contact-us"
                   property="item"
                   typeof="WebPage"
                 >
