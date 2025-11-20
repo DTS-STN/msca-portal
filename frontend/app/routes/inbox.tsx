@@ -4,7 +4,7 @@ import type { Session, RouteHandle, Params } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
-import PaginatedMessages from '../components/PaginatedMessages';
+// import PaginatedMessages from '../components/PaginatedMessages';
 import type { Route } from './+types/inbox';
 
 import type { MessageEntity } from '~/.server/domain/entities/message.entity';
@@ -12,6 +12,7 @@ import { getMessageService } from '~/.server/domain/services/message.service';
 import { LogFactory } from '~/.server/logging';
 import { getSession, commitSession } from '~/.server/session';
 import { requireAuth } from '~/.server/utils/auth-utils';
+import MessageList from '~/components/MessageList';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
 import { AppError } from '~/errors/app-error';
@@ -154,7 +155,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
       </div>
 
       <inboxContext.Provider value={inboxContextValues}>
-        <PaginatedMessages />
+        <MessageList messageEntities={messages} />
       </inboxContext.Provider>
       <div className="text-gray-darker py-4 text-xl">
         <p className="pb-4">{t('inbox:par3')}</p>
