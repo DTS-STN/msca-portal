@@ -123,7 +123,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
               </label>
             </div>
           </div>
-          <Button>{t('inboxNotificationPreferences:save-preferences-button')}</Button>
+          <Button variant="primary">{t('inboxNotificationPreferences:save-preferences-button')}</Button>
         </fieldset>
       </form>
     </>

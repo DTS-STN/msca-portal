@@ -45,7 +45,7 @@ export default function InboxNotificationPreferencesSuccess({ loaderData, params
         <PageTitle className="after:w-14">{t('inboxNotificationPreferencesSuccess:page-title')}</PageTitle>
       </div>
       <ContextualAlert type={'success'}>
-        <div className="py-1">{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</div>
+        <div className="font-lato text-2xl font-bold">{t('inboxNotificationPreferencesSuccess:preferences-saved-message')}</div>
       </ContextualAlert>
       <div className="flex items-center justify-start gap-6 py-8">
         <ButtonLink
