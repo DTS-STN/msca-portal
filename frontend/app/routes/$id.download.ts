@@ -1,29 +1,28 @@
 import type { RouteHandle } from 'react-router';
-import { data } from 'react-router';
-
-import type { Route } from './+types/$id.download';
-
-import type { MessageEntity } from '~/.server/domain/entities/message.entity';
-import { getMessageService } from '~/.server/domain/services/message.service';
+import { data, Session, SessionData } from 'react-router';
+import { getSession } from '~/.server/session';
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { handle as parentHandle } from '~/routes/layout';
+import { MessageEntity } from '~/.server/domain/entities/message.entity';
+import { getMessageService } from '~/.server/domain/services/message.service';
+import { Route } from './+types/$id.download';
 
 export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const session: Session<SessionData, SessionData> = await getSession(request.headers.get('Cookie'))
+  const { userinfoTokenClaims } = await requireAuth(request);
 
   if (!params.id) {
     throw data(null, { status: 400 });
   }
 
   // Check if the letters are in the session
-  const { session } = context;
-  const messages: readonly MessageEntity[] | undefined = session.messages;
+  const messages: readonly MessageEntity[] | undefined = session.get('messages');
   // Optional TODO: add a check to see if the letter belongs to the user. (Done with LetterService call)
   if (!messages) {
     throw data(null, { status: 404 });

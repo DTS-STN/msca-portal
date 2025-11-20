@@ -1,7 +1,7 @@
 import { createContext } from 'react';
-
+import { Session, SessionData } from 'react-router'
 import type { RouteHandle, Params } from 'react-router';
-
+import { getSession, commitSession } from '~/.server/session';
 import { useTranslation, Trans } from 'react-i18next';
 
 import PaginatedMessages from '../components/PaginatedMessages';
@@ -17,6 +17,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+// import { securityHeadersMiddleware } from '~/middleware';
 
 type InboxContext = {
   params: Params;
@@ -34,9 +35,13 @@ export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
+// export const middleware: Route.MiddlewareFunction[] = [
+//   securityHeadersMiddleware,
+// ];
+
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const session = context.session;
-  const { userinfoTokenClaims } = await requireAuth(session, request);
+  const session: Session<SessionData, SessionData> = await getSession(request.headers.get('Cookie'))
+  const { userinfoTokenClaims } = await requireAuth(request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
   if (!userinfoTokenClaims.sin) {
@@ -55,15 +60,17 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     PAGINATION_PAGE_RANGE_DISPLAYED,
   } = globalThis.__appEnvironment;
 
-  let messages: MessageEntity[] | undefined = session.messages;
+  let messages: MessageEntity[] | undefined = session.get('messages');
   if (messages === undefined) {
     messages = await getMessageService().findMessagesBySin({
       sin: sin ? sin : '',
       userId: sub ? sub : '',
     });
-    session.messages = messages;
+    session.set('messages', messages);
   }
 
+  await commitSession(session)
+  
   return {
     params,
     documentTitle: t('inbox:document-title'),

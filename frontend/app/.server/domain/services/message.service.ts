@@ -12,7 +12,7 @@ import { LogFactory } from '~/.server/logging';
 const log = LogFactory.getLogger(import.meta.url);
 
 export const getMessageService = moize(createMessageService, {
-  onCacheAdd: () => console.log('Creating new open id client service'),
+  onCacheAdd: () => console.log('Creating new message service'),
 });
 export interface MessageService {
   /**
@@ -33,6 +33,7 @@ export interface MessageService {
 }
 
 export function createMessageService(): MessageService {
+  console.log('blablabla')
   const mapper = getMessageDtoMapper();
   const repo = getMessageRepository();
   return new DefaultMessageService(mapper, repo);
