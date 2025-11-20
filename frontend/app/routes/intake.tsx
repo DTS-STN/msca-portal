@@ -9,6 +9,7 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getPathById } from '~/utils/route-utils';
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
+
   // ECAS and the apps redirect to the index with a search parameter of Lang=fra or Lang=eng
   const { ECAS_BASE_URL, CURAM_REDIRECT } = globalThis.__appEnvironment;
   const searchParams = new URL(request.url).searchParams;
@@ -16,7 +17,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const link = searchParams.get('link');
 
   // TODO: Investigate why there's a comment saying that if we're already logged in, to skip the redirect.
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
 
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);

@@ -19,7 +19,7 @@ export const defaults = {
   I18NEXT_DEBUG: 'false',
   SESSION_TIMEOUT_PROMPT_SECONDS: (5 * 60).toString(),
   SESSION_TIMEOUT_SECONDS: (19 * 60).toString(),
-  MSCA_BASE_URL: 'http://localhost:3001',
+  MSCA_BASE_URL: 'http://localhost:3000',
   MSCA_EQ_BASE_URL: 'http://localhost:3006',
   MSCA_ECAS_RASC_BASE_URL: 'http://localhost:3007',
   ECAS_BASE_URL: 'http://localhost:3002',
@@ -33,6 +33,7 @@ export const defaults = {
   PAGINATION_PAGE_RANGE_DISPLAYED: '5',
   HOSTALIAS_HOSTNAME: 'brz-ofm12c-oz-s4.brz.dev',
   MSCA_NG_INBOX_GET_ENDPOINT: '',
+  MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
   MSCA_NG_CREDS: 'bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
   CURAM_REDIRECT: '/curamUrlPlaceholder',
 } as const;
@@ -67,6 +68,7 @@ export const client = v.object({
   PAGINATION_PAGE_RANGE_DISPLAYED: v.optional(stringToIntegerSchema(), defaults.PAGINATION_PAGE_RANGE_DISPLAYED),
   HOSTALIAS_HOSTNAME: v.optional(v.string(), defaults.HOSTALIAS_HOSTNAME),
   MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
+  MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
 });
