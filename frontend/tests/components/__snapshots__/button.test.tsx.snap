@@ -13,7 +13,7 @@ exports[`Button > should apply the correct styles for different sizes > expected
 exports[`Button > should apply the correct styles for different variants > expected html 1`] = `
 <div>
   <button
-    class="font-lato inline-flex items-center justify-center rounded border align-middle outline-offset-4 px-5 py-2.5 text-sm border-slate-700 bg-slate-700 text-white hover:bg-sky-800 focus:bg-sky-800 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
+    class="font-lato inline-flex items-center justify-center border align-middle outline-offset-4 px-5 py-2.5 text-sm text-white bg-blue-primary hover:bg-deep-blue-focus active:bg-blue-pressed rounded focus:ring focus:ring-offset-4 focus:ring-bg-deep-blue-focus disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70"
   >
     Test Button
   </button>
