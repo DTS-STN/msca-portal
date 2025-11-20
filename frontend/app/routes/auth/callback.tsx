@@ -97,7 +97,6 @@ function updateMscaNg(sin: string, uid: string) {
         });
 
   //Make call to msca-ng API to create user if it doesn't exist
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   axios
     .post(
       `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
@@ -116,11 +115,10 @@ function updateMscaNg(sin: string, uid: string) {
     .then((response) => {
       // log.debug(response)
       updateLastLoginDate(uid);
-    });
-  // .catch((error) => {});
+    })
+    .catch((error) => {});
 
   function updateLastLoginDate(uid: string) {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     axios({
       method: 'post',
       url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
@@ -129,8 +127,8 @@ function updateMscaNg(sin: string, uid: string) {
         'Content-Type': 'application/json',
       },
       httpsAgent: httpsAgent,
-    });
-    // .then((response) => log.debug(response))
-    // .catch((error) => {});
+    })
+      // .then((response) => log.debug(response))
+      .catch((error) => {});
   }
 }
