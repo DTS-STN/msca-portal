@@ -68,11 +68,11 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         httpsAgent: httpsAgent,
       });
       const respData = resp.data[0];
-      log.info('getInboxPref response ' + respData.toString());
+      log.debug('getInboxPref response ' + respData.toString());
 
       return respData;
     } catch (err) {
-      log.error(err);
+      log.debug(err);
     }
 
     return {
@@ -82,7 +82,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
   }
 
   async setInboxPref(spid: string, pref: string): Promise<void> {
-    log.info('start setInboxPref');
+    log.debug('start setInboxPref');
     const eventCode = pref === 'yes' ? 'PAPERLESS' : 'MAIL';
     const inboxPref = await this.getInboxPref(spid);
     const id = inboxPref.id;
