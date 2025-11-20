@@ -8,7 +8,7 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getPathById } from '~/utils/route-utils';
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
 
   // TODO: Properly handle not being logged in (ie. redirected from ECAS)
   if (!userinfoTokenClaims.sin) {

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import type { RouteHandle, Params } from 'react-router';
+import type { Session, RouteHandle, Params } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -10,6 +10,7 @@ import type { Route } from './+types/inbox';
 import type { MessageEntity } from '~/.server/domain/entities/message.entity';
 import { getMessageService } from '~/.server/domain/services/message.service';
 import { LogFactory } from '~/.server/logging';
+import { getSession, commitSession } from '~/.server/session';
 import { requireAuth } from '~/.server/utils/auth-utils';
 import { InlineLink } from '~/components/links';
 import { PageTitle } from '~/components/page-title';
@@ -17,6 +18,8 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+
+// import { securityHeadersMiddleware } from '~/middleware';
 
 type InboxContext = {
   params: Params;
@@ -34,9 +37,13 @@ export const handle = {
   i18nNamespace: [...parentHandle.i18nNamespace],
 } as const satisfies RouteHandle;
 
+// export const middleware: Route.MiddlewareFunction[] = [
+//   securityHeadersMiddleware,
+// ];
+
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const session = context.session;
-  const { userinfoTokenClaims } = await requireAuth(session, request);
+  const session: Session = await getSession(request.headers.get('Cookie'));
+  const { userinfoTokenClaims } = await requireAuth(request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
   if (!userinfoTokenClaims.sin) {
@@ -55,14 +62,16 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     PAGINATION_PAGE_RANGE_DISPLAYED,
   } = globalThis.__appEnvironment;
 
-  let messages: MessageEntity[] | undefined = session.messages;
+  let messages: MessageEntity[] | undefined = session.get('messages');
   if (messages === undefined) {
     messages = await getMessageService().findMessagesBySin({
       sin: sin ? sin : '',
       userId: sub ? sub : '',
     });
-    session.messages = messages;
+    session.set('messages', messages);
   }
+
+  await commitSession(session);
 
   return {
     params,

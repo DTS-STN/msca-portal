@@ -1,9 +1,15 @@
+import type { Session } from 'react-router';
 import { redirect } from 'react-router';
+
+import axios from 'axios';
+import fs from 'fs';
+import https from 'https';
 
 import type { Route } from './+types/callback';
 
 import { getRaoidcClient } from '~/.server/auth/raoidc-client';
 import { serverEnvironment } from '~/.server/environment';
+import { getSession, commitSession } from '~/.server/session';
 import { withSpan } from '~/.server/utils/telemetry-utils';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
 
@@ -23,18 +29,19 @@ export async function loader({ context, unstable_pattern, params, request }: Rou
 
 function handleCallback({ context, unstable_pattern, params, request }: Route.LoaderArgs): Promise<Response> {
   return withSpan('routes.auth.callback.handle_callback', async (span) => {
-    const { session } = context;
+    const session: Session = await getSession(request.headers.get('Cookie'));
     const currentUrl = new URL(request.url);
 
     span.setAttribute('request_url', currentUrl.toString());
 
-    if (session.loginState === undefined) {
+    if (session.get('loginState') === undefined) {
       span.addEvent('login_state.invalid');
       return Response.json({ message: 'Invalid login state' }, { status: HttpStatusCodes.BAD_REQUEST });
     }
 
-    const { codeVerifier, nonce, state } = session.loginState;
-    const returnUrl = session.loginState.returnUrl ?? new URL('/en', currentUrl.origin);
+    const loginState = session.get('loginState');
+
+    const returnUrl = loginState?.returnUrl ?? new URL('/en', currentUrl.origin);
 
     span.setAttribute('return_url', returnUrl.toString());
 
@@ -44,32 +51,84 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
 
     const opts = serverEnvironment.AUTH_ENABLE_STUB_LOGIN
       ? {
-          birthdate: session.stubloginState?.birthdate,
-          locale: session.stubloginState?.locale,
-          sin: session.stubloginState?.sin,
+          birthdate: session.get('stubloginState')?.birthdate,
+          locale: session.get('stubloginState')?.locale,
+          sin: session.get('stubloginState')?.sin,
         }
       : {};
 
     const tokenSet = await raoidcClient.handleCallbackRequest(
       request,
-      codeVerifier,
-      nonce,
-      state,
+      loginState?.codeVerifier ?? '',
+      loginState?.nonce ?? '',
+      loginState?.state ?? '',
       new URL('/auth/callback', currentUrl.origin),
       opts,
     );
 
     span.addEvent('token_exchange.end');
 
-    session.authState = {
+    session.set('authState', {
       accessToken: tokenSet.accessToken,
       idTokenClaims: tokenSet.idToken,
       userinfoTokenClaims: tokenSet.userinfoToken,
-    };
+    });
 
-    delete session.loginState;
-    delete session.stubloginState;
+    process.stdout.write('got here');
+
+    session.unset('loginState');
+    session.unset('stubloginState');
+
+    updateMscaNg(tokenSet.userinfoToken.sin ?? '', tokenSet.userinfoToken.sub);
+
+    await commitSession(session);
 
     return redirect(returnUrl.toString());
   });
+}
+
+function updateMscaNg(sin: string, uid: string) {
+  //Create httpsAgent to read in cert to make BRZ call
+  const httpsAgent =
+    serverEnvironment.NODE_ENV === 'development'
+      ? new https.Agent()
+      : new https.Agent({
+          ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
+        });
+
+  //Make call to msca-ng API to create user if it doesn't exist
+  axios
+    .post(
+      `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
+      {
+        pid: sin,
+        spid: uid,
+      },
+      {
+        headers: {
+          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+          'Content-Type': 'application/json',
+        },
+        httpsAgent: httpsAgent,
+      },
+    )
+    .then((response) => {
+      // log.debug(response)
+      updateLastLoginDate(uid);
+    })
+    .catch((error) => {});
+
+  function updateLastLoginDate(uid: string) {
+    axios({
+      method: 'post',
+      url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
+      headers: {
+        'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+        'Content-Type': 'application/json',
+      },
+      httpsAgent: httpsAgent,
+    })
+      // .then((response) => log.debug(response))
+      .catch((error) => {});
+  }
 }
