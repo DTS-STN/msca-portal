@@ -5,7 +5,8 @@ import https from 'https';
 import { serverEnvironment } from '~/.server/environment';
 import { LogFactory } from '~/.server/logging';
 
-const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
+const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_INBOX_SET_ENDPOINT, MSCA_NG_CREDS } =
+  globalThis.__appEnvironment;
 
 const log = LogFactory.getLogger(import.meta.url);
 
@@ -89,7 +90,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       log.trace('before setInboxPref req');
       await axios
         .post(
-          `https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
+          `https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
           {
             eventCodes: [eventCode],
           },
