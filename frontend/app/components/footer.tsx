@@ -2,15 +2,19 @@ import { useTranslation } from 'react-i18next';
 
 import { AppLink } from './links';
 
+import { useLanguage } from '~/hooks/use-language';
+import { getPathById } from '~/utils/route-utils';
+
 export interface FooterProps {
   bilingual: boolean;
 }
 
 export function Footer({ bilingual }: FooterProps) {
   const { i18n, t } = useTranslation(['gcweb']);
+  const { currentLanguage } = useLanguage();
   const en = i18n.getFixedT('en');
   const fr = i18n.getFixedT('fr');
-  const { MSCA_BASE_URL, ECAS_BASE_URL } = globalThis.__appEnvironment;
+  const { ECAS_BASE_URL } = globalThis.__appEnvironment;
 
   return (
     <footer id="wb-info" tabIndex={-1} className="mt-8 bg-stone-50 print:hidden">
@@ -21,7 +25,7 @@ export function Footer({ bilingual }: FooterProps) {
               <h2 className="mb-4">{t('gcweb:footer.service-canada')}</h2>
               <div className="grid gap-x-4 gap-y-2 text-sm sm:grid-cols-3">
                 <AppLink
-                  to={t('gcweb:app.contact-us.href', { baseUri: MSCA_BASE_URL })}
+                  to={getPathById('contact-us', { lang: currentLanguage })}
                   property="item"
                   typeof="WebPage"
                   className="hover:underline"

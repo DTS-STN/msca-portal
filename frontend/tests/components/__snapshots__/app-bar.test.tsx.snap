@@ -18,7 +18,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
           <a
             class="hover:underline"
             data-discover="true"
-            href="/fr/{"key":"gcweb:app.menu-dashboard.href","options":{"baseUri":"https://msca.example.com/"}}"
+            href="/fr/mon-tableau-de-bord"
           >
             gcweb:app.title
           </a>
@@ -31,7 +31,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the fil
           class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
-          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          href="/fr/boite-reception"
           id="inbox-button-desktop"
         >
           <svg
@@ -90,7 +90,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
           <a
             class="hover:underline"
             data-discover="true"
-            href="/fr/{"key":"gcweb:app.menu-dashboard.href","options":{"baseUri":"https://msca.example.com/"}}"
+            href="/fr/mon-tableau-de-bord"
           >
             gcweb:app.title
           </a>
@@ -103,7 +103,7 @@ exports[`AppBar > should correctly render an AppBar with a MenuItem when the to 
           class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
-          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          href="/fr/boite-reception"
           id="inbox-button-desktop"
         >
           <svg
@@ -162,7 +162,7 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
           <a
             class="hover:underline"
             data-discover="true"
-            href="/fr/{"key":"gcweb:app.menu-dashboard.href","options":{"baseUri":"https://msca.example.com/"}}"
+            href="/fr/mon-tableau-de-bord"
           >
             gcweb:app.title
           </a>
@@ -175,7 +175,7 @@ exports[`AppBar > should render render an AppBar with a name provided > expected
           class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
-          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          href="/fr/boite-reception"
           id="inbox-button-desktop"
         >
           <svg
@@ -234,7 +234,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
           <a
             class="hover:underline"
             data-discover="true"
-            href="/fr/{"key":"gcweb:app.menu-dashboard.href","options":{"baseUri":"https://msca.example.com/"}}"
+            href="/fr/mon-tableau-de-bord"
           >
             gcweb:app.title
           </a>
@@ -247,7 +247,7 @@ exports[`AppBar > should render render an AppBar with a profile item provided > 
           class="inline-flex items-center justify-center align-middle no-underline outline-offset-4 px-5 py-2.5 text-slate-700 hover:bg-neutral-300 focus:bg-neutral-300 rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
           data-discover="true"
           data-gc-analytics-customclick="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
-          href="/fr/{"key":"gcweb:app.inbox.href","options":{"baseUri":"https://msca.example.com/"}}"
+          href="/fr/boite-reception"
           id="inbox-button-desktop"
         >
           <svg
