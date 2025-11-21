@@ -19,7 +19,7 @@ const httpsAgent =
       });
 
 type InboxPrefResponseEntity = Readonly<{
-  id: string;
+  id?: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -76,7 +76,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     }
 
     return {
-      id: spid,
       subscribedEvents: [],
     };
   }
