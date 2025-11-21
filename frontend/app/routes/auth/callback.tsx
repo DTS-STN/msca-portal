@@ -2,6 +2,7 @@ import type { Session } from 'react-router';
 import { redirect } from 'react-router';
 
 import axios from 'axios';
+import fs from 'fs';
 import https from 'https';
 
 import type { Route } from './+types/callback';
@@ -92,7 +93,7 @@ function updateMscaNg(sin: string, uid: string) {
     serverEnvironment.NODE_ENV === 'development'
       ? new https.Agent()
       : new https.Agent({
-          ca: serverEnvironment.HOSTALIAS_CERT,
+          ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
         });
 
   //Make call to msca-ng API to create user if it doesn't exist

@@ -32,10 +32,9 @@ export const defaults = {
   PAGINATION_MESSAGES_PER_PAGE: '5',
   PAGINATION_PAGE_RANGE_DISPLAYED: '5',
   HOSTALIAS_HOSTNAME: 'brz-ofm12c-oz-s4.brz.dev',
-  HOSTALIAS_CERT: '',
   MSCA_NG_INBOX_GET_ENDPOINT: '',
   MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
-  MSCA_NG_CREDS: '',
+  MSCA_NG_CREDS: 'bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
 } as const;
 
 /**
@@ -68,7 +67,6 @@ export const client = v.object({
   PAGINATION_PAGE_RANGE_DISPLAYED: v.optional(stringToIntegerSchema(), defaults.PAGINATION_PAGE_RANGE_DISPLAYED),
   HOSTALIAS_HOSTNAME: v.optional(v.string(), defaults.HOSTALIAS_HOSTNAME),
   MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
-  MSCA_NG_USER_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_USER_ENDPOINT),
-  HOSTALIAS_CERT: v.optional(v.string(), defaults.HOSTALIAS_CERT),
+  MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
 });
