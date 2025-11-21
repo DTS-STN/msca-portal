@@ -1,9 +1,11 @@
+import type { Session } from 'react-router';
 import { redirect } from 'react-router';
 
 import type { Route } from './+types/login';
 
 import { getRaoidcClient } from '~/.server/auth/raoidc-client';
 import { serverEnvironment } from '~/.server/environment';
+import { getSession, commitSession } from '~/.server/session';
 import { withSpan } from '~/.server/utils/telemetry-utils';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
 
@@ -23,7 +25,7 @@ export async function loader({ context, unstable_pattern, params, request }: Rou
 
 function handleLogin({ context, unstable_pattern, params, request }: Route.LoaderArgs): Promise<Response> {
   return withSpan('routes.auth.callback.handle_login', async (span) => {
-    const { session } = context;
+    const session: Session = await getSession(request.headers.get('Cookie'));
     const currentUrl = new URL(request.url);
     const returnTo = currentUrl.searchParams.get('returnto');
 
@@ -51,19 +53,25 @@ function handleLogin({ context, unstable_pattern, params, request }: Route.Loade
 
     span.addEvent('generate_signin_request.end');
 
-    session.loginState = {
+    session.set('loginState', {
       codeVerifier,
       nonce,
       returnUrl,
       state,
-    };
+    });
 
-    session.stubloginState = {
+    session.set('stubloginState', {
       birthdate: currentUrl.searchParams.get('birthdate') ?? undefined,
       locale: currentUrl.searchParams.get('locale') ?? undefined,
       sin: currentUrl.searchParams.get('sin') ?? undefined,
-    };
+    });
 
-    return redirect(authUrl.toString());
+    const cookieId = await commitSession(session);
+
+    return redirect(authUrl.toString(), {
+      headers: {
+        'Set-Cookie': cookieId,
+      },
+    });
   });
 }

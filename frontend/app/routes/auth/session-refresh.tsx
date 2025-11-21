@@ -3,6 +3,6 @@ import type { Route } from '.react-router/types/app/routes/auth/+types/session-r
 import { requireAuth } from '~/.server/utils/auth-utils';
 
 export async function action({ context, params, request }: Route.ActionArgs) {
-  await requireAuth(context.session, request);
+  await requireAuth(request);
   return Response.json(true);
 }

@@ -17,7 +17,7 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
 
   if (!userinfoTokenClaims.sin) {

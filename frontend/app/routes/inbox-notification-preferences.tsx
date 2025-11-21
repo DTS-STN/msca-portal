@@ -26,7 +26,7 @@ export const handle = {
 } as const satisfies RouteHandle;
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
   const inboxPrefService = getInboxPrefService();
 
@@ -46,7 +46,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
 }
 
 export async function action({ context, params, request }: Route.ActionArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
   const lang = getLanguage(request) ?? '';
   const inboxPrefService = getInboxPrefService();
 

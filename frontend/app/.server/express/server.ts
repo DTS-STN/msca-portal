@@ -3,8 +3,8 @@ import express from 'express';
 import type { AddressInfo } from 'node:net';
 
 import { clientEnvironment, serverEnvironment } from '~/.server/environment';
-import { globalErrorHandler, rrRequestHandler } from '~/.server/express/handlers';
-import { caching, logging, security, session, tracing } from '~/.server/express/middleware';
+import { rrRequestHandler } from '~/.server/express/handlers';
+import { caching, logging, security, tracing } from '~/.server/express/middleware';
 import { createViteDevServer } from '~/.server/express/vite';
 import { LogFactory } from '~/.server/logging';
 
@@ -57,9 +57,6 @@ if (serverEnvironment.isProduction) {
 log.info('    ✓ cache-busting middleware');
 app.use(caching(serverEnvironment));
 
-log.info('    ✓ session middleware (%s)', serverEnvironment.SESSION_TYPE);
-app.use(session(serverEnvironment));
-
 if (viteDevServer) {
   log.info('    ✓ vite dev server middlewares');
   app.use(viteDevServer.middlewares);
@@ -71,9 +68,6 @@ log.info('  ✓ registering react-router request handler');
 // Use "/*splat" instead of "/*" to match the updated behavior.
 // Reference: https://expressjs.com/en/guide/migrating-5.html#path-syntax
 app.all('*splat', rrRequestHandler(viteDevServer));
-
-log.info('  ✓ registering global error handler');
-app.use(globalErrorHandler());
 
 log.info('Server initialization completed with runtime configuration: %o', {
   client: Object.fromEntries(Object.entries(clientEnvironment).sort()),
