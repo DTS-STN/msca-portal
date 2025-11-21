@@ -12,7 +12,7 @@
     "build": "npm run build:application && npm run build:server",
     "build:application": "react-router build",
     "build:server": "vite build --config ./vite.server.config.ts",
-    "dev": "nodemon --config ./nodemon.json",
+    "dev": "nodemon --config ./nodemon.json & cross-env NODE_EXTRA_CA_CERTS=\"./certs/env.crt\"",
     "preview": "npm run build && cross-env NODE_ENV=production SESSION_COOKIE_SECURE=false node --env-file-if-exists=./.env --import ./build/server/telemetry.js ./build/server/server.js",
     "start": "cross-env NODE_ENV=production node --import ./build/server/telemetry.js ./build/server/server.js",
     "test": "vitest",

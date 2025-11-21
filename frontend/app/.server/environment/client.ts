@@ -35,6 +35,7 @@ export const defaults = {
   MSCA_NG_INBOX_GET_ENDPOINT: '',
   MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
   MSCA_NG_CREDS: 'bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
+  NODE_EXTRA_CA_CERTS: './certs/env.crt',
 } as const;
 
 /**
@@ -69,4 +70,5 @@ export const client = v.object({
   MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
   MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
+  NODE_EXTRA_CA_CERTS: v.optional(v.string(), defaults.NODE_EXTRA_CA_CERTS),
 });
