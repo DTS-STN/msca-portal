@@ -1,6 +1,7 @@
 import axios from 'axios';
-import fs from 'fs';
-import https from 'https';
+
+//import fs from 'fs';
+//import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
 import { LogFactory } from '~/.server/logging';
@@ -11,12 +12,12 @@ const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_INBOX_SET_ENDPOI
 const log = LogFactory.getLogger(import.meta.url);
 
 //Create httpsAgent to read in cert to make BRZ call
-const httpsAgent =
+/*const httpsAgent =
   serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
     ? new https.Agent()
     : new https.Agent({
         ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
-      });
+      }); */
 
 type InboxPrefResponseEntity = Readonly<{
   id?: string;
@@ -65,7 +66,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           'authorization': `Basic ${MSCA_NG_CREDS}`,
           'Content-Type': 'application/json',
         },
-        httpsAgent: httpsAgent,
+        //httpsAgent: httpsAgent,
       });
       const respData = resp.data[0];
       log.debug('getInboxPref response ' + respData.toString());
@@ -98,7 +99,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
               'authorization': `Basic ${process.env.MSCA_NG_CREDS}`,
               'Content-Type': 'application/json',
             },
-            httpsAgent: httpsAgent,
+            //httpsAgent: httpsAgent,
           },
         )
         .then(() => {
