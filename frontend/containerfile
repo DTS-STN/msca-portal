@@ -100,7 +100,6 @@ ARG IMAGE_DESCRIPTION="MSCA Portal -- Frontend Application"
 ARG IMAGE_TITLE="msca-frontend"
 ARG IMAGE_URL="https://github.com/DTS-STN/react-router-template/"
 ARG IMAGE_VENDOR="Employment and Social Development Canada"
-ARG NODE_EXTRA_CA_CERTS="./certs/env.crt"
 
 ENV BUILD_DATE=${BUILD_DATE}
 ENV BUILD_ID=${BUILD_ID}
@@ -108,7 +107,6 @@ ENV BUILD_REVISION=${BUILD_REVISION}
 ENV BUILD_VERSION=${BUILD_VERSION}
 ENV OTEL_SERVICE_NAME=${IMAGE_TITLE}
 ENV OTEL_SERVICE_VERSION=${BUILD_VERSION}
-ENV NODE_EXTRA_CA_CERTS=${NODE_EXTRA_CA_CERTS}
 
 # Add labels for OCI compliance, describing the build details and image metadata
 # see: https://github.com/opencontainers/image-spec/blob/main/annotations.md
@@ -124,7 +122,6 @@ LABEL org.opencontainers.image.version=${BUILD_VERSION}
 WORKDIR /home/node
 COPY --from=runtime-deps --chown=node:node /home/node/node_modules/ ./node_modules/
 COPY --from=build --chown=node:node /home/node/build/ ./build/
-COPY --chown=node:node ./certs/env.crt certs/env.crt ./
 
 USER node
 CMD ["node", "--import", "./build/server/telemetry.js", "./build/server/server.js"]

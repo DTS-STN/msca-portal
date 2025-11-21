@@ -14,7 +14,7 @@ const httpsAgent =
   serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
     ? new https.Agent()
     : new https.Agent({
-        ca: fs.readFileSync(serverEnvironment.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+        ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
       });
 
 type InboxPrefResponseEntity = Readonly<{
