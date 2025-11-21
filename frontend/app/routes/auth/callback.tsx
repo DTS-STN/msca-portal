@@ -2,8 +2,9 @@ import type { Session } from 'react-router';
 import { redirect } from 'react-router';
 
 import axios from 'axios';
-import fs from 'fs';
-import https from 'https';
+
+// import fs from 'fs';
+// import https from 'https';
 
 import type { Route } from './+types/callback';
 
@@ -89,12 +90,12 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
 
 function updateMscaNg(sin: string, uid: string) {
   //Create httpsAgent to read in cert to make BRZ call
-  const httpsAgent =
-    serverEnvironment.NODE_ENV === 'development'
-      ? new https.Agent()
-      : new https.Agent({
-          ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
-        });
+  // const httpsAgent =
+  //   serverEnvironment.NODE_ENV === 'development'
+  //     ? new https.Agent()
+  //     : new https.Agent({
+  //         ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
+  //       });
 
   //Make call to msca-ng API to create user if it doesn't exist
   axios
@@ -109,7 +110,7 @@ function updateMscaNg(sin: string, uid: string) {
           'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
           'Content-Type': 'application/json',
         },
-        httpsAgent: httpsAgent,
+        // httpsAgent: httpsAgent,
       },
     )
     .then((response) => {
@@ -126,7 +127,7 @@ function updateMscaNg(sin: string, uid: string) {
         'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
         'Content-Type': 'application/json',
       },
-      httpsAgent: httpsAgent,
+      // httpsAgent: httpsAgent,
     })
       // .then((response) => log.debug(response))
       .catch((error) => {});
