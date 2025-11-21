@@ -56,7 +56,7 @@ export function getInboxPrefRepository(): InboxPrefRepository {
 export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
-      const resp = await axios.get(`http://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
+      const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
         params: {
           'program-code': 'CFOB',
           'Spid': spid,
