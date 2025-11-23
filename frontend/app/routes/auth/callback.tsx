@@ -1,15 +1,12 @@
 import type { Session } from 'react-router';
 import { redirect } from 'react-router';
 
-import axios from 'axios';
-import fs from 'fs';
-import https from 'https';
-
 import type { Route } from './+types/callback';
 
 import { getRaoidcClient } from '~/.server/auth/raoidc-client';
 import { serverEnvironment } from '~/.server/environment';
 import { getSession, commitSession } from '~/.server/session';
+import { updateMscaNg } from '~/.server/utils/auth-utils';
 import { withSpan } from '~/.server/utils/telemetry-utils';
 import { HttpStatusCodes } from '~/utils/http-status-codes';
 
@@ -85,50 +82,4 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
 
     return redirect(returnUrl.toString());
   });
-}
-
-function updateMscaNg(sin: string, uid: string) {
-  //Create httpsAgent to read in cert to make BRZ call
-  const httpsAgent =
-    serverEnvironment.NODE_ENV === 'development'
-      ? new https.Agent()
-      : new https.Agent({
-          ca: fs.readFileSync('/usr/local/share/ca-certificates/env.crt' as fs.PathOrFileDescriptor),
-        });
-
-  //Make call to msca-ng API to create user if it doesn't exist
-  axios
-    .post(
-      `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
-      {
-        pid: sin,
-        spid: uid,
-      },
-      {
-        headers: {
-          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
-          'Content-Type': 'application/json',
-        },
-        httpsAgent: httpsAgent,
-      },
-    )
-    .then((response) => {
-      // log.debug(response)
-      updateLastLoginDate(uid);
-    })
-    .catch((error) => {});
-
-  function updateLastLoginDate(uid: string) {
-    axios({
-      method: 'post',
-      url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
-      headers: {
-        'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
-        'Content-Type': 'application/json',
-      },
-      httpsAgent: httpsAgent,
-    })
-      // .then((response) => log.debug(response))
-      .catch((error) => {});
-  }
 }

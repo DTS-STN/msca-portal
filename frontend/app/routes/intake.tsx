@@ -9,7 +9,6 @@ import { ErrorCodes } from '~/errors/error-codes';
 import { getPathById } from '~/utils/route-utils';
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-
   // ECAS and the apps redirect to the index with a search parameter of Lang=fra or Lang=eng
   const { ECAS_BASE_URL, CURAM_REDIRECT } = globalThis.__appEnvironment;
   const searchParams = new URL(request.url).searchParams;

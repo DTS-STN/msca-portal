@@ -34,8 +34,9 @@ export const defaults = {
   HOSTALIAS_HOSTNAME: 'brz-ofm12c-oz-s4.brz.dev',
   MSCA_NG_INBOX_GET_ENDPOINT: '',
   MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
-  MSCA_NG_CREDS: 'bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
   CURAM_REDIRECT: '/curamUrlPlaceholder',
+  NODE_EXTRA_CA_CERTS: './certs/env.crt',
+  MSCA_NG_CREDS: '',
 } as const;
 
 /**
@@ -71,4 +72,5 @@ export const client = v.object({
   MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
+  NODE_EXTRA_CA_CERTS: v.optional(v.string(), defaults.NODE_EXTRA_CA_CERTS),
 });
