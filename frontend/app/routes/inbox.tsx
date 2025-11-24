@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 
 import type { Session, RouteHandle, Params } from 'react-router';
-import { Navigate } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
 
