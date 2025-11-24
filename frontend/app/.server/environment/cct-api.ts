@@ -27,6 +27,7 @@ export const defaults = {
 
 export const cctApi = v.object({
   CCT_API_BASE_URI: v.optional(v.string(), defaults.CCT_API_BASE_URI),
+  CCT_API_LETTERS_URI: v.optional(v.string(), defaults.CCT_API_LETTERS_URI),
   CCT_API_LETTERS_ENDPOINT: v.optional(v.string(), defaults.CCT_API_LETTERS_ENDPOINT),
   CCT_API_PDF_ENDPOINT: v.optional(v.string(), defaults.CCT_API_PDF_ENDPOINT),
   CCT_API_MAX_RETRIES: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.CCT_API_MAX_RETRIES),
