@@ -14,6 +14,7 @@ const log = LogFactory.getLogger(import.meta.url);
 const {
   ENABLE_MOCK_LETTER_SERVICE,
   CCT_API_BASE_URI,
+  CCT_API_LETTERS_URI,
   CCT_API_LETTERS_ENDPOINT,
   CCT_API_PDF_ENDPOINT,
   CCT_API_KEY,
@@ -35,7 +36,7 @@ export interface MessageRepository {
 
   /**
    * Retrieve the PDF entity associated with a specific message id.
-   *
+   *+
    * @param messageId The message id of the PDF dto.
    * @param userId The user that made the request, only used for auditing
    * @returns A Promise that resolves to the PDF dto for a message id.
@@ -63,7 +64,7 @@ export function getMessageRepository(): MessageRepository {
 }
 
 export class DefaultMessageRepository implements MessageRepository {
-  private readonly baseUrl = `${CCT_API_BASE_URI}${CCT_API_LETTERS_ENDPOINT}`;
+  private readonly baseUrl = `${CCT_API_BASE_URI}${CCT_API_LETTERS_URI}`;
 
   async findMessagesBySin(sin: string, userId: string): Promise<readonly MessageDto[]> {
     log.trace('Fetching letters for sin [%s]', sin);
