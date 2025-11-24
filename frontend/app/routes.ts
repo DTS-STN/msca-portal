@@ -14,13 +14,10 @@ import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
  * @returns An array of route config entries.
  */
 function i18nPageRoutes(i18nPageRoute: I18nPageRoute): RouteConfigEntry[] {
-  
-
  return Object.entries(i18nPageRoute.paths).map(([language, path]) => {
     const id = `${i18nPageRoute.id}-${language.toUpperCase()}`;
     return route(path, i18nPageRoute.file, { id: id });
   });
-
 }
 
 /**
