@@ -5,7 +5,7 @@ import https from 'https';
 import { serverEnvironment } from '~/.server/environment';
 import { LogFactory } from '~/.server/logging';
 
-const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
+const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS, NODE_EXTRA_CA_CERTS} = globalThis.__appEnvironment;
 
 const log = LogFactory.getLogger(import.meta.url);
 
@@ -14,7 +14,7 @@ const httpsAgent =
   serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
     ? new https.Agent()
     : new https.Agent({
-        ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+        ca: fs.readFileSync(NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
       });
 
 type InboxPrefResponseEntity = Readonly<{
@@ -54,6 +54,7 @@ export function getInboxPrefRepository(): InboxPrefRepository {
 
 export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
+    log.info('start getInboxPref');
     try {
       const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
         params: {

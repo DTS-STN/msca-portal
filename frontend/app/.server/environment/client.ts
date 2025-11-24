@@ -38,6 +38,7 @@ export const defaults = {
   CURAM_REDIRECT: '/curamUrlPlaceholder',
   MSCA_NG_CREDS: '',
   SHOW_INBOX_BUTTON: 'true',
+  NODE_EXTRA_CA_CERTS: './certs/env.crt',
 } as const;
 
 /**
@@ -75,4 +76,5 @@ export const client = v.object({
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
   SHOW_INBOX_BUTTON: v.optional(stringToBooleanSchema(), defaults.SHOW_INBOX_BUTTON),
+  NODE_EXTRA_CA_CERTS: v.optional(v.string(), defaults.NODE_EXTRA_CA_CERTS),
 });
