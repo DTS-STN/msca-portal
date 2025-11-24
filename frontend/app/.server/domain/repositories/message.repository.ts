@@ -36,7 +36,7 @@ export interface MessageRepository {
 
   /**
    * Retrieve the PDF entity associated with a specific message id.
-   *+
+   *
    * @param messageId The message id of the PDF dto.
    * @param userId The user that made the request, only used for auditing
    * @returns A Promise that resolves to the PDF dto for a message id.
