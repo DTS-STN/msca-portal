@@ -37,7 +37,7 @@ export const defaults = {
   MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
   CURAM_REDIRECT: '/curamUrlPlaceholder',
   MSCA_NG_CREDS: '',
-  SHOW_INBOX_BUTTON:'true',
+  SHOW_INBOX_BUTTON: 'true',
 } as const;
 
 /**
@@ -74,6 +74,5 @@ export const client = v.object({
   MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
-  SHOW_INBOX_BUTTON:  v.optional(stringToBooleanSchema(), defaults.SHOW_INBOX_BUTTON),
-
+  SHOW_INBOX_BUTTON: v.optional(stringToBooleanSchema(), defaults.SHOW_INBOX_BUTTON),
 });

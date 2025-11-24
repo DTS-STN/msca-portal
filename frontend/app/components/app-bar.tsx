@@ -36,18 +36,20 @@ export function AppBar({ name }: AppBarProps): JSX.Element {
             </AppLink>
           </span>
         </div>
-         {SHOW_INBOX_BUTTON && (<div className="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto">
-          <ButtonLink
-            id="inbox-button-desktop"
-            file="routes/inbox.tsx"
-            variant="default"
-            className="rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
-            refPageAA="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
-          >
-            <FontAwesomeIcon icon={faEnvelope} transform="grow-2" className="mr-2" />
-            <span>{t('gcweb:app.inbox')}</span>
-          </ButtonLink>
-        </div>)}
+        {SHOW_INBOX_BUTTON && (
+          <div className="order-3 my-2 mr-8 ml-auto w-full sm:order-2 sm:w-auto">
+            <ButtonLink
+              id="inbox-button-desktop"
+              file="routes/inbox.tsx"
+              variant="default"
+              className="rounded border-2 border-[#2B4380] bg-white font-sans text-lg"
+              refPageAA="ESDC-EDSC_MSCA-MDSC-SCH:Nav"
+            >
+              <FontAwesomeIcon icon={faEnvelope} transform="grow-2" className="mr-2" />
+              <span>{t('gcweb:app.inbox')}</span>
+            </ButtonLink>
+          </div>
+        )}
         <div className="ring-blue-hover order-2 flex w-full items-center text-right text-2xl ring-offset-2 focus:ring-2 focus:outline-none sm:order-3 sm:w-[260px]">
           {name && (
             <UserButton

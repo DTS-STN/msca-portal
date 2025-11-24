@@ -1,9 +1,10 @@
 import { createContext } from 'react';
 
 import type { Session, RouteHandle, Params } from 'react-router';
+import { Navigate } from 'react-router';
 
 import { useTranslation, Trans } from 'react-i18next';
-import { Navigate } from 'react-router';
+
 import PaginatedMessages from '../components/PaginatedMessages';
 import type { Route } from './+types/inbox';
 
@@ -45,7 +46,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const session: Session = await getSession(request.headers.get('Cookie'));
   const { userinfoTokenClaims } = await requireAuth(request);
   const { t } = await getTranslation(request, handle.i18nNamespace);
- 
+
   if (!userinfoTokenClaims.sin) {
     log.warn('Error: User Info Token sin not defined');
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
@@ -115,8 +116,8 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   frMessageVerboseTitles.set('PSCDMSA', t('inbox:message-verbose-titles.accounts'));
   frMessageVerboseTitles.set('PSCDNOD', t('inbox:message-verbose-titles.debts'));
   const { SHOW_INBOX_BUTTON } = globalThis.__appEnvironment;
-  if(!SHOW_INBOX_BUTTON){
-	throw new Response(null, { status: 404 });
+  if (!SHOW_INBOX_BUTTON) {
+    throw new Response(null, { status: 404 });
   }
   const {
     messages,
