@@ -18,6 +18,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import { HttpStatusCodes } from '~/utils/http-status-codes';
 
 // import { securityHeadersMiddleware } from '~/middleware';
 
@@ -114,7 +115,10 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   const frMessageVerboseTitles = new Map<string, string>();
   frMessageVerboseTitles.set('PSCDMSA', t('inbox:message-verbose-titles.accounts'));
   frMessageVerboseTitles.set('PSCDNOD', t('inbox:message-verbose-titles.debts'));
-
+  const { SHOW_INBOX_BUTTON } = globalThis.__appEnvironment;
+  if (!SHOW_INBOX_BUTTON) {
+    throw new Response('Not found', { status: HttpStatusCodes.NOT_FOUND });
+  }
   const {
     messages,
     MSCA_BASE_URL,
