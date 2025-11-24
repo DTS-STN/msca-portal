@@ -37,6 +37,7 @@ export const defaults = {
   MSCA_NG_USER_ENDPOINT: '/stream3/mscaws-mdscws/api/v1/users',
   CURAM_REDIRECT: '/curamUrlPlaceholder',
   MSCA_NG_CREDS: '',
+  SHOW_INBOX_BUTTON:'true',
 } as const;
 
 /**
@@ -67,9 +68,12 @@ export const client = v.object({
   LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS: v.optional(stringToIntegerSchema(), defaults.LOOKUP_SVC_DASHBOARD_CACHE_TTL_SECONDS),
   PAGINATION_MESSAGES_PER_PAGE: v.optional(stringToIntegerSchema(), defaults.PAGINATION_MESSAGES_PER_PAGE),
   PAGINATION_PAGE_RANGE_DISPLAYED: v.optional(stringToIntegerSchema(), defaults.PAGINATION_PAGE_RANGE_DISPLAYED),
+
   HOSTALIAS_HOSTNAME: v.optional(v.string(), defaults.HOSTALIAS_HOSTNAME),
   MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
   MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
   MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
+  SHOW_INBOX_BUTTON:  v.optional(stringToBooleanSchema(), defaults.SHOW_INBOX_BUTTON),
+
 });

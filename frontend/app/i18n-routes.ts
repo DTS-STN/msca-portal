@@ -63,7 +63,7 @@ export type I18nLayoutRoute = { file: string; children: I18nRoute[] };
  * @property file - The file path for the page component.
  * @property paths - An I18nPaths object containing paths for different languages.
  */
-export type I18nPageRoute = { id: string; file: string; paths: I18nPaths };
+export type I18nPageRoute = { id: string; file: string; paths: I18nPaths; featureFlag?: string; };
 
 /**
  * Represents all file paths used in the i18n routes.
@@ -116,6 +116,7 @@ export const i18nRoutes = [
         id: 'inbox',
         file: 'routes/inbox.tsx',
         paths: { en: '/en/inbox', fr: '/fr/boite-reception' },
+		featureFlag: 'SHOW_INBOX_BUTTON',
       },
       {
         id: 'inbox-now-available',

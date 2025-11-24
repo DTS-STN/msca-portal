@@ -5,6 +5,15 @@ import { ErrorCodes } from './errors/error-codes';
 // important: we cannot use aliased imports (~/) here 🤷
 import type { I18nPageRoute, I18nRoute } from './i18n-routes';
 import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
+const { SHOW_INBOX_BUTTON } = globalThis.__appEnvironment;
+const featureFlags = {
+  SHOW_INBOX_BUTTON: SHOW_INBOX_BUTTON,
+  // other flags...
+};
+
+function isFeatureEnabled(flag: keyof typeof featureFlags): boolean {
+  return featureFlags[flag];
+}
 
 /**
  * Generates an array of route config entries for different languages
@@ -14,10 +23,18 @@ import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
  * @returns An array of route config entries.
  */
 function i18nPageRoutes(i18nPageRoute: I18nPageRoute): RouteConfigEntry[] {
-  return Object.entries(i18nPageRoute.paths).map(([language, path]) => {
+  
+
+ return Object.entries(i18nPageRoute.paths)
+  .filter(() => {
+    // Skip if feature flag exists and is disabled
+    return !i18nPageRoute.featureFlag || isFeatureEnabled(i18nPageRoute.featureFlag as keyof typeof featureFlags);
+  })
+  .map(([language, path]) => {
     const id = `${i18nPageRoute.id}-${language.toUpperCase()}`;
     return route(path, i18nPageRoute.file, { id: id });
   });
+
 }
 
 /**
