@@ -5,17 +5,6 @@ import { ErrorCodes } from './errors/error-codes';
 // important: we cannot use aliased imports (~/) here 🤷
 import type { I18nPageRoute, I18nRoute } from './i18n-routes';
 import { i18nRoutes, isI18nPageRoute } from './i18n-routes';
-import type { ClientEnvironment } from '~/.server/environment';
-
-const env: Partial<ClientEnvironment> = globalThis.__appEnvironment ?? {};
-
-const featureFlags = {
-  SHOW_INBOX_BUTTON: env.SHOW_INBOX_BUTTON ?? false,
-  // other flags…
-};
-function isFeatureEnabled(flag: keyof typeof featureFlags): boolean {
-  return featureFlags[flag];
-}
 
 /**
  * Generates an array of route config entries for different languages
@@ -27,12 +16,7 @@ function isFeatureEnabled(flag: keyof typeof featureFlags): boolean {
 function i18nPageRoutes(i18nPageRoute: I18nPageRoute): RouteConfigEntry[] {
   
 
- return Object.entries(i18nPageRoute.paths)
-  .filter(() => {
-    // Skip if feature flag exists and is disabled
-    return !i18nPageRoute.featureFlag || isFeatureEnabled(i18nPageRoute.featureFlag as keyof typeof featureFlags);
-  })
-  .map(([language, path]) => {
+ return Object.entries(i18nPageRoute.paths).map(([language, path]) => {
     const id = `${i18nPageRoute.id}-${language.toUpperCase()}`;
     return route(path, i18nPageRoute.file, { id: id });
   });
