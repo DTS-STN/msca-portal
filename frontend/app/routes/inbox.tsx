@@ -18,6 +18,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import { HttpStatusCodes } from '~/utils/http-status-codes';
 
 // import { securityHeadersMiddleware } from '~/middleware';
 
@@ -116,7 +117,7 @@ export default function Inbox({ loaderData, params }: Route.ComponentProps) {
   frMessageVerboseTitles.set('PSCDNOD', t('inbox:message-verbose-titles.debts'));
   const { SHOW_INBOX_BUTTON } = globalThis.__appEnvironment;
   if (!SHOW_INBOX_BUTTON) {
-    throw new Response(null, { status: 404 });
+    throw new Response('Not found', { status: HttpStatusCodes.NOT_FOUND });
   }
   const {
     messages,
