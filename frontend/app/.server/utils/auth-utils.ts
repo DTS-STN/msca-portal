@@ -51,7 +51,7 @@ export function updateMscaNg(sin: string, uid: string) {
     serverEnvironment.NODE_ENV === 'development'
       ? new https.Agent()
       : new https.Agent({
-          ca: fs.readFileSync(serverEnvironment.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+          ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
         });
 
   //Make call to msca-ng API to create user if it doesn't exist
@@ -71,10 +71,12 @@ export function updateMscaNg(sin: string, uid: string) {
       },
     )
     .then((response) => {
-      log.debug(response);
+      log.debug('create user if none exists ' + response.statusText + response.data);
       updateLastLoginDate(uid);
     })
-    .catch((error) => {});
+    .catch((error) => {
+      log.error('error creating user ' + error);
+    });
 
   function updateLastLoginDate(uid: string) {
     axios({
@@ -86,7 +88,9 @@ export function updateMscaNg(sin: string, uid: string) {
       },
       httpsAgent: httpsAgent,
     })
-      .then((response) => log.debug(response))
-      .catch((error) => {});
+      .then((response) => log.debug('update last login ' + response.statusText + response.data))
+      .catch((error) => {
+        log.error('update last login error ' + error);
+      });
   }
 }

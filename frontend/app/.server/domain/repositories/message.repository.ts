@@ -11,7 +11,17 @@ import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
 
-const { ENABLE_MOCK_LETTER_SERVICE } = serverEnvironment;
+const {
+  ENABLE_MOCK_LETTER_SERVICE,
+  CCT_API_BASE_URI,
+  CCT_API_LETTERS_ENDPOINT,
+  CCT_API_PDF_ENDPOINT,
+  CCT_API_KEY,
+  CCT_API_MAX_RETRIES,
+  CCT_API_RETRY_DELAY,
+  CCT_API_COMMUNITY,
+  INTEROP_API_SUBSCRIPTION_KEY,
+} = serverEnvironment;
 
 export interface MessageRepository {
   /**
@@ -53,15 +63,15 @@ export function getMessageRepository(): MessageRepository {
 }
 
 export class DefaultMessageRepository implements MessageRepository {
-  private readonly baseUrl = `${process.env.CCT_API_BASE_URI}${process.env.CCT_API_LETTERS_URI}`;
+  private readonly baseUrl = `${CCT_API_BASE_URI}${CCT_API_LETTERS_ENDPOINT}`;
 
   async findMessagesBySin(sin: string, userId: string): Promise<readonly MessageDto[]> {
     log.trace('Fetching letters for sin [%s]', sin);
     console.log(userId);
-    const url = new URL(`${this.baseUrl}${process.env.CCT_API_LETTERS_ENDPOINT}`);
+    const url = new URL(`${this.baseUrl}${CCT_API_LETTERS_ENDPOINT}`);
     url.searchParams.set('clientId', sin);
     url.searchParams.set('userId', userId); //TODO fix userId
-    url.searchParams.set('community', `${process.env.CCT_API_COMMUNITY}`);
+    url.searchParams.set('community', `${CCT_API_COMMUNITY}`);
     url.searchParams.set('Exact', 'false');
 
     const httpClient = getHttpClient();
@@ -69,12 +79,12 @@ export class DefaultMessageRepository implements MessageRepository {
     const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': `${process.env.CCT_API_KEY}`,
-        'Ocp-Apim-Subscription-Key': `${process.env.INTEROP_API_SUBSCRIPTION_KEY}`,
+        'x-api-key': `${CCT_API_KEY}`,
+        'Ocp-Apim-Subscription-Key': `${INTEROP_API_SUBSCRIPTION_KEY}`,
       },
       retryOptions: {
-        retries: parseInt(`${process.env.CCT_API_MAX_RETRIES}`),
-        backoffMs: parseInt(`${process.env.CCT_API_RETRY_DELAY}`),
+        retries: parseInt(`${CCT_API_MAX_RETRIES}`),
+        backoffMs: parseInt(`${CCT_API_RETRY_DELAY}`),
         retryConditions: {
           [502]: [],
         },
@@ -102,23 +112,22 @@ export class DefaultMessageRepository implements MessageRepository {
   async getPdfByMessageId(messageId: string, userId: string): Promise<PdfDto> {
     log.trace('Fetching message for userId [%s] and message id [%s]', userId, messageId);
 
-    console.log(userId);
-    const url = new URL(`${this.baseUrl}${process.env.CCT_API_PDF_ENDPOINT}`);
+    const url = new URL(`${this.baseUrl}${CCT_API_PDF_ENDPOINT}`);
     url.searchParams.set('id', messageId);
     url.searchParams.set('userId', userId); //TODO fix userId
-    url.searchParams.set('community', `${process.env.CCT_API_COMMUNITY}`);
+    url.searchParams.set('community', `${CCT_API_COMMUNITY}`);
 
     const httpClient = getHttpClient();
 
     const response = await httpClient.instrumentedFetch('http.client.interop-api.get-pdf-by-client-id.gets', url, {
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': `${process.env.CCT_API_KEY}`,
-        'Ocp-Apim-Subscription-Key': `${process.env.INTEROP_API_SUBSCRIPTION_KEY}`,
+        'x-api-key': `${CCT_API_KEY}`,
+        'Ocp-Apim-Subscription-Key': `${INTEROP_API_SUBSCRIPTION_KEY}`,
       },
       retryOptions: {
-        retries: parseInt(`${process.env.CCT_API_MAX_RETRIES}`),
-        backoffMs: parseInt(`${process.env.CCT_API_RETRY_DELAY}`),
+        retries: parseInt(`${CCT_API_MAX_RETRIES}`),
+        backoffMs: parseInt(`${CCT_API_RETRY_DELAY}`),
         retryConditions: {
           [502]: [],
         },
@@ -151,7 +160,7 @@ export class DefaultMessageRepository implements MessageRepository {
   }
 
   async checkHealth(): Promise<void> {
-    await this.findMessagesBySin(`${process.env.HEALTH_PLACEHOLDER_REQUEST_VALUE}`, 'MSCA-RES');
+    await this.findMessagesBySin(`${serverEnvironment.HEALTH_PLACEHOLDER_REQUEST_VALUE}`, 'MSCA-RES');
   }
 }
 

@@ -37,8 +37,7 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
       return Response.json({ message: 'Invalid login state' }, { status: HttpStatusCodes.BAD_REQUEST });
     }
 
-
-    const returnUrl = loginState?.returnUrl ?? new URL('/en', currentUrl.origin);
+    const returnUrl = loginState.returnUrl ?? new URL('/en', currentUrl.origin);
 
     span.setAttribute('return_url', returnUrl.toString());
 
@@ -56,9 +55,9 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
 
     const tokenSet = await raoidcClient.handleCallbackRequest(
       request,
-      loginState?.codeVerifier ?? '',
-      loginState?.nonce ?? '',
-      loginState?.state ?? '',
+      loginState.codeVerifier,
+      loginState.nonce,
+      loginState.state,
       new URL('/auth/callback', currentUrl.origin),
       opts,
     );
