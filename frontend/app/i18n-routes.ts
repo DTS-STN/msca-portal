@@ -63,7 +63,7 @@ export type I18nLayoutRoute = { file: string; children: I18nRoute[] };
  * @property file - The file path for the page component.
  * @property paths - An I18nPaths object containing paths for different languages.
  */
-export type I18nPageRoute = { id: string; file: string; paths: I18nPaths};
+export type I18nPageRoute = { id: string; file: string; paths: I18nPaths };
 
 /**
  * Represents all file paths used in the i18n routes.
