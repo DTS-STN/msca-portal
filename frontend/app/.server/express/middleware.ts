@@ -1,13 +1,10 @@
 import { trace } from '@opentelemetry/api';
 import type { RequestHandler } from 'express';
-import sessionMiddleware from 'express-session';
 import { minimatch } from 'minimatch';
 import morganMiddleware from 'morgan';
-import { randomUUID } from 'node:crypto';
 
 import type { ServerEnvironment } from '~/.server/environment';
 import { serverEnvironment } from '~/.server/environment';
-import { createMemoryStore, createRedisStore } from '~/.server/express/session';
 import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
@@ -113,56 +110,6 @@ export function security(environment: ServerEnvironment): RequestHandler {
     response.setHeader('X-Content-Type-Options', 'nosniff');
     response.setHeader('X-Frame-Options', 'deny');
     next();
-  };
-}
-
-/**
- * Configures session middleware, optionally skipping it for bots and specific paths.
- */
-export function session(environment: ServerEnvironment): RequestHandler {
-  const ignorePatterns = ['/__manifest', '/api/**'];
-
-  const {
-    isProduction,
-    SESSION_TYPE,
-    SESSION_COOKIE_DOMAIN,
-    SESSION_COOKIE_NAME,
-    SESSION_COOKIE_PATH,
-    SESSION_COOKIE_SAMESITE,
-    SESSION_COOKIE_SECRET,
-    SESSION_COOKIE_SECURE,
-  } = environment;
-
-  const sessionStore =
-    SESSION_TYPE === 'redis' //
-      ? createRedisStore(environment)
-      : createMemoryStore();
-
-  const middleware = sessionMiddleware({
-    store: sessionStore,
-    name: SESSION_COOKIE_NAME,
-    secret: [SESSION_COOKIE_SECRET.value()],
-    genid: () => randomUUID(),
-    proxy: true,
-    resave: false,
-    rolling: true,
-    saveUninitialized: false,
-    cookie: {
-      domain: SESSION_COOKIE_DOMAIN,
-      path: SESSION_COOKIE_PATH,
-      secure: SESSION_COOKIE_SECURE ? isProduction : false,
-      httpOnly: true,
-      sameSite: SESSION_COOKIE_SAMESITE,
-    },
-  });
-
-  return (request, response, next) => {
-    if (shouldIgnore(ignorePatterns, request.path)) {
-      log.trace('Skipping session: [%s]', request.path);
-      return next();
-    }
-
-    return middleware(request, response, next);
   };
 }
 

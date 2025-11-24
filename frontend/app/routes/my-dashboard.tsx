@@ -26,7 +26,7 @@ interface Card {
 }
 
 export async function loader({ context, params, request }: Route.LoaderArgs) {
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
   const language = getLanguage(request);
 
   if (!userinfoTokenClaims.sin) {

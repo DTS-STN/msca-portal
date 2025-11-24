@@ -1,7 +1,5 @@
 import type { RouteModules } from 'react-router';
 
-import type { Request } from 'express';
-
 import type { ClientEnvironment } from '~/.server/environment';
 import type { InstanceName } from '~/.server/utils/instance-registry';
 
@@ -11,11 +9,6 @@ declare global {
       push?: (object: Record<string, string | Record<string, string>>) => void;
     };
   }
-
-  /**
-   * The application's session type.
-   */
-  type AppSession = Request['session'];
 
   /**
    * The application's supported languages: English and French.

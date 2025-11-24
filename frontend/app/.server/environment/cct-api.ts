@@ -10,14 +10,16 @@ export type CctApi = Readonly<v.InferOutput<typeof cctApi>>;
 export const defaults = {
   CCT_API_BASE_URI: 'http://localhost:8080/api/v1/',
   CCT_API_LETTERS_ENDPOINT: '/GetDocInfoByClientId',
+  CCT_API_PDF_ENDPOINT: '/GetPdfByLetterId',
   CCT_API_LETTERS_URI: '/client-correspondence/letter-retrieval/cct/v1',
   CCT_API_MAX_RETRIES: '3',
+  CCT_API_RETRY_DELAY: '100',
   CCT_API_BACKOFF_MS: '100',
   CCT_API_KEY: '',
   CCT_API_COMMUNITY: 'DARS-SMCD',
   HTTP_PROXY_URL: '',
   HTTP_PROXY_TLS_TIMEOUT: '30000',
-  HEALTH_PLACEHOLDER_REQUEST_VALUE: 'CDB_HEALTH_CHECK',
+  HEALTH_PLACEHOLDER_REQUEST_VALUE: 'SCH_HEALTH_CHECK',
   INTEROP_API_SUBSCRIPTION_KEY: '',
   ENABLE_MOCK_LETTER_SERVICE: isProduction ? 'false' : 'true',
   CCT_LETTER_FILTER: '.*',
@@ -25,7 +27,10 @@ export const defaults = {
 
 export const cctApi = v.object({
   CCT_API_BASE_URI: v.optional(v.string(), defaults.CCT_API_BASE_URI),
+  CCT_API_LETTERS_ENDPOINT: v.optional(v.string(), defaults.CCT_API_LETTERS_ENDPOINT),
+  CCT_API_PDF_ENDPOINT: v.optional(v.string(), defaults.CCT_API_PDF_ENDPOINT),
   CCT_API_MAX_RETRIES: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.CCT_API_MAX_RETRIES),
+  CCT_API_RETRY_DELAY: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.CCT_API_RETRY_DELAY),
   CCT_API_BACKOFF_MS: v.optional(v.pipe(stringToIntegerSchema(), v.minValue(0)), defaults.CCT_API_BACKOFF_MS),
   CCT_API_KEY: v.optional(v.string(), defaults.CCT_API_KEY),
   CCT_API_COMMUNITY: v.optional(v.string(), defaults.CCT_API_COMMUNITY),

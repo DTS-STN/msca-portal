@@ -16,7 +16,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   const link = searchParams.get('link');
 
   // TODO: Investigate why there's a comment saying that if we're already logged in, to skip the redirect.
-  const { userinfoTokenClaims } = await requireAuth(context.session, request);
+  const { userinfoTokenClaims } = await requireAuth(request);
 
   if (!userinfoTokenClaims.sin) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
