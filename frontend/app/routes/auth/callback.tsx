@@ -31,12 +31,12 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
 
     span.setAttribute('request_url', currentUrl.toString());
 
-    if (session.get('loginState') === undefined) {
+    const loginState = session.get('loginState');
+    if (loginState === undefined) {
       span.addEvent('login_state.invalid');
       return Response.json({ message: 'Invalid login state' }, { status: HttpStatusCodes.BAD_REQUEST });
     }
 
-    const loginState = session.get('loginState');
 
     const returnUrl = loginState?.returnUrl ?? new URL('/en', currentUrl.origin);
 
@@ -70,8 +70,6 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
       idTokenClaims: tokenSet.idToken,
       userinfoTokenClaims: tokenSet.userinfoToken,
     });
-
-    process.stdout.write('got here');
 
     session.unset('loginState');
     session.unset('stubloginState');
