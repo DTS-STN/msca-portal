@@ -23,7 +23,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
   }
 
   if (lang && link) {
-    const redirectTarget = `${ECAS_BASE_URL}/${CURAM_REDIRECT}?link=${link}&Lang=${lang}`;
+    const redirectTarget = `${ECAS_BASE_URL}${CURAM_REDIRECT}?link=${encodeURIComponent(link)}&Lang=${lang}`;
     return redirect(redirectTarget);
   }
 
