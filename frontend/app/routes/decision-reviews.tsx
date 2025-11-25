@@ -40,6 +40,7 @@ const stepStyle = 'pb-2 font-display text-[34px] font-bold text-gray-darker md:t
 export default function SecuritySettings({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
   const { MSCA_BASE_URL } = loaderData;
+  const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Request a review of a decision:decision-review-appeal-to-sst';
 
   return (
     <>
@@ -54,7 +55,13 @@ export default function SecuritySettings({ loaderData, params }: Route.Component
           <Trans i18nKey={'decisionReviews:recon.2'} components={{ bold: <strong /> }} />
         </p>
         <p className={pStyle}>{t('decisionReviews:recon.3')}</p>
-        <ButtonLink to={t('decisionReviews:recon.button.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink
+          variant="primary"
+          size="custom"
+          className="border-0"
+          to={t('decisionReviews:recon.button.href', { baseUri: MSCA_BASE_URL })}
+          data-gc-analytics-customclick={aaPrefix + 'decision-review-ask-service-canada'}
+        >
           {t('decisionReviews:recon.button')}
         </ButtonLink>
 
@@ -64,7 +71,13 @@ export default function SecuritySettings({ loaderData, params }: Route.Component
           <Trans i18nKey={'decisionReviews:sst.2'} components={{ bold: <strong /> }} />
         </p>
         <p className={pStyle}>{t('decisionReviews:sst.3')}</p>
-        <ButtonLink to={t('decisionReviews:sst.button.href', { baseUri: MSCA_BASE_URL })}>
+        <ButtonLink
+          variant="primary"
+          size="custom"
+          className="border-0"
+          to={t('decisionReviews:sst.button.href', { baseUri: MSCA_BASE_URL })}
+          data-gc-analytics-customclick={aaPrefix + 'decision-review-appeal-to-sst'}
+        >
           {t('decisionReviews:sst.button')}
         </ButtonLink>
       </div>
