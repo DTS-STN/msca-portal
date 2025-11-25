@@ -46,7 +46,13 @@ export default function InboxNowAvailable({ loaderData, params }: Route.Componen
           <p className="pb-4">{t('inboxNowAvailable:new-inbox-para-2')}</p>
         </div>
 
-        <ButtonLink file="routes/inbox-notification-preferences.tsx" variant="primary" size="custom" className="border-0">
+        <ButtonLink
+          file="routes/inbox-notification-preferences.tsx"
+          variant="primary"
+          size="custom"
+          className="border-0"
+          data-gc-analytics-customclick={'ESDC-EDSC_MSCA-MSDC-SCH:New! Inbox is now available:set-inbox-button'}
+        >
           {t('inboxNowAvailable:inbox-pref-button')}
         </ButtonLink>
       </div>
