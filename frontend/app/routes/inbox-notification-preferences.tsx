@@ -50,12 +50,12 @@ export async function action({ context, params, request }: Route.ActionArgs) {
   const lang = getLanguage(request) ?? '';
   const inboxPrefService = getInboxPrefService();
 
-  const spid = userinfoTokenClaims.sub;
+  const spid = userinfoTokenClaims.sin;
   const formData = await request.formData();
   const pref = formData.get('email-radio') === 'no' ? 'no' : 'yes';
 
   if (serverEnvironment.isProduction === true) {
-    await inboxPrefService.setInboxPref(spid, pref);
+    await inboxPrefService.setInboxPref(spid ?? '', pref);
   }
 
   return redirect(getPathById('inbox-notification-preferences-success', { lang }));

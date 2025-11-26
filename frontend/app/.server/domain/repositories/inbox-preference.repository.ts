@@ -81,7 +81,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           message: 'Failed to get inbox prefs',
           status: response.status,
           statusText: response.statusText + response.text,
-          url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
+          url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`,
           responseBody: await response.text(),
         });
 
@@ -99,10 +99,8 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       //   },
       //   httpsAgent: httpsAgent,
       // });
-      // const respData = resp.data[0];
-      // log.info('getInboxPref response ' + respData.toString());
-
-      return { id: 'bla', subscribedEvents: [{ eventTypeCode: 'blabla' }] };
+      const respData = response.json();
+      log.info('getInboxPref response ' + respData);
     } catch (err) {
       log.error(err);
     }
