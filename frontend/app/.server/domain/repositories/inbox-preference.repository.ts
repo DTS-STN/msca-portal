@@ -58,13 +58,13 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const httpClient = getHttpClient();
       const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
-      url.searchParams.set('spid', spid);
-      const rawMscaNgCreds = serverEnvironment.MSCA_NG_CREDS;
-      const mscaNgCreds = Buffer.from(rawMscaNgCreds.toString() as string, 'base64').toString('utf8');
+      url.searchParams.set('Spid', spid);
+      //const rawMscaNgCreds = serverEnvironment.MSCA_NG_CREDS;
+      //const mscaNgCreds = Buffer.from(rawMscaNgCreds.toString() as string, 'base64').toString('utf8');
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': `Basic ${mscaNgCreds}`,
+          'authorization': 'Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
