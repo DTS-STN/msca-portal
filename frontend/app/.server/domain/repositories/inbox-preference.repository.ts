@@ -1,21 +1,10 @@
 import axios from 'axios';
 
-// import fs from 'fs';
-// import https from 'https';
-
 import { serverEnvironment } from '~/.server/environment';
 import { getHttpClient } from '~/.server/http/http-client';
 import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
-
-//Create httpsAgent to read in cert to make BRZ call
-// const httpsAgent =
-//   serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
-//     ? new https.Agent()
-//     : new https.Agent({
-//         ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
-//       });
 
 type InboxPrefResponseEntity = Readonly<{
   id?: string;
