@@ -4,6 +4,7 @@ import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
 import { LogFactory } from '~/.server/logging';
+import { getHttpClient } from '~/.server/http/http-client';
 
 const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
 
@@ -55,6 +56,42 @@ export function getInboxPrefRepository(): InboxPrefRepository {
 export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
+      const httpClient = getHttpClient();
+      const url = new URL(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`)
+      url.searchParams.set('program-code', 'CFOB')
+      url.searchParams.set('spid', spid)
+      const response = await httpClient.instrumentedFetch(
+        'http.client.interop-api.get-doc-info-by-client-id.gets',
+        url,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': `${serverEnvironment.CCT_API_KEY}`,
+            'Ocp-Apim-Subscription-Key': `${serverEnvironment.INTEROP_API_SUBSCRIPTION_KEY}`,
+          },
+          retryOptions: {
+            retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
+            backoffMs: parseInt(`${serverEnvironment.CCT_API_RETRY_DELAY}`),
+            retryConditions: {
+              [502]: [],
+            },
+          },
+        },
+      );
+      log.debug('response test' + response);
+
+      if (!response.ok) {
+        log.error('%j', {
+          message: 'Failed to get inbox prefs',
+          status: response.status,
+          statusText: response.statusText + response.text,
+          url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
+          responseBody: await response.text(),
+        });
+
+        throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
+      }
+
       const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
         params: {
           'program-code': 'CFOB',
@@ -66,7 +103,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         },
         httpsAgent: httpsAgent,
       });
-      const respData = resp.data[0];
+      const respData = await response.json;
       log.info('getInboxPref response ' + respData.toString());
 
       return respData;
