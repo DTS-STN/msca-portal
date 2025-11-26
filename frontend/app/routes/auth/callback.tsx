@@ -73,7 +73,7 @@ function handleCallback({ context, unstable_pattern, params, request }: Route.Lo
     session.unset('loginState');
     session.unset('stubloginState');
 
-    await updateMscaNg(tokenSet.userinfoToken.sin ?? '', tokenSet.userinfoToken.sub);
+    updateMscaNg(tokenSet.userinfoToken.sin ?? '', tokenSet.userinfoToken.sub);
 
     await commitSession(session);
 

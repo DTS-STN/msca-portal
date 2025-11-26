@@ -6,12 +6,11 @@
 import { redirect } from 'react-router';
 import type { Session } from 'react-router';
 
-// import axios from 'axios';
-// import fs from 'fs';
-// import https from 'https';
+import axios from 'axios';
+import fs from 'fs';
+import https from 'https';
 
 import { serverEnvironment } from '../environment';
-import { getHttpClient } from '../http/http-client';
 import { getSession } from '../session';
 
 import { getRaoidcClient } from '~/.server/auth/raoidc-client';
@@ -46,86 +45,52 @@ export async function requireAuth(request: Request) {
   return authState;
 }
 
-export async function updateMscaNg(sin: string, uid: string) {
+export function updateMscaNg(sin: string, uid: string) {
   // Create httpsAgent to read in cert to make BRZ call
-  // const httpsAgent =
-  //   serverEnvironment.NODE_ENV === 'development'
-  //     ? new https.Agent()
-  //     : new https.Agent({
-  //         ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
-  //       });
-
-  const httpClient = getHttpClient();
-
-  const response = await httpClient.instrumentedFetch(
-    'http.client.interop-api.get-doc-info-by-client-id.gets',
-    `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': `${serverEnvironment.CCT_API_KEY}`,
-        'Ocp-Apim-Subscription-Key': `${serverEnvironment.INTEROP_API_SUBSCRIPTION_KEY}`,
-      },
-      retryOptions: {
-        retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
-        backoffMs: parseInt(`${serverEnvironment.CCT_API_RETRY_DELAY}`),
-        retryConditions: {
-          [502]: [],
-        },
-      },
-    },
-  );
-  log.debug('response test' + response);
-
-  if (!response.ok) {
-    log.error('%j', {
-      message: 'Failed to create user',
-      status: response.status,
-      statusText: response.statusText + response.text,
-      url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
-      responseBody: await response.text(),
-    });
-
-    throw new Error(`Failed to create user. Status: ${response.status}, Status Text: ${response.statusText}`);
-  }
+  const httpsAgent =
+    serverEnvironment.NODE_ENV === 'development'
+      ? new https.Agent()
+      : new https.Agent({
+          ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+        });
 
   //Make call to msca-ng API to create user if it doesn't exist
-  //   axios
-  //     .post(
-  //       `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
-  //       {
-  //         pid: sin,
-  //         spid: uid,
-  //       },
-  //       {
-  //         headers: {
-  //           'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
-  //           'Content-Type': 'application/json',
-  //         },
-  //         httpsAgent: httpsAgent,
-  //       },
-  //     )
-  //     .then((response) => {
-  //       log.debug('create user if none exists ' + response.statusText + response.data);
-  //       updateLastLoginDate(uid);
-  //     })
-  //     .catch((error) => {
-  //       log.error('error creating user ' + error);
-  //     });
+  axios
+    .post(
+      `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}`,
+      {
+        pid: sin,
+        spid: uid,
+      },
+      {
+        headers: {
+          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+          'Content-Type': 'application/json',
+        },
+        httpsAgent: httpsAgent,
+      },
+    )
+    .then((response) => {
+      log.debug('create user if none exists ' + response.statusText + response.data);
+      updateLastLoginDate(uid);
+    })
+    .catch((error) => {
+      log.error('error creating user ' + error);
+    });
 
-  //   function updateLastLoginDate(uid: string) {
-  //     axios({
-  //       method: 'post',
-  //       url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
-  //       headers: {
-  //         'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
-  //         'Content-Type': 'application/json',
-  //       },
-  //       httpsAgent: httpsAgent,
-  //     })
-  //       .then((response) => log.debug('update last login ' + response.statusText + response.data))
-  //       .catch((error) => {
-  //         log.error('update last login error ' + error);
-  //       });
-  //   }
+  function updateLastLoginDate(uid: string) {
+    axios({
+      method: 'post',
+      url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
+      headers: {
+        'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+        'Content-Type': 'application/json',
+      },
+      httpsAgent: httpsAgent,
+    })
+      .then((response) => log.debug('update last login ' + response.statusText + response.data))
+      .catch((error) => {
+        log.error('update last login error ' + error);
+      });
+  }
 }
