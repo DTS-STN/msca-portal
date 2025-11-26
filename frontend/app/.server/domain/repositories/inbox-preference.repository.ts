@@ -7,7 +7,7 @@ import { serverEnvironment } from '~/.server/environment';
 import { getHttpClient } from '~/.server/http/http-client';
 import { LogFactory } from '~/.server/logging';
 
-const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
+const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT } = globalThis.__appEnvironment;
 
 const log = LogFactory.getLogger(import.meta.url);
 
@@ -64,7 +64,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': `Basic ${MSCA_NG_CREDS}`,
+          'authorization': `Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=`,
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
