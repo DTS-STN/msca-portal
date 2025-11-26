@@ -7,8 +7,6 @@ import { serverEnvironment } from '~/.server/environment';
 import { getHttpClient } from '~/.server/http/http-client';
 import { LogFactory } from '~/.server/logging';
 
-const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT } = globalThis.__appEnvironment;
-
 const log = LogFactory.getLogger(import.meta.url);
 
 //Create httpsAgent to read in cert to make BRZ call
@@ -58,13 +56,13 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
       const httpClient = getHttpClient();
-      const url = new URL(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`);
+      const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
       url.searchParams.set('spid', spid);
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': `Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=`,
+          'authorization': 'Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
