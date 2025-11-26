@@ -163,6 +163,7 @@ export type RaoidcUserinfoTokenClaims = v.InferOutput<typeof RaoidcUserinfoToken
  */
 export const RaoidcUserinfoTokenSchema = v.looseObject({
   aud: nonEmptyString(),
+  uid: nonEmptyString(),
   exp: positiveInteger(),
   iat: positiveInteger(),
   iss: nonEmptyString(),

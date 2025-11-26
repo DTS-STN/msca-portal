@@ -1,24 +1,13 @@
 import axios from 'axios';
-import fs from 'fs';
-import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
+import { getHttpClient } from '~/.server/http/http-client';
 import { LogFactory } from '~/.server/logging';
-
-const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
 
 const log = LogFactory.getLogger(import.meta.url);
 
-//Create httpsAgent to read in cert to make BRZ call
-const httpsAgent =
-  serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
-    ? new https.Agent()
-    : new https.Agent({
-        ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
-      });
-
 type InboxPrefResponseEntity = Readonly<{
-  id: string;
+  id?: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -55,27 +44,47 @@ export function getInboxPrefRepository(): InboxPrefRepository {
 export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
-      const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
-        params: {
-          'program-code': 'CFOB',
-          'Spid': spid,
-        },
+      const httpClient = getHttpClient();
+      const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
+      url.searchParams.set('program-code', 'CFOB');
+      url.searchParams.set('Spid', spid);
+      const mscaNgCreds = serverEnvironment.MSCA_NG_CREDS.value();
+      log.debug('raw msca creds' + mscaNgCreds);
+      // const mscaNgCreds = atob(rawMscaNgCreds.toString() as string);
+      const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
-          'authorization': `Basic ${MSCA_NG_CREDS}`,
           'Content-Type': 'application/json',
+          'authorization': `Basic ${mscaNgCreds}`,
         },
-        httpsAgent: httpsAgent,
+        retryOptions: {
+          retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
+          backoffMs: parseInt(`${serverEnvironment.CCT_API_RETRY_DELAY}`),
+          retryConditions: {
+            [502]: [],
+          },
+        },
       });
-      const respData = resp.data[0];
-      log.info('getInboxPref response ' + respData.toString());
+      log.debug('response test inbox pref' + response);
 
-      return respData;
+      if (!response.ok) {
+        log.error('%j', {
+          message: 'Failed to get inbox prefs',
+          status: response.status,
+          statusText: response.statusText + response.text,
+          url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`,
+          responseBody: await response.text(),
+        });
+
+        throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
+      }
+
+      const respData = response.json();
+      log.info('getInboxPref response ' + respData);
     } catch (err) {
       log.error(err);
     }
 
     return {
-      id: spid,
       subscribedEvents: [],
     };
   }

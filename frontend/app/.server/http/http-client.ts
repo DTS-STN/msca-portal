@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { retry } from 'moderndash';
 import { ProxyAgent } from 'undici';
 
@@ -114,8 +115,12 @@ export class DefaultHttpClient implements HttpClient {
     if (proxyUrl) {
       const { HTTP_PROXY_TLS_TIMEOUT } = serverEnvironment;
       const proxyTlsTimeout = timeout ?? HTTP_PROXY_TLS_TIMEOUT;
-      const dispatcher = new ProxyAgent({ uri: proxyUrl, proxyTls: { timeout: proxyTlsTimeout } });
-      this.log.debug('A proxy [%s] has been configured with timeout [%d] ms; using custom fetch', proxyUrl, proxyTlsTimeout);
+      const dispatcher = new ProxyAgent({
+        uri: proxyUrl,
+        connect: { ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor) },
+        proxyTls: { timeout: proxyTlsTimeout },
+      });
+      this.log.debug('A proxy [%s] has been configurd weith timeout [%d] ms; using custom fetch', proxyUrl, proxyTlsTimeout);
 
       return async (input, init) => {
         // @ts-expect-error since remix v2.9.x, the server fetch() polyfill is provided by undici,
