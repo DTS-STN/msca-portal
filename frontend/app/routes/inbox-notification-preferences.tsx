@@ -34,7 +34,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  const spid = userinfoTokenClaims.sub;
+  const spid = userinfoTokenClaims.sin;
   const resp = await inboxPrefService.getInboxPre(spid);
   const paperless = resp.subscribedEvents.length === 0 || resp.subscribedEvents[0]?.eventTypeCode === 'PAPERLESS';
 
