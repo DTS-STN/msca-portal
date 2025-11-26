@@ -37,6 +37,8 @@ export function meta({ data }: Route.MetaArgs) {
   return [{ title: data.documentTitle }];
 }
 
+const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Security settings:';
+
 export default function SecuritySettings({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
   const { ECAS_BASE_URL } = loaderData;
@@ -50,7 +52,10 @@ export default function SecuritySettings({ loaderData, params }: Route.Component
 
         <div className="text-gray-darker text-xl">
           <p className="mt-3 mb-8">{t('securitySettings:part-1')}</p>
-          <InlineLink to={t('securitySettings:security-questions.href', { baseUri: ECAS_BASE_URL })}>
+          <InlineLink
+            to={t('securitySettings:security-questions.href', { baseUri: ECAS_BASE_URL })}
+            data-gc-analytics-customclick={aaPrefix + 'securityQuestionsLink'}
+          >
             {t('securitySettings:security-questions')}
           </InlineLink>
           <p className="mb-8">{t('securitySettings:part-2')}</p>

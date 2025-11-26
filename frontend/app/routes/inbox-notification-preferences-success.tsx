@@ -36,6 +36,8 @@ export function meta({ data }: Route.MetaArgs) {
   return [{ title: data.documentTitle }];
 }
 
+const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Inbox notification preferences saved:';
+
 export default function InboxNotificationPreferencesSuccess({ loaderData, params }: Route.ComponentProps) {
   const { t } = useTranslation(handle.i18nNamespace);
 
@@ -53,10 +55,17 @@ export default function InboxNotificationPreferencesSuccess({ loaderData, params
           variant="alternative"
           className="border-blue-default text-blue-default rounded border-2 bg-white"
           size="custom"
+          data-gc-analytics-customclick={aaPrefix + 'task-back-inbox-notification-preferences'}
         >
           {t('inboxNotificationPreferencesSuccess:inbox-back-button')}
         </ButtonLink>
-        <ButtonLink file="routes/my-dashboard.tsx" variant="primary" size="custom" className="border-0 py-2">
+        <ButtonLink
+          file="routes/my-dashboard.tsx"
+          variant="primary"
+          size="custom"
+          className="border-0 py-2"
+          data-gc-analytics-customclick={aaPrefix + 'tasks-go-to-my-dashboard'}
+        >
           {t('inboxNotificationPreferencesSuccess:inbox-dashboard-button')}
         </ButtonLink>
       </div>
