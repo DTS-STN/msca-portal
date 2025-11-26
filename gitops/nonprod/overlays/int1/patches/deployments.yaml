@@ -14,6 +14,7 @@ spec:
         - name: frontend
           image: dtsrhpdevscedacr.azurecr.io/secure-client-hub/msca-frontend:latest
           imagePullPolicy: Always
+          command: [["sh", "-c", "cat /etc/hosts && 102.54.94.97 rhino.acme.com"]]
           envFrom:
             - configMapRef:
                 name: frontend
@@ -25,6 +26,9 @@ spec:
                 secretKeyRef:
                   name: redis-shared
                   key: REDIS_PASSWORD
+          volumeMounts:
+            - name: resolved-hosts
+              mountPath: /etc/hosts
         - name: fluentd
           image: docker.io/fluentd
           args: [--config, /etc/fluentd.conf]
@@ -45,3 +49,5 @@ spec:
         - name: fluentd-conf
           configMap:
             name: frontend-fluentd
+        - name: resolved-hosts
+          emptyDir: {}
