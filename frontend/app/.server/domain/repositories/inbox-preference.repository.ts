@@ -1,22 +1,23 @@
 import axios from 'axios';
-import fs from 'fs';
-import https from 'https';
+
+// import fs from 'fs';
+// import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
-import { LogFactory } from '~/.server/logging';
 import { getHttpClient } from '~/.server/http/http-client';
+import { LogFactory } from '~/.server/logging';
 
 const { HOSTALIAS_HOSTNAME, MSCA_NG_INBOX_GET_ENDPOINT, MSCA_NG_CREDS } = globalThis.__appEnvironment;
 
 const log = LogFactory.getLogger(import.meta.url);
 
 //Create httpsAgent to read in cert to make BRZ call
-const httpsAgent =
-  serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
-    ? new https.Agent()
-    : new https.Agent({
-        ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
-      });
+// const httpsAgent =
+//   serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
+//     ? new https.Agent()
+//     : new https.Agent({
+//         ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+//       });
 
 type InboxPrefResponseEntity = Readonly<{
   id: string;
@@ -57,28 +58,23 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
       const httpClient = getHttpClient();
-      const url = new URL(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`)
-      url.searchParams.set('program-code', 'CFOB')
-      url.searchParams.set('spid', spid)
-      const response = await httpClient.instrumentedFetch(
-        'http.client.interop-api.get-doc-info-by-client-id.gets',
-        url,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': `${serverEnvironment.CCT_API_KEY}`,
-            'Ocp-Apim-Subscription-Key': `${serverEnvironment.INTEROP_API_SUBSCRIPTION_KEY}`,
-          },
-          retryOptions: {
-            retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
-            backoffMs: parseInt(`${serverEnvironment.CCT_API_RETRY_DELAY}`),
-            retryConditions: {
-              [502]: [],
-            },
+      const url = new URL(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`);
+      url.searchParams.set('program-code', 'CFOB');
+      url.searchParams.set('spid', spid);
+      const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': `Basic ${MSCA_NG_CREDS}`,
+        },
+        retryOptions: {
+          retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
+          backoffMs: parseInt(`${serverEnvironment.CCT_API_RETRY_DELAY}`),
+          retryConditions: {
+            [502]: [],
           },
         },
-      );
-      log.debug('response test' + response);
+      });
+      log.debug('response test inbox pref' + response);
 
       if (!response.ok) {
         log.error('%j', {
@@ -92,21 +88,21 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
-        params: {
-          'program-code': 'CFOB',
-          'Spid': spid,
-        },
-        headers: {
-          'authorization': `Basic ${MSCA_NG_CREDS}`,
-          'Content-Type': 'application/json',
-        },
-        httpsAgent: httpsAgent,
-      });
-      const respData = await response.json;
-      log.info('getInboxPref response ' + respData.toString());
+      // const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
+      //   params: {
+      //     'program-code': 'CFOB',
+      //     'Spid': spid,
+      //   },
+      //   headers: {
+      //     'authorization': `Basic ${MSCA_NG_CREDS}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   httpsAgent: httpsAgent,
+      // });
+      // const respData = resp.data[0];
+      // log.info('getInboxPref response ' + respData.toString());
 
-      return respData;
+      return { id: 'bla', subscribedEvents: [{ eventTypeCode: 'blabla' }] };
     } catch (err) {
       log.error(err);
     }
