@@ -62,7 +62,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': 'Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
+          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
@@ -86,17 +86,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      // const resp = await axios.get(`https://${HOSTALIAS_HOSTNAME}${MSCA_NG_INBOX_GET_ENDPOINT}`, {
-      //   params: {
-      //     'program-code': 'CFOB',
-      //     'Spid': spid,
-      //   },
-      //   headers: {
-      //     'authorization': `Basic ${MSCA_NG_CREDS}`,
-      //     'Content-Type': 'application/json',
-      //   },
-      //   httpsAgent: httpsAgent,
-      // });
       const respData = response.json();
       log.info('getInboxPref response ' + respData);
     } catch (err) {
