@@ -56,13 +56,13 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
     try {
       const httpClient = getHttpClient();
-      const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
+      const url = new URL(`${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
       url.searchParams.set('spid', spid);
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': 'Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
+          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
