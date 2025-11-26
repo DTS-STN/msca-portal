@@ -72,7 +72,7 @@ export const client = v.object({
   HOSTALIAS_HOSTNAME: v.optional(v.string(), defaults.HOSTALIAS_HOSTNAME),
   MSCA_NG_INBOX_GET_ENDPOINT: v.optional(v.string(), defaults.MSCA_NG_INBOX_GET_ENDPOINT),
   MSCA_NG_USER_ENDPOINT: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_USER_ENDPOINT),
-  MSCA_NG_CREDS: v.optional(v.pipe(v.string()), defaults.MSCA_NG_CREDS),
+  MSCA_NG_CREDS: v.optional(v.pipe(v.string(), v.transform(Redacted.make)), defaults.MSCA_NG_CREDS),
   CURAM_REDIRECT: v.optional(v.string(), defaults.CURAM_REDIRECT),
   SHOW_INBOX_BUTTON: v.optional(stringToBooleanSchema(), defaults.SHOW_INBOX_BUTTON),
 });
