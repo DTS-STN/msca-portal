@@ -34,7 +34,7 @@ export async function loader({ context, params, request }: Route.LoaderArgs) {
     throw new AppError('No SIN found in userinfo token', ErrorCodes.MISSING_SIN);
   }
 
-  const spid = userinfoTokenClaims.sin;
+  const spid = userinfoTokenClaims.uid;
   const resp = await inboxPrefService.getInboxPre(spid);
   const paperless = resp.subscribedEvents.length === 0 || resp.subscribedEvents[0]?.eventTypeCode === 'PAPERLESS';
 
@@ -50,12 +50,12 @@ export async function action({ context, params, request }: Route.ActionArgs) {
   const lang = getLanguage(request) ?? '';
   const inboxPrefService = getInboxPrefService();
 
-  const spid = userinfoTokenClaims.sin;
+  const spid = userinfoTokenClaims.uid;
   const formData = await request.formData();
   const pref = formData.get('email-radio') === 'no' ? 'no' : 'yes';
 
   if (serverEnvironment.isProduction === true) {
-    await inboxPrefService.setInboxPref(spid ?? '', pref);
+    await inboxPrefService.setInboxPref(spid, pref);
   }
 
   return redirect(getPathById('inbox-notification-preferences-success', { lang }));
