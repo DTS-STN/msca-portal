@@ -1,4 +1,6 @@
 import axios from 'axios';
+import fs from 'fs';
+import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
 import { getHttpClient } from '~/.server/http/http-client';
@@ -6,8 +8,27 @@ import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
 
+//Create httpsAgent to read in cert to make BRZ call
+const httpsAgent =
+  serverEnvironment.AUTH_ENABLE_STUB_LOGIN === true
+    ? new https.Agent()
+    : new https.Agent({
+        ca: fs.readFileSync(process.env.NODE_EXTRA_CA_CERTS as fs.PathOrFileDescriptor),
+      });
+
 type InboxPrefResponseEntity = Readonly<{
-  id?: string;
+  id: string;
+  programCode?: string;
+  dateCreated?: string;
+  dateEmailConfirmed?: string;
+  dateTermsAccepted?: string;
+  dateUpdated?: string;
+  emailAddress?: string;
+  recipientCode?: string;
+  userCreated?: string;
+  versionTermsAccepted?: string;
+  profileStatusCode?: string;
+  languageCode?: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -48,6 +69,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
       url.searchParams.set('Spid', spid);
+
       const mscaNgCreds = serverEnvironment.MSCA_NG_CREDS.value();
       log.debug('raw msca creds' + mscaNgCreds);
       // const mscaNgCreds = atob(rawMscaNgCreds.toString() as string);
@@ -64,7 +86,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           },
         },
       });
-      log.debug('response test inbox pref' + response);
 
       if (!response.ok) {
         log.error('%j', {
@@ -78,13 +99,17 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      const respData = response.json();
-      log.info('getInboxPref response ' + respData);
+      const respData = await response.json();
+      log.info('getInboxPref response data: ' + JSON.stringify(respData));
+      const inboxPref: InboxPrefResponseEntity = respData[0];
+
+      return inboxPref;
     } catch (err) {
       log.error(err);
     }
 
     return {
+      id: '',
       subscribedEvents: [],
     };
   }
@@ -95,7 +120,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     const inboxPref = await this.getInboxPref(spid);
     const id = inboxPref.id;
     if (id) {
-      log.trace('before setInboxPref req');
       await axios
         .post(
           `https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
@@ -107,7 +131,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
               'authorization': `Basic ${process.env.MSCA_NG_CREDS}`,
               'Content-Type': 'application/json',
             },
-            // httpsAgent: httpsAgent,
+            httpsAgent: httpsAgent,
           },
         )
         .then(() => {
