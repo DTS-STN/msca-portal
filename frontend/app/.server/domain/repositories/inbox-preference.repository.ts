@@ -77,9 +77,11 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
+      log.info('response:', JSON.stringify(response, null, 2));
       const respData = await response.json();
+      log.info('response data: ', JSON.stringify(respData, null, 2));
       const inboxPref: InboxPrefResponseEntity = respData[0];
-      log.info('getInboxPref response ' + inboxPref);
+      log.info('getInboxPref response:', inboxPref);
       log.info('id', inboxPref.id);
       log.info('subscribeEvents', inboxPref.subscribedEvents);
 
