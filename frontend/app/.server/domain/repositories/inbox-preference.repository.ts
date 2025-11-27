@@ -110,7 +110,8 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     const id = inboxPref.id;
     if (id) {
       log.info('setInboxPref for id: ' + id);
-      await axios
+      log.info(`https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`);
+      const response = await axios
         .post(
           `https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
           {
@@ -131,6 +132,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           log.error(err);
           throw err;
         });
+      log.info('setInboxPref: ' + JSON.stringify(response));
       log.trace('setInboxPref complete');
     } else {
       log.error('unable to find ID for spid ' + spid);
