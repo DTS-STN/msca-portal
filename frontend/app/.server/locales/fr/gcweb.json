@@ -30,12 +30,12 @@
     "about-site": "À propos de ce site",
     "gc-symbol": "Symbole du gouvernement du Canada",
     "privacy": {
-      "href": "{{baseUri}}/TC.aspx?mode=ReadOnly&lang=fra#privacy",
+      "href": "{{baseUri}}/SCL/TC.aspx?mode=ReadOnly&lang=fra#privacy",
       "text": "Confidentialité"
     },
     "service-canada": "Service Canada",
     "terms-conditions": {
-      "href": "{{baseUri}}/TC.aspx?mode=ReadOnly&lang=fra#terms",
+      "href": "{{baseUri}}/SCL/TC.aspx?mode=ReadOnly&lang=fra#terms",
       "text": "Avis"
     }
   },
