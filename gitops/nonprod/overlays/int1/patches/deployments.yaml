@@ -10,11 +10,18 @@ spec:
       app.kubernetes.io/name: frontend
   template:
     spec:
+      initContainers:
+        - name: init-hosts
+          image: bitnami/kubectl:latest
+          command: ["bash", "-c", "HOSTALIAS_IP=$(kubectl get secret frontend-int1 -o jsonpath='{.data.HOSTALIAS_IP}' | base64 -d );  echo $(HOSTALIAS_HOSTNAME) $HOSTALIAS_IP >> /etc/hosts"]
+          volumeMounts:
+            - name: resolved-hosts
+              mountPath: /etc/hosts
+              subPath: hosts
       containers:
         - name: frontend
           image: dtsrhpdevscedacr.azurecr.io/secure-client-hub/msca-frontend:latest
           imagePullPolicy: Always
-          command: ["sh", "-c", "HOSTALIAS_IP=$(kubectl get secret frontend-int1 -o jsonpath='{.data.HOSTALIAS_IP}' | base64 -d );  echo $(HOSTALIAS_HOSTNAME) $HOSTALIAS_IP >> /etc/hosts"]
           envFrom:
             - configMapRef:
                 name: frontend
@@ -29,6 +36,7 @@ spec:
           volumeMounts:
             - name: resolved-hosts
               mountPath: /etc/hosts
+              subPath: hosts
         - name: fluentd
           image: docker.io/fluentd
           args: [--config, /etc/fluentd.conf]
