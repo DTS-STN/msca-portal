@@ -64,7 +64,7 @@ export function updateMscaNg(sin: string, uid: string) {
       },
       {
         headers: {
-          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+          'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS.value()}`,
           'Content-Type': 'application/json',
         },
         httpsAgent: httpsAgent,
@@ -83,7 +83,7 @@ export function updateMscaNg(sin: string, uid: string) {
       method: 'post',
       url: `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_USER_ENDPOINT}/${uid}/logins`,
       headers: {
-        'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+        'Authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS.value()}`,
         'Content-Type': 'application/json',
       },
       httpsAgent: httpsAgent,
