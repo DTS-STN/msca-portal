@@ -44,7 +44,7 @@ const onThisPageListStyle =
 const headingStyle = 'py-2 font-display text-32px font-bold text-gray-darker md:pt-6 md:text-4xl';
 const paraStyle = 'font-body mb-2 mt-6 text-xl';
 const liStyle = 'ps-[0.325em] font-body text-xl marker:text-black my-2';
-const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Old Age Security:';
+const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:';
 
 const clockIcon = (
   <div>
@@ -182,7 +182,7 @@ export default function OldAgeSecurity({ loaderData, params }: Route.ComponentPr
               <InlineLink
                 to={t('contactUsOas:callback-form.dd.href')}
                 newTabIndicator={true}
-                data-gc-analytics-customclick={aaPrefix + 'oas-callback-form'}
+                data-gc-analytics-customclick={aaPrefix + 'Contact Old Age Security:oas-callback-form'}
                 aria-label={t('contactUsOas:callback-form.dd.aria')}
               >
                 {t('contactUsOas:callback-form.dd')}
@@ -242,7 +242,7 @@ export default function OldAgeSecurity({ loaderData, params }: Route.ComponentPr
               <InlineLink
                 to={t('contactUsOas:find-location.dd.href')}
                 newTabIndicator={true}
-                data-gc-analytics-customclick={aaPrefix + 'oas-in-person-find-a-location'}
+                data-gc-analytics-customclick={aaPrefix + 'Contact Old Age Security:oas-in-person-find-a-location'}
                 aria-label={t('contactUsOas:find-location.dd.aria')}
               >
                 {t('contactUsOas:find-location.dd')}
@@ -277,7 +277,7 @@ export default function OldAgeSecurity({ loaderData, params }: Route.ComponentPr
         <AllProvinceContactCards
           props={{
             cards: t('contactUsOas:mail-contacts', { returnObjects: true }),
-            aaPrefix: aaPrefix,
+            aaPrefix: aaPrefix + 'Old Age Security:',
           }}
         />
       </div>
