@@ -8,6 +8,17 @@ const log = LogFactory.getLogger(import.meta.url);
 
 type InboxPrefResponseEntity = Readonly<{
   id: string;
+  programCode?: string;
+  dateCreated?: string;
+  dateEmailConfirmed?: string;
+  dateTermsAccepted?: string;
+  dateUpdated?: string;
+  emailAddress?: string;
+  recipientCode?: string;
+  userCreated?: string;
+  versionTermsAccepted?: string;
+  profileStatusCode?: string;
+  languageCode?: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -77,13 +88,9 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      log.info('response:' + JSON.stringify(response));
       const respData = await response.json();
-      log.info('response data: ' + JSON.stringify(respData));
+      log.info('getInboxPref response data: ' + JSON.stringify(respData));
       const inboxPref: InboxPrefResponseEntity = respData[0];
-      log.info('getInboxPref response:' + inboxPref);
-      log.info('id' + inboxPref.id);
-      log.info('subscribedEvents' + inboxPref.subscribedEvents);
 
       return inboxPref;
     } catch (err) {
@@ -102,7 +109,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     const inboxPref = await this.getInboxPref(spid);
     const id = inboxPref.id;
     if (id) {
-      log.trace('before setInboxPref req');
+      log.info('setInboxPref for id: ' + id);
       await axios
         .post(
           `https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
@@ -114,7 +121,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
               'authorization': `Basic ${process.env.MSCA_NG_CREDS}`,
               'Content-Type': 'application/json',
             },
-            // httpsAgent: httpsAgent,
+            //httpsAgent: httpsAgent,
           },
         )
         .then(() => {
