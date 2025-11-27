@@ -80,8 +80,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const respData = await response.json();
       const inboxPref: InboxPrefResponseEntity = respData[0];
       log.info('getInboxPref response ' + inboxPref);
-      log.info('getInboxPref response ' + respData[0].toString);
-      log.info('getInboxPref response ' + respData[1].toString);
       log.info('id', inboxPref.id);
       log.info('subscribeEvents', inboxPref.subscribedEvents);
 
