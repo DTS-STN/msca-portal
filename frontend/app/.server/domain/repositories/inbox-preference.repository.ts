@@ -3,7 +3,7 @@ import fs from 'fs';
 import https from 'https';
 
 import { serverEnvironment } from '~/.server/environment';
-//import { getHttpClient } from '~/.server/http/http-client';
+import { getHttpClient } from '~/.server/http/http-client';
 import { LogFactory } from '~/.server/logging';
 
 const log = LogFactory.getLogger(import.meta.url);
@@ -64,7 +64,7 @@ export function getInboxPrefRepository(): InboxPrefRepository {
 
 export class DefaultInboxPrefRepository implements InboxPrefRepository {
   async getInboxPref(spid: string): Promise<InboxPrefResponseEntity> {
-    /*try {
+    try {
       const httpClient = getHttpClient();
       const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
@@ -110,35 +110,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     return {
       id: '',
       subscribedEvents: [],
-    }; */
-
-    try {
-      const resp = await axios.get(
-        `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`,
-        {
-          params: {
-            'program-code': 'CFOB',
-            'Spid': spid,
-          },
-          headers: {
-            'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
-            'Content-Type': 'application/json',
-          },
-          httpsAgent: httpsAgent,
-        },
-      );
-      log.info('getInboxPref response ' + JSON.stringify(resp.data));
-      const respData = resp.data[0];
-      log.info('getInboxPref response ' + JSON.stringify(respData));
-
-      return respData;
-    } catch (err) {
-      log.error(err);
-    }
-
-    return {
-      id: spid,
-      subscribedEvents: [],
     };
   }
 
@@ -159,7 +130,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
               'authorization': `Basic ${process.env.MSCA_NG_CREDS}`,
               'Content-Type': 'application/json',
             },
-            //httpsAgent: httpsAgent,
+            httpsAgent: httpsAgent,
           },
         )
         .then(() => {
