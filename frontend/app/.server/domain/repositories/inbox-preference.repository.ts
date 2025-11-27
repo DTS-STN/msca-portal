@@ -77,12 +77,15 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      const respData: InboxPrefResponseEntity = await response.json();
-      log.info('getInboxPref response ' + respData);
-      log.info('id', respData.id);
-      log.info('subscribeEvents', respData.subscribedEvents);
+      const respData = await response.json();
+      const inboxPref: InboxPrefResponseEntity = respData[0];
+      log.info('getInboxPref response ' + inboxPref);
+      log.info('getInboxPref response ' + respData[0].toString);
+      log.info('getInboxPref response ' + respData[1].toString);
+      log.info('id', inboxPref.id);
+      log.info('subscribeEvents', inboxPref.subscribedEvents);
 
-      return respData;
+      //return respData;
     } catch (err) {
       log.error(err);
     }
