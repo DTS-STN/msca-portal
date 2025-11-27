@@ -7,7 +7,7 @@ import { LogFactory } from '~/.server/logging';
 const log = LogFactory.getLogger(import.meta.url);
 
 type InboxPrefResponseEntity = Readonly<{
-  id?: string;
+  id: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -54,7 +54,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const response = await httpClient.instrumentedFetch('http.client.interop-api.get-doc-info-by-client-id.gets', url, {
         headers: {
           'Content-Type': 'application/json',
-          'authorization': `Basic ${mscaNgCreds}`,
+          'authorization': 'Basic bXNjYS1uZy5hZG1pbjpwQHNzd29yZDE=',
         },
         retryOptions: {
           retries: parseInt(`${serverEnvironment.CCT_API_MAX_RETRIES}`),
@@ -64,7 +64,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           },
         },
       });
-      log.debug('response test inbox pref' + response);
 
       if (!response.ok) {
         log.error('%j', {
@@ -78,13 +77,18 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      const respData = response.json();
+      const respData: InboxPrefResponseEntity = await response.json();
       log.info('getInboxPref response ' + respData);
+      log.info('id', respData.id);
+      log.info('subscribeEvents', respData.subscribedEvents);
+
+      return respData;
     } catch (err) {
       log.error(err);
     }
 
     return {
+      id: '',
       subscribedEvents: [],
     };
   }
