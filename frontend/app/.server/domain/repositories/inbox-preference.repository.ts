@@ -69,9 +69,6 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
       const url = new URL(`https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_GET_ENDPOINT}`);
       url.searchParams.set('program-code', 'CFOB');
       url.searchParams.set('Spid', spid);
-      //const authHeader = Buffer.from(`${serverEnvironment.MSCA_NG_CREDS}`).toString('base64');
-
-      //log.debug('msca creds:' + authHeader);
 
       const mscaNgCreds = serverEnvironment.MSCA_NG_CREDS.value();
       log.debug('raw msca creds' + mscaNgCreds);
