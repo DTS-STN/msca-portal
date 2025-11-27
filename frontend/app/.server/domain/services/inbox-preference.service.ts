@@ -18,6 +18,9 @@ export function createInboxPrefService() {
   async function getInboxPre(spid: string) {
     const response = await repo.getInboxPref(spid);
 
+    log.info('service get:' + response);
+    log.info('service get: ' + JSON.stringify(response));
+
     return response;
   }
 

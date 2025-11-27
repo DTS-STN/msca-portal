@@ -8,17 +8,6 @@ const log = LogFactory.getLogger(import.meta.url);
 
 type InboxPrefResponseEntity = Readonly<{
   id: string;
-  programCode?: string;
-  dateCreated?: string;
-  dateEmailConfirmed?: string;
-  dateTermsAccepted?: string;
-  dateUpdated?: string;
-  emailAddress?: string;
-  recipientCode?: string;
-  userCreated?: string;
-  versionTermsAccepted?: string;
-  profileStatusCode?: string;
-  languageCode?: string;
   subscribedEvents: {
     eventTypeCode: string;
   }[];
@@ -88,13 +77,13 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
         throw new Error(`Failed to get inbox prefs. Status: ${response.status}, Status Text: ${response.statusText}`);
       }
 
-      log.info('response:', JSON.stringify(response));
+      log.info('response:' + JSON.stringify(response));
       const respData = await response.json();
-      log.info('response data: ', JSON.stringify(respData));
+      log.info('response data: ' + JSON.stringify(respData));
       const inboxPref: InboxPrefResponseEntity = respData[0];
-      log.info('getInboxPref response:', inboxPref);
-      log.info('id', inboxPref.id);
-      log.info('subscribedEvents', inboxPref.subscribedEvents);
+      log.info('getInboxPref response:' + inboxPref);
+      log.info('id' + inboxPref.id);
+      log.info('subscribedEvents' + inboxPref.subscribedEvents);
 
       return inboxPref;
     } catch (err) {
