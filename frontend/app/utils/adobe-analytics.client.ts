@@ -28,3 +28,20 @@ export function pushPageviewEvent(locationUrl: string | URL) {
     page: { url },
   });
 }
+
+export function pushFormSubmissionEvent(aaValue: string, pageInfo: string) {
+  if (!window.adobeDataLayer) {
+    console.warn(
+      'window.adobeDataLayer is not defined. This could mean your adobe analytics script has not loaded on the page yet.',
+    );
+    return;
+  }
+
+  window.adobeDataLayer.push?.({
+    event: 'formSubmit',
+    form: {
+      name: pageInfo,
+      list: aaValue,
+    },
+  });
+}

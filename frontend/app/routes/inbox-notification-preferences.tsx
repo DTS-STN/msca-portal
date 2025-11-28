@@ -14,6 +14,7 @@ import { AppError } from '~/errors/app-error';
 import { ErrorCodes } from '~/errors/error-codes';
 import { getTranslation } from '~/i18n-config.server';
 import { handle as parentHandle } from '~/routes/layout';
+import * as adobeAnalytics from '~/utils/adobe-analytics.client';
 import { getLanguage } from '~/utils/i18n-utils';
 import { getPathById } from '~/utils/route-utils';
 
@@ -58,6 +59,23 @@ export async function action({ context, params, request }: Route.ActionArgs) {
     await inboxPrefService.setInboxPref(spid, pref);
   }
 
+  const aaPrefix = 'ESDC-EDSC_MSCA-MSDC-SCH:Inbox notification preferences';
+
+  function convertFormValueToFormPreference(formValue: string) {
+    if (formValue === 'no') {
+      return 'radio:email-preference:Paper mail';
+    } else {
+      return 'radio:email-preference:Email notification only';
+    }
+  }
+
+  function aaPushSubmit(aaValue: string) {
+    adobeAnalytics.pushFormSubmissionEvent(aaValue, aaPrefix);
+  }
+
+  if (globalThis.__appEnvironment.ADOBE_ANALYTICS_SRC) {
+    aaPushSubmit(convertFormValueToFormPreference(pref));
+  }
   return redirect(getPathById('inbox-notification-preferences-success', { lang }));
 }
 
@@ -77,7 +95,7 @@ export default function InboxNotificationPreferences({ loaderData, params }: Rou
       </h2>
       <p className="mt-8 w-full max-w-3xl text-xl">{t('inboxNotificationPreferences:debt-statements-heading-intro-text')}</p>
 
-      <form method="post" noValidate>
+      <form method="post">
         <fieldset>
           <legend className="text-gray-darker max-w-3xl pt-4 text-lg md:text-xl">
             <strong>{t('inboxNotificationPreferences:debt-statement-question')}</strong>
