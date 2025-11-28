@@ -122,13 +122,13 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
     if (id) {
       await axios
         .post(
-          `https://${process.env.HOSTALIAS_HOSTNAME}${process.env.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
+          `https://${serverEnvironment.HOSTALIAS_HOSTNAME}${serverEnvironment.MSCA_NG_INBOX_SET_ENDPOINT}${id}/subscribe`,
           {
             eventCodes: [eventCode],
           },
           {
             headers: {
-              'authorization': `Basic ${process.env.MSCA_NG_CREDS}`,
+              'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
               'Content-Type': 'application/json',
             },
             httpsAgent: httpsAgent,
@@ -149,7 +149,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
   }
 
   async checkHealth(): Promise<void> {
-    await this.getInboxPref(`${process.env.HEALTH_PLACEHOLDER_REQUEST_VALUE}`);
+    await this.getInboxPref(`${serverEnvironment.HEALTH_PLACEHOLDER_REQUEST_VALUE}`);
   }
 }
 
