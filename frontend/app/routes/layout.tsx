@@ -82,7 +82,8 @@ export default function Layout({ loaderData }: Route.ComponentProps) {
                 /<span lang={t('gcweb:header.other-lang')}>{t('gcweb:header.govt-of-canada.other-lang-text')}</span>
               </span>
             </AppLink>
-            <LanguageSwitcher>{t('gcweb:language-switcher.alt-lang')}</LanguageSwitcher>
+            <LanguageSwitcher className="hidden sm:inline">{t('gcweb:language-switcher.alt-lang')}</LanguageSwitcher>
+            <LanguageSwitcher className="inline sm:hidden">{t('gcweb:language-switcher.alt-lang-abbr')}</LanguageSwitcher>
           </div>
         </div>
         <AppBar name={t('gcweb:app.account')} />
