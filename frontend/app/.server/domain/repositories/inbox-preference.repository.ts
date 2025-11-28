@@ -128,7 +128,7 @@ export class DefaultInboxPrefRepository implements InboxPrefRepository {
           },
           {
             headers: {
-              'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS}`,
+              'authorization': `Basic ${serverEnvironment.MSCA_NG_CREDS.value()}`,
               'Content-Type': 'application/json',
             },
             httpsAgent: httpsAgent,
