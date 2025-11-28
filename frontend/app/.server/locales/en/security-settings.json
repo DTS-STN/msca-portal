@@ -4,5 +4,5 @@
   "part-1": "Settings are used to validate your identity and keep your account secure.",
   "part-2": "Change your security questions and answers.",
   "security-questions": "Security questions",
-  "security-questions.href": "{{baseUri}}/SQE.aspx?Lang=eng"
+  "security-questions.href": "{{baseUri}}/SCL/SQE.aspx?Lang=eng"
 }

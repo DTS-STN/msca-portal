@@ -3,7 +3,7 @@
   "inbox-notification-preferences-href": "{{baseUri}}/en/inbox-notification-preferences",
   "inbox-notification-preferences-success.href": "{{baseUri}}/en/inbox-notification-preferences-success",
   "security-settings": "Security Settings",
-  "security-settings-href": "{{baseUri}}/en/security-settings",
+  "security-settings-href": "{{baseUri}}/SCL/EmailRegistration.aspx?origin=profile-and-preferences&Lang=fra",
   "personal-information-by-benefit-href": "{{baseUri}}/en/personal-information-by-benefit",
   "page-title": "Profil et préférences",
   "page-description": "Renseignements de votre compte",
